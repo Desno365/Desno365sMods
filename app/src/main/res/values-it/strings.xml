@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //app name
+    <string name="app_name">Desno365\'s Mods</string>
+
+    //menu items (3 dots menu)
+    <string name="action_refresh">Aggiorna</string>
+    <string name="action_info">Riguardo a&#8230;</string>
+    <string name="action_help">Aiuto</string>
+    <string name="action_share">Condividi</string>
+    <string name="share_using">Condividi con&#8230;</string>
+    <string name="share_body">Prova l\'applicazione \"Desno\'s Mods\" che ti permetterà di scaricare alcune fantastiche mod di Minecraft: http://bit.ly/DesnoMods </string>
+    <string name="action_rate">Valuta quest\'app</string>
+    <string name="action_settings">Impostazioni</string>
+
+    //about alert dialog
+    <string name="take_me_play_store">Portami al Play Store</string>
+    <string name="close_dialog">Chiudi</string>
+    <string name="follow_me">Seguimi su Twitter</string>
+    <string name="source_code">Guarda il codice sorgente di quest\'app</string>
+    <string name="made_by">Made with Love by Desno365</string>
+    <string name="support_me">\nHai qualche idea per migliorare quest\'app?\nContattami su Twitter.\n\nSe hai voglia di supportarmi valuta quest\'app 5 stelle sul Play Store. Questo mi aiuterà a fare nuove fantastiche mod! Grazie :)</string>
+
+    //titles - general
+    <string name="info_title">Informazioni</string>
+    <string name="features_title">Caratterisitche</string>
+    <string name="updates_title">Aggiornamenti</string>
+    <string name="changelog_title">Changelog</string>
+    <string name="useful_links_title">Link utili</string>
+
+    //text - general
+    <string name="latest_version_is">L\'ultima versione è:</string>
+    <string name="internet_error">C\'è stato un errore durante il controllo degli aggiornamenti, controlla la tua connessione ad Internet.</string>
+    <string name="show_changelog">Mostrami tutto il changelog&#8230;</string>
+    <string name="hide_changelog">Nascondi il changelog&#8230;</string>
+    <string name="download_from_website">Scarica questa mod dal sito web di Desno</string>
+    <string name="minecraft_thread">Pagina di minecraftforum.net</string>
+    <string name="advertisement">PUBBLICITA\':</string>
+
+    //home page
+    <string name="home_title">Home</string>
+    <string name="welcome_title">Benvenuto</string>
+    <string name="welcome_content">Benvenuto in \"Desno365\'s Mods\".\nQui potrai controllare le ultime versioni e i changelog di tutte le mie mod.</string>
+    <string name="news_title">News</string>
+    <string name="show_news">Mostrami tutte le news&#8230;</string>
+    <string name="hide_news">Nascondi le news&#8230;</string>
+    <string name="need_help_title">Hai bisogno di aiuto?</string>
+    <string name="help_button">Portami alla pagina di aiuto</string>
+
+    //help page
+    <string name="what_you_need_title">What you need to use mods</string>
+    <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition (the full version, the demo doesn\'t work with mods) and BlockLauncher (the free version or the pro version).</string>
+    <string name="how_to_prepare_mods_title">How to prepare mods</string>
+    <string name="how_to_prepare_mods_content">First download the mod that you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button to go to the website where you can download the mod, remember to read carefully the \"Instructions\" section in the website (mods have a different installation method).\nUsually mods are inside a zip file so you will need a File Manager to extract it (there are a lot of file managers available on the Google Play Store).\nExtracting is really easy: you have to go to the \"Download\" folder with your file manager, click the .zip file that contains everything you need to use the mod (usually the icon of the .zip file is an archive) and then extract it.</string>
+    <string name="how_to_install_mods_title">How to install mods</string>
+    <string name="how_to_install_mods_content">Now that you did all the previous steps you can open BlockLauncher, click the \"Settings\" icon, go to \"Manage ModPE Scripts\", make sure the switch in the upper right is ON, click the \"Import\" button and import the script from local storage (the script is the .js file that you should have found in the .zip file).</string>
+    <string name="how_to_install_texture_pack_title">How to install a texture pack</string>
+    <string name="how_to_install_texture_pack_content">Some mods inside the .zip file have a texture pack.\nTo install it open BlockLauncher, click the \"Settings\" icon, go to \"Launcher options\" and \"Texture Pack\" section, make sure the switch in the upper right is ON, then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
+
+    //portal 2 page
+    <string name="mod1_title">Portal 2 Mod</string>
+    <string name="info_content_tab2">This mod tries to bring the features of the famous PC game “Portal” in Minecraft Pocket Edition.\nWith this mod you can craft the Portal Gun and then shoot!\nYou can teleport yourself everywhere with these portals.\nThere are five different Portal Guns with different characteristics.\nIn this mod you can find also other items taken from the game “Portal”: GravityGun, Long Fall Boots, Jumpers, Gels. And many other features will come out in future updates.</string>
+
+    //laser page
+    <string name="mod2_title">Laser Mod</string>
+    <string name="features_content_tab3">• The laser of the Laser Gun destroys the block that you are looking.\n• The Laser Bazooka shoot a laser bullet that will explode when it touches the ground.\n• The Laser Sniper Rifle shoot a laser bullet that kill almost every mob it hit.\n• Tap the settings icon to open the UI with Informations and Settings for the mod.\n• There are a lot of settings for the weapons, so you can personalize them.\n• You can find the Laser Weapons also in the creative inventory.</string>
+
+    //turrets page
+    <string name="mod3_title">Turrets Mod</string>
+    <string name="features_content_tab4">• Craft a turret and place it where you want, then make it aggressive with the “Turret options” item and the turret will start to shoot every selected mob that come in his range.\n• There is an option to change the name of the turret.\n• Protect your home with your turrets! ;)</string>
+
+    //jukebox page
+    <string name="mod4_title">Jukebox Mod</string>
+    <string name="features_content_tab5">• There are twelve different discs with twelve different songs (songs are ported from Minecraft PC).\n• Tap the jukebox with a disc and it will start playing the choosed song.\n• Greater the distance between you and the Jukebox, lower the volume of it.\n• Support multiple jukeboxes that play simultaneously.\n• There is a random chance of finding a disc every 30 kills of hostile mobs.\n• Tap the Jukebox to eject the disc. When the song ends the disc will be ejected automatically.\n• The Jukebox block and the discs are also in the creative inventory.\n• The crafting recipes of the Jukebox are the same of the PC version.</string>
+
+    //settings
+    <string name="connection_settings">Connessione</string>
+    <string name="refresh_on_start_title">Aggiorna all\'avvio</string>
+    <string name="refresh_on_start_summary">Aggiorna il contenuto all\'avvio dell\'applicazione</string>
+    <string name="updates_settings">Aggiornamenti e notifiche</string>
+    <string name="notification_bool_title">Notifiche per nuovi aggiornamenti</string>
+    <string name="notification_bool_summary">Notifiche per nuovi aggiornamenti delle mod</string>
+    <string name="pref_sync_frequency_title">Frequenza controllo aggiornamenti</string>
+    <string name="pref_sync_frequency_summary">Imposta la frequenza per il controllo di nuovi aggiornamenti</string>
+
+    //notifications
+    <string name="notification_new_version_title">Nuova versione rilasciata</string>
+    <string name="notification_new_version_content1">Un nuova versione della</string> //A new version of the *modHere* has been released!
+    <string name="notification_new_version_content2">è stata rilasciata!</string>
+
+</resources>

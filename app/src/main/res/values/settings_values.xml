@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sync_frequency">
+        <item name="h4">Every 4 hours</item>
+        <item name="h12">Every 12 hours</item>
+        <item name="h24">Every day</item>
+        <item name="h72">Every 3 days</item>
+    </string-array>
+    <string-array name="sync_frequency_values">
+        <item name="h4">4</item>
+        <item name="h12">12</item>
+        <item name="h24">24</item>
+        <item name="h72">72</item>
+    </string-array>
+
+</resources>

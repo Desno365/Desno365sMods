@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <PreferenceCategory android:title="@string/connection_settings" >
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="refresh_on_start"
+            android:summary="@string/refresh_on_start_summary"
+            android:title="@string/refresh_on_start_title" >
+        </CheckBoxPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/updates_settings" >
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="notification_bool"
+            android:summary="@string/notification_bool_summary"
+            android:title="@string/notification_bool_title" >
+        </CheckBoxPreference>
+
+        <ListPreference
+            android:key="sync_frequency"
+            android:entries="@array/sync_frequency"
+            android:title="@string/pref_sync_frequency_title"
+            android:summary="@string/pref_sync_frequency_summary"
+            android:entryValues="@array/sync_frequency_values" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
