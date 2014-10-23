@@ -10,10 +10,12 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,15 +24,14 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
-
-    AppSectionsPagerAdapter mAppSectionsPagerAdapter;
-
-    //The {@link ViewPager} that will display the three primary sections of the app, one at a time.
-    ViewPager mViewPager;
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     public static WeakReference<MainActivity> myMainActivity = null;
     private static final String TAG = "DesnoMods-MainActivity";
@@ -46,6 +47,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public static String jukeboxModChangelog = "Use the refresh button to download the changelog.";
 
     private Menu optionsMenu;
+    private InterstitialAd mInterstitialAd;
+    private AdRequest.Builder mAdRequestBuilder;
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+
+    AppSectionsPagerAdapter mAppSectionsPagerAdapter;
+
+    //The {@link ViewPager} that will display the three primary sections of the app, one at a time.
+    ViewPager mViewPager;
 
     @SuppressLint("CommitPrefEdits")
     public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +73,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         @SuppressLint("AppCompatMethod")
         final ActionBar actionBar = getActionBar();
         assert actionBar != null;
+
+        //set if the user can click the icon
+        actionBar.setHomeButtonEnabled(true);
 
         // Show Actionbar Icon
         actionBar.setDisplayShowHomeEnabled(true);
@@ -103,6 +115,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                             .setTabListener(this));
         }
 
+        // Set up the drawer.
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+
         //action to do at the first launch of the app
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         if(sharedPrefs.getBoolean("is_first_launch", true))
@@ -124,6 +140,19 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         aR.cancelAlarm(getApplicationContext());
         aR.setAlarm(getApplicationContext());
 
+        //interstitial ad when opening the HelpActivity
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-4328789168608769/2234707734");
+        mAdRequestBuilder = new AdRequest.Builder();
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                Intent intentHelp = new Intent(myMainActivity.get(), HelpActivity.class);
+                startActivity(intentHelp);
+                mInterstitialAd.loadAd(mAdRequestBuilder.build());
+            }
+        });
+        mInterstitialAd.loadAd(mAdRequestBuilder.build());
     }
 
     @Override
@@ -138,6 +167,41 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
+
+    @Override
+    public void onNavigationDrawerItemSelected(int position) {
+        if(mAppSectionsPagerAdapter != null)
+        {
+            mViewPager.setCurrentItem(position);
+        } else {
+            // update the main content by replacing fragments
+            Fragment myFragment;
+            switch (position) {
+                case 0:
+                    myFragment = new FragmentTab1();
+                    break;
+                case 1:
+                    myFragment = new FragmentTab2();
+                    break;
+                case 2:
+                    myFragment = new FragmentTab3();
+                    break;
+                case 3:
+                    myFragment = new FragmentTab4();
+                    break;
+                case 4:
+                    myFragment = new FragmentTab5();
+                    break;
+                default:
+                    myFragment = new FragmentTab1();
+                    break;
+            }
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, myFragment)
+                    .commit();
+        }
     }
 
     @Override
@@ -177,6 +241,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         switch (item.getItemId()) {
 
+            case android.R.id.home:
+                if(mNavigationDrawerFragment.isDrawerOpen())
+                    NavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
+                else
+                    NavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
+                return true;
+
             case R.id.action_refresh:
                 RetrieveModsUpdates downloadTask = new RetrieveModsUpdates();
                 downloadTask.execute((Void) null);
@@ -187,8 +258,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 return true;
 
             case R.id.action_help:
-                Intent intentHelp = new Intent(this,HelpActivity.class);
-                startActivity(intentHelp);
+                if (mInterstitialAd.isLoaded())
+                    mInterstitialAd.show();
+                else {
+                    Intent intentHelp = new Intent(this, HelpActivity.class);
+                    startActivity(intentHelp);
+                }
                 return true;
 
             case R.id.action_share:
@@ -365,8 +440,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
             //start help activity
             case R.id.start_help_activity:
-                Intent intentHelp = new Intent(this,HelpActivity.class);
-                startActivity(intentHelp);
+                if (mInterstitialAd.isLoaded())
+                    mInterstitialAd.show();
+                else {
+                    Intent intentHelp = new Intent(this, HelpActivity.class);
+                    startActivity(intentHelp);
+                }
                 break;
         }
     }

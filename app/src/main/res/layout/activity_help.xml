@@ -40,42 +40,6 @@
             android:layout_height="wrap_content"
             android:text="@string/how_to_prepare_mods_content" />
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/advertisement"
-            android:textSize="14sp"
-            android:textColor="#C0C0C0" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" >
-
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/ad_view_medium_rectangle1_help_activity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                ads:adSize="MEDIUM_RECTANGLE"
-                ads:adUnitId="ca-app-pub-4328789168608769/5763583737">
-            </com.google.android.gms.ads.AdView>
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/darker_gray"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
