@@ -17,4 +17,15 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+
+    <!-- Dark ActionBar theme. -->
+    <style name="AppThemeDarkActionBar" parent="android:Theme.Light">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <!-- Holo dark theme. -->
+    <style name="AppThemeHoloDark" parent="android:Theme.Holo">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
 </resources>

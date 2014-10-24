@@ -30,4 +30,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/customization_settings" >
+
+        <ListPreference
+            android:key="selected_theme"
+            android:entries="@array/themes"
+            android:title="@string/themes_title"
+            android:summary="@string/themes_summary"
+            android:entryValues="@array/themes_values" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

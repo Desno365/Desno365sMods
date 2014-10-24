@@ -2,7 +2,6 @@ package com.desno365.mods;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,6 +23,7 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -31,7 +31,7 @@ import com.google.android.gms.ads.InterstitialAd;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener, NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends FragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     public static WeakReference<MainActivity> myMainActivity = null;
     private static final String TAG = "DesnoMods-MainActivity";
@@ -49,7 +49,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private Menu optionsMenu;
     private InterstitialAd mInterstitialAd;
     private AdRequest.Builder mAdRequestBuilder;
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+    private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
 
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 
@@ -58,6 +58,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @SuppressLint("CommitPrefEdits")
     public void onCreate(Bundle savedInstanceState) {
+        DesnoUtils.setSavedTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -84,36 +85,26 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         actionBar.setDisplayShowTitleEnabled(true);
 
         // Create Actionbar Tabs
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        //actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        // Set up the ViewPager, attaching the adapter and setting up a listener for when the
-        // user swipes between sections.
+        // Set up the ViewPager and attaching the adapter
         mViewPager = (ViewPager) findViewById(R.id.fragment_container);
         mViewPager.setAdapter(mAppSectionsPagerAdapter);
-        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+
+        // Bind the tabs to the ViewPager
+        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        tabs.setViewPager(mViewPager);
+        tabs.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                // When swiping between different app sections, select the corresponding tab.
-                // We can also use ActionBar.Tab#select() to do this if we have a reference to the
-                // Tab.
-                actionBar.setSelectedNavigationItem(position);
+                // When swiping between different app sections
+                mNavigationDrawerFragment.selectItem(position);
                 if(position == 0)
                     actionBar.setTitle(getResources().getString(R.string.app_name));
                 else
                     actionBar.setTitle(mAppSectionsPagerAdapter.getPageTitle(position));
             }
         });
-
-        // For each of the sections in the app, add a tab to the action bar.
-        for (int i = 0; i < mAppSectionsPagerAdapter.getCount(); i++) {
-            // Create a tab with text corresponding to the page title defined by the adapter.
-            // Also specify this Activity object, which implements the TabListener interface, as the
-            // listener for when this tab is selected.
-            actionBar.addTab(
-                    actionBar.newTab()
-                            .setText(mAppSectionsPagerAdapter.getPageTitle(i))
-                            .setTabListener(this));
-        }
 
         // Set up the drawer.
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -153,54 +144,60 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             }
         });
         mInterstitialAd.loadAd(mAdRequestBuilder.build());
-    }
 
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    }
-
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        // When the given tab is selected, switch to the corresponding page in the ViewPager.
-        mViewPager.setCurrentItem(tab.getPosition());
-    }
-
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        if(mAppSectionsPagerAdapter != null)
-        {
-            mViewPager.setCurrentItem(position);
-        } else {
-            // update the main content by replacing fragments
-            Fragment myFragment;
-            switch (position) {
-                case 0:
-                    myFragment = new FragmentTab1();
-                    break;
-                case 1:
-                    myFragment = new FragmentTab2();
-                    break;
-                case 2:
-                    myFragment = new FragmentTab3();
-                    break;
-                case 3:
-                    myFragment = new FragmentTab4();
-                    break;
-                case 4:
-                    myFragment = new FragmentTab5();
-                    break;
-                default:
-                    myFragment = new FragmentTab1();
-                    break;
+        if(position <= 4) {
+            if (mAppSectionsPagerAdapter != null) {
+                mViewPager.setCurrentItem(position);
+            } else {
+                // update the main content by replacing fragments
+                Fragment myFragment;
+                switch (position) {
+                    case 0:
+                        myFragment = new FragmentTab1();
+                        break;
+                    case 1:
+                        myFragment = new FragmentTab2();
+                        break;
+                    case 2:
+                        myFragment = new FragmentTab3();
+                        break;
+                    case 3:
+                        myFragment = new FragmentTab4();
+                        break;
+                    case 4:
+                        myFragment = new FragmentTab5();
+                        break;
+                    default:
+                        myFragment = new FragmentTab1();
+                        break;
+                }
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, myFragment)
+                        .commit();
             }
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, myFragment)
-                    .commit();
+        } else {
+            if(position == 5) {
+                new android.os.Handler().postDelayed(new Runnable(){
+                    public void run() {
+                        if (mInterstitialAd.isLoaded())
+                            mInterstitialAd.show();
+                        else
+                            startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+                    }
+                }, 200);
+            }
+            if(position == 6) {
+                new android.os.Handler().postDelayed(new Runnable(){
+                    public void run() {
+                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                    }
+                }, 200);
+            }
         }
     }
 
@@ -267,7 +264,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 return true;
 
             case R.id.action_share:
-                // TODO: different text, depends on what page the user is watching
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share_body));
@@ -319,10 +315,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     //alert dialog displayed when pressing the info button in action bar
     private void infoAlertDialog() {
 
-        View mLoginConfirmView = View.inflate(this, R.layout.actionbar_informations, null);
+        View mView = View.inflate(this, R.layout.actionbar_informations, null);
 
         android.app.AlertDialog.Builder popup = new android.app.AlertDialog.Builder(this);
-        popup.setView(mLoginConfirmView);
+        popup.setView(mView);
         popup.setTitle(getResources().getString(R.string.action_info));
 
         popup.setPositiveButton(getResources().getString(R.string.take_me_play_store), new DialogInterface.OnClickListener() {

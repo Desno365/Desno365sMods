@@ -27,6 +27,74 @@
             android:layout_height="wrap_content"
             android:text="@string/what_you_need_content" />
 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <ImageView
+                android:id="@+id/minecraft_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/minecraft_icon"
+                android:adjustViewBounds="true"
+                android:onClick="onViewClick" />
+
+            <TextView
+                android:id="@+id/minecraft_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/get_it_store"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/minecraft_image"
+                android:layout_toEndOf="@id/minecraft_image"
+                android:onClick="onViewClick"
+                android:clickable="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <ImageView
+                android:id="@+id/blocklauncher_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/blocklauncher_icon"
+                android:adjustViewBounds="true"
+                android:onClick="onViewClick" />
+
+            <TextView
+                android:id="@+id/blocklauncher_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/get_it_store"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/blocklauncher_image"
+                android:layout_toEndOf="@id/blocklauncher_image"
+                android:onClick="onViewClick"
+                android:clickable="true" />
+
+        </RelativeLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -2,16 +2,19 @@ package com.desno365.mods;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.view.MenuItem;
+import android.view.View;
 
 public class SettingsActivity extends PreferenceActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+        DesnoUtils.setSavedTheme(this);
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.activity_settings);
 
@@ -42,6 +45,10 @@ public class SettingsActivity extends PreferenceActivity {
                     aR.cancelAlarm(getApplicationContext());
                     aR.setAlarm(getApplicationContext());
                 }
+
+                if (key.equals("selected_theme")) {
+                    restartDialog();
+                }
             }
         });
 
@@ -55,6 +62,7 @@ public class SettingsActivity extends PreferenceActivity {
 
         //when clicking the icon return to the parent activity (specified in AndroidManifest.xml) and display arrow
         actionBar.setDisplayHomeAsUpEnabled(true);
+
 	}
 
     @Override
@@ -67,6 +75,23 @@ public class SettingsActivity extends PreferenceActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void restartDialog() {
+        View mView = View.inflate(this, R.layout.restart_popup_settings, null);
+
+        android.app.AlertDialog.Builder popup = new android.app.AlertDialog.Builder(this);
+        popup.setView(mView);
+        popup.setTitle(getResources().getString(R.string.app_name));
+
+        popup.setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                MainActivity.myMainActivity.get().finish();
+                System.exit(0);
+            }
+        });
+
+        popup.show();
     }
 
 }

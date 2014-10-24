@@ -24,6 +24,22 @@ public class DesnoUtils {
 
     private static final String TAG = "DesnoMods-DesnoUtil";
 
+    public static void setSavedTheme(Context context) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String theme = sharedPrefs.getString("selected_theme", "0");
+        int themeNumber = Integer.parseInt(theme);
+        switch (themeNumber) {
+            case 0:
+                break;
+            case 1:
+                context.setTheme(R.style.AppThemeDarkActionBar);
+                break;
+            case 2:
+                context.setTheme(R.style.AppThemeHoloDark);
+                break;
+        }
+    }
+
     public static boolean isNetworkAvailable(Context currentContext) {
         ConnectivityManager connectivityManager = (ConnectivityManager) currentContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();

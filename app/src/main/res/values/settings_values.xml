@@ -14,4 +14,15 @@
         <item name="h72">72</item>
     </string-array>
 
+    <string-array name="themes">
+        <item name="light">Light</item>
+        <item name="dark_actionbar">Light with dark actionbar</item>
+        <item name="dark">Dark</item>
+    </string-array>
+    <string-array name="themes_values">
+        <item name="light">0</item>
+        <item name="dark_actionbar">1</item>
+        <item name="dark">2</item>
+    </string-array>
+
 </resources>

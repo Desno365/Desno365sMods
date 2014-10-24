@@ -52,6 +52,7 @@
     //help page
     <string name="what_you_need_title">What you need to use mods</string>
     <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition (the full version, the demo doesn\'t work with mods) and BlockLauncher (the free version or the pro version).</string>
+    <string name="get_it_store">Get it on the Play Store</string>
     <string name="how_to_prepare_mods_title">How to prepare mods</string>
     <string name="how_to_prepare_mods_content">First download the mod that you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button to go to the website where you can download the mod, remember to read carefully the \"Instructions\" section in the website (mods have a different installation method).\nUsually mods are inside a zip file so you will need a File Manager to extract it (there are a lot of file managers available on the Google Play Store).\nExtracting is really easy: you have to go to the \"Download\" folder with your file manager, click the .zip file that contains everything you need to use the mod (usually the icon of the .zip file is an archive) and then extract it.</string>
     <string name="how_to_install_mods_title">How to install mods</string>
@@ -84,6 +85,10 @@
     <string name="notification_bool_summary">Receive notifications for new mods updates</string>
     <string name="pref_sync_frequency_title">Check for updates frequency</string>
     <string name="pref_sync_frequency_summary">Set the frequency for checking mods updates</string>
+    <string name="customization_settings">Customization</string>
+    <string name="themes_title">Theme</string>
+    <string name="themes_summary">Select app\'s theme</string>
+    <string name="restart_text_popup">The app needs to be restarted for the theme change to be activated.</string>
 
     //notifications
     <string name="notification_new_version_title">New version released</string>
