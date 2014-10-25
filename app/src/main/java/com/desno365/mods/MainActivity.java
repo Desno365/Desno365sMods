@@ -24,9 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
@@ -47,8 +44,6 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
     public static String jukeboxModChangelog = "Use the refresh button to download the changelog.";
 
     private Menu optionsMenu;
-    private InterstitialAd mInterstitialAd;
-    private AdRequest.Builder mAdRequestBuilder;
     private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
 
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
@@ -121,6 +116,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             editor.putBoolean("is_first_launch", false);
             editor.putBoolean("notification_bool", true);
             editor.putString("sync_frequency", "12");
+            editor.putString("selected_theme", "0");
             editor.apply();
             Log.i(TAG, "First launch");
             infoAlertDialog();
@@ -130,20 +126,6 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         AlarmReceiver aR = new AlarmReceiver();
         aR.cancelAlarm(getApplicationContext());
         aR.setAlarm(getApplicationContext());
-
-        //interstitial ad when opening the HelpActivity
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-4328789168608769/2234707734");
-        mAdRequestBuilder = new AdRequest.Builder();
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                Intent intentHelp = new Intent(myMainActivity.get(), HelpActivity.class);
-                startActivity(intentHelp);
-                mInterstitialAd.loadAd(mAdRequestBuilder.build());
-            }
-        });
-        mInterstitialAd.loadAd(mAdRequestBuilder.build());
 
     }
 
@@ -184,10 +166,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             if(position == 5) {
                 new android.os.Handler().postDelayed(new Runnable(){
                     public void run() {
-                        if (mInterstitialAd.isLoaded())
-                            mInterstitialAd.show();
-                        else
-                            startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+                        startActivity(new Intent(getApplicationContext(), HelpActivity.class));
                     }
                 }, 200);
             }
@@ -255,12 +234,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 return true;
 
             case R.id.action_help:
-                if (mInterstitialAd.isLoaded())
-                    mInterstitialAd.show();
-                else {
-                    Intent intentHelp = new Intent(this, HelpActivity.class);
-                    startActivity(intentHelp);
-                }
+                Intent intentHelp = new Intent(this, HelpActivity.class);
+                startActivity(intentHelp);
                 return true;
 
             case R.id.action_share:
@@ -436,12 +411,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
             //start help activity
             case R.id.start_help_activity:
-                if (mInterstitialAd.isLoaded())
-                    mInterstitialAd.show();
-                else {
-                    Intent intentHelp = new Intent(this, HelpActivity.class);
-                    startActivity(intentHelp);
-                }
+                Intent intentHelp = new Intent(this, HelpActivity.class);
+                startActivity(intentHelp);
                 break;
         }
     }

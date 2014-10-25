@@ -47,6 +47,9 @@
         <activity android:name="com.desno365.mods.HelpActivity"
             android:parentActivityName="com.desno365.mods.MainActivity" />
 
+        <activity android:name="com.desno365.mods.ZoomImageActivity"
+            android:parentActivityName="com.desno365.mods.HelpActivity" />
+
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"

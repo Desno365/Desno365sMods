@@ -23,4 +23,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.0'
     compile 'com.google.android.gms:play-services:6.1.+'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    compile 'com.github.amlcurran.showcaseview:library:5.0.0'
+    compile('it.sephiroth.android.library.targettooltip:target-tooltip-library:1.2.2@aar'){
+        transitive=true
+    }
+    compile project(':photoview')
 }
