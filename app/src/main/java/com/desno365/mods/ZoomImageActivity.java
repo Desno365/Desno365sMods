@@ -15,6 +15,8 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class ZoomImageActivity extends Activity implements OnShowcaseEventListener {
 
+    public static Activity activity;
+
     private PhotoViewAttacher mAttacher;
     private ShowcaseView mShowcase;
 
@@ -23,6 +25,8 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
         setTheme(R.style.AppThemeHoloDark);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zoom_image);
+
+        activity = this;
 
         Drawable mDrawable;
         switch (getIntent().getIntExtra("viewId", 365)) {
@@ -73,11 +77,19 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
                     mShowcase.hide();
             }
         });
+        mAttacher.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+            @Override
+            public void onPhotoTap(View view, float x, float y) {
+                if (mShowcase.isShown())
+                    mShowcase.hide();
+            }
+        });
 
         mShowcase = new ShowcaseView.Builder(this, true)
                 .setTarget(new ViewTarget(R.id.iv_photo, this))
                 .setContentTitle(getString(R.string.zoom_image_showcase_title))
                 .setContentText(getString(R.string.zoom_image_showcase_content))
+                .setStyle(R.style.CustomShowcaseTheme)
                 .singleShot(1)
                 .build();
 
@@ -97,9 +109,16 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 this.finish();
+                DesnoUtils.changeFinishAnimations(activity);
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        DesnoUtils.changeFinishAnimations(activity);
     }
 
     @Override

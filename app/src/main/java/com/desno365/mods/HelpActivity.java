@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,12 +16,16 @@ import it.sephiroth.android.library.tooltip.TooltipManager;
 
 public class HelpActivity extends Activity {
 
+    public static Activity activity;
+
     private TooltipManager mTooltip;
 
     public void onCreate(Bundle savedInstanceState) {
         DesnoUtils.setSavedTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+
+        activity = this;
 
         @SuppressLint("AppCompatMethod")
         ActionBar actionBar = this.getActionBar();
@@ -32,9 +38,9 @@ public class HelpActivity extends Activity {
         //when clicking the icon return to the parent activity (specified in AndroidManifest.xml)
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        // tooltip at start
+        // tooltip at start (only the first time)
         mTooltip = TooltipManager.getInstance(this);
-        new android.os.Handler().postDelayed(new Runnable(){
+        new android.os.Handler().postDelayed(new Runnable() {
             public void run() {
                 runOnUiThread(new Runnable() {
                     @Override
@@ -47,6 +53,12 @@ public class HelpActivity extends Activity {
                                 .text(getResources().getString(R.string.click_image_to_view))
                                 .maxWidth((metrics.widthPixels) / 10 * 9)
                                 .show();
+
+                        // don't show the tooltip if the user has already learned to view the full resolution image
+                        if(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("user_understood_full_resolution_help", false)) {
+                            mTooltip.hide(1);
+                            mTooltip.remove(1);
+                        }
                     }
                 });
             }
@@ -61,9 +73,16 @@ public class HelpActivity extends Activity {
             //this prevent to re-create the MainActivity
             case android.R.id.home:
                 this.finish();
+                DesnoUtils.changeFinishAnimations(activity);
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        DesnoUtils.changeFinishAnimations(activity);
     }
 
     public void onViewClick(View v) {
@@ -75,9 +94,11 @@ public class HelpActivity extends Activity {
                 try {
                     //play store installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.mojang.minecraftpe")));
+                    DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.mojang.minecraftpe")));
+                    DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
 
@@ -87,9 +108,11 @@ public class HelpActivity extends Activity {
                 try {
                     //play store installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=net.zhuoweizhang.mcpelauncher")));
+                    DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher")));
+                    DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
 
@@ -99,18 +122,29 @@ public class HelpActivity extends Activity {
                 try {
                     //play store installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=file%20explorer")));
+                    DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/search?q=file%20explorer")));
+                    DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
         }
     }
 
     public void onImageClick(View v) {
+        // starting the zoomImage activity (it has a switch case for the id passed)
         Intent i = new Intent(this, ZoomImageActivity.class);
         i.putExtra("viewId", v.getId());
         startActivity(i);
+        DesnoUtils.changeStartAnimations(activity);
+
+        // after the first time opening a full resolution image the user doesn't need the tooltip anymore
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.putBoolean("user_understood_full_resolution_help", true);
+        editor.apply();
+
     }
 
 }

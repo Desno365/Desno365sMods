@@ -1,5 +1,6 @@
 package com.desno365.mods;
 
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -175,6 +176,49 @@ public class DesnoUtils {
 
         //notification for debug
         //DesnoUtils.notification(currentContext, "Log: p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion, 51);
+    }
+
+    public static void changeStartAnimations(Activity activity) {
+        Context currentContext = activity.getApplicationContext();
+        switch (Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(currentContext).getString("selected_animations", "0"))) {
+            case 0:
+                break;
+            case 1:
+                overrideStartActivityAnimation(activity, R.anim.abc_slide_in_bottom);
+                break;
+            case 2:
+                overrideStartActivityAnimation(activity, R.anim.scale_from_corner);
+                break;
+            case 3:
+                overrideStartActivityAnimation(activity, R.anim.shrink_and_rotate_enter);
+                break;
+        }
+    }
+
+    public static void changeFinishAnimations(Activity activity) {
+        Context currentContext = activity.getApplicationContext();
+        switch (Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(currentContext).getString("selected_animations", "0"))) {
+            case 0:
+                break;
+            case 1:
+                overrideFinishActivityAnimation(activity, R.anim.push_down_out);
+                break;
+            case 2:
+                overrideFinishActivityAnimation(activity, R.anim.scale_towards_corner);
+                break;
+            case 3:
+                overrideFinishActivityAnimation(activity, R.anim.shrink_and_rotate_exit);
+                break;
+        }
+    }
+
+    private static void overrideStartActivityAnimation(Activity activity, int resId) {
+
+        activity.overridePendingTransition(resId, R.anim.hold);
+    }
+
+    private static void overrideFinishActivityAnimation(Activity activity, int resId) {
+        activity.overridePendingTransition(R.anim.hold, resId);
     }
 
 }

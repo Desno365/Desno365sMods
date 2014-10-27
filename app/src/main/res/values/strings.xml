@@ -95,15 +95,24 @@
     <string name="connection_settings">Connection</string>
     <string name="refresh_on_start_title">Refresh on start</string>
     <string name="refresh_on_start_summary">Refresh the content on app start</string>
+
     <string name="updates_settings">Updates and notifications</string>
     <string name="notification_bool_title">Notifications for new updates</string>
     <string name="notification_bool_summary">Receive notifications for new mods updates</string>
     <string name="pref_sync_frequency_title">Check for updates frequency</string>
     <string name="pref_sync_frequency_summary">Set the frequency for checking mods updates</string>
+
     <string name="customization_settings">Customization</string>
     <string name="themes_title">Theme</string>
     <string name="themes_summary">Select app\'s theme</string>
     <string name="restart_text_popup">The app needs to be restarted for the theme change to be activated.</string>
+    <string name="animations_title">Animations</string>
+    <string name="animations_summary">Select app\'s animations</string>
+
+    <string name="help_settings">Tips and help</string>
+    <string name="restore_tips_title">Restore suggestions</string>
+    <string name="restore_tips_summary">Restore tips and suggestions in the Help page.</string>
+    <string name="restored_toast">Tips and suggestions restored.</string>
 
     //notifications
     <string name="notification_new_version_title">New version released</string>

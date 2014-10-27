@@ -39,6 +39,22 @@
             android:summary="@string/themes_summary"
             android:entryValues="@array/themes_values" />
 
+        <ListPreference
+            android:key="selected_animations"
+            android:entries="@array/animations"
+            android:title="@string/animations_title"
+            android:summary="@string/animations_summary"
+            android:entryValues="@array/animations_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/help_settings" >
+
+        <Preference android:title="@string/restore_tips_title"
+            android:summary="@string/restore_tips_summary"
+            android:key="restore_tips">
+        </Preference>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

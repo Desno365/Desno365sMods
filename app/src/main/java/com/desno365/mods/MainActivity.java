@@ -2,6 +2,7 @@ package com.desno365.mods;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +32,7 @@ import java.lang.reflect.Method;
 public class MainActivity extends FragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     public static WeakReference<MainActivity> myMainActivity = null;
+    public static Activity activity;
     private static final String TAG = "DesnoMods-MainActivity";
 
     public static String newsString = "Use the refresh button to download the news.";
@@ -59,6 +61,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
         Log.i(TAG, "App launched.");
 
+        activity = this;
         myMainActivity = new WeakReference<MainActivity>(this);
 
         // Create the adapter that will return a fragment for each of the three primary sections
@@ -117,6 +120,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             editor.putBoolean("notification_bool", true);
             editor.putString("sync_frequency", "12");
             editor.putString("selected_theme", "0");
+            editor.putString("selected_animations", "0");
+            editor.putBoolean("user_understood_full_resolution_help", false);
             editor.apply();
             Log.i(TAG, "First launch");
             infoAlertDialog();
@@ -167,6 +172,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 new android.os.Handler().postDelayed(new Runnable(){
                     public void run() {
                         startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+                        DesnoUtils.changeStartAnimations(activity);
                     }
                 }, 200);
             }
@@ -174,6 +180,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 new android.os.Handler().postDelayed(new Runnable(){
                     public void run() {
                         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                        DesnoUtils.changeStartAnimations(activity);
                     }
                 }, 200);
             }
@@ -234,8 +241,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 return true;
 
             case R.id.action_help:
-                Intent intentHelp = new Intent(this, HelpActivity.class);
-                startActivity(intentHelp);
+                startActivity(new Intent(this, HelpActivity.class));
+                DesnoUtils.changeStartAnimations(activity);
                 return true;
 
             case R.id.action_share:
@@ -243,6 +250,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 sharingIntent.setType("text/plain");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share_body));
                 startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_using)));
+                DesnoUtils.changeStartAnimations(activity);
                 return true;
 
             case R.id.action_rate:
@@ -250,15 +258,18 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 try {
                     //play store installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+                    DesnoUtils.changeStartAnimations(activity);
                 }
                 return true;
 
             case R.id.action_settings:
                 Intent intentSettings = new Intent(this, SettingsActivity.class);
                 startActivity(intentSettings);
+                DesnoUtils.changeStartAnimations(activity);
                 return true;
 
             default:
@@ -302,9 +313,11 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 try {
                     //play store installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+                    DesnoUtils.changeStartAnimations(activity);
                 }
             }
         });
@@ -374,45 +387,55 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             //minecraftforum.net thread buttons
             case R.id.minecraft_thread_portal_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2097326-mod-beta-portal-2-mod-portal-gun-r008-by-desno365")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.minecraft_thread_laser_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2179257-mod-beta-laser-mod-laser-weapons-r003-by-desno365")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.minecraft_thread_turrets_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2201372-mod-beta-turrets-mod-kill-mobs-automatically-r001")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.minecraft_thread_jukebox_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2173829-mod-jukebox-mod-pc-porting-r002-by-desno365")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
 
             //download from website buttons
             case R.id.download_portal_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/portal2-mod/")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.download_laser_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/laser-mod")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.download_turrets_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/turrets-mod")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.download_jukebox_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/jukebox-mod")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
 
             //twitter image and text
             case R.id.twitter_image:case R.id.twitter_text:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/desno365")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
 
             //github image and text
             case R.id.github_image:case R.id.github_text:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Desno365/Desno365sMods")));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
 
             //start help activity
             case R.id.start_help_activity:
-                Intent intentHelp = new Intent(this, HelpActivity.class);
-                startActivity(intentHelp);
+                startActivity(new Intent(this, HelpActivity.class));
+                DesnoUtils.changeStartAnimations(activity);
                 break;
         }
     }
