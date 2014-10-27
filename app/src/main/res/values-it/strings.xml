@@ -47,16 +47,6 @@
     <string name="need_help_title">Hai bisogno di aiuto?</string>
     <string name="help_button">Portami alla pagina di aiuto</string>
 
-    //help page
-    <string name="what_you_need_title">What you need to use mods</string>
-    <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition (the full version, the demo doesn\'t work with mods) and BlockLauncher (the free version or the pro version).</string>
-    <string name="how_to_prepare_mods_title">How to prepare mods</string>
-    <string name="how_to_prepare_mods_content">First download the mod that you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button to go to the website where you can download the mod, remember to read carefully the \"Instructions\" section in the website (mods have a different installation method).\nUsually mods are inside a zip file so you will need a File Manager to extract it (there are a lot of file managers available on the Google Play Store).\nExtracting is really easy: you have to go to the \"Download\" folder with your file manager, click the .zip file that contains everything you need to use the mod (usually the icon of the .zip file is an archive) and then extract it.</string>
-    <string name="how_to_install_mods_title">How to install mods</string>
-    <string name="how_to_install_mods_content">Now that you did all the previous steps you can open BlockLauncher, click the \"Settings\" icon, go to \"Manage ModPE Scripts\", make sure the switch in the upper right is ON, click the \"Import\" button and import the script from local storage (the script is the .js file that you should have found in the .zip file).</string>
-    <string name="how_to_install_texture_pack_title">How to install a texture pack</string>
-    <string name="how_to_install_texture_pack_content">Some mods inside the .zip file have a texture pack.\nTo install it open BlockLauncher, click the \"Settings\" icon, go to \"Launcher options\" and \"Texture Pack\" section, make sure the switch in the upper right is ON, then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
-
     //portal 2 page
     <string name="mod1_title">Portal 2 Mod</string>
     <string name="info_content_tab2">This mod tries to bring the features of the famous PC game “Portal” in Minecraft Pocket Edition.\nWith this mod you can craft the Portal Gun and then shoot!\nYou can teleport yourself everywhere with these portals.\nThere are five different Portal Guns with different characteristics.\nIn this mod you can find also other items taken from the game “Portal”: GravityGun, Long Fall Boots, Jumpers, Gels. And many other features will come out in future updates.</string>
@@ -87,5 +77,38 @@
     <string name="notification_new_version_title">Nuova versione rilasciata</string>
     <string name="notification_new_version_content1">Un nuova versione della</string> //A new version of the *modHere* has been released!
     <string name="notification_new_version_content2">è stata rilasciata!</string>
+
+    <string name="themes_summary">Seleziona il tema dell\'app</string>
+    <string name="themes_title">Tema</string>
+    <string name="restore_tips_title">Ripristina suggerimenti</string>
+    <string name="restore_tips_summary">Ripristina suggerimenti a aiuti nella pagina di Aiuto.</string>
+    <string name="restart_text_popup">L\'applicazione deve essere riavviata affinchè i cambiamenti abbiano effetto.</string>
+    <string name="restored_toast">Suggerimetni ripristinati.</string>
+    <string name="animations_summary">Seleziona lanimazioni per l'app</string>
+    <string name="animations_title">Animazioni</string>
+    <string name="click_image_to_view">Clicca qualsiasi immagine in questa pagina per vederla alla massima risoluzione.</string>
+    <string name="customization_settings">Personalizzazione</string>
+    <string name="get_it_store">Scaricala dal Play Store</string>
+    <string name="zoom_image_showcase_content">Pizzica con due dita a fai doppio tap sullo schermo per aumentare lo zoom</string>
+    <string name="zoom_image_showcase_title">Zoom dell\'immagine</string>
+    <string name="navigation_drawer_close">Chiudi il drawer</string>
+    <string name="navigation_drawer_open">Apri il drawer</string>
+    <string name="get_one_store">Scaricane una dal Play Store</string>
+    <string name="help_settings">Suggerimenti e aiuto</string>
+    <string name="how_to_prepare_mods_title">How to prepare mods</string>
+    <string name="how_to_prepare_mods_download">First download the mod that you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button to go to the website where you can download the mod, remember to read carefully the \"Instructions\" section in the website (mods have a different installation method).</string>
+    <string name="how_to_prepare_mods_file_manager">Usually mods are inside a zip file so you will need a File Manager to extract it (there are a lot of file managers available on the Google Play Store).</string>
+    <string name="how_to_prepare_mods_extract">Extracting is really easy: you have to go to the \"Download\" folder with your file manager, click the .zip file that contains everything you need to use the mod (usually the icon of the .zip file is an archive) and then extract it.</string>
+    <string name="how_to_prepare_mods_after_extraction">This is an example of the Portal 2 Mod zip file after extraction:</string>
+    <string name="how_to_install_mods_title">How to install mods</string>
+    <string name="how_to_install_mods_manage_modpe_scripts">Now that you did all the previous steps you can open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+    <string name="how_to_install_mods_import">Make sure the switch in the upper right is ON and click the \"Import\" button.</string>
+    <string name="how_to_install_mods_from_local_storage">Import the script from local storage (the script is the .js file that you should have found in the .zip file).</string>
+    <string name="how_to_install_texture_pack_title">How to install a texture pack</string>
+    <string name="how_to_install_texture_pack_launcher_options">Some mods inside the .zip file have a texture pack.\nTo install it open BlockLauncher, click the \"Settings\" icon and go to \"Launcher options\".</string>
+    <string name="how_to_install_texture_pack_texture_pack">Go in the \"Texture Pack\" section and make sure the switch in the upper right is ON.</string>
+    <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
+    <string name="what_you_need_title">What you need to use mods</string>
+    <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition (the full version, the demo doesn\'t work with mods) and BlockLauncher (the free version or the pro version).</string>
 
 </resources>
