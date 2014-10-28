@@ -3,7 +3,9 @@ package com.desno365.mods;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -70,21 +72,34 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
 
         // loading PhotoView library
         mAttacher = new PhotoViewAttacher(mImageView);
-        mAttacher.setOnViewTapListener(new PhotoViewAttacher.OnViewTapListener() {
+        mAttacher.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onViewTap(View view, float x, float y) {
+            public boolean onLongClick(View v) {
                 if (mShowcase.isShown())
                     mShowcase.hide();
+                return false;
             }
         });
-        mAttacher.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+        mAttacher.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener() {
             @Override
-            public void onPhotoTap(View view, float x, float y) {
+            public boolean onSingleTapConfirmed(MotionEvent e) {
                 if (mShowcase.isShown())
                     mShowcase.hide();
+                return false;
+            }
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                if (mShowcase.isShown())
+                    mShowcase.hide();
+                return false;
+            }
+            @Override
+            public boolean onDoubleTapEvent(MotionEvent e) {
+                return false;
             }
         });
 
+        // showcase view to illustrate to the user that is possible to zoom
         mShowcase = new ShowcaseView.Builder(this, true)
                 .setTarget(new ViewTarget(R.id.iv_photo, this))
                 .setContentTitle(getString(R.string.zoom_image_showcase_title))
