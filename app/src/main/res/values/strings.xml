@@ -36,8 +36,6 @@
     <string name="hide_changelog">Hide the changelog&#8230;</string>
     <string name="download_from_website">Download this mod from Desno\'s website</string>
     <string name="minecraft_thread">minecraftforum.net thread</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="click_image_to_view">Click any image in this page to view it in full resolution.</string>
     <string name="zoom_image_showcase_title">Image zoom</string>
     <string name="zoom_image_showcase_content">Pinch or double tap the screen to zoom the image</string>
