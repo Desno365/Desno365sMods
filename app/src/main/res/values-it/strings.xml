@@ -84,7 +84,7 @@
     <string name="restore_tips_summary">Ripristina suggerimenti a aiuti nella pagina di Aiuto.</string>
     <string name="restart_text_popup">L\'applicazione deve essere riavviata affinchè i cambiamenti abbiano effetto.</string>
     <string name="restored_toast">Suggerimetni ripristinati.</string>
-    <string name="animations_summary">Seleziona lanimazioni per l'app</string>
+    <string name="animations_summary">Seleziona animazioni per l\'app</string>
     <string name="animations_title">Animazioni</string>
     <string name="click_image_to_view">Clicca qualsiasi immagine in questa pagina per vederla alla massima risoluzione.</string>
     <string name="customization_settings">Personalizzazione</string>

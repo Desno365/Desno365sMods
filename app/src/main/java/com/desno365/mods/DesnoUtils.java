@@ -25,6 +25,8 @@ public class DesnoUtils {
 
     private static final String TAG = "DesnoMods-DesnoUtil";
 
+    private static final String errorString = "Error";
+
     public static void setSavedTheme(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         String theme = sharedPrefs.getString("selected_theme", "0");
@@ -67,7 +69,7 @@ public class DesnoUtils {
 
         } catch (Exception err) {
             Log.e(TAG, "Exception in getTextFromUrl() ", err);
-            return "Error";
+            return errorString;
         }
     }
 
@@ -109,7 +111,7 @@ public class DesnoUtils {
 
         Log.d(TAG, "Log: p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion);
 
-        if(latestPortalVersion.equals("") || latestPortalVersion.isEmpty() || latestPortalVersion.equals("Not Found")) {
+        if(latestPortalVersion.equals("") || latestPortalVersion.isEmpty() || latestPortalVersion.equals("Not Found") || latestPortalVersion.equals(errorString)) {
             Log.e(TAG, "Something went wrong, not displaying notification for Portal (empty String)");
         } else {
             if(!(knownPortalVersion.equals(latestPortalVersion))) {
@@ -125,7 +127,7 @@ public class DesnoUtils {
                 editor.apply();
             }
         }
-        if(latestLaserVersion.equals("") || latestLaserVersion.isEmpty() || latestLaserVersion.equals("Not Found")) {
+        if(latestLaserVersion.equals("") || latestLaserVersion.isEmpty() || latestLaserVersion.equals("Not Found") || latestLaserVersion.equals(errorString)) {
             Log.e(TAG, "Something went wrong, not displaying notification for Laser (empty String)");
         } else {
             if(!(knownLaserVersion.equals(latestLaserVersion))) {
@@ -141,7 +143,7 @@ public class DesnoUtils {
                 editor.apply();
             }
         }
-        if(latestTurretsVersion.equals("") || latestTurretsVersion.isEmpty() || latestTurretsVersion.equals("Not Found")) {
+        if(latestTurretsVersion.equals("") || latestTurretsVersion.isEmpty() || latestTurretsVersion.equals("Not Found") || latestTurretsVersion.equals(errorString)) {
             Log.e(TAG, "Something went wrong, not displaying notification for Turrets (empty String)");
         } else {
             if(!(knownTurretsVersion.equals(latestTurretsVersion))) {
@@ -157,7 +159,7 @@ public class DesnoUtils {
                 editor.apply();
             }
         }
-        if(latestJukeboxVersion.equals("") || latestJukeboxVersion.isEmpty() || latestJukeboxVersion.equals("Not Found")) {
+        if(latestJukeboxVersion.equals("") || latestJukeboxVersion.isEmpty() || latestJukeboxVersion.equals("Not Found") || latestJukeboxVersion.equals(errorString)) {
             Log.e(TAG, "Something went wrong, not displaying notification for Jukebox (empty String)");
         } else {
             if(!(knownJukeboxVersion.equals(latestJukeboxVersion))) {

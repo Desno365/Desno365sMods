@@ -28,7 +28,7 @@
     <string-array name="animations">
         <item name="default">Default</item>
         <item name="up_down">Spingi su/sotto</item>
-        <item name="corner">Muovi da/verso l'angolo</item>
+        <item name="corner">Muovi da/verso l\'angolo</item>
         <item name="book">Apri/chiudi la pagina come un libro</item>
     </string-array>
     <string-array name="animations_values">
