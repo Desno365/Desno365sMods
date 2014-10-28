@@ -12,7 +12,7 @@ Licensed under the Apache License, Version 2.0
 
 Used libraries
 -----------
-[PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
-[Tooltip](https://github.com/sephiroth74/android-target-tooltip)
-[PhotoView](https://github.com/chrisbanes/PhotoView)
-[ShowcaseView](https://github.com/amlcurran/ShowcaseView)
+[PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)<br>
+[Tooltip](https://github.com/sephiroth74/android-target-tooltip)<br>
+[PhotoView](https://github.com/chrisbanes/PhotoView)<br>
+[ShowcaseView](https://github.com/amlcurran/ShowcaseView)<br>

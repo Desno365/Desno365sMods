@@ -14,6 +14,7 @@ public class FragmentTab1 extends Fragment {
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		View rootView = inflater.inflate(R.layout.fragmenttab1, container, false);
 
         final TextView textNews = (TextView) rootView.findViewById(R.id.news_container);

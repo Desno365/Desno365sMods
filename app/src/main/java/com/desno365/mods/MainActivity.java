@@ -334,52 +334,58 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
     //refresh TextViews after the content has been refreshed
     public void refreshTabPages() {
-        try {
-            TextView textNews = (TextView) getWindow().getDecorView().findViewById(R.id.news_container);
-            textNews.setText(android.text.Html.fromHtml(newsString));
-        } catch (Exception err) {
-            Log.e(TAG, "Exception in refreshTabPages() in news ", err);
-        }
+        runOnUiThread(new Runnable() {
+            public void run() {
 
-        try {
-            TextView textUpdatesPortal = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_portal_is);
-            textUpdatesPortal.setText(portalModVersion);
+                try {
+                    TextView newsText = (TextView) getWindow().getDecorView().findViewById(R.id.news_container);
+                    newsText.setText(android.text.Html.fromHtml(newsString));
+                } catch (Exception err) {
+                    Log.e(TAG, "Exception in refreshTabPages() in news ", err);
+                }
 
-            TextView textChangelogPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_changelog);
-            textChangelogPortal.setText(android.text.Html.fromHtml(portalModChangelog));
-        } catch (Exception err) {
-            Log.e(TAG, "Exception in refreshTabPages() in portal ", err);
-        }
+                try {
+                    TextView textUpdatesPortal = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_portal_is);
+                    textUpdatesPortal.setText(portalModVersion);
 
-        try {
-            TextView textUpdatesLaser = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_laser_is);
-            textUpdatesLaser.setText(laserModVersion);
+                    TextView textChangelogPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_changelog);
+                    textChangelogPortal.setText(android.text.Html.fromHtml(portalModChangelog));
+                } catch (Exception err) {
+                    Log.e(TAG, "Exception in refreshTabPages() in portal ", err);
+                }
 
-            TextView textChangelogLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_changelog);
-            textChangelogLaser.setText(android.text.Html.fromHtml(laserModChangelog));
-        } catch (Exception err) {
-            Log.e(TAG, "Exception in refreshTabPages() in laser ", err);
-        }
+                try {
+                    TextView textUpdatesLaser = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_laser_is);
+                    textUpdatesLaser.setText(laserModVersion);
 
-        try {
-            TextView textUpdatesTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_turrets_is);
-            textUpdatesTurrets.setText(turretsModVersion);
+                    TextView textChangelogLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_changelog);
+                    textChangelogLaser.setText(android.text.Html.fromHtml(laserModChangelog));
+                } catch (Exception err) {
+                    Log.e(TAG, "Exception in refreshTabPages() in laser ", err);
+                }
 
-            TextView textChangelogTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_changelog);
-            textChangelogTurrets.setText(android.text.Html.fromHtml(turretsModChangelog));
-        } catch (Exception err) {
-            Log.e(TAG, "Exception in refreshTabPages() in turrets ", err);
-        }
+                try {
+                    TextView textUpdatesTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_turrets_is);
+                    textUpdatesTurrets.setText(turretsModVersion);
 
-        try {
-            TextView textUpdatesJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_jukebox_is);
-            textUpdatesJukebox.setText(jukeboxModVersion);
+                    TextView textChangelogTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_changelog);
+                    textChangelogTurrets.setText(android.text.Html.fromHtml(turretsModChangelog));
+                } catch (Exception err) {
+                    Log.e(TAG, "Exception in refreshTabPages() in turrets ", err);
+                }
 
-            TextView textChangelogJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_changelog);
-            textChangelogJukebox.setText(android.text.Html.fromHtml(jukeboxModChangelog));
-        } catch (Exception err) {
-            Log.e(TAG, "Exception in refreshTabPages() in jukebox ", err);
-        }
+                try {
+                    TextView textUpdatesJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_jukebox_is);
+                    textUpdatesJukebox.setText(jukeboxModVersion);
+
+                    TextView textChangelogJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_changelog);
+                    textChangelogJukebox.setText(android.text.Html.fromHtml(jukeboxModChangelog));
+                } catch (Exception err) {
+                    Log.e(TAG, "Exception in refreshTabPages() in jukebox ", err);
+                }
+
+            }
+        });
     }
 
     public void onViewClick(View v) {
