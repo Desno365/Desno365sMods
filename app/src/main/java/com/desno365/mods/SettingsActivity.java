@@ -114,17 +114,19 @@ public class SettingsActivity extends PreferenceActivity {
     private void restartDialog() {
         View mView = View.inflate(this, R.layout.restart_popup_settings, null);
 
-        android.app.AlertDialog.Builder popup = new android.app.AlertDialog.Builder(this);
-        popup.setView(mView);
-        popup.setTitle(getResources().getString(R.string.app_name));
-
-        popup.setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setView(mView);
+        builder.setTitle(getResources().getString(R.string.app_name));
+        builder.setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 MainActivity.myMainActivity.get().finish();
                 System.exit(0);
             }
         });
+        builder.setCancelable(false);
 
+        android.app.AlertDialog popup = builder.create();
+        popup.setCanceledOnTouchOutside(false);
         popup.show();
     }
 

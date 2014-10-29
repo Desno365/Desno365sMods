@@ -3,9 +3,7 @@ package com.desno365.mods;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.GestureDetector;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -80,22 +78,11 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
                 return false;
             }
         });
-        mAttacher.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener() {
+        mAttacher.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
             @Override
-            public boolean onSingleTapConfirmed(MotionEvent e) {
+            public void onPhotoTap(View view, float x, float y) {
                 if (mShowcase.isShown())
                     mShowcase.hide();
-                return false;
-            }
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                if (mShowcase.isShown())
-                    mShowcase.hide();
-                return false;
-            }
-            @Override
-            public boolean onDoubleTapEvent(MotionEvent e) {
-                return false;
             }
         });
 
