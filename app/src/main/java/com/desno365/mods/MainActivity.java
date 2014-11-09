@@ -253,6 +253,12 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 DesnoUtils.changeStartAnimations(activity);
                 return true;
 
+            case R.id.action_feedback:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2275389-app-desno365s-mods-an-app-that-give-you")));
+                DesnoUtils.changeStartAnimations(activity);
+                Toast.makeText(getApplicationContext(), getString(R.string.feedback_toast), Toast.LENGTH_LONG).show();
+                return true;
+
             case R.id.action_rate:
                 final String appPackageName = getPackageName();
                 try {

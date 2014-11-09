@@ -20,16 +20,23 @@
     <item
         android:id="@+id/action_help"
         android:icon="@drawable/help"
-        android:orderInCategory="70"
+        android:orderInCategory="71"
         android:showAsAction="ifRoom"
         android:title="@string/action_help"/>
     
     <item
         android:id="@+id/action_share"
         android:icon="@drawable/share"
-        android:orderInCategory="70"
+        android:orderInCategory="72"
         android:showAsAction="never"
         android:title="@string/action_share"/>
+
+    <item
+        android:id="@+id/action_feedback"
+        android:icon="@drawable/feedback"
+        android:orderInCategory="73"
+        android:showAsAction="never"
+        android:title="@string/action_feedback"/>
     
     <item
         android:id="@+id/action_rate"

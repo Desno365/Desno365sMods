@@ -96,5 +96,7 @@
     <string name="how_to_install_texture_pack_select_texture_pack">Infine premi il pulsante \"Select\" e seleziona la texture pack che hai estratto precedentemente dal file .zip.</string>
     <string name="what_you_need_title">Ciò che serve per usare le mod</string>
     <string name="what_you_need_content">Due app sono necessarie: Minecraft Pocket Edition (la versione completa, la demo non funziona con le mod) e BlockLauncher (la versione gratuita o quella a pagamento, è uguale).</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="feedback_toast">Aiutami a migliorare quest\'app. Fammi sapere cosa ne pensi e se hai dei suggerimenti sul thread di minecraftforum.net</string>
 
 </resources>

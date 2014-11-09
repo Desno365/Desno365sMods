@@ -115,68 +115,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 
             DesnoUtils.readWriteVersionsAndNotify(currentContext, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion);
 
-            /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(currentContext);
-
-            String knownPortalVersion = sharedPrefs.getString("known_portal_version", "r000");
-            String knownLaserVersion = sharedPrefs.getString("known_laser_version", "r000");
-            String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", "r000");
-            String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", "r000");
-
-            Log.d(TAG, "Log: p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion);
-
-            if(latestPortalVersion.equals("") || latestPortalVersion.isEmpty() || latestPortalVersion.equals("Not Found")) {
-                Log.e(TAG, "Something went wrong, not displaying notification for Portal (empty String)");
-            } else {
-                if(!(knownPortalVersion.equals(latestPortalVersion))) {
-                    Log.i(TAG, "Different Portal version, displaying notification");
-
-                    MainActivity.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod1_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 1);
-
-                    SharedPreferences.Editor editor = sharedPrefs.edit();
-                    editor.putString("known_portal_version", latestPortalVersion);
-                    editor.apply();
-                }
-            }
-            if(latestLaserVersion.equals("") || latestLaserVersion.isEmpty() || latestLaserVersion.equals("Not Found")) {
-                Log.e(TAG, "Something went wrong, not displaying notification for Laser (empty String)");
-            } else {
-                if(!(knownLaserVersion.equals(latestLaserVersion))) {
-                    Log.i(TAG, "Different Laser version, displaying notification");
-
-                    MainActivity.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod2_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 2);
-
-                    SharedPreferences.Editor editor = sharedPrefs.edit();
-                    editor.putString("known_laser_version", latestLaserVersion);
-                    editor.apply();
-                }
-            }
-            if(latestTurretsVersion.equals("") || latestTurretsVersion.isEmpty() || latestTurretsVersion.equals("Not Found")) {
-                Log.e(TAG, "Something went wrong, not displaying notification for Turrets (empty String)");
-            } else {
-                if(!(knownTurretsVersion.equals(latestTurretsVersion))) {
-                    Log.i(TAG, "Different Turrets version, displaying notification");
-
-                    MainActivity.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod3_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 3);
-
-                    SharedPreferences.Editor editor = sharedPrefs.edit();
-                    editor.putString("known_turrets_version", latestTurretsVersion);
-                    editor.apply();
-                }
-            }
-            if(latestJukeboxVersion.equals("") || latestJukeboxVersion.isEmpty() || latestJukeboxVersion.equals("Not Found")) {
-                Log.e(TAG, "Something went wrong, not displaying notification for Jukebox (empty String)");
-            } else {
-                if(!(knownJukeboxVersion.equals(latestJukeboxVersion))) {
-                    Log.i(TAG, "Different Jukebox version, displaying notification");
-
-                    MainActivity.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod4_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 4);
-
-                    SharedPreferences.Editor editor = sharedPrefs.edit();
-                    editor.putString("known_jukebox_version", latestJukeboxVersion);
-                    editor.apply();
-                }
-            }*/
-
             /* DEBUG:
 
             Random r = new Random();

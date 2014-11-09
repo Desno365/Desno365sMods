@@ -16,3 +16,7 @@ Used libraries
 [Tooltip](https://github.com/sephiroth74/android-target-tooltip)<br>
 [PhotoView](https://github.com/chrisbanes/PhotoView)<br>
 [ShowcaseView](https://github.com/amlcurran/ShowcaseView)<br>
+
+Used images
+-----------
+[Twitter and Github images](https://github.com/alecive/FlatWoken)<br>
