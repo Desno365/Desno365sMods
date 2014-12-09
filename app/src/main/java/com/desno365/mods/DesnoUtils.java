@@ -98,19 +98,36 @@ public class DesnoUtils {
         mNotificationManager.notify(id, mBuilder.build());
     }
 
-    public static void readWriteVersionsAndNotify(Context currentContext, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion) {
+    public static void readWriteVersionsAndNotify(Context currentContext, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion) {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(currentContext);
 
         String notInitializedStringError = "r000";
 
+        String knownGunsVersion = sharedPrefs.getString("known_guns_version", notInitializedStringError);
         String knownPortalVersion = sharedPrefs.getString("known_portal_version", notInitializedStringError);
         String knownLaserVersion = sharedPrefs.getString("known_laser_version", notInitializedStringError);
         String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", notInitializedStringError);
         String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", notInitializedStringError);
 
-        Log.d(TAG, "Log: p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion);
+        Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion);
 
+        if(latestGunsVersion.equals("") || latestGunsVersion.isEmpty() || latestGunsVersion.equals("Not Found") || latestGunsVersion.equals(errorString)) {
+            Log.e(TAG, "Something went wrong, not displaying notification for Guns (empty String)");
+        } else {
+            if(!(knownGunsVersion.equals(latestGunsVersion))) {
+                if(!(knownGunsVersion.equals(notInitializedStringError))) {
+                    Log.i(TAG, "Different Guns version, displaying notification");
+
+                    DesnoUtils.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod5_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 5);
+                } else
+                    Log.i(TAG, "First time the app access the known guns version.");
+
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.putString("known_guns_version", latestGunsVersion);
+                editor.apply();
+            }
+        }
         if(latestPortalVersion.equals("") || latestPortalVersion.isEmpty() || latestPortalVersion.equals("Not Found") || latestPortalVersion.equals(errorString)) {
             Log.e(TAG, "Something went wrong, not displaying notification for Portal (empty String)");
         } else {
@@ -177,7 +194,7 @@ public class DesnoUtils {
         }
 
         //notification for debug
-        //DesnoUtils.notification(currentContext, "Log: p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion, 51);
+        //DesnoUtils.notification(currentContext, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion, 51);
     }
 
     public static void changeStartAnimations(Activity activity) {

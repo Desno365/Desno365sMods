@@ -36,6 +36,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
     private static final String TAG = "DesnoMods-MainActivity";
 
     public static String newsString = "Use the refresh button to download the news.";
+    public static String gunsModVersion = "Latest version: unknown, please use the refresh button.";
+    public static String gunsModChangelog = "Use the refresh button to download the changelog.";
     public static String portalModVersion = "Latest version: unknown, please use the refresh button.";
     public static String portalModChangelog = "Use the refresh button to download the changelog.";
     public static String laserModVersion = "Latest version: unknown, please use the refresh button.";
@@ -136,7 +138,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        if(position <= 4) {
+        if(position <= 5) {
             if (mAppSectionsPagerAdapter != null) {
                 mViewPager.setCurrentItem(position);
             } else {
@@ -147,15 +149,18 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                         myFragment = new FragmentTab1();
                         break;
                     case 1:
-                        myFragment = new FragmentTab2();
+                        myFragment = new FragmentTab6();
                         break;
                     case 2:
-                        myFragment = new FragmentTab3();
+                        myFragment = new FragmentTab2();
                         break;
                     case 3:
-                        myFragment = new FragmentTab4();
+                        myFragment = new FragmentTab3();
                         break;
                     case 4:
+                        myFragment = new FragmentTab4();
+                        break;
+                    case 5:
                         myFragment = new FragmentTab5();
                         break;
                     default:
@@ -168,7 +173,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                         .commit();
             }
         } else {
-            if(position == 5) {
+            if(position == 6) {
                 new android.os.Handler().postDelayed(new Runnable(){
                     public void run() {
                         startActivity(new Intent(getApplicationContext(), HelpActivity.class));
@@ -176,7 +181,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                     }
                 }, 200);
             }
-            if(position == 6) {
+            if(position == 7) {
                 new android.os.Handler().postDelayed(new Runnable(){
                     public void run() {
                         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
@@ -340,7 +345,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
     //refresh TextViews after the content has been refreshed
     public void refreshTabPages() {
-        runOnUiThread(new Runnable() {
+        myMainActivity.get().runOnUiThread(new Runnable() {
             public void run() {
 
                 try {
@@ -348,6 +353,16 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                     newsText.setText(android.text.Html.fromHtml(newsString));
                 } catch (Exception err) {
                     Log.e(TAG, "Exception in refreshTabPages() in news ", err);
+                }
+
+                try {
+                    TextView textUpdatesGuns = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_guns_is);
+                    textUpdatesGuns.setText(gunsModVersion);
+
+                    TextView textChangelogGuns = (TextView) getWindow().getDecorView().findViewById(R.id.guns_changelog);
+                    textChangelogGuns.setText(android.text.Html.fromHtml(gunsModChangelog));
+                } catch (Exception err) {
+                    Log.e(TAG, "Exception in refreshTabPages() in portal ", err);
                 }
 
                 try {
@@ -397,6 +412,10 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
     public void onViewClick(View v) {
         switch(v.getId()) {
             //minecraftforum.net thread buttons
+            case R.id.minecraft_thread_guns_button:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.missing.yolo")));
+                DesnoUtils.changeStartAnimations(activity);
+                break;
             case R.id.minecraft_thread_portal_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2097326-mod-beta-portal-2-mod-portal-gun-r008-by-desno365")));
                 DesnoUtils.changeStartAnimations(activity);
@@ -415,6 +434,10 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 break;
 
             //download from website buttons
+            case R.id.download_guns_button:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/desnoguns-mod/")));
+                DesnoUtils.changeStartAnimations(activity);
+                break;
             case R.id.download_portal_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/portal2-mod/")));
                 DesnoUtils.changeStartAnimations(activity);
@@ -479,6 +502,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
     public class RetrieveModsUpdates extends AsyncTask<Void, String, Void> {
 
+        private String latestGunsVersion = "";
         private String latestPortalVersion = "";
         private String latestLaserVersion = "";
         private String latestTurretsVersion = "";
@@ -490,12 +514,14 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             setRefreshActionButtonState(true);
 
             if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
+                latestGunsVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/desnogunsMOD-version");
                 latestPortalVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/portalMOD-version");
                 latestLaserVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/laserMOD-version");
                 latestTurretsVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/turretsMOD-version");
                 latestJukeboxVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/jukeboxMOD-version");
 
                 newsString = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/desno365-mods-app/app-news.html");
+                gunsModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/desnoguns-mod/full-changelog/changelog.html");
                 portalModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/portal2-mod/full-changelog/changelog.html");
                 laserModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/laser-mod/full-changelog/changelog.html");
                 turretsModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/turrets-mod/full-changelog/changelog.html");
@@ -514,8 +540,9 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         protected void onPostExecute(Void unused) {
             Log.i(TAG, "onPostExecute now, the AsyncTask finished");
 
-            DesnoUtils.readWriteVersionsAndNotify(getApplicationContext(), latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion);
+            DesnoUtils.readWriteVersionsAndNotify(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion);
 
+            gunsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion;
             portalModVersion = getResources().getString(R.string.latest_version_is) + " " + latestPortalVersion;
             laserModVersion = getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion;
             turretsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion;
@@ -542,12 +569,14 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 case 0:
                     return new FragmentTab1();
                 case 1:
-                    return new FragmentTab2();
+                    return new FragmentTab6();
                 case 2:
-                    return new FragmentTab3();
+                    return new FragmentTab2();
                 case 3:
-                    return new FragmentTab4();
+                    return new FragmentTab3();
                 case 4:
+                    return new FragmentTab4();
+                case 5:
                     return new FragmentTab5();
                 default:
                     return null;
@@ -556,7 +585,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
         @Override
         public int getCount() {
-            return 5;
+            return 6;
         }
 
         @Override
@@ -565,12 +594,14 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 case 0:
                     return myMainActivity.get().getString(R.string.home_title);
                 case 1:
-                    return myMainActivity.get().getString(R.string.mod1_title);
+                    return myMainActivity.get().getString(R.string.mod5_title);
                 case 2:
-                    return myMainActivity.get().getString(R.string.mod2_title);
+                    return myMainActivity.get().getString(R.string.mod1_title);
                 case 3:
-                    return myMainActivity.get().getString(R.string.mod3_title);
+                    return myMainActivity.get().getString(R.string.mod2_title);
                 case 4:
+                    return myMainActivity.get().getString(R.string.mod3_title);
+                case 5:
                     return myMainActivity.get().getString(R.string.mod4_title);
                 default:
                     return "Missing title";

@@ -75,9 +75,13 @@
     <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
 
 
+    //guns 2 page
+    <string name="mod5_title" translatable="false">DesnoGuns Mod</string>
+    <string name="info_content_tab6">Guns. Weapons. Explosions. This is the DesnoGuns Mod! :D</string>
+
     //portal 2 page
     <string name="mod1_title" translatable="false">Portal 2 Mod</string>
-    <string name="info_content_tab2">This mod tries to bring the features of the famous PC game “Portal” in Minecraft Pocket Edition.\nWith this mod you can craft the Portal Gun and then shoot!\nYou can teleport yourself everywhere with these portals.\nThere are five different Portal Guns with different characteristics.\nIn this mod you can find also other items taken from the game “Portal”: GravityGun, Long Fall Boots, Jumpers, Gels. And many other features will come out in future updates.</string>
+    <string name="info_content_tab2">This mod tries to bring the features of the famous PC game “Portal” in Minecraft Pocket Edition.\nWith this mod you can craft the Portal Gun and then shoot!\nYou can teleport yourself everywhere with these portals.\nThere are five different Portal Guns with different characteristics.\nIn this mod you can find also other items taken from the game “Portal”: Long Fall Boots, Jumpers, Gels. And many other features will come out in future updates.</string>
 
     //laser page
     <string name="mod2_title" translatable="false">Laser Mod</string>

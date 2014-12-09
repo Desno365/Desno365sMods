@@ -15,6 +15,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     private static final String TAG = "DesnoMods-AlarmReceiver";
     private static Context currentContext;
 
+    private String latestGunsVersion = "";
     private String latestPortalVersion = "";
     private String latestLaserVersion = "";
     private String latestTurretsVersion = "";
@@ -99,6 +100,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         @Override
         protected Void doInBackground(Void... params) {
             if(DesnoUtils.isNetworkAvailable(currentContext)) {
+                latestGunsVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/desnogunsMOD-version");
                 latestPortalVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/portalMOD-version");
                 latestLaserVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/laserMOD-version");
                 latestTurretsVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/turretsMOD-version");
@@ -113,7 +115,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         protected void onPostExecute(Void unused) {
             Log.i(TAG, "onPostExecute now, the AsyncTask finished");
 
-            DesnoUtils.readWriteVersionsAndNotify(currentContext, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion);
+            DesnoUtils.readWriteVersionsAndNotify(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion);
 
             /* DEBUG:
 
