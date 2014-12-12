@@ -23,7 +23,7 @@ import java.io.InputStreamReader;
 
 public class DesnoUtils {
 
-    private static final String TAG = "DesnoMods-DesnoUtil";
+    private static final String TAG = "DesnoMods-DesnoUtils";
 
     private static final String errorString = "Error";
 

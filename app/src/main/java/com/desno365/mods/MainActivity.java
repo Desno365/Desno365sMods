@@ -413,7 +413,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         switch(v.getId()) {
             //minecraftforum.net thread buttons
             case R.id.minecraft_thread_guns_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.missing.yolo")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2299721-mod-desnoguns-mod-r001-by-desno365")));
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.minecraft_thread_portal_button:
