@@ -25,7 +25,7 @@
     <string name="support_me">\nDo you have an idea on how to improve this app?\nContact me on Twitter!\n\nIf you would like to support me please rate this app 5 stars on the Google Play Store. This will help me to make new fantastic mods! Thanks :)</string>
 
     //titles - general
-    <string name="info_title">Informations</string>
+    <string name="info_title">Information</string>
     <string name="features_title">Features</string>
     <string name="updates_title">Updates</string>
     <string name="changelog_title">Changelog</string>
@@ -85,7 +85,7 @@
 
     //laser page
     <string name="mod2_title" translatable="false">Laser Mod</string>
-    <string name="features_content_tab3">• The laser of the Laser Gun destroys the block that you are looking.\n• The Laser Bazooka shoot a laser bullet that will explode when it touches the ground.\n• The Laser Sniper Rifle shoot a laser bullet that kill almost every mob it hit.\n• Tap the settings icon to open the UI with Informations and Settings for the mod.\n• There are a lot of settings for the weapons, so you can personalize them.\n• You can find the Laser Weapons also in the creative inventory.</string>
+    <string name="features_content_tab3">• The laser of the Laser Gun destroys the block that you are looking.\n• The Laser Bazooka shoot a laser bullet that will explode when it touches the ground.\n• The Laser Sniper Rifle shoot a laser bullet that kill almost every mob it hit.\n• Tap the settings icon to open the UI with Information and Settings for the mod.\n• There are a lot of settings for the weapons, so you can personalize them.\n• You can find the Laser Weapons also in the creative inventory.</string>
 
     //turrets page
     <string name="mod3_title" translatable="false">Turrets Mod</string>
