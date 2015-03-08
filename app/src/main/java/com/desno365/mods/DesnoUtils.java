@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.http.AndroidHttpClient;
@@ -20,6 +21,7 @@ import org.apache.http.entity.BufferedHttpEntity;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Locale;
 
 public class DesnoUtils {
 
@@ -40,6 +42,18 @@ public class DesnoUtils {
             case 2:
                 context.setTheme(R.style.AppThemeHoloDark);
                 break;
+        }
+    }
+
+    public static void setSavedLanguage(Context context) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String language = sharedPrefs.getString("selected_language", "default");
+        if(!language.equals("default")) {
+            Locale locale = new Locale(language);
+            Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
         }
     }
 

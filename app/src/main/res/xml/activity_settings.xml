@@ -12,6 +12,7 @@
 
     </PreferenceCategory>
 
+
     <PreferenceCategory android:title="@string/updates_settings" >
 
         <CheckBoxPreference
@@ -30,6 +31,24 @@
 
     </PreferenceCategory>
 
+
+    <PreferenceCategory android:title="@string/language_settings" >
+
+        <ListPreference
+            android:key="selected_language"
+            android:entries="@array/languages"
+            android:title="@string/language_title"
+            android:summary="@string/language_summary"
+            android:entryValues="@array/languages_values" />
+
+        <Preference android:title="@string/help_translating_title"
+            android:summary="@string/help_translating_summary"
+            android:key="help_translating">
+        </Preference>
+
+    </PreferenceCategory>
+
+
     <PreferenceCategory android:title="@string/customization_settings" >
 
         <ListPreference
@@ -47,6 +66,7 @@
             android:entryValues="@array/animations_values" />
 
     </PreferenceCategory>
+
 
     <PreferenceCategory android:title="@string/help_settings" >
 

@@ -108,11 +108,21 @@
                     android:text="@string/minecraft_thread" />
 
                 <Button
-                    android:id="@+id/download_guns_button"
+                    android:id="@+id/installation_video_guns_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/minecraft_thread_guns_button"
+                    android:layout_marginTop="5dp"
+                    android:onClick="onViewClick"
+                    android:text="@string/installation_video_tutorial" />
+
+                <Button
+                    android:id="@+id/download_guns_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/installation_video_guns_button"
                     android:layout_marginTop="5dp"
                     android:onClick="onViewClick"
                     android:text="@string/download_from_website" />

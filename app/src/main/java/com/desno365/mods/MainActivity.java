@@ -3,7 +3,6 @@ package com.desno365.mods;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -58,6 +57,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
     @SuppressLint("CommitPrefEdits")
     public void onCreate(Bundle savedInstanceState) {
         DesnoUtils.setSavedTheme(this);
+        DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -120,13 +120,13 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             editor.commit();
             editor.putBoolean("is_first_launch", false);
             editor.putBoolean("notification_bool", true);
-            editor.putString("sync_frequency", "12");
+            editor.putString("sync_frequency", "4");
             editor.putString("selected_theme", "0");
+            editor.putString("selected_language", "default");
             editor.putString("selected_animations", "0");
             editor.putBoolean("user_understood_full_resolution_help", false);
             editor.apply();
             Log.i(TAG, "First launch");
-            infoAlertDialog();
         }
 
         //load alarmManager for notifications
@@ -242,7 +242,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 return true;
 
             case R.id.action_info:
-                infoAlertDialog();
+                startActivity(new Intent(this, AboutActivity.class));
+                DesnoUtils.changeStartAnimations(activity);
                 return true;
 
             case R.id.action_help:
@@ -309,41 +310,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         return super.onMenuOpened(featureId, menu);
     }
 
-    //alert dialog displayed when pressing the info button in action bar
-    private void infoAlertDialog() {
-
-        View mView = View.inflate(this, R.layout.actionbar_informations, null);
-
-        android.app.AlertDialog.Builder popup = new android.app.AlertDialog.Builder(this);
-        popup.setView(mView);
-        popup.setTitle(getResources().getString(R.string.action_info));
-
-        popup.setPositiveButton(getResources().getString(R.string.take_me_play_store), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                final String appPackageName = getPackageName();
-                try {
-                    //play store installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                    DesnoUtils.changeStartAnimations(activity);
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    //play store not installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                    DesnoUtils.changeStartAnimations(activity);
-                }
-            }
-        });
-
-        popup.setNegativeButton(getResources().getString(R.string.close_dialog), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // do nothing
-            }
-        });
-
-
-        popup.show();
-    }
-
-    //refresh TextViews after the content has been refreshed
+    // refresh TextViews after the content has been refreshed
     public void refreshTabPages() {
         myMainActivity.get().runOnUiThread(new Runnable() {
             public void run() {
@@ -411,7 +378,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
     public void onViewClick(View v) {
         switch(v.getId()) {
-            //minecraftforum.net thread buttons
+            // minecraftforum.net thread buttons
             case R.id.minecraft_thread_guns_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2299721-mod-desnoguns-mod-r001-by-desno365")));
                 DesnoUtils.changeStartAnimations(activity);
@@ -433,7 +400,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 DesnoUtils.changeStartAnimations(activity);
                 break;
 
-            //download from website buttons
+            // download from website buttons
             case R.id.download_guns_button:
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/desnoguns-mod/")));
                 DesnoUtils.changeStartAnimations(activity);
@@ -455,19 +422,13 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 DesnoUtils.changeStartAnimations(activity);
                 break;
 
-            //twitter image and text
-            case R.id.twitter_image:case R.id.twitter_text:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/desno365")));
+            // installation video tutorial button
+            case R.id.installation_video_guns_button:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://youtu.be/uO72AmNn0u8")));
                 DesnoUtils.changeStartAnimations(activity);
                 break;
 
-            //github image and text
-            case R.id.github_image:case R.id.github_text:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Desno365/Desno365sMods")));
-                DesnoUtils.changeStartAnimations(activity);
-                break;
-
-            //start help activity
+            // start help activity
             case R.id.start_help_activity:
                 startActivity(new Intent(this, HelpActivity.class));
                 DesnoUtils.changeStartAnimations(activity);

@@ -8,11 +8,12 @@
         <item name="h72">Every 3 days</item>
     </string-array>
     <string-array name="sync_frequency_values">
-        <item name="h4">4</item>
-        <item name="h12">12</item>
-        <item name="h24">24</item>
-        <item name="h72">72</item>
+        <item name="h4" translatable="false">4</item>
+        <item name="h12" translatable="false">12</item>
+        <item name="h24" translatable="false">24</item>
+        <item name="h72" translatable="false">72</item>
     </string-array>
+
 
     <string-array name="themes">
         <item name="light">Light</item>
@@ -20,10 +21,11 @@
         <item name="dark">Dark</item>
     </string-array>
     <string-array name="themes_values">
-        <item name="light">0</item>
-        <item name="dark_actionbar">1</item>
-        <item name="dark">2</item>
+        <item name="light" translatable="false">0</item>
+        <item name="dark_actionbar" translatable="false">1</item>
+        <item name="dark" translatable="false">2</item>
     </string-array>
+
 
     <string-array name="animations">
         <item name="default">Default</item>
@@ -32,10 +34,31 @@
         <item name="book">Open/close page like a book</item>
     </string-array>
     <string-array name="animations_values">
-        <item name="default">0</item>
-        <item name="up_down">1</item>
-        <item name="corner">2</item>
-        <item name="book">3</item>
+        <item name="default" translatable="false">0</item>
+        <item name="up_down" translatable="false">1</item>
+        <item name="corner" translatable="false">2</item>
+        <item name="book" translatable="false">3</item>
+    </string-array>
+
+
+    <string-array name="languages">
+        <item name="default" translatable="false">Default</item>
+        <item name="dutch" translatable="false">Dutch</item>
+        <item name="english" translatable="false">English</item>
+        <item name="german" translatable="false">German</item>
+        <item name="italian" translatable="false">Italian</item>
+        <item name="korean" translatable="false">Korean</item>
+        <item name="spanish" translatable="false">Spanish</item>
+
+    </string-array>
+    <string-array name="languages_values">
+        <item name="default" translatable="false">default</item>
+        <item name="dutch" translatable="false">nl</item>
+        <item name="english" translatable="false">en</item>
+        <item name="german" translatable="false">de</item>
+        <item name="italian" translatable="false">it</item>
+        <item name="korean" translatable="false">ko</item>
+        <item name="spanish" translatable="false">es</item>
     </string-array>
 
 </resources>

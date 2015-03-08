@@ -22,6 +22,7 @@ public class HelpActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         DesnoUtils.setSavedTheme(this);
+        DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 

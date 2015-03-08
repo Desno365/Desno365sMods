@@ -4,25 +4,31 @@
     //app name
     <string name="app_name" translatable="false">Desno365\'s Mods</string>
 
-    //menu items (3 dots menu)
+    //menu items (that are without many other translations inside their pages)
     <string name="action_refresh">Refresh</string>
-    <string name="action_info">About</string>
     <string name="action_help">Help</string>
     <string name="action_share">Share</string>
     <string name="share_using">Share using&#8230;</string>
-    <string name="share_body">I\'m using the \"Desno365\'s Mods\" app to download and use some incredible Minecraft Pocket Edition Mods! Check it out http://bit.ly/DesnoMods </string>
+    <string name="share_body">I\'m using the \"Desno365\'s Mods\" app to download and use some incredible Minecraft Pocket Edition Mods! Check it out http://bit.ly/DesnoMods</string>
     <string name="action_feedback">Feedback</string>
     <string name="feedback_toast">Tell me what you think of this app on the minecraftforum.net thread</string>
     <string name="action_rate">Rate this app</string>
     <string name="action_settings">Settings</string>
-
-    //about alert dialog
-    <string name="take_me_play_store">Take me to Play Store</string>
     <string name="close_dialog">Close</string>
+
+
+    //about activity
+    <string name="action_info">About</string>
     <string name="made_by">This App was made with Love by Desno365</string>
     <string name="follow_me">Follow me on Twitter</string>
     <string name="source_code">Get the source code of this app</string>
     <string name="support_me">\nDo you have an idea on how to improve this app?\nContact me on Twitter!\n\nIf you would like to support me please rate this app 5 stars on the Google Play Store. This will help me to make new fantastic mods! Thanks :)</string>
+    <string name="take_me_play_store">Take me to Play Store</string>
+    <string name="contributors_title">Contributors</string>
+    <string name="contributors_content">A big thanks to all the people who contributed to the project, by translating it or by helping me! Here the list of the people who contributed: http://desno365.github.io/minecraft/desno365-mods-app/credits/</string>
+    <string name="used_libraries_title">Used libraries and images</string>
+    <string name="used_libraries_content" translatable="false">PagerSlidingTabStrip https://github.com/astuetz/PagerSlidingTabStrip\nTooltip https://github.com/sephiroth74/android-target-tooltip\nPhotoView https://github.com/chrisbanes/PhotoView\nShowcaseView https://github.com/amlcurran/ShowcaseView\nFlatWoken icons https://github.com/alecive/FlatWoken</string>
+
 
     //titles - general
     <string name="info_title">Information</string>
@@ -36,11 +42,10 @@
     <string name="internet_error">There was an error while checking for updates, please check your internet connection.</string>
     <string name="show_changelog">Show all the changelog&#8230;</string>
     <string name="hide_changelog">Hide the changelog&#8230;</string>
-    <string name="download_from_website">Download this mod from Desno\'s website</string>
     <string name="minecraft_thread">minecraftforum.net thread</string>
-    <string name="click_image_to_view">Click any image in this page to view it in full resolution.</string>
-    <string name="zoom_image_showcase_title">Image zoom</string>
-    <string name="zoom_image_showcase_content">Pinch or double tap the screen to zoom the image</string>
+    <string name="installation_video_tutorial">Watch the installation video tutorial</string>
+    <string name="download_from_website">Download this mod from Desno\'s website</string>
+
 
     //home page
     <string name="home_title" translatable="false">Home</string>
@@ -52,15 +57,21 @@
     <string name="need_help_title">Need help?</string>
     <string name="help_button">Take me to the help page</string>
 
+
     //help page
+    <string name="click_image_to_view">Click any image in this page to view it in full resolution.</string>
+
+    <string name="zoom_image_showcase_title">Image zoom</string>
+    <string name="zoom_image_showcase_content">Pinch or double tap the screen to zoom the image</string>
+
     <string name="what_you_need_title">What you need to use mods</string>
     <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition (the full version, the demo doesn\'t work with mods) and BlockLauncher (the free version or the pro version).</string>
     <string name="get_it_store">Get it on the Play Store</string>
-    <string name="get_one_store">Get one on the Play Store</string>
 
     <string name="how_to_prepare_mods_title">How to prepare mods</string>
     <string name="how_to_prepare_mods_download">First download the mod that you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button to go to the website where you can download the mod, remember to read carefully the \"Instructions\" section in the website (mods have a different installation method).</string>
     <string name="how_to_prepare_mods_file_manager">Usually mods are inside a zip file so you will need a File Manager to extract it (there are a lot of file managers available on the Google Play Store).</string>
+    <string name="get_one_store">Get one on the Play Store</string>
     <string name="how_to_prepare_mods_extract">Extracting is really easy: you have to go to the \"Download\" folder with your file manager, click the .zip file that contains everything you need to use the mod (usually the icon of the .zip file is an archive) and then extract it.</string>
     <string name="how_to_prepare_mods_after_extraction">This is an example of the Portal 2 Mod zip file after extraction:</string>
 
@@ -75,7 +86,7 @@
     <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
 
 
-    //guns 2 page
+    //guns page
     <string name="mod5_title" translatable="false">DesnoGuns Mod</string>
     <string name="info_content_tab6">Guns. Weapons. Explosions. This is the DesnoGuns Mod! :D</string>
 
@@ -93,7 +104,7 @@
 
     //jukebox page
     <string name="mod4_title" translatable="false">Jukebox Mod</string>
-    <string name="features_content_tab5">• There are twelve different discs with twelve different songs (songs are ported from Minecraft PC).\n• Tap the jukebox with a disc and it will start playing the choosed song.\n• Greater the distance between you and the Jukebox, lower the volume of it.\n• Support multiple jukeboxes that play simultaneously.\n• There is a random chance of finding a disc every 30 kills of hostile mobs.\n• Tap the Jukebox to eject the disc. When the song ends the disc will be ejected automatically.\n• The Jukebox block and the discs are also in the creative inventory.\n• The crafting recipes of the Jukebox are the same of the PC version.</string>
+    <string name="features_content_tab5">• There are twelve different discs with twelve different songs (songs are ported from Minecraft PC).\n• Tap the jukebox with a disc and it will start playing the chosen song.\n• Greater the distance between you and the Jukebox, lower the volume of it.\n• Support multiple jukeboxes that play simultaneously.\n• There is a random chance of finding a disc every 30 kills of hostile mobs.\n• Tap the Jukebox to eject the disc. When the song ends the disc will be ejected automatically.\n• The Jukebox block and the discs are also in the creative inventory.\n• The crafting recipes of the Jukebox are the same of the PC version.</string>
 
     //settings
     <string name="connection_settings">Connection</string>
@@ -106,6 +117,13 @@
     <string name="pref_sync_frequency_title">Check for updates frequency</string>
     <string name="pref_sync_frequency_summary">Set the frequency for checking mods updates</string>
 
+    <string name="language_settings">Language</string>
+    <string name="language_title">Set language</string>
+    <string name="language_summary">Select app\'s language</string>
+    <string name="restart_text_language_popup">The app needs to be restarted for the language change to be activated.</string>
+    <string name="help_translating_title">Help translating</string>
+    <string name="help_translating_summary">Collaborate to this project and help translating the app</string>
+
     <string name="customization_settings">Customization</string>
     <string name="themes_title">Theme</string>
     <string name="themes_summary">Select app\'s theme</string>
@@ -115,7 +133,7 @@
 
     <string name="help_settings">Tips and help</string>
     <string name="restore_tips_title">Restore suggestions</string>
-    <string name="restore_tips_summary">Restore tips and suggestions in the Help page.</string>
+    <string name="restore_tips_summary">Restore tips and suggestions in the Help page</string>
     <string name="restored_toast">Tips and suggestions restored.</string>
 
     //notifications

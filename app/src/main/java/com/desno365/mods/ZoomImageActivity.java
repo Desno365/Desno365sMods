@@ -23,6 +23,7 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppThemeHoloDark);
+        DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zoom_image);
 

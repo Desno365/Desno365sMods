@@ -5,7 +5,9 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -21,44 +23,75 @@ public class SettingsActivity extends PreferenceActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         DesnoUtils.setSavedTheme(this);
+        DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.activity_settings);
 
         activity = this;
 
         SharedPreferences sharedPrefs = getPreferenceScreen().getSharedPreferences();
+        final Preference notificationPreference = findPreference("notification_bool");
         final Preference frequencyPreference = findPreference("sync_frequency");
+        final Preference languagePreference = findPreference("selected_language");
+        final Preference themePreference = findPreference("selected_theme");
 
+
+        // enable or disable alarm if the user want or not notifications
+        notificationPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+                if (preference.getSharedPreferences().getBoolean("notification_bool", true))
+                    frequencyPreference.setEnabled(true);
+                else
+                    frequencyPreference.setEnabled(false);
+
+                // change alarmManager for notifications
+                AlarmReceiver aR = new AlarmReceiver();
+                aR.cancelAlarm(getApplicationContext());
+                aR.setAlarm(getApplicationContext());
+
+                return true;
+            }
+        });
+
+
+        // enable or disable frequency preference at start
         if(sharedPrefs.getBoolean("notification_bool", true))
             frequencyPreference.setEnabled(true);
         else
             frequencyPreference.setEnabled(false);
 
-        sharedPrefs.registerOnSharedPreferenceChangeListener(new android.content.SharedPreferences.OnSharedPreferenceChangeListener() {
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if (key.equals("notification_bool")) {
-                    if (sharedPreferences.getBoolean("notification_bool", true))
-                        frequencyPreference.setEnabled(true);
-                    else
-                        frequencyPreference.setEnabled(false);
-                    //load alarmManager for notifications
-                    AlarmReceiver aR = new AlarmReceiver();
-                    aR.cancelAlarm(getApplicationContext());
-                    aR.setAlarm(getApplicationContext());
-                }
+        // change alarm when frequency preference has been changed
+        frequencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-                if (key.equals("sync_frequency")) {
-                    //load alarmManager for notifications
-                    AlarmReceiver aR = new AlarmReceiver();
-                    aR.cancelAlarm(getApplicationContext());
-                    aR.setAlarm(getApplicationContext());
-                }
+                // change alarmManager for notifications
+                AlarmReceiver aR = new AlarmReceiver();
+                aR.cancelAlarm(getApplicationContext());
+                aR.setAlarm(getApplicationContext());
 
-                if (key.equals("selected_theme")) {
-                    restartDialog();
-                }
+                return true;
             }
         });
+
+
+        // open popup when language preference is changed
+        languagePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                restartDialogLanguage();
+                return true;
+            }
+        });
+
+
+        // open popup when theme preference is changed
+        themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                restartDialogTheme();
+                return true;
+            }
+        });
+
 
         @SuppressLint("AppCompatMethod")
         ActionBar actionBar = this.getActionBar();
@@ -71,8 +104,20 @@ public class SettingsActivity extends PreferenceActivity {
         //when clicking the icon return to the parent activity (specified in AndroidManifest.xml) and display arrow
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        Preference myPref = findPreference("restore_tips");
-        myPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+        // help translating preference
+        Preference myPref1 = findPreference("help_translating");
+        myPref1.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://crowdin.com/project/desno365s-mods")));
+                DesnoUtils.changeStartAnimations(activity);
+                return false;
+            }
+        });
+
+        // restore suggestions preference
+        Preference myPref2 = findPreference("restore_tips");
+        myPref2.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 // restore tooltip
@@ -89,7 +134,6 @@ public class SettingsActivity extends PreferenceActivity {
                 return false;
             }
         });
-
 	}
 
     @Override
@@ -111,8 +155,27 @@ public class SettingsActivity extends PreferenceActivity {
         DesnoUtils.changeFinishAnimations(activity);
     }
 
-    private void restartDialog() {
-        View mView = View.inflate(this, R.layout.restart_popup_settings, null);
+    private void restartDialogTheme() {
+        View mView = View.inflate(this, R.layout.restart_popup_theme_settings, null);
+
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setView(mView);
+        builder.setTitle(getResources().getString(R.string.app_name));
+        builder.setNeutralButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                MainActivity.myMainActivity.get().finish();
+                System.exit(0);
+            }
+        });
+        builder.setCancelable(false);
+
+        android.app.AlertDialog popup = builder.create();
+        popup.setCanceledOnTouchOutside(false);
+        popup.show();
+    }
+
+    private void restartDialogLanguage() {
+        View mView = View.inflate(this, R.layout.restart_popup_language_settings, null);
 
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
         builder.setView(mView);
