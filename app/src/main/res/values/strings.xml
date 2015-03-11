@@ -120,7 +120,7 @@
     <string name="language_settings">Language</string>
     <string name="language_title">Set language</string>
     <string name="language_summary">Select app\'s language</string>
-    <string name="restart_text_language_popup">The app needs to be restarted for the language change to be activated.</string>
+    <string name="restart_text_language_popup">The app needs to be restarted for the language change to be activated.\n\nWARNING: Custom languages may not be accurate.</string>
     <string name="help_translating_title">Help translating</string>
     <string name="help_translating_summary">Collaborate to this project and help translating the app</string>
 

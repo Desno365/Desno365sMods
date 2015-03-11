@@ -37,7 +37,6 @@
   </string-array>
   <string-array name="languages">
     <item name="default" translatable="false">Default</item>
-    <item name="arabic" translatable="false">Arabic</item>
     <item name="dutch" translatable="false">Dutch</item>
     <item name="english" translatable="false">English</item>
     <item name="german" translatable="false">German</item>
@@ -47,7 +46,6 @@
   </string-array>
   <string-array name="languages_values">
     <item name="default" translatable="false">default</item>
-    <item name="arabic" translatable="false">ar</item>
     <item name="dutch" translatable="false">nl</item>
     <item name="english" translatable="false">en</item>
     <item name="german" translatable="false">de</item>

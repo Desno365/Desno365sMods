@@ -122,7 +122,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             editor.putBoolean("notification_bool", true);
             editor.putString("sync_frequency", "4");
             editor.putString("selected_theme", "0");
-            editor.putString("selected_language", "default");
+            editor.putString("selected_language", "not_changed");
             editor.putString("selected_animations", "0");
             editor.putBoolean("user_understood_full_resolution_help", false);
             editor.apply();
