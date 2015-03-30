@@ -114,7 +114,7 @@
                     android:layout_below="@id/minecraft_thread_portal_button"
                     android:layout_marginTop="5dp"
                     android:onClick="onViewClick"
-                    android:text="@string/download_from_website" />
+                    android:text="@string/download_mod_from_website" />
 
             </RelativeLayout>
 

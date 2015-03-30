@@ -19,6 +19,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.desno365.mods.Activities.MainActivity;
+
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -82,6 +84,7 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.mod2_title),
                         getString(R.string.mod3_title),
                         getString(R.string.mod4_title),
+                        getString(R.string.mod6_title),
                         getString(R.string.action_help),
                         getString(R.string.action_settings),
                 }) {

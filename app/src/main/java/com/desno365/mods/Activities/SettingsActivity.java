@@ -1,4 +1,4 @@
-package com.desno365.mods;
+package com.desno365.mods.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -15,6 +15,11 @@ import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.desno365.mods.Receivers.AlarmReceiver;
+import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.Keys;
+import com.desno365.mods.R;
 
 public class SettingsActivity extends PreferenceActivity {
 
@@ -109,7 +114,7 @@ public class SettingsActivity extends PreferenceActivity {
         myPref1.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://crowdin.com/project/desno365s-mods")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_TRANSLATIONS)));
                 DesnoUtils.changeStartAnimations(activity);
                 return false;
             }

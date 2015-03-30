@@ -1,4 +1,4 @@
-package com.desno365.mods;
+package com.desno365.mods.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -24,6 +24,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.Keys;
+import com.desno365.mods.Mods.DesnoGuns;
+import com.desno365.mods.Mods.Jukebox;
+import com.desno365.mods.Mods.Laser;
+import com.desno365.mods.Mods.Portal;
+import com.desno365.mods.Mods.Turrets;
+import com.desno365.mods.Mods.Unreal;
+import com.desno365.mods.NavigationDrawerFragment;
+import com.desno365.mods.R;
+import com.desno365.mods.Receivers.AlarmReceiver;
+import com.desno365.mods.Tabs.FragmentTab1;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
@@ -45,6 +57,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
     public static String turretsModChangelog = "Use the refresh button to download the changelog.";
     public static String jukeboxModVersion = "Latest version: unknown, please use the refresh button.";
     public static String jukeboxModChangelog = "Use the refresh button to download the changelog.";
+    public static String unrealMapVersion = "Latest version: unknown, please use the refresh button.";
+    public static String unrealMapChangelog = "Use the refresh button to download the changelog.";
 
     private Menu optionsMenu;
     private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
@@ -138,7 +152,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        if(position <= 5) {
+        if(position <= 6) {
             if (mAppSectionsPagerAdapter != null) {
                 mViewPager.setCurrentItem(position);
             } else {
@@ -149,19 +163,22 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                         myFragment = new FragmentTab1();
                         break;
                     case 1:
-                        myFragment = new FragmentTab6();
+                        myFragment = DesnoGuns.getFragmentTab();
                         break;
                     case 2:
-                        myFragment = new FragmentTab2();
+                        myFragment = Portal.getFragmentTab();
                         break;
                     case 3:
-                        myFragment = new FragmentTab3();
+                        myFragment = Laser.getFragmentTab();
                         break;
                     case 4:
-                        myFragment = new FragmentTab4();
+                        myFragment = Turrets.getFragmentTab();
                         break;
                     case 5:
-                        myFragment = new FragmentTab5();
+                        myFragment = Jukebox.getFragmentTab();
+                        break;
+                    case 6:
+                        myFragment = Unreal.getFragmentTab();
                         break;
                     default:
                         myFragment = new FragmentTab1();
@@ -173,7 +190,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                         .commit();
             }
         } else {
-            if(position == 6) {
+
+            if(position == 7) {
                 new android.os.Handler().postDelayed(new Runnable(){
                     public void run() {
                         startActivity(new Intent(getApplicationContext(), HelpActivity.class));
@@ -181,7 +199,8 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                     }
                 }, 200);
             }
-            if(position == 7) {
+
+            if(position == 8) {
                 new android.os.Handler().postDelayed(new Runnable(){
                     public void run() {
                         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
@@ -189,6 +208,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                     }
                 }, 200);
             }
+
         }
     }
 
@@ -260,7 +280,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 return true;
 
             case R.id.action_feedback:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2275389-app-desno365s-mods-an-app-that-give-you")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_THREAD)));
                 DesnoUtils.changeStartAnimations(activity);
                 Toast.makeText(getApplicationContext(), getString(R.string.feedback_toast), Toast.LENGTH_LONG).show();
                 return true;
@@ -372,6 +392,15 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                     Log.e(TAG, "Exception in refreshTabPages() in jukebox ", err);
                 }
 
+                try {
+                    TextView textUpdatesUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_unreal_is);
+                    textUpdatesUnreal.setText(unrealMapVersion);
+
+                    TextView textChangelogUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_changelog);
+                    textChangelogUnreal.setText(android.text.Html.fromHtml(unrealMapChangelog));
+                } catch (Exception err) {
+                    Log.e(TAG, "Exception in refreshTabPages() in unreal ", err);
+                }
             }
         });
     }
@@ -380,51 +409,59 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         switch(v.getId()) {
             // minecraftforum.net thread buttons
             case R.id.minecraft_thread_guns_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2299721-mod-desnoguns-mod-r001-by-desno365")));
+                startActivity(new DesnoGuns().getVisitThreadIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.minecraft_thread_portal_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2097326-mod-beta-portal-2-mod-portal-gun-r008-by-desno365")));
+                startActivity(new Portal().getVisitThreadIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.minecraft_thread_laser_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2179257-mod-beta-laser-mod-laser-weapons-r003-by-desno365")));
+                startActivity(new Laser().getVisitThreadIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.minecraft_thread_turrets_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2201372-mod-beta-turrets-mod-kill-mobs-automatically-r001")));
+                startActivity(new Turrets().getVisitThreadIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.minecraft_thread_jukebox_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2173829-mod-jukebox-mod-pc-porting-r002-by-desno365")));
+                startActivity(new Jukebox().getVisitThreadIntent());
+                DesnoUtils.changeStartAnimations(activity);
+                break;
+            case R.id.minecraft_thread_unreal_button:
+                startActivity(new Unreal().getVisitThreadIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
 
             // download from website buttons
             case R.id.download_guns_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/desnoguns-mod/")));
+                startActivity(new DesnoGuns().getDownloadFromWebsiteIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.download_portal_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/portal2-mod/")));
+                startActivity(new Portal().getDownloadFromWebsiteIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.download_laser_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/laser-mod")));
+                startActivity(new Laser().getDownloadFromWebsiteIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.download_turrets_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/turrets-mod")));
+                startActivity(new Turrets().getDownloadFromWebsiteIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
             case R.id.download_jukebox_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://desno365.github.io/minecraft/jukebox-mod")));
+                startActivity(new Jukebox().getDownloadFromWebsiteIntent());
+                DesnoUtils.changeStartAnimations(activity);
+                break;
+            case R.id.download_unreal_button:
+                startActivity(new Unreal().getDownloadFromWebsiteIntent());
                 DesnoUtils.changeStartAnimations(activity);
                 break;
 
             // installation video tutorial button
             case R.id.installation_video_guns_button:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://youtu.be/uO72AmNn0u8")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_DESNOGUNS_VIDEO_TUTORIAL)));
                 DesnoUtils.changeStartAnimations(activity);
                 break;
 
@@ -468,6 +505,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         private String latestLaserVersion = "";
         private String latestTurretsVersion = "";
         private String latestJukeboxVersion = "";
+        private String latestUnrealVersion = "";
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -475,18 +513,20 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             setRefreshActionButtonState(true);
 
             if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
-                latestGunsVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/desnogunsMOD-version");
-                latestPortalVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/portalMOD-version");
-                latestLaserVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/laserMOD-version");
-                latestTurretsVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/turretsMOD-version");
-                latestJukeboxVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/jukeboxMOD-version");
+                latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
+                latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
+                latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
+                latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
+                latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
+                latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
 
-                newsString = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/desno365-mods-app/app-news.html");
-                gunsModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/desnoguns-mod/full-changelog/changelog.html");
-                portalModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/portal2-mod/full-changelog/changelog.html");
-                laserModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/laser-mod/full-changelog/changelog.html");
-                turretsModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/turrets-mod/full-changelog/changelog.html");
-                jukeboxModChangelog = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/jukebox-mod/full-changelog/changelog.html");
+                newsString = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS);
+                gunsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_CHANGELOG);
+                portalModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_CHANGELOG);
+                laserModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_CHANGELOG);
+                turretsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_CHANGELOG);
+                jukeboxModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_CHANGELOG);
+                unrealMapChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_CHANGELOG);
             } else {
                 runOnUiThread(new Runnable() {
                     public void run() {
@@ -501,13 +541,14 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         protected void onPostExecute(Void unused) {
             Log.i(TAG, "onPostExecute now, the AsyncTask finished");
 
-            DesnoUtils.readWriteVersionsAndNotify(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion);
+            DesnoUtils.notifyForNewUpdates(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
 
             gunsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion;
             portalModVersion = getResources().getString(R.string.latest_version_is) + " " + latestPortalVersion;
             laserModVersion = getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion;
             turretsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion;
             jukeboxModVersion = getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion;
+            unrealMapVersion = getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion;
             refreshTabPages();
             setRefreshActionButtonState(false);
         }
@@ -530,15 +571,17 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 case 0:
                     return new FragmentTab1();
                 case 1:
-                    return new FragmentTab6();
+                    return DesnoGuns.getFragmentTab();
                 case 2:
-                    return new FragmentTab2();
+                    return Portal.getFragmentTab();
                 case 3:
-                    return new FragmentTab3();
+                    return Laser.getFragmentTab();
                 case 4:
-                    return new FragmentTab4();
+                    return Turrets.getFragmentTab();
                 case 5:
-                    return new FragmentTab5();
+                    return Jukebox.getFragmentTab();
+                case 6:
+                    return Unreal.getFragmentTab();
                 default:
                     return null;
             }
@@ -546,7 +589,7 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
         @Override
         public int getCount() {
-            return 6;
+            return 7;
         }
 
         @Override
@@ -555,15 +598,17 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
                 case 0:
                     return myMainActivity.get().getString(R.string.home_title);
                 case 1:
-                    return myMainActivity.get().getString(R.string.mod5_title);
+                    return new DesnoGuns().getName(myMainActivity.get());
                 case 2:
-                    return myMainActivity.get().getString(R.string.mod1_title);
+                    return new Portal().getName(myMainActivity.get());
                 case 3:
-                    return myMainActivity.get().getString(R.string.mod2_title);
+                    return new Laser().getName(myMainActivity.get());
                 case 4:
-                    return myMainActivity.get().getString(R.string.mod3_title);
+                    return new Turrets().getName(myMainActivity.get());
                 case 5:
-                    return myMainActivity.get().getString(R.string.mod4_title);
+                    return new Jukebox().getName(myMainActivity.get());
+                case 6:
+                    return new Unreal().getName(myMainActivity.get());
                 default:
                     return "Missing title";
             }

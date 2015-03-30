@@ -15,6 +15,15 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 
+import com.desno365.mods.Activities.MainActivity;
+import com.desno365.mods.Mods.DesnoGuns;
+import com.desno365.mods.Mods.Jukebox;
+import com.desno365.mods.Mods.Laser;
+import com.desno365.mods.Mods.Mod;
+import com.desno365.mods.Mods.Portal;
+import com.desno365.mods.Mods.Turrets;
+import com.desno365.mods.Mods.Unreal;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.BufferedHttpEntity;
 
@@ -28,6 +37,8 @@ public class DesnoUtils {
     private static final String TAG = "DesnoMods-DesnoUtils";
 
     private static final String errorString = "Error";
+
+    private static final String notInitializedStringError = "r000";
 
     public static void setSavedTheme(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -76,6 +87,7 @@ public class DesnoUtils {
 
     public static String getTextFromUrl(String url) {
         try {
+
             AndroidHttpClient httpClient = AndroidHttpClient.newInstance("Mozilla/5.0");
             HttpEntity myHttpEntity = httpClient.execute(new org.apache.http.client.methods.HttpGet(url)).getEntity();
             BufferedHttpEntity myBufferedEntity = new BufferedHttpEntity(myHttpEntity);
@@ -98,128 +110,156 @@ public class DesnoUtils {
         }
     }
 
-    public static void notification(Context currentContext, String content, int id) {
+    public static void generalNotification(Context context, String title, String content, int id) {
 
-        Intent notificationIntent = new Intent(currentContext, MainActivity.class);
+        Intent notificationIntent = new Intent(context, MainActivity.class);
 
         // The stack builder object will contain an artificial back stack for the started Activity.
         // This ensures that navigating backward from the Activity leads out of your application to the Home screen.
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(currentContext);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         // Adds the back stack for the Intent (but not the Intent itself)
         stackBuilder.addParentStack(MainActivity.class);
         // Adds the Intent that starts the Activity to the top of the stack
         stackBuilder.addNextIntent(notificationIntent);
         PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        //notification
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(currentContext)
-                        .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(currentContext.getString(R.string.notification_new_version_title))
-                        .setContentText(content)
-                        .setContentIntent(resultPendingIntent);
+        // notification
+        NotificationCompat.Builder noti = new NotificationCompat.Builder(context);
+        noti.setSmallIcon(R.drawable.ic_launcher);
+        noti.setContentTitle(title);
+        noti.setContentText(content);
+        noti.setContentIntent(resultPendingIntent);
+        noti.setAutoCancel(true);
+        noti.setStyle(new NotificationCompat.BigTextStyle().bigText(content));
 
-        NotificationManager mNotificationManager = (NotificationManager) currentContext.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(id, mBuilder.build());
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(id, noti.build());
+
     }
 
-    public static void readWriteVersionsAndNotify(Context currentContext, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion) {
+    public static void notificationForNewVersion(Context context, Mod mod) {
 
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(currentContext);
+        // content
+        String contentText = context.getString(R.string.notification_new_version_content1) + " " + mod.getName(context) + " " + context.getString(R.string.notification_new_version_content2);
 
-        String notInitializedStringError = "r000";
+
+        // main click of the notification = launches MainActivity
+        Intent mainClickIntent = new Intent(context, MainActivity.class);
+        // The stack builder object will contain an artificial back stack for the started Activity.
+        // This ensures that navigating backward from the Activity leads out of your application to the Home screen.
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+        // Adds the back stack for the Intent (but not the Intent itself)
+        stackBuilder.addParentStack(MainActivity.class);
+        // Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(mainClickIntent);
+        PendingIntent mainClickPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+        // download button of notification = go to the website where the download is available
+        Intent downloadClickIntent = mod.getDownloadFromWebsiteIntent();
+        // Because clicking the notification launches a new ("special") activity,
+        // there's no need to create an artificial back stack.
+        PendingIntent downloadClickPendingIntent = PendingIntent.getActivity(context, 0, downloadClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+        // thread button of notification = go to the minecraftforum.net thread
+        Intent threadClickIntent = mod.getDownloadFromWebsiteIntent();
+        // Because clicking the notification launches a new ("special") activity,
+        // there's no need to create an artificial back stack.
+        PendingIntent threadClickPendingIntent = PendingIntent.getActivity(context, 0, threadClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // notification
+        NotificationCompat.Builder noti = new NotificationCompat.Builder(context);
+        noti.setSmallIcon(R.drawable.ic_launcher);
+        noti.setContentTitle(context.getString(R.string.notification_new_version_title));
+        noti.setContentText(contentText);
+        noti.setContentIntent(mainClickPendingIntent);
+        noti.setAutoCancel(true);
+        noti.setStyle(new NotificationCompat.BigTextStyle().bigText(contentText));
+        noti.addAction(R.drawable.ic_notification_download, context.getString(R.string.notification_download), downloadClickPendingIntent);
+        noti.addAction(R.drawable.ic_notification_thread, context.getString(R.string.notification_thread), threadClickPendingIntent);
+
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(mod.NOTIFICATION_ID_NEW_VERSION, noti.build());
+
+    }
+
+    public static void notifyForNewUpdates(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
+
+        if(checkIfNewVersion(context, latestGunsVersion, "known_guns_version")) {
+            DesnoUtils.notificationForNewVersion(context, new DesnoGuns());
+        }
+
+        if(checkIfNewVersion(context, latestPortalVersion, "known_portal_version")) {
+            DesnoUtils.notificationForNewVersion(context, new Portal());
+        }
+
+        if(checkIfNewVersion(context, latestLaserVersion, "known_laser_version")) {
+            DesnoUtils.notificationForNewVersion(context, new Laser());
+        }
+
+        if(checkIfNewVersion(context, latestTurretsVersion, "known_turrets_version")) {
+            DesnoUtils.notificationForNewVersion(context, new Turrets());
+        }
+
+        if(checkIfNewVersion(context, latestJukeboxVersion, "known_jukebox_version")) {
+            DesnoUtils.notificationForNewVersion(context, new Jukebox());
+        }
+
+        if(checkIfNewVersion(context, latestUnrealVersion, "known_unreal_version")) {
+            DesnoUtils.notificationForNewVersion(context, new Unreal());
+        }
+
+        // debug
+        debugVersions(context, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
+    }
+
+    private static boolean checkIfNewVersion(Context context, String latestVersion, String preferenceName) {
+
+        // latestVersion is the version that the app found on internet
+        // preferenceName is the string name of the preference of the mod
+        // modName is the name of it
+
+        boolean isNewVersion = false;
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String knownVersion = sharedPrefs.getString(preferenceName, notInitializedStringError);
+
+        if(latestVersion.equals("") || latestVersion.isEmpty() || latestVersion.equals("Not Found") || latestVersion.equals(errorString)) {
+            Log.e(TAG, "Something went wrong, not displaying notification for " + preferenceName + " (empty String)");
+        } else {
+            if(!(knownVersion.equals(latestVersion))) {
+                if(!(knownVersion.equals(notInitializedStringError))) {
+                    Log.i(TAG, "Different version for " + preferenceName + ", displaying notification");
+                    isNewVersion = true;
+                } else {
+                    Log.i(TAG, "First time the app access the known " + preferenceName + " version.");
+                }
+
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.putString(preferenceName, latestVersion);
+                editor.apply();
+            }
+        }
+
+        return isNewVersion;
+    }
+
+    private static void debugVersions(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
+        DesnoUtils.notificationForNewVersion(context, new DesnoGuns());
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         String knownGunsVersion = sharedPrefs.getString("known_guns_version", notInitializedStringError);
         String knownPortalVersion = sharedPrefs.getString("known_portal_version", notInitializedStringError);
         String knownLaserVersion = sharedPrefs.getString("known_laser_version", notInitializedStringError);
         String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", notInitializedStringError);
         String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", notInitializedStringError);
+        String knownUnrealVersion = sharedPrefs.getString("known_unreal_version", notInitializedStringError);
 
-        Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion);
+        Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion);
 
-        if(latestGunsVersion.equals("") || latestGunsVersion.isEmpty() || latestGunsVersion.equals("Not Found") || latestGunsVersion.equals(errorString)) {
-            Log.e(TAG, "Something went wrong, not displaying notification for Guns (empty String)");
-        } else {
-            if(!(knownGunsVersion.equals(latestGunsVersion))) {
-                if(!(knownGunsVersion.equals(notInitializedStringError))) {
-                    Log.i(TAG, "Different Guns version, displaying notification");
-
-                    DesnoUtils.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod5_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 5);
-                } else
-                    Log.i(TAG, "First time the app access the known guns version.");
-
-                SharedPreferences.Editor editor = sharedPrefs.edit();
-                editor.putString("known_guns_version", latestGunsVersion);
-                editor.apply();
-            }
-        }
-        if(latestPortalVersion.equals("") || latestPortalVersion.isEmpty() || latestPortalVersion.equals("Not Found") || latestPortalVersion.equals(errorString)) {
-            Log.e(TAG, "Something went wrong, not displaying notification for Portal (empty String)");
-        } else {
-            if(!(knownPortalVersion.equals(latestPortalVersion))) {
-                if(!(knownPortalVersion.equals(notInitializedStringError))) {
-                    Log.i(TAG, "Different Portal version, displaying notification");
-
-                    DesnoUtils.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod1_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 1);
-                } else
-                    Log.i(TAG, "First time the app access the known portal version.");
-
-                SharedPreferences.Editor editor = sharedPrefs.edit();
-                editor.putString("known_portal_version", latestPortalVersion);
-                editor.apply();
-            }
-        }
-        if(latestLaserVersion.equals("") || latestLaserVersion.isEmpty() || latestLaserVersion.equals("Not Found") || latestLaserVersion.equals(errorString)) {
-            Log.e(TAG, "Something went wrong, not displaying notification for Laser (empty String)");
-        } else {
-            if(!(knownLaserVersion.equals(latestLaserVersion))) {
-                if(!(knownLaserVersion.equals(notInitializedStringError))) {
-                    Log.i(TAG, "Different Laser version, displaying notification");
-
-                    DesnoUtils.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod2_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 2);
-                } else
-                    Log.i(TAG, "First time the app access the known laser version.");
-
-                SharedPreferences.Editor editor = sharedPrefs.edit();
-                editor.putString("known_laser_version", latestLaserVersion);
-                editor.apply();
-            }
-        }
-        if(latestTurretsVersion.equals("") || latestTurretsVersion.isEmpty() || latestTurretsVersion.equals("Not Found") || latestTurretsVersion.equals(errorString)) {
-            Log.e(TAG, "Something went wrong, not displaying notification for Turrets (empty String)");
-        } else {
-            if(!(knownTurretsVersion.equals(latestTurretsVersion))) {
-                if(!(knownTurretsVersion.equals(notInitializedStringError))) {
-                    Log.i(TAG, "Different Turrets version, displaying notification");
-
-                    DesnoUtils.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod3_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 3);
-                } else
-                    Log.i(TAG, "First time the app access the known turrets version.");
-
-                SharedPreferences.Editor editor = sharedPrefs.edit();
-                editor.putString("known_turrets_version", latestTurretsVersion);
-                editor.apply();
-            }
-        }
-        if(latestJukeboxVersion.equals("") || latestJukeboxVersion.isEmpty() || latestJukeboxVersion.equals("Not Found") || latestJukeboxVersion.equals(errorString)) {
-            Log.e(TAG, "Something went wrong, not displaying notification for Jukebox (empty String)");
-        } else {
-            if(!(knownJukeboxVersion.equals(latestJukeboxVersion))) {
-                if(!(knownJukeboxVersion.equals(notInitializedStringError))) {
-                    Log.i(TAG, "Different Jukebox version, displaying notification");
-
-                    DesnoUtils.notification(currentContext, currentContext.getString(R.string.notification_new_version_content1) + " " + currentContext.getString(R.string.mod4_title) + " " + currentContext.getString(R.string.notification_new_version_content2), 365 + 100 + 4);
-                } else
-                    Log.i(TAG, "First time the app access the known jukebox version.");
-
-                SharedPreferences.Editor editor = sharedPrefs.edit();
-                editor.putString("known_jukebox_version", latestJukeboxVersion);
-                editor.apply();
-            }
-        }
-
-        //notification for debug
-        //DesnoUtils.notification(currentContext, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion, 51);
+        DesnoUtils.generalNotification(context, "Log", "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion, NotificationsId.ID_DEBUG_VERSIONS);
     }
 
     public static void changeStartAnimations(Activity activity) {
@@ -257,7 +297,6 @@ public class DesnoUtils {
     }
 
     private static void overrideStartActivityAnimation(Activity activity, int resId) {
-
         activity.overridePendingTransition(resId, R.anim.hold);
     }
 

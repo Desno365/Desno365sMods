@@ -1,4 +1,4 @@
-package com.desno365.mods;
+package com.desno365.mods.Activities;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.R;
 import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;

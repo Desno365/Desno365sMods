@@ -18,7 +18,7 @@
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.desno365.mods.MainActivity">
+        tools:context="com.desno365.mods.Activities.MainActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"

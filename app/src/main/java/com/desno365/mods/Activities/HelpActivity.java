@@ -1,4 +1,4 @@
-package com.desno365.mods;
+package com.desno365.mods.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -11,6 +11,10 @@ import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.Keys;
+import com.desno365.mods.R;
 
 import it.sephiroth.android.library.tooltip.TooltipManager;
 
@@ -94,11 +98,11 @@ public class HelpActivity extends Activity {
             case R.id.minecraft_text:
                 try {
                     //play store installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.mojang.minecraftpe")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED + Keys.KEY_PACKAGE_MINECRAFT)));
                     DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=com.mojang.minecraftpe")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED + Keys.KEY_PACKAGE_MINECRAFT)));
                     DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
@@ -108,11 +112,11 @@ public class HelpActivity extends Activity {
             case R.id.blocklauncher_text:
                 try {
                     //play store installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=net.zhuoweizhang.mcpelauncher")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED + Keys.KEY_PACKAGE_BLOCKLAUNCHER)));
                     DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=net.zhuoweizhang.mcpelauncher")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED + Keys.KEY_PACKAGE_BLOCKLAUNCHER)));
                     DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
@@ -122,11 +126,11 @@ public class HelpActivity extends Activity {
             case R.id.file_manager_text:
                 try {
                     //play store installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=file%20explorer")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED_FILE_MANAGER)));
                     DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/search?q=file%20explorer")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED_FILE_MANAGER)));
                     DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
@@ -134,7 +138,8 @@ public class HelpActivity extends Activity {
     }
 
     public void onImageClick(View v) {
-        // starting the zoomImage activity (it has a switch case for the id passed)
+
+        // starting the zoomImage activity (it has a switch case for the id passed to the intent)
         Intent i = new Intent(this, ZoomImageActivity.class);
         i.putExtra("viewId", v.getId());
         startActivity(i);

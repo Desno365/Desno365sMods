@@ -44,7 +44,8 @@
     <string name="hide_changelog">Hide the changelog&#8230;</string>
     <string name="minecraft_thread">minecraftforum.net thread</string>
     <string name="installation_video_tutorial">Watch the installation video tutorial</string>
-    <string name="download_from_website">Download this mod from Desno\'s website</string>
+    <string name="download_mod_from_website">Download this mod from Desno\'s website</string>
+    <string name="download_map_from_website">Download this map from Desno\'s website</string>
 
 
     //home page
@@ -106,6 +107,10 @@
     <string name="mod4_title" translatable="false">Jukebox Mod</string>
     <string name="features_content_tab5">• There are twelve different discs with twelve different songs (songs are ported from Minecraft PC).\n• Tap the jukebox with a disc and it will start playing the chosen song.\n• Greater the distance between you and the Jukebox, lower the volume of it.\n• Support multiple jukeboxes that play simultaneously.\n• There is a random chance of finding a disc every 30 kills of hostile mobs.\n• Tap the Jukebox to eject the disc. When the song ends the disc will be ejected automatically.\n• The Jukebox block and the discs are also in the creative inventory.\n• The crafting recipes of the Jukebox are the same of the PC version.</string>
 
+    //unreal map page
+    <string name="mod6_title" translatable="false">Unreal Geometry Map</string>
+    <string name="info_content_tab7">This map and the mod attached bring the Non-Euclidean geometry on your mobile device!\nExperience the craziness of an unreal world, in a normal/Euclidean game like Minecraft.\nWords can\’t explain in a good way what this map has.\nTry it, you\'ll see.</string>
+
     //settings
     <string name="connection_settings">Connection</string>
     <string name="refresh_on_start_title">Refresh on start</string>
@@ -140,5 +145,7 @@
     <string name="notification_new_version_title">New version released</string>
     <string name="notification_new_version_content1">A new version of the</string> //A new version of the *modHere* has been released!
     <string name="notification_new_version_content2">has been released!</string>
+    <string name="notification_thread">Thread</string>
+    <string name="notification_download">Download</string>
 
 </resources>

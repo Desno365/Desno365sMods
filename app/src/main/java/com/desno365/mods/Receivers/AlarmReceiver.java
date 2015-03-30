@@ -1,4 +1,4 @@
-package com.desno365.mods;
+package com.desno365.mods.Receivers;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -10,6 +10,13 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.Keys;
+import com.desno365.mods.NotificationsId;
+
+import java.util.Calendar;
+import java.util.Random;
+
 public class AlarmReceiver extends BroadcastReceiver {
 
     private static final String TAG = "DesnoMods-AlarmReceiver";
@@ -20,6 +27,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     private String latestLaserVersion = "";
     private String latestTurretsVersion = "";
     private String latestJukeboxVersion = "";
+    private String latestUnrealVersion = "";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -100,11 +108,12 @@ public class AlarmReceiver extends BroadcastReceiver {
         @Override
         protected Void doInBackground(Void... params) {
             if(DesnoUtils.isNetworkAvailable(currentContext)) {
-                latestGunsVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/desnogunsMOD-version");
-                latestPortalVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/portalMOD-version");
-                latestLaserVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/laserMOD-version");
-                latestTurretsVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/turretsMOD-version");
-                latestJukeboxVersion = DesnoUtils.getTextFromUrl("https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/jukeboxMOD-version");
+                latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
+                latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
+                latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
+                latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
+                latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
+                latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
             } else {
                 Log.i(TAG, "Internet connection not found. Expected empty strings");
             }
@@ -114,19 +123,14 @@ public class AlarmReceiver extends BroadcastReceiver {
         @Override
         protected void onPostExecute(Void unused) {
             Log.i(TAG, "onPostExecute now, the AsyncTask finished");
-
-            DesnoUtils.readWriteVersionsAndNotify(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion);
-
-            /* DEBUG:
+            DesnoUtils.notifyForNewUpdates(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
 
             Random r = new Random();
-            int randomInt = r.nextInt(50 - 1) + 1;
+            int randomInt = r.nextInt(NotificationsId.ID_DEBUG_LAST_NUMBER - NotificationsId.ID_DEBUG_FIRST_NUMBER) + NotificationsId.ID_DEBUG_FIRST_NUMBER;
             Calendar c = Calendar.getInstance();
             int minute = c.get(Calendar.MINUTE);
             int hour = c.get(Calendar.HOUR_OF_DAY);
-            DesnoUtils.notification(currentContext, "Alarm h" + hour + " m" + minute, randomInt);
-            DesnoUtils.notification(currentContext, "Log: p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion, 51);*/
-
+            DesnoUtils.generalNotification(currentContext, "Updates in background.", "Alarm h" + hour + " m" + minute, randomInt);
         }
 
     }

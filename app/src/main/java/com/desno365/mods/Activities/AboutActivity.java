@@ -1,4 +1,4 @@
-package com.desno365.mods;
+package com.desno365.mods.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -9,13 +9,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import it.sephiroth.android.library.tooltip.TooltipManager;
+import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.Keys;
+import com.desno365.mods.R;
 
 public class AboutActivity extends Activity {
 
     public static Activity activity;
-
-    private TooltipManager mTooltip;
 
     public void onCreate(Bundle savedInstanceState) {
         DesnoUtils.setSavedTheme(this);
@@ -62,13 +62,13 @@ public class AboutActivity extends Activity {
 
             // twitter image and text
             case R.id.twitter_image: case R.id.twitter_text:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/desno365")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
                 DesnoUtils.changeStartAnimations(activity);
                 break;
 
             // github image and text
             case R.id.github_image: case R.id.github_text:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Desno365/Desno365sMods")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_GITHUB)));
                 DesnoUtils.changeStartAnimations(activity);
                 break;
 

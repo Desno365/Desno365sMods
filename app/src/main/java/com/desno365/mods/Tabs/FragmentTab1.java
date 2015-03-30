@@ -1,4 +1,4 @@
-package com.desno365.mods;
+package com.desno365.mods.Tabs;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
+
+import com.desno365.mods.Activities.MainActivity;
+import com.desno365.mods.R;
 
 public class FragmentTab1 extends Fragment {
 
