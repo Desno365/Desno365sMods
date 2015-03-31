@@ -27,7 +27,6 @@ public class SettingsActivity extends PreferenceActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-        DesnoUtils.setSavedTheme(this);
         DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.activity_settings);
@@ -84,15 +83,6 @@ public class SettingsActivity extends PreferenceActivity {
         languagePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 restartDialogLanguage();
-                return true;
-            }
-        });
-
-
-        // open popup when theme preference is changed
-        themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                restartDialogTheme();
                 return true;
             }
         });

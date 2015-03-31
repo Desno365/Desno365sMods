@@ -10,14 +10,4 @@
         <!-- API 21 theme customizations can go here. -->
     </style>
 
-    <!-- Dark ActionBar theme. -->
-    <style name="AppThemeDarkActionBar" parent="android:Theme.Material.Light.DarkActionBar">
-        <!-- API 21 theme customizations can go here. -->
-    </style>
-
-    <!-- Holo dark theme. -->
-    <style name="AppThemeHoloDark" parent="android:Theme.Material">
-        <!-- API 21 theme customizations can go here. -->
-    </style>
-
 </resources>

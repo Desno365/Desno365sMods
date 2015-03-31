@@ -9,14 +9,4 @@
         <!-- API 14 theme customizations can go here. -->
     </style>
 
-    <!-- Dark ActionBar theme. -->
-    <style name="AppThemeDarkActionBar" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- API 14 theme customizations can go here. -->
-    </style>
-
-    <!-- Holo dark theme. -->
-    <style name="AppThemeHoloDark" parent="android:Theme.Holo">
-        <!-- API 14 theme customizations can go here. -->
-    </style>
-
 </resources>

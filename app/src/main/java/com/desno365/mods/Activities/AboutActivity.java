@@ -18,7 +18,6 @@ public class AboutActivity extends Activity {
     public static Activity activity;
 
     public void onCreate(Bundle savedInstanceState) {
-        DesnoUtils.setSavedTheme(this);
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);

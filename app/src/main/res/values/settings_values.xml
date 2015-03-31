@@ -15,18 +15,6 @@
     </string-array>
 
 
-    <string-array name="themes">
-        <item name="light">Light</item>
-        <item name="dark_actionbar">Light with dark actionbar</item>
-        <item name="dark">Dark</item>
-    </string-array>
-    <string-array name="themes_values">
-        <item name="light" translatable="false">0</item>
-        <item name="dark_actionbar" translatable="false">1</item>
-        <item name="dark" translatable="false">2</item>
-    </string-array>
-
-
     <string-array name="animations">
         <item name="default">Default</item>
         <item name="up_down">Push down/up</item>

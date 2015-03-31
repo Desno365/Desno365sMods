@@ -40,22 +40,6 @@ public class DesnoUtils {
 
     private static final String notInitializedStringError = "r000";
 
-    public static void setSavedTheme(Context context) {
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String theme = sharedPrefs.getString("selected_theme", "0");
-        int themeNumber = Integer.parseInt(theme);
-        switch (themeNumber) {
-            case 0:
-                break;
-            case 1:
-                context.setTheme(R.style.AppThemeDarkActionBar);
-                break;
-            case 2:
-                context.setTheme(R.style.AppThemeHoloDark);
-                break;
-        }
-    }
-
     public static void setSavedLanguage(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         String language = sharedPrefs.getString("selected_language", "not_changed");

@@ -70,7 +70,6 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
 
     @SuppressLint("CommitPrefEdits")
     public void onCreate(Bundle savedInstanceState) {
-        DesnoUtils.setSavedTheme(this);
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -135,7 +134,6 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             editor.putBoolean("is_first_launch", false);
             editor.putBoolean("notification_bool", true);
             editor.putString("sync_frequency", "4");
-            editor.putString("selected_theme", "0");
             editor.putString("selected_language", "not_changed");
             editor.putString("selected_animations", "0");
             editor.putBoolean("user_understood_full_resolution_help", false);
