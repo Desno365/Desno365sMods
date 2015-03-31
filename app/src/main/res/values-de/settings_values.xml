@@ -26,7 +26,7 @@
   <string-array name="animations">
     <item name="default">Standart</item>
     <item name="up_down">Hoch-/Runterschieben</item>
-    <item name="corner">Move to/from corner</item>
+    <item name="corner">Von/zu den Ecken hinbewegen</item>
     <item name="book">Seiten umblättern</item>
   </string-array>
   <string-array name="animations_values">

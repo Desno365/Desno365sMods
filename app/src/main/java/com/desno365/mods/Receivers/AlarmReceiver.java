@@ -12,10 +12,6 @@ import android.util.Log;
 
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.Keys;
-import com.desno365.mods.NotificationsId;
-
-import java.util.Calendar;
-import java.util.Random;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
@@ -125,12 +121,13 @@ public class AlarmReceiver extends BroadcastReceiver {
             Log.i(TAG, "onPostExecute now, the AsyncTask finished");
             DesnoUtils.notifyForNewUpdates(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
 
-            Random r = new Random();
+            // debug notification
+            /*Random r = new Random();
             int randomInt = r.nextInt(NotificationsId.ID_DEBUG_LAST_NUMBER - NotificationsId.ID_DEBUG_FIRST_NUMBER) + NotificationsId.ID_DEBUG_FIRST_NUMBER;
             Calendar c = Calendar.getInstance();
             int minute = c.get(Calendar.MINUTE);
             int hour = c.get(Calendar.HOUR_OF_DAY);
-            DesnoUtils.generalNotification(currentContext, "Updates in background.", "Alarm h" + hour + " m" + minute, randomInt);
+            DesnoUtils.generalNotification(currentContext, "Updates in background.", "Alarm h" + hour + " m" + minute, randomInt);*/
         }
 
     }

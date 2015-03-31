@@ -125,12 +125,13 @@ public class DesnoUtils {
 
         // notification
         NotificationCompat.Builder noti = new NotificationCompat.Builder(context);
-        noti.setSmallIcon(R.drawable.ic_launcher);
+        noti.setSmallIcon(R.drawable.ic_notification_main);
         noti.setContentTitle(title);
         noti.setContentText(content);
         noti.setContentIntent(resultPendingIntent);
         noti.setAutoCancel(true);
         noti.setStyle(new NotificationCompat.BigTextStyle().bigText(content));
+        noti.setColor(context.getResources().getColor(R.color.minecraft_dirt_dark));
 
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(id, noti.build());
@@ -163,19 +164,20 @@ public class DesnoUtils {
 
 
         // thread button of notification = go to the minecraftforum.net thread
-        Intent threadClickIntent = mod.getDownloadFromWebsiteIntent();
+        Intent threadClickIntent = mod.getVisitThreadIntent();
         // Because clicking the notification launches a new ("special") activity,
         // there's no need to create an artificial back stack.
         PendingIntent threadClickPendingIntent = PendingIntent.getActivity(context, 0, threadClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // notification
         NotificationCompat.Builder noti = new NotificationCompat.Builder(context);
-        noti.setSmallIcon(R.drawable.ic_launcher);
+        noti.setSmallIcon(R.drawable.ic_notification_main);
         noti.setContentTitle(context.getString(R.string.notification_new_version_title));
         noti.setContentText(contentText);
         noti.setContentIntent(mainClickPendingIntent);
         noti.setAutoCancel(true);
         noti.setStyle(new NotificationCompat.BigTextStyle().bigText(contentText));
+        noti.setColor(context.getResources().getColor(R.color.minecraft_dirt_dark));
         noti.addAction(R.drawable.ic_notification_download, context.getString(R.string.notification_download), downloadClickPendingIntent);
         noti.addAction(R.drawable.ic_notification_thread, context.getString(R.string.notification_thread), threadClickPendingIntent);
 
@@ -211,7 +213,7 @@ public class DesnoUtils {
         }
 
         // debug
-        debugVersions(context, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
+        //debugVersions(context, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
     }
 
     private static boolean checkIfNewVersion(Context context, String latestVersion, String preferenceName) {

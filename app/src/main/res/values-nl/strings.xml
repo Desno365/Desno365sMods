@@ -19,9 +19,9 @@ minecraftforum.net</string>
   <string name="source_code">Haal de Bron code van deze App</string>
   <string name="support_me">Heb je Leuke en Nieuwe Ideeën voor deze App. Maak contact met mij op Twitter. Wil je mij graag helpen, Geef deze App dan 5 sterren op de Google Playstore Zodat we Betere en Leuke Nieuwe Mods Kunnen maken. Dank u wel!</string>
   <string name="take_me_play_store">Neem me mee naar de Google Playstore</string>
-  <string name="contributors_title">Contributors</string>
-  <string name="contributors_content">A big thanks to all the people who contributed to the project, by translating it or by helping me! Here the list of the people who contributed: http://desno365.github.io/minecraft/desno365-mods-app/credits/</string>
-  <string name="used_libraries_title">Used libraries and images</string>
+  <string name="contributors_title">Mensen die hebben geholpen</string>
+  <string name="contributors_content">Veel dank aan de mensen die hebben geholpen bij dit project, en bij het vertalen. Hier is de lijst van mensen die mij hebben geholpen: http://desno365.github.io/minecraft/desno365-mods-app/credits</string>
+  <string name="used_libraries_title">Gebruikte bronnen en afbeeldingen</string>
   <string name="info_title">Informatie</string>
   <string name="features_title">Eigenschappen</string>
   <string name="updates_title">Updates</string>
@@ -32,8 +32,9 @@ minecraftforum.net</string>
   <string name="show_changelog">wat is er allemaal Nieuw</string>
   <string name="hide_changelog">Verberg dit stuk tekst</string>
   <string name="minecraft_thread">Minecraftforum.net</string>
-  <string name="installation_video_tutorial">Watch the installation video tutorial</string>
-  <string name="download_from_website">Download Deze Mod van Desno\'s Website</string>
+  <string name="installation_video_tutorial">Kijk de uitleg video</string>
+  <string name="download_mod_from_website">Download this mod from Desno\'s website</string>
+  <string name="download_map_from_website">Download this map from Desno\'s website</string>
   <string name="welcome_title">Welkom Bezoeker</string>
   <string name="welcome_content">Welkom Bezoeker. Dit is de Desno365 Mods App.
 hier kunt u de laatste mods vinden en natuurlijk wat er nieuw is.</string>
@@ -54,7 +55,7 @@ hier kunt u de laatste mods vinden en natuurlijk wat er nieuw is.</string>
   <string name="get_one_store">krijg het op De Playstore</string>
   <string name="how_to_prepare_mods_extract">Een bestand uitpakken is makkelijk: je  gaat naar je \"Download\" map met je bestandenmanager, klik dan op het zip bestand met alles erin wat je nodig hebt om de mod te gebruiken (meestal is het icoon van het zip bestand dat van een archief) en pak het uit.</string>
   <string name="how_to_prepare_mods_after_extraction">Dit is een uitleg over \"The Portal 2 mod\" zip:</string>
-  <string name="how_to_install_mods_title">Hoe kan ik mods instaleren?</string>
+  <string name="how_to_install_mods_title">Hoe kan ik mods installeren?</string>
   <string name="how_to_install_mods_manage_modpe_scripts">Als je deze stappen hebt gedaan, kun je Blocklauncher openen. Klik op het \"instellingen\" icoon en ga naar \"Manage ModPe scripts\"</string>
   <string name="how_to_install_mods_import">u moet ook dit ook activeren. Dat doe je door de balk, rechts boven in je scherm naar. Naar rechts te schuiven. Hij zal nu groen worden. Klik dan op \"import\"</string>
   <string name="how_to_install_mods_from_local_storage">ga Nu naar \"local Storage\". Het Bestand staat tussen \"downloads\". u moet er zeker van zijn dat u het \"JS bestand Instaleert. Een zip bestand is niet mogelijk. Door het zip bestand te open kunt u Het Js Bestand vinden.</string>
@@ -68,6 +69,7 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="features_content_tab3">-De laser van de \"Laser Gun\" maakt elk blok kapot dat u tegenkomt. De Laser Bazooka zal alles laten Exploderen. En Met de Laser Sniper kun je vanaf een afstand bijna alle mods in 1 keer doden. Klik op het Instelling icoon En open De UI met informatie en de Instellingen voor de mod. Er zijn erg veel instellingen voor een wapen en je kunt ze zelf veranderen. Ook kun je je wapens vinden in een creative inventory</string>
   <string name="features_content_tab4">Maak een \"Turrent\" and plaats het waar je wilt. Gebruik de \"Turrent options\" en het zal elke mob doden die in de buurt komt. Turrent is een soort toren die op alles zal schieten wat je hebt aangewezen. Ook kun je je huis beschermen tegen je vrienden ;)</string>
   <string name="features_content_tab5">- Er zijn 12 cd\'s met 12 verschillende lieden. Dit Ding is al bekend op minecraft Pc. de CD speler. Door er op te klikken met een cd zal het de cd spler het lied afspelen. hoe langer de afstand van de cd speler hoe lager het volume. Ook kunnen er meerdere cd\'s op hetzelfde moment worden afgespeeld. Ook kan een cd in survival worden gevonden door een vijandige mob te doden. De kans is 1/30 dat deze een cd zal uitwerpen. Als u nog een keer op de cd speler klikt zal het lied stoppen. Ook als het afgelopen is werpt de cd zich zelf uit. u kunt de blokken in de creative inventory vinden. Het maken van een cd speler werkt hetzelfde als op de PC versie</string>
+  <string name="info_content_tab7">This map and the mod attached bring the Non-Euclidean geometry on your mobile device!\nExperience the craziness of an unreal world, in a normal/Euclidean game like Minecraft.\nWords can\’t explain in a good way what this map has.\nTry it, you\'ll see.</string>
   <string name="connection_settings">Verbinding...</string>
   <string name="refresh_on_start_title">vernieuw van Start</string>
   <string name="refresh_on_start_summary">Vernieuw de inhoud van de app</string>
@@ -76,12 +78,12 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="notification_bool_summary">Meldingen voor nieuwe mods Ontvangen</string>
   <string name="pref_sync_frequency_title">scan voor verbeteringen en nieuwe updates frequentie</string>
   <string name="pref_sync_frequency_summary">Zet de Tijdlijn voor het scannen van nieuwe Mods en Updates</string>
-  <string name="language_settings">Language</string>
-  <string name="language_title">Set language</string>
-  <string name="language_summary">Select app\'s language</string>
-  <string name="restart_text_language_popup">The app needs to be restarted for the language change to be activated.</string>
-  <string name="help_translating_title">Help translating</string>
-  <string name="help_translating_summary">Collaborate to this project and help translating the app</string>
+  <string name="language_settings">Taal</string>
+  <string name="language_title">Kies een Taal</string>
+  <string name="language_summary">Selecteer de taal van deze app</string>
+  <string name="restart_text_language_popup">De app moet opnieuw worden opgestart om de gekozen taal te activeren.</string>
+  <string name="help_translating_title">Help mij met vertalen!</string>
+  <string name="help_translating_summary">Samenwerken aan dit project en help met het vertalen van deze app</string>
   <string name="customization_settings">Aanpassingen</string>
   <string name="themes_title">Thema</string>
   <string name="themes_summary">Selecteer het thema voor de App</string>
@@ -95,4 +97,6 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="notification_new_version_title">Nieuwe versie is uitgekomen!</string>
   <string name="notification_new_version_content1">Een Nieuwe versie van de</string>
   <string name="notification_new_version_content2">Is uitgekomen!</string>
+  <string name="notification_thread">Thread</string>
+  <string name="notification_download">Download</string>
 </resources>
