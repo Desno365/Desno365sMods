@@ -79,7 +79,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         setContentView(R.layout.activity_main);
 
-        Log.i(TAG, "App launched.");
+        Log.i(TAG, "APP LAUNCHED!");
 
 
         // Create the adapter that will return a fragment for each of the three primary sections
@@ -101,11 +101,14 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             @Override
             public void onPageSelected(int position) {
                 // When swiping between different app sections
+
+                // change toolbar title
                 if(position == 0)
                     toolbar.setTitle(getResources().getString(R.string.app_name));
                 else
                     toolbar.setTitle(mAppSectionsPagerAdapter.getPageTitle(position));
 
+                // close drawer
                 if(mNavigationDrawerFragment.isDrawerOpen())
                     NavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
             }

@@ -3,12 +3,11 @@ package com.desno365.mods;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +40,8 @@ public class NavigationDrawerFragment extends Fragment {
     public ListView mDrawerListView;
     private View mFragmentContainerView;
 
-    public int mCurrentSelectedPosition = 0;
+    // commented code that change the checked item
+    //public int mCurrentSelectedPosition = 0;
 
     public NavigationDrawerFragment() {
     }
@@ -64,6 +64,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectItem(position);
             }
         });
 
@@ -89,7 +90,14 @@ public class NavigationDrawerFragment extends Fragment {
                 Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(),"fonts/minecraft.ttf");
                 ((TextView)v).setTypeface(font);
 
-                v.setBackgroundColor(Color.parseColor("#ffffffff"));
+                // commented code that change the checked item
+                // custom colors selected items
+                /*if(position == mCurrentSelectedPosition)
+                    v.setBackgroundColor(getResources().getColor(R.color.minecraft_not_pressed));
+                else
+                    v.setBackgroundColor(getResources().getColor(R.color.white));*/
+
+                v.setBackgroundColor(getResources().getColor(R.color.white));
 
                 return v;
             }
@@ -97,7 +105,8 @@ public class NavigationDrawerFragment extends Fragment {
 
         mDrawerListView.setAdapter(ad);
 
-        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+        // commented code that change the checked item
+        //mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
 
@@ -151,10 +160,11 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     public void selectItem(int position) {
-        mCurrentSelectedPosition = position;
-        if (mDrawerListView != null) {
+        // commented code that change the checked item
+        //mCurrentSelectedPosition = position;
+        /*if (mDrawerListView != null) {
             mDrawerListView.setItemChecked(position, true);
-        }
+        }*/
         if (mDrawerLayout != null && mFragmentContainerView != null) {
             mDrawerLayout.closeDrawer(mFragmentContainerView);
         }

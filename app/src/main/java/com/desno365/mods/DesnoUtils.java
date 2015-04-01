@@ -211,20 +211,29 @@ public class DesnoUtils {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         String knownVersion = sharedPrefs.getString(preferenceName, notInitializedStringError);
 
+        Log.i(TAG, "Checking saved version of " + preferenceName + ", found latest: " + latestVersion + " known: " + knownVersion);
+
         if(latestVersion.equals("") || latestVersion.isEmpty() || latestVersion.equals("Not Found") || latestVersion.equals(errorString)) {
             Log.e(TAG, "Something went wrong, not displaying notification for " + preferenceName + " (empty String)");
         } else {
-            if(!(knownVersion.equals(latestVersion))) {
-                if(!(knownVersion.equals(notInitializedStringError))) {
-                    Log.i(TAG, "Different version for " + preferenceName + ", displaying notification");
-                    isNewVersion = true;
-                } else {
-                    Log.i(TAG, "First time the app access the known " + preferenceName + " version.");
+            if(latestVersion.length() > 10) {
+                Log.e(TAG, "The latest version of " + preferenceName + " shouldn't be so long, probably an internal error happened on the website.");
+            } else {
+
+                // if we have arrived here it means that no errors happened, yay!
+                if(!(knownVersion.equals(latestVersion))) {
+                    if(!(knownVersion.equals(notInitializedStringError))) {
+                        Log.i(TAG, "Different version for " + preferenceName + ", displaying notification");
+                        isNewVersion = true;
+                    } else {
+                        Log.i(TAG, "First time the app access the known " + preferenceName + " version.");
+                    }
+
+                    SharedPreferences.Editor editor = sharedPrefs.edit();
+                    editor.putString(preferenceName, latestVersion);
+                    editor.apply();
                 }
 
-                SharedPreferences.Editor editor = sharedPrefs.edit();
-                editor.putString(preferenceName, latestVersion);
-                editor.apply();
             }
         }
 
