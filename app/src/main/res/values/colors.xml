@@ -29,7 +29,8 @@
     // colors of element of the app
     <color name="colorPrimary">@color/minecraft_dirt_darkest</color>
     <color name="colorPrimaryDark">@color/minecraft_dark_dirt_light</color>
-    <color name="tabsIndicatorColor">@color/colorPrimaryDark</color>
+    <color name="toolbarTitleTextColor">@color/white</color>
+    <color name="tabsIndicatorColor">@color/white</color>
     <color name="tabsSelectedTextColor">@color/white</color>
     <color name="tabsNotSelectedTextColor">@color/minecraft_button_light</color>
     <color name="colorAccent">@color/minecraft_dirt_light</color>

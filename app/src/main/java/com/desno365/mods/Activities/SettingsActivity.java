@@ -95,7 +95,6 @@ public class SettingsActivity extends PreferenceActivity {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.fragmented_preferences);
 
-
             // initialize preferences
             SharedPreferences sharedPrefs = getPreferenceScreen().getSharedPreferences();
             final Preference notificationPreference = findPreference("notification_bool");
@@ -183,6 +182,7 @@ public class SettingsActivity extends PreferenceActivity {
                     return false;
                 }
             });
+
         }
     }
 
