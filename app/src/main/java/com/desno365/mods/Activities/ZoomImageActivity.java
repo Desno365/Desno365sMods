@@ -10,18 +10,14 @@ import android.widget.ImageView;
 
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
-import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
-import com.github.amlcurran.showcaseview.ShowcaseView;
-import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class ZoomImageActivity extends Activity implements OnShowcaseEventListener {
+public class ZoomImageActivity extends Activity {
 
     public static Activity activity;
 
     private PhotoViewAttacher mAttacher;
-    private ShowcaseView mShowcase;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,30 +83,6 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
 
         // loading PhotoView library
         mAttacher = new PhotoViewAttacher(mImageView);
-        mAttacher.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (mShowcase.isShown())
-                    mShowcase.hide();
-                return false;
-            }
-        });
-        mAttacher.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
-            @Override
-            public void onPhotoTap(View view, float x, float y) {
-                if (mShowcase.isShown())
-                    mShowcase.hide();
-            }
-        });
-
-        // showcase view to illustrate to the user that is possible to zoom
-        mShowcase = new ShowcaseView.Builder(this, true)
-                .setTarget(new ViewTarget(R.id.iv_photo, this))
-                .setContentTitle(getString(R.string.zoom_image_showcase_title))
-                .setContentText(getString(R.string.zoom_image_showcase_content))
-                .setStyle(R.style.CustomShowcaseTheme)
-                .singleShot(1)
-                .build();
 
     }
 
@@ -138,18 +110,6 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
     public void onBackPressed() {
         this.finish();
         DesnoUtils.changeFinishAnimations(activity);
-    }
-
-    @Override
-    public void onShowcaseViewHide(ShowcaseView showcaseView) {
-    }
-
-    @Override
-    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
-    }
-
-    @Override
-    public void onShowcaseViewShow(ShowcaseView showcaseView) {
     }
 
 }

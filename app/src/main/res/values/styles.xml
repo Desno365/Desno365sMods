@@ -43,22 +43,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
     <style name="ToolBarPopupTheme" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:colorBackground">@color/colorPrimaryDark</item>
     </style>
 
-
-
-    <!-- ShowcaseView customization -->
-    <style name="CustomShowcaseTheme" parent="ShowcaseView">
-        <item name="sv_backgroundColor">#88583D2B</item>
-        <item name="sv_showcaseColor">@color/minecraft_dark_dirt_light</item>
-        <item name="sv_tintButtonColor">true</item>
-        <item name="sv_titleTextAppearance">@style/CustomTitle</item>
-    </style>
-    <style name="CustomTitle" parent="TextAppearance.ShowcaseView.Title">
-        <item name="android:textColor">@color/minecraft_dark_dirt_light</item>
-    </style>
 
 </resources>
