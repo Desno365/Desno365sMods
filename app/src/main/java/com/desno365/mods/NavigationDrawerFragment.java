@@ -6,7 +6,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -49,9 +49,6 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Select either the default item (0) or the last selected item.
-        selectItem(mCurrentSelectedPosition);
     }
 
     @Override
@@ -67,7 +64,6 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(position);
             }
         });
 
@@ -93,11 +89,7 @@ public class NavigationDrawerFragment extends Fragment {
                 Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(),"fonts/minecraft.ttf");
                 ((TextView)v).setTypeface(font);
 
-                // custom colors selected items
-                if(position == mCurrentSelectedPosition)
-                    v.setBackgroundColor(getResources().getColor(R.color.minecraft_not_pressed));
-                else
-                    v.setBackgroundColor(Color.parseColor("#ffffffff"));
+                v.setBackgroundColor(Color.parseColor("#ffffffff"));
 
                 return v;
             }
@@ -132,7 +124,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerToggle = new ActionBarDrawerToggle(
                 getActivity(),                    /* host Activity */
                 mDrawerLayout,                    /* DrawerLayout object */
-                R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
+                MainActivity.toolbar,             /* toolbar */
                 R.string.app_name,  /* "open drawer" description for accessibility */
                 R.string.close_dialog  /* "close drawer" description for accessibility */
         ) {

@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
     private Menu optionsMenu;
     private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
-    private Toolbar toolbar;
+    public static Toolbar toolbar;
 
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 
@@ -101,7 +101,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             @Override
             public void onPageSelected(int position) {
                 // When swiping between different app sections
-                mNavigationDrawerFragment.selectItem(position);
                 if(position == 0)
                     toolbar.setTitle(getResources().getString(R.string.app_name));
                 else
