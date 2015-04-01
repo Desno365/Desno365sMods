@@ -105,6 +105,9 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     toolbar.setTitle(getResources().getString(R.string.app_name));
                 else
                     toolbar.setTitle(mAppSectionsPagerAdapter.getPageTitle(position));
+
+                if(mNavigationDrawerFragment.isDrawerOpen())
+                    NavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
             }
         });
 
