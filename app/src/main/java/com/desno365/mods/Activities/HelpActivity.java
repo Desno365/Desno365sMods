@@ -1,13 +1,12 @@
 package com.desno365.mods.Activities;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,16 +30,17 @@ public class HelpActivity extends Activity {
 
         activity = this;
 
-        @SuppressLint("AppCompatMethod")
-        ActionBar actionBar = this.getActionBar();
-        assert actionBar != null;
-        actionBar.setTitle(getApplicationContext().getResources().getString(R.string.action_help));
-
-        //set if the user can click the icon
-        actionBar.setHomeButtonEnabled(true);
-
-        //when clicking the icon return to the parent activity (specified in AndroidManifest.xml)
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        // Set up the action bar.
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_help); // Attaching the layout to the toolbar object
+        toolbar.setTitle(R.string.action_help);
+        toolbar.setNavigationIcon(R.drawable.ic_navigation_arrow_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+                DesnoUtils.changeFinishAnimations(activity);
+            }
+        });
 
         // tooltip at start (only the first time)
         mTooltip = TooltipManager.getInstance(this);

@@ -11,10 +11,12 @@
     <item name="darkgreen" type="color">#FF669900</item>
     <item name="darkorange" type="color">#FFFF8800</item>
     <item name="darkred" type="color">#FFCC0000</item>
+    <item name="black" type="color">#FF000000</item>
+    <item name="white" type="color">#FFFFFFFF</item>
 
     <item name="minecraft_not_pressed" type="color">#FF958681</item>
     <item name="minecraft_pressed" type="color">#FF716567</item>
-    <item name="minecraft_buttond_light" type="color">#FFBCB1AB</item>
+    <item name="minecraft_button_light" type="color">#FFBCB1AB</item>
     <item name="minecraft_buttons_dark" type="color">#FF282729</item>
 
     <item name="minecraft_dark_dirt_light" type="color">#FF3A2A1E</item>
@@ -22,6 +24,15 @@
     <item name="minecraft_dirt_dark" type="color">#FF78543C</item>
     <item name="minecraft_dirt_light" type="color">#FF956B4D</item>
     <item name="minecraft_dirt_lightest" type="color">#FFB88460</item>
+
+
+    // colors of element of the app
+    <color name="colorPrimary">@color/minecraft_dirt_darkest</color>
+    <color name="colorPrimaryDark">@color/minecraft_dark_dirt_light</color>
+    <color name="tabsIndicatorColor">@color/colorPrimaryDark</color>
+    <color name="tabsSelectedTextColor">@color/white</color>
+    <color name="tabsNotSelectedTextColor">@color/minecraft_button_light</color>
+    <color name="colorAccent">@color/minecraft_dirt_light</color>
 
     <integer-array name="androidcolors">
         <item>@color/blue</item>
@@ -34,10 +45,12 @@
         <item>@color/darkgreen</item>
         <item>@color/darkorange</item>
         <item>@color/darkred</item>
+        <item>@color/black</item>
+        <item>@color/white</item>
 
         <item>@color/minecraft_not_pressed</item>
         <item>@color/minecraft_pressed</item>
-        <item>@color/minecraft_buttond_light</item>
+        <item>@color/minecraft_button_light</item>
         <item>@color/minecraft_buttons_dark</item>
 
         <item>@color/minecraft_dark_dirt_light</item>

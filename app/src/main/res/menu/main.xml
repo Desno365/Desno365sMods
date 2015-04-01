@@ -1,55 +1,56 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.desno365.mods.Activities.MainActivity" >
 
     <item
         android:id="@+id/action_refresh"
-        android:icon="@drawable/refresh"
+        android:icon="@drawable/ic_action_navigation_refresh"
         android:orderInCategory="60"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:title="@string/action_refresh"/>
     
     <item
         android:id="@+id/action_info"
-        android:icon="@drawable/info"
+        android:icon="@drawable/ic_action_info"
         android:orderInCategory="70"
-        android:showAsAction="ifRoom"
+        app:showAsAction="ifRoom"
         android:title="@string/action_info"/>
 
     <item
         android:id="@+id/action_help"
-        android:icon="@drawable/help"
+        android:icon="@drawable/ic_action_help"
         android:orderInCategory="71"
-        android:showAsAction="ifRoom"
+        app:showAsAction="ifRoom"
         android:title="@string/action_help"/>
     
     <item
         android:id="@+id/action_share"
-        android:icon="@drawable/share"
+        android:icon="@drawable/ic_action_social_share"
         android:orderInCategory="72"
-        android:showAsAction="never"
+        app:showAsAction="never"
         android:title="@string/action_share"/>
 
     <item
         android:id="@+id/action_feedback"
-        android:icon="@drawable/feedback"
+        android:icon="@drawable/ic_action_feedback"
         android:orderInCategory="73"
-        android:showAsAction="never"
+        app:showAsAction="never"
         android:title="@string/action_feedback"/>
     
     <item
         android:id="@+id/action_rate"
-        android:icon="@drawable/rate"
+        android:icon="@drawable/ic_action_rate"
         android:orderInCategory="80"
-        android:showAsAction="never"
+        app:showAsAction="never"
         android:title="@string/action_rate"/>
 
     <item
         android:id="@+id/action_settings"
-        android:icon="@drawable/settings"
+        android:icon="@drawable/ic_action_settings"
         android:orderInCategory="90"
-        android:showAsAction="never"
+        app:showAsAction="never"
         android:title="@string/action_settings"/>
 
 </menu>

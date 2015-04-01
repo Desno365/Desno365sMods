@@ -6,6 +6,7 @@
 
     //menu items (that are without many other translations inside their pages)
     <string name="action_refresh">Refresh</string>
+    <string name="action_info">About</string>
     <string name="action_help">Help</string>
     <string name="action_share">Share</string>
     <string name="share_using">Share using&#8230;</string>
@@ -18,7 +19,6 @@
 
 
     //about activity
-    <string name="action_info">About</string>
     <string name="made_by">This App was made with Love by Desno365</string>
     <string name="follow_me">Follow me on Twitter</string>
     <string name="source_code">Get the source code of this app</string>

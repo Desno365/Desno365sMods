@@ -1,11 +1,10 @@
 package com.desno365.mods.Activities;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -24,16 +23,17 @@ public class AboutActivity extends Activity {
 
         activity = this;
 
-        @SuppressLint("AppCompatMethod")
-        ActionBar actionBar = this.getActionBar();
-        assert actionBar != null;
-        actionBar.setTitle(getApplicationContext().getResources().getString(R.string.action_info));
-
-        //set if the user can click the icon
-        actionBar.setHomeButtonEnabled(true);
-
-        //when clicking the icon return to the parent activity (specified in AndroidManifest.xml)
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        // Set up the action bar.
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_about); // Attaching the layout to the toolbar object
+        toolbar.setNavigationIcon(R.drawable.ic_navigation_arrow_back);
+        toolbar.setTitle(R.string.action_info);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+                DesnoUtils.changeFinishAnimations(activity);
+            }
+        });
 
     }
 

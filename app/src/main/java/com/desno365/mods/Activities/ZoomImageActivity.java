@@ -3,6 +3,7 @@ package com.desno365.mods.Activities;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,6 +30,20 @@ public class ZoomImageActivity extends Activity implements OnShowcaseEventListen
         setContentView(R.layout.activity_zoom_image);
 
         activity = this;
+
+
+        // Set up the action bar.
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_zoom_image); // Attaching the layout to the toolbar object
+        toolbar.setTitle(R.string.zoom_image_showcase_title);
+        toolbar.setNavigationIcon(R.drawable.ic_navigation_arrow_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+                DesnoUtils.changeFinishAnimations(activity);
+            }
+        });
+
 
         Drawable mDrawable;
         switch (getIntent().getIntExtra("viewId", 365)) {

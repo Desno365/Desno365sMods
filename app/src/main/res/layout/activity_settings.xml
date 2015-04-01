@@ -8,12 +8,13 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/tool_bar_zoom_image"
+        android:id="@+id/tool_bar_settings"
         layout="@layout/tool_bar"/>
 
-    <uk.co.senab.photoview.PhotoView
-        android:id="@+id/iv_photo"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+    <fragment
+        android:id="@+id/fragment_container_preference"
+        android:name="com.desno365.mods.Activities.SettingsActivity$PrefsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

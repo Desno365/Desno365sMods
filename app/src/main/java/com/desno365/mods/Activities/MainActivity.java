@@ -1,7 +1,6 @@
 package com.desno365.mods.Activities;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,11 +9,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,7 +39,7 @@ import com.desno365.mods.Tabs.FragmentTab1;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 
-public class MainActivity extends FragmentActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     public static WeakReference<MainActivity> myMainActivity = null;
     public static Activity activity;
@@ -61,7 +60,9 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
     public static String unrealMapChangelog = "Use the refresh button to download the changelog.";
 
     private Menu optionsMenu;
-    private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
+    //private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
+
+    private Toolbar toolbar;
 
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 
@@ -84,18 +85,17 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the action bar.
-        @SuppressLint("AppCompatMethod")
-        final ActionBar actionBar = getActionBar();
-        assert actionBar != null;
+        toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar); // Setting toolbar as the ActionBar with setSupportActionBar() call
 
         //set if the user can click the icon
-        actionBar.setHomeButtonEnabled(true);
+        /*actionBar.setHomeButtonEnabled(true);
 
         // Show Actionbar Icon
         actionBar.setDisplayShowHomeEnabled(true);
 
         // Show Actionbar Title
-        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(true);*/
 
         // Create Actionbar Tabs
         //actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -111,17 +111,17 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
             @Override
             public void onPageSelected(int position) {
                 // When swiping between different app sections
-                mNavigationDrawerFragment.selectItem(position);
+                //mNavigationDrawerFragment.selectItem(position);
                 if(position == 0)
-                    actionBar.setTitle(getResources().getString(R.string.app_name));
+                    toolbar.setTitle(getResources().getString(R.string.app_name));
                 else
-                    actionBar.setTitle(mAppSectionsPagerAdapter.getPageTitle(position));
+                    toolbar.setTitle(mAppSectionsPagerAdapter.getPageTitle(position));
             }
         });
 
         // Set up the drawer.
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+        //mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        //mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
         //action to do at the first launch of the app
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -248,10 +248,10 @@ public class MainActivity extends FragmentActivity implements NavigationDrawerFr
         switch (item.getItemId()) {
 
             case android.R.id.home:
-                if(mNavigationDrawerFragment.isDrawerOpen())
+                /*if(mNavigationDrawerFragment.isDrawerOpen())
                     NavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
                 else
-                    NavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
+                    NavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));*/
                 return true;
 
             case R.id.action_refresh:
