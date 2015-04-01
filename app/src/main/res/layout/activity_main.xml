@@ -22,11 +22,11 @@
         app:pstsIndicatorHeight="4dip"
         app:pstsTextAllCaps="true"/>
 
-    <!--<android.support.v4.widget.DrawerLayout
+    <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.desno365.mods.Activities.MainActivity">-->
+        tools:context="com.desno365.mods.Activities.MainActivity" >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -35,25 +35,26 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/adFragmentFooter"/>
+                android:layout_height="match_parent" />
+            <!-- android:layout_above="@+id/adFragmentFooter" -->
 
-            <fragment
+            <!-- <fragment
                 android:id="@+id/adFragmentFooter"
                 android:name="com.desno365.mods.AdFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true" />
+                android:layout_alignParentBottom="true" /> -->
 
         </RelativeLayout>
 
-    <!--<fragment android:id="@+id/navigation_drawer"
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:name="com.desno365.mods.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer" />-->
+        <fragment
+            android:id="@+id/navigation_drawer"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:name="com.desno365.mods.NavigationDrawerFragment"
+            tools:layout="@layout/fragment_navigation_drawer" />
 
-<!--</android.support.v4.widget.DrawerLayout>-->
+    </android.support.v4.widget.DrawerLayout>
 
 </LinearLayout>

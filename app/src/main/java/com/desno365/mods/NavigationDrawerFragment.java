@@ -1,7 +1,5 @@
 package com.desno365.mods;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.res.Configuration;
@@ -74,8 +72,8 @@ public class NavigationDrawerFragment extends Fragment {
         });
 
         ArrayAdapter ad = new ArrayAdapter<String>(
-                getActionBar().getThemedContext(),
-                R.layout.list_view_text_layout,
+                MainActivity.activity.getApplicationContext(),
+                R.layout.drawer_list_item,
                 android.R.id.text1,
                 new String[]{
                         getString(R.string.home_title),
@@ -128,10 +126,6 @@ public class NavigationDrawerFragment extends Fragment {
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
-
-        ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
 
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the navigation drawer and the action bar app icon.
@@ -200,11 +194,6 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-    @SuppressLint("AppCompatMethod")
-    private ActionBar getActionBar() {
-        return getActivity().getActionBar();
-    }
-
     /**
      * Callbacks interface that all activities using this fragment must implement.
      */
@@ -215,3 +204,4 @@ public class NavigationDrawerFragment extends Fragment {
         void onNavigationDrawerItemSelected(int position);
     }
 }
+

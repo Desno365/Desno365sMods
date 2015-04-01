@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -60,8 +61,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     public static String unrealMapChangelog = "Use the refresh button to download the changelog.";
 
     private Menu optionsMenu;
-    //private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
-
+    private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
     private Toolbar toolbar;
 
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
@@ -73,12 +73,14 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     public void onCreate(Bundle savedInstanceState) {
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
+
+        activity = this;
+        myMainActivity = new WeakReference<MainActivity>(this);
+
         setContentView(R.layout.activity_main);
 
         Log.i(TAG, "App launched.");
 
-        activity = this;
-        myMainActivity = new WeakReference<MainActivity>(this);
 
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
@@ -87,18 +89,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         // Set up the action bar.
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar); // Setting toolbar as the ActionBar with setSupportActionBar() call
-
-        //set if the user can click the icon
-        /*actionBar.setHomeButtonEnabled(true);
-
-        // Show Actionbar Icon
-        actionBar.setDisplayShowHomeEnabled(true);
-
-        // Show Actionbar Title
-        actionBar.setDisplayShowTitleEnabled(true);*/
-
-        // Create Actionbar Tabs
-        //actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         // Set up the ViewPager and attaching the adapter
         mViewPager = (ViewPager) findViewById(R.id.fragment_container);
@@ -111,7 +101,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             @Override
             public void onPageSelected(int position) {
                 // When swiping between different app sections
-                //mNavigationDrawerFragment.selectItem(position);
+                mNavigationDrawerFragment.selectItem(position);
                 if(position == 0)
                     toolbar.setTitle(getResources().getString(R.string.app_name));
                 else
@@ -120,8 +110,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         });
 
         // Set up the drawer.
-        //mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        //mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
         //action to do at the first launch of the app
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -248,10 +238,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         switch (item.getItemId()) {
 
             case android.R.id.home:
-                /*if(mNavigationDrawerFragment.isDrawerOpen())
+                if(mNavigationDrawerFragment.isDrawerOpen())
                     NavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
                 else
-                    NavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));*/
+                    NavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
                 return true;
 
             case R.id.action_refresh:
