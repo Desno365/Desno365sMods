@@ -12,6 +12,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -23,7 +24,13 @@ import com.desno365.mods.Receivers.AlarmReceiver;
 
 public class SettingsActivity extends PreferenceActivity {
 
+    private static final String TAG = "DesnoMods-SettingsActiv";
+
     public static Activity activity;
+
+    private static Preference frequencyPreference;
+
+    private static boolean monitorNotificationPrefrence;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,18 @@ public class SettingsActivity extends PreferenceActivity {
         });
 
 	}
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        Log.i(TAG, "onDestroy. Launched the new alarm.");
+
+        // change alarmManager for notifications
+        AlarmReceiver aR = new AlarmReceiver();
+        aR.cancelAlarm(activity.getApplicationContext());
+        aR.setAlarm(activity.getApplicationContext());
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -88,6 +107,7 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     public static class PrefsFragment extends PreferenceFragment {
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -97,26 +117,27 @@ public class SettingsActivity extends PreferenceActivity {
 
             // initialize preferences
             SharedPreferences sharedPrefs = getPreferenceScreen().getSharedPreferences();
-            final Preference notificationPreference = findPreference("notification_bool");
-            final Preference frequencyPreference = findPreference("sync_frequency");
-            final Preference languagePreference = findPreference("selected_language");
+            Preference notificationPreference = findPreference("notification_bool");
+            frequencyPreference = findPreference("sync_frequency");
+            Preference languagePreference = findPreference("selected_language");
+            Preference helpTranslatingPreference = findPreference("help_translating");
+            Preference restoreTipsPreference = findPreference("restore_tips");
+
+            monitorNotificationPrefrence = sharedPrefs.getBoolean(notificationPreference.getKey(), true);
 
 
             // enable or disable alarm if the user want or not notifications
             notificationPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-                    Toast.makeText(activity.getApplicationContext(), "Notifications " + preference.getSharedPreferences().getBoolean(preference.getKey(), true), Toast.LENGTH_SHORT).show();
+                    monitorNotificationPrefrence = !monitorNotificationPrefrence;
 
-                    if (preference.getSharedPreferences().getBoolean(preference.getKey(), true))
+                    Log.i(TAG, "notification_bool set to " + monitorNotificationPrefrence);
+
+                    if (monitorNotificationPrefrence)
                         frequencyPreference.setEnabled(true);
                     else
                         frequencyPreference.setEnabled(false);
-
-                    // change alarmManager for notifications
-                    AlarmReceiver aR = new AlarmReceiver();
-                    aR.cancelAlarm(activity.getApplicationContext());
-                    aR.setAlarm(activity.getApplicationContext());
 
                     return true;
                 }
@@ -124,23 +145,10 @@ public class SettingsActivity extends PreferenceActivity {
 
 
             // enable or disable frequency preference at start
-            if(sharedPrefs.getBoolean(notificationPreference.getKey(), true))
+            if(monitorNotificationPrefrence)
                 frequencyPreference.setEnabled(true);
             else
                 frequencyPreference.setEnabled(false);
-
-            // change alarm when frequency preference has been changed
-            frequencyPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-
-                    // change alarmManager for notifications
-                    AlarmReceiver aR = new AlarmReceiver();
-                    aR.cancelAlarm(activity.getApplicationContext());
-                    aR.setAlarm(activity.getApplicationContext());
-
-                    return true;
-                }
-            });
 
 
             // open popup when language preference is changed
@@ -153,8 +161,7 @@ public class SettingsActivity extends PreferenceActivity {
 
 
             // help translating preference
-            Preference myPref1 = findPreference("help_translating");
-            myPref1.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            helpTranslatingPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_TRANSLATIONS)));
@@ -164,8 +171,7 @@ public class SettingsActivity extends PreferenceActivity {
             });
 
             // restore suggestions preference
-            Preference myPref2 = findPreference("restore_tips");
-            myPref2.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            restoreTipsPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     // restore tooltip
