@@ -1,15 +1,20 @@
 package com.desno365.mods.Activities;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.Keys;
 import com.desno365.mods.R;
 import com.desno365.mods.SwipeLayout;
 
@@ -21,12 +26,21 @@ public class NewsActivity extends ActionBarActivity {
     private Menu optionsMenu;
     private SwipeRefreshLayout swipeLayout;
 
+    public static String newsContent;
+
+    private boolean isRefreshing;
+
     public void onCreate(Bundle savedInstanceState) {
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
 
         activity = this;
+
+        newsContent = getResources().getString(R.string.loading);
+
+        // set content of the activity
+        setContentView(R.layout.activity_news);
+
 
         // Set up the action bar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_news); // Attaching the layout to the toolbar object
@@ -47,7 +61,7 @@ public class NewsActivity extends ActionBarActivity {
         swipeLayout.setOnRefreshListener(new SwipeLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                // download news
+                startRefreshingNews();
             }
         });
 
@@ -68,22 +82,19 @@ public class NewsActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_news_activity, menu);
 
         //refresh content on start
-        /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if(sharedPrefs.getBoolean("refresh_on_start", true)) {
-            new android.os.Handler().postDelayed(new Runnable(){
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            try {
-                                // download news
-                            } catch (Exception err) {
-                                Log.e(TAG, "Exception in runOnUiThread() in onCreate() ", err);
-                            }
+        new android.os.Handler().postDelayed(new Runnable(){
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        try {
+                            startRefreshingNews();
+                        } catch (Exception err) {
+                            Log.e(TAG, "Exception in runOnUiThread() in onCreateOptionsMenu() ", err);
                         }
-                    });
-                }
-            }, 1000);
-        }*/
+                    }
+                });
+            }
+        }, 500);
 
         return true;
     }
@@ -99,7 +110,7 @@ public class NewsActivity extends ActionBarActivity {
                 return true;
 
             case R.id.action_news_refresh:
-                // TODO refresh
+                startRefreshingNews();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -115,7 +126,7 @@ public class NewsActivity extends ActionBarActivity {
         });
 
         if (optionsMenu != null) {
-            final MenuItem refreshItem = optionsMenu.findItem(R.id.action_refresh);
+            final MenuItem refreshItem = optionsMenu.findItem(R.id.action_news_refresh);
             if (refreshItem != null) {
                 if (refreshing) {
                     runOnUiThread(new Runnable() {
@@ -129,6 +140,58 @@ public class NewsActivity extends ActionBarActivity {
                 }
             }
         }
+    }
+
+    private void startRefreshingNews() {
+        if(!isRefreshing) {
+            isRefreshing = true;
+            setRefreshState(true);
+            RetrieveNewsContent downloadTask = new RetrieveNewsContent();
+            downloadTask.execute((Void) null);
+        }
+    }
+
+    // refresh TextViews after the content has been refreshed
+    private void refreshTextViews() {
+        activity.runOnUiThread(new Runnable() {
+            public void run() {
+
+                try {
+                    TextView newsText = (TextView) getWindow().getDecorView().findViewById(R.id.news_container);
+                    newsText.setText(android.text.Html.fromHtml(newsContent));
+                } catch (Exception err) {
+                    Log.e(TAG, "Exception in refreshTextViews() in news ", err);
+                }
+
+            }
+        });
+    }
+
+    public class RetrieveNewsContent extends AsyncTask<Void, String, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
+                newsContent = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS);
+            } else {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(activity.getApplicationContext(), getResources().getString(R.string.internet_error), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            Log.i(TAG, "onPostExecute now, the AsyncTask for the news finished loading.");
+            refreshTextViews();
+            setRefreshState(false);
+            isRefreshing = false;
+        }
+
     }
 
 }
