@@ -82,6 +82,7 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.mod4_title),
                         getString(R.string.mod6_title),
                         getString(R.string.action_help),
+                        getString(R.string.news_title),
                         getString(R.string.action_settings),
                 }) {
             @Override

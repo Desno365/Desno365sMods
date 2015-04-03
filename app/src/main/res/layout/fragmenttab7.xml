@@ -53,7 +53,8 @@
             <TextView
                 android:id="@+id/latest_version_unreal_is"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/loading"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,7 +71,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="12sp"
-                android:linksClickable="true" />
+                android:linksClickable="true"
+                android:text="@string/loading"/>
 
             <RelativeLayout
                 android:layout_width="fill_parent"

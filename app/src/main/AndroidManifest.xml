@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.desno365.mods"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.desno365.mods"
     android:versionCode="10"
     android:versionName="1.4.0" >
 
@@ -14,7 +15,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-        <receiver android:name=".Receivers.BootReceiver" android:enabled="true">
+        <receiver
+            android:name=".Receivers.BootReceiver"
+            android:enabled="true"
+            tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name ="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -22,7 +26,8 @@
 
         <receiver
             android:process=":remote"
-            android:name=".Receivers.AlarmReceiver" />
+            android:name=".Receivers.AlarmReceiver"
+            tools:ignore="InnerclassSeparator"/>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -30,11 +35,11 @@
 
         <activity
             android:name=".Activities.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            tools:ignore="InnerclassSeparator">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -42,7 +47,8 @@
 
         <activity
             android:name=".Activities.SettingsActivity"
-            android:parentActivityName=".Activities.MainActivity" >
+            android:parentActivityName=".Activities.MainActivity"
+            tools:ignore="InnerclassSeparator,UnusedAttribute">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,14 +57,21 @@
 
         </activity>
 
+        <activity android:name=".Activities.AboutActivity"
+                  android:parentActivityName=".Activities.MainActivity"
+                  tools:ignore="InnerclassSeparator,UnusedAttribute"/>
+
         <activity android:name=".Activities.HelpActivity"
-            android:parentActivityName=".Activities.MainActivity" />
+            android:parentActivityName=".Activities.MainActivity"
+            tools:ignore="InnerclassSeparator,UnusedAttribute"/>
 
         <activity android:name=".Activities.ZoomImageActivity"
-            android:parentActivityName=".Activities.HelpActivity" />
+            android:parentActivityName=".Activities.HelpActivity"
+            tools:ignore="InnerclassSeparator,UnusedAttribute"/>
 
-        <activity android:name=".Activities.AboutActivity"
-            android:parentActivityName=".Activities.MainActivity" />
+        <activity android:name=".Activities.NewsActivity"
+                  android:parentActivityName=".Activities.MainActivity"
+                  tools:ignore="InnerclassSeparator,UnusedAttribute"/>
 
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

@@ -37,7 +37,9 @@
     <string name="changelog_title">Changelog</string>
     <string name="useful_links_title">Useful links</string>
 
+
     //text - general
+    <string name="loading">Loading&#8230;</string>
     <string name="latest_version_is">The latest version is:</string>
     <string name="internet_error">There was an error while checking for updates, please check your internet connection.</string>
     <string name="show_changelog">Show all the changelog&#8230;</string>
@@ -109,6 +111,7 @@
     <string name="mod6_title" translatable="false">Unreal Geometry Map</string>
     <string name="info_content_tab7">This map and the mod attached bring the Non-Euclidean geometry on your mobile device!\nExperience the craziness of an unreal world, in a normal/Euclidean game like Minecraft.\nWords can\’t explain in a good way what this map has.\nTry it, you\'ll see.</string>
 
+
     //settings
     <string name="connection_settings">Connection</string>
     <string name="refresh_on_start_title">Refresh on start</string>
@@ -135,6 +138,7 @@
     <string name="restore_tips_title">Restore suggestions</string>
     <string name="restore_tips_summary">Restore tips and suggestions in the Help page</string>
     <string name="restored_toast">Tips and suggestions restored.</string>
+
 
     // notifications
     <string name="notification_new_version_title">New version released</string>

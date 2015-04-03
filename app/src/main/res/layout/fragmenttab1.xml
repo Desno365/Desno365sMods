@@ -58,7 +58,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:textSize="12sp"
-                android:linksClickable="true" />
+                android:linksClickable="true"
+                android:text="@string/loading"/>
 
             <RelativeLayout
                 android:layout_width="fill_parent"

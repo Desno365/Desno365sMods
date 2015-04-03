@@ -7,49 +7,56 @@
     <item
         android:id="@+id/action_refresh"
         android:icon="@drawable/ic_action_navigation_refresh"
-        android:orderInCategory="60"
+        android:orderInCategory="200"
         app:showAsAction="always"
         android:title="@string/action_refresh"/>
     
     <item
         android:id="@+id/action_info"
         android:icon="@drawable/ic_action_info"
-        android:orderInCategory="70"
+        android:orderInCategory="300"
         app:showAsAction="ifRoom"
         android:title="@string/action_info"/>
 
     <item
         android:id="@+id/action_help"
         android:icon="@drawable/ic_action_help"
-        android:orderInCategory="71"
+        android:orderInCategory="400"
         app:showAsAction="ifRoom"
         android:title="@string/action_help"/>
+
+    <item
+        android:id="@+id/action_news"
+        android:icon="@drawable/ic_action_news"
+        android:orderInCategory="500"
+        app:showAsAction="ifRoom"
+        android:title="@string/news_title"/>
     
     <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_action_social_share"
-        android:orderInCategory="72"
+        android:orderInCategory="600"
         app:showAsAction="never"
         android:title="@string/action_share"/>
 
     <item
         android:id="@+id/action_feedback"
         android:icon="@drawable/ic_action_feedback"
-        android:orderInCategory="73"
+        android:orderInCategory="700"
         app:showAsAction="never"
         android:title="@string/action_feedback"/>
     
     <item
         android:id="@+id/action_rate"
         android:icon="@drawable/ic_action_rate"
-        android:orderInCategory="80"
+        android:orderInCategory="800"
         app:showAsAction="never"
         android:title="@string/action_rate"/>
 
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_action_settings"
-        android:orderInCategory="90"
+        android:orderInCategory="900"
         app:showAsAction="never"
         android:title="@string/action_settings"/>
 

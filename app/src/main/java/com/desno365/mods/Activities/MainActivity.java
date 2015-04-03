@@ -48,19 +48,19 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     public static Activity activity;
     private static final String TAG = "DesnoMods-MainActivity";
 
-    public static String newsString = "Use the refresh button to download the news.";
-    public static String gunsModVersion = "Latest version: unknown, please use the refresh button.";
-    public static String gunsModChangelog = "Use the refresh button to download the changelog.";
-    public static String portalModVersion = "Latest version: unknown, please use the refresh button.";
-    public static String portalModChangelog = "Use the refresh button to download the changelog.";
-    public static String laserModVersion = "Latest version: unknown, please use the refresh button.";
-    public static String laserModChangelog = "Use the refresh button to download the changelog.";
-    public static String turretsModVersion = "Latest version: unknown, please use the refresh button.";
-    public static String turretsModChangelog = "Use the refresh button to download the changelog.";
-    public static String jukeboxModVersion = "Latest version: unknown, please use the refresh button.";
-    public static String jukeboxModChangelog = "Use the refresh button to download the changelog.";
-    public static String unrealMapVersion = "Latest version: unknown, please use the refresh button.";
-    public static String unrealMapChangelog = "Use the refresh button to download the changelog.";
+    public static String newsString;
+    public static String gunsModVersion;
+    public static String gunsModChangelog;
+    public static String portalModVersion;
+    public static String portalModChangelog;
+    public static String laserModVersion;
+    public static String laserModChangelog;
+    public static String turretsModVersion;
+    public static String turretsModChangelog;
+    public static String jukeboxModVersion;
+    public static String jukeboxModChangelog;
+    public static String unrealMapVersion;
+    public static String unrealMapChangelog;
 
     private Menu optionsMenu;
     public static Toolbar toolbar;
@@ -79,6 +79,21 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         activity = this;
         myMainActivity = new WeakReference<MainActivity>(this);
 
+        newsString = getResources().getString(R.string.loading);
+        gunsModVersion = getResources().getString(R.string.loading);
+        gunsModChangelog = getResources().getString(R.string.loading);
+        portalModVersion = getResources().getString(R.string.loading);
+        portalModChangelog = getResources().getString(R.string.loading);
+        laserModVersion = getResources().getString(R.string.loading);
+        laserModChangelog = getResources().getString(R.string.loading);
+        turretsModVersion = getResources().getString(R.string.loading);
+        turretsModChangelog = getResources().getString(R.string.loading);
+        jukeboxModVersion = getResources().getString(R.string.loading);
+        jukeboxModChangelog = getResources().getString(R.string.loading);
+        unrealMapVersion = getResources().getString(R.string.loading);
+        unrealMapChangelog = getResources().getString(R.string.loading);
+
+        // set content of the activity
         setContentView(R.layout.activity_main);
 
         Log.i(TAG, "APP LAUNCHED!");
@@ -180,22 +195,22 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     case 0:
                         myFragment = new FragmentTab1();
                         break;
-                    case 1:
+                    case DesnoGuns.viewPagerPosition:
                         myFragment = DesnoGuns.getFragmentTab();
                         break;
-                    case 2:
+                    case Portal.viewPagerPosition:
                         myFragment = Portal.getFragmentTab();
                         break;
-                    case 3:
+                    case Laser.viewPagerPosition:
                         myFragment = Laser.getFragmentTab();
                         break;
-                    case 4:
+                    case Turrets.viewPagerPosition:
                         myFragment = Turrets.getFragmentTab();
                         break;
-                    case 5:
+                    case Jukebox.viewPagerPosition:
                         myFragment = Jukebox.getFragmentTab();
                         break;
-                    case 6:
+                    case Unreal.viewPagerPosition:
                         myFragment = Unreal.getFragmentTab();
                         break;
                     default:
@@ -221,6 +236,15 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             if(position == 8) {
                 new android.os.Handler().postDelayed(new Runnable(){
                     public void run() {
+                        startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                        DesnoUtils.changeStartAnimations(activity);
+                    }
+                }, 200);
+            }
+
+            if(position == 9) {
+                new android.os.Handler().postDelayed(new Runnable(){
+                    public void run() {
                         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                         DesnoUtils.changeStartAnimations(activity);
                     }
@@ -236,7 +260,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         this.optionsMenu = menu;
 
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_activity, menu);
 
         //refresh content on start
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -286,6 +310,11 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
             case R.id.action_help:
                 startActivity(new Intent(this, HelpActivity.class));
+                DesnoUtils.changeStartAnimations(activity);
+                return true;
+
+            case R.id.action_news:
+                startActivity(new Intent(this, NewsActivity.class));
                 DesnoUtils.changeStartAnimations(activity);
                 return true;
 
@@ -349,7 +378,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     }
 
     // refresh TextViews after the content has been refreshed
-    public void refreshTabPages() {
+    private void refreshTextViews() {
         myMainActivity.get().runOnUiThread(new Runnable() {
             public void run() {
 
@@ -357,7 +386,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     TextView newsText = (TextView) getWindow().getDecorView().findViewById(R.id.news_container);
                     newsText.setText(android.text.Html.fromHtml(newsString));
                 } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTabPages() in news ", err);
+                    Log.e(TAG, "Exception in refreshTextViews() in news ", err);
                 }
 
                 try {
@@ -367,7 +396,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     TextView textChangelogGuns = (TextView) getWindow().getDecorView().findViewById(R.id.guns_changelog);
                     textChangelogGuns.setText(android.text.Html.fromHtml(gunsModChangelog));
                 } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTabPages() in portal ", err);
+                    Log.e(TAG, "Exception in refreshTextViews() in portal ", err);
                 }
 
                 try {
@@ -377,7 +406,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     TextView textChangelogPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_changelog);
                     textChangelogPortal.setText(android.text.Html.fromHtml(portalModChangelog));
                 } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTabPages() in portal ", err);
+                    Log.e(TAG, "Exception in refreshTextViews() in portal ", err);
                 }
 
                 try {
@@ -387,7 +416,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     TextView textChangelogLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_changelog);
                     textChangelogLaser.setText(android.text.Html.fromHtml(laserModChangelog));
                 } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTabPages() in laser ", err);
+                    Log.e(TAG, "Exception in refreshTextViews() in laser ", err);
                 }
 
                 try {
@@ -397,7 +426,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     TextView textChangelogTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_changelog);
                     textChangelogTurrets.setText(android.text.Html.fromHtml(turretsModChangelog));
                 } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTabPages() in turrets ", err);
+                    Log.e(TAG, "Exception in refreshTextViews() in turrets ", err);
                 }
 
                 try {
@@ -407,7 +436,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     TextView textChangelogJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_changelog);
                     textChangelogJukebox.setText(android.text.Html.fromHtml(jukeboxModChangelog));
                 } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTabPages() in jukebox ", err);
+                    Log.e(TAG, "Exception in refreshTextViews() in jukebox ", err);
                 }
 
                 try {
@@ -417,7 +446,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     TextView textChangelogUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_changelog);
                     textChangelogUnreal.setText(android.text.Html.fromHtml(unrealMapChangelog));
                 } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTabPages() in unreal ", err);
+                    Log.e(TAG, "Exception in refreshTextViews() in unreal ", err);
                 }
             }
         });
@@ -575,7 +604,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             turretsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion;
             jukeboxModVersion = getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion;
             unrealMapVersion = getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion;
-            refreshTabPages();
+            refreshTextViews();
             setRefreshState(false);
         }
 
