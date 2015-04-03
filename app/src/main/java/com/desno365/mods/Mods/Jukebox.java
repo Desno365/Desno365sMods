@@ -7,6 +7,8 @@ import com.desno365.mods.Tabs.FragmentTab5;
 
 public class Jukebox extends Mod {
 
+    public static final int viewPagerPosition = 5;
+
     public Jukebox() {
 
         super();

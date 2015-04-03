@@ -7,6 +7,8 @@ import com.desno365.mods.Tabs.FragmentTab2;
 
 public class Portal extends Mod {
 
+    public static final int viewPagerPosition = 2;
+
     public Portal() {
 
         super();

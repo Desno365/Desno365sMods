@@ -7,6 +7,8 @@ import com.desno365.mods.Tabs.FragmentTab7;
 
 public class Unreal extends Mod {
 
+    public static final int viewPagerPosition = 6;
+
     public Unreal() {
 
         super();

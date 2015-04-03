@@ -87,7 +87,7 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     private static void restartDialogLanguage() {
-        View mView = View.inflate(activity, R.layout.restart_popup_language_settings, null);
+        View mView = View.inflate(activity, R.layout.popup_settings_restart_language, null);
 
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
         builder.setView(mView);

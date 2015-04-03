@@ -7,6 +7,8 @@ import com.desno365.mods.Tabs.FragmentTab3;
 
 public class Laser extends Mod {
 
+    public static final int viewPagerPosition = 3;
+
     public Laser() {
 
         super();

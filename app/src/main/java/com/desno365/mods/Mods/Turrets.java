@@ -7,6 +7,8 @@ import com.desno365.mods.Tabs.FragmentTab4;
 
 public class Turrets extends Mod {
 
+    public static final int viewPagerPosition = 4;
+
     public Turrets() {
 
         super();

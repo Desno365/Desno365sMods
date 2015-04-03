@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -35,6 +36,7 @@ import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.NavigationDrawerFragment;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
+import com.desno365.mods.SwipeLayout;
 import com.desno365.mods.Tabs.FragmentTab1;
 
 import java.lang.ref.WeakReference;
@@ -61,13 +63,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     public static String unrealMapChangelog = "Use the refresh button to download the changelog.";
 
     private Menu optionsMenu;
-    private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
     public static Toolbar toolbar;
+    private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
+    private SwipeLayout swipeLayout;
+    public static ViewPager mViewPager;
 
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 
-    //The {@link ViewPager} that will display the three primary sections of the app, one at a time.
-    ViewPager mViewPager;
 
     @SuppressLint("CommitPrefEdits")
     public void onCreate(Bundle savedInstanceState) {
@@ -90,9 +92,32 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar); // Setting toolbar as the ActionBar with setSupportActionBar() call
 
+        // Set up the SwipeRefreshLayout
+        swipeLayout = (SwipeLayout) findViewById(R.id.swipe_container);
+        swipeLayout.setColorSchemeResources(R.color.minecraft_dirt_light, R.color.minecraft_dirt_green);
+        swipeLayout.setOnRefreshListener(new SwipeLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                RetrieveModsUpdates downloadTask = new RetrieveModsUpdates();
+                downloadTask.execute((Void) null);
+            }
+        });
+
         // Set up the ViewPager and attaching the adapter
         mViewPager = (ViewPager) findViewById(R.id.fragment_container);
         mViewPager.setAdapter(mAppSectionsPagerAdapter);
+        mViewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                swipeLayout.setEnabled(false);
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_UP:
+                        swipeLayout.setEnabled(true);
+                        break;
+                }
+                return false;
+            }
+        });
 
         // Bind the tabs to the ViewPager
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
@@ -473,7 +498,15 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         aR.onReceive(getApplicationContext(), null);
     }*/
 
-    public void setRefreshActionButtonState(final boolean refreshing) {
+    public void setRefreshState(final boolean refreshing) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (swipeLayout != null) {
+                    swipeLayout.setRefreshing(refreshing);
+                }
+            }
+        });
+
         if (optionsMenu != null) {
             final MenuItem refreshItem = optionsMenu.findItem(R.id.action_refresh);
             if (refreshItem != null) {
@@ -503,7 +536,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         @Override
         protected Void doInBackground(Void... params) {
 
-            setRefreshActionButtonState(true);
+            setRefreshState(true);
 
             if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
                 latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
@@ -543,7 +576,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             jukeboxModVersion = getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion;
             unrealMapVersion = getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion;
             refreshTabPages();
-            setRefreshActionButtonState(false);
+            setRefreshState(false);
         }
 
     }
@@ -563,17 +596,17 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             switch (i) {
                 case 0:
                     return new FragmentTab1();
-                case 1:
+                case DesnoGuns.viewPagerPosition:
                     return DesnoGuns.getFragmentTab();
-                case 2:
+                case Portal.viewPagerPosition:
                     return Portal.getFragmentTab();
-                case 3:
+                case Laser.viewPagerPosition:
                     return Laser.getFragmentTab();
-                case 4:
+                case Turrets.viewPagerPosition:
                     return Turrets.getFragmentTab();
-                case 5:
+                case Jukebox.viewPagerPosition:
                     return Jukebox.getFragmentTab();
-                case 6:
+                case Unreal.viewPagerPosition:
                     return Unreal.getFragmentTab();
                 default:
                     return null;

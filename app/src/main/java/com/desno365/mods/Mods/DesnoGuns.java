@@ -7,6 +7,8 @@ import com.desno365.mods.Tabs.FragmentTab6;
 
 public class DesnoGuns extends Mod {
 
+    public static final int viewPagerPosition = 1;
+
     public DesnoGuns() {
 
         super();

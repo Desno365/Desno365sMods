@@ -32,11 +32,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/fragment_container"
+            <com.desno365.mods.SwipeLayout
+                android:id="@+id/swipe_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            <!-- android:layout_above="@+id/adFragmentFooter" -->
+                android:layout_height="match_parent">
+                <!-- android:layout_above="@+id/adFragmentFooter" -->
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/fragment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.desno365.mods.SwipeLayout>
 
             <!-- <fragment
                 android:id="@+id/adFragmentFooter"
@@ -53,7 +60,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:name="com.desno365.mods.NavigationDrawerFragment"
-            tools:layout="@layout/fragment_navigation_drawer" />
+            tools:layout="@layout/navigation_drawer_fragment" />
 
     </android.support.v4.widget.DrawerLayout>
 

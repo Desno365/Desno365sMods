@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -60,7 +61,7 @@ public class NavigationDrawerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mDrawerListView = (ListView) inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        mDrawerListView = (ListView) inflater.inflate(R.layout.navigation_drawer_fragment, container, false);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -70,7 +71,7 @@ public class NavigationDrawerFragment extends Fragment {
 
         ArrayAdapter ad = new ArrayAdapter<String>(
                 MainActivity.activity.getApplicationContext(),
-                R.layout.drawer_list_item,
+                R.layout.navigation_drawer_item,
                 android.R.id.text1,
                 new String[]{
                         getString(R.string.home_title),
@@ -88,16 +89,22 @@ public class NavigationDrawerFragment extends Fragment {
                 View v = super.getView(position, view, viewGroup);
 
                 Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(),"fonts/minecraft.ttf");
-                ((TextView)v).setTypeface(font);
+                TextView tv = (TextView) v;
 
-                // commented code that change the checked item
+                tv.setTypeface(font);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                    tv.setShadowLayer(1, Math.round(tv.getLineHeight() / 8), Math.round(tv.getLineHeight() / 8), getResources().getColor(R.color.drawerTextShadow));
+                else
+                    tv.setShadowLayer(0.0001F, Math.round(tv.getLineHeight() / 8), Math.round(tv.getLineHeight() / 8), getResources().getColor(R.color.drawerTextShadow));
+
+                // commented code that changes the checked item
                 // custom colors selected items
                 /*if(position == mCurrentSelectedPosition)
                     v.setBackgroundColor(getResources().getColor(R.color.minecraft_not_pressed));
                 else
                     v.setBackgroundColor(getResources().getColor(R.color.white));*/
 
-                v.setBackgroundColor(getResources().getColor(R.color.white));
+                v.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
                 return v;
             }

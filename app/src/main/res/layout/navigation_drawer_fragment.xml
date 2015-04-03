@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:choiceMode="singleChoice"
-    android:divider="@color/minecraft_not_pressed"
+    android:divider="@color/colorPrimaryDark"
     android:dividerHeight="1dp"
-    android:background="#ffffffff"
+    android:background="@color/colorPrimary"
     tools:context="com.desno365.mods.NavigationDrawerFragment" />
