@@ -5,7 +5,7 @@
     tools:context="com.desno365.mods.Activities.NewsActivity" >
 
     <item
-        android:id="@+id/action_refresh"
+        android:id="@+id/action_news_refresh"
         android:icon="@drawable/ic_action_navigation_refresh"
         android:orderInCategory="200"
         app:showAsAction="always"

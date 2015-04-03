@@ -1,12 +1,10 @@
 package com.desno365.mods.Activities;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +13,7 @@ import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 import com.desno365.mods.SwipeLayout;
 
-public class NewsActivity extends Activity {
+public class NewsActivity extends ActionBarActivity {
 
     private static final String TAG = "DesnoMods-NewsActivity";
 
@@ -32,6 +30,7 @@ public class NewsActivity extends Activity {
 
         // Set up the action bar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_news); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar); // Setting toolbar as the ActionBar with setSupportActionBar() call
         toolbar.setTitle(R.string.news_title);
         toolbar.setNavigationIcon(R.drawable.ic_navigation_arrow_back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -69,7 +68,7 @@ public class NewsActivity extends Activity {
         getMenuInflater().inflate(R.menu.menu_news_activity, menu);
 
         //refresh content on start
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        /*SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         if(sharedPrefs.getBoolean("refresh_on_start", true)) {
             new android.os.Handler().postDelayed(new Runnable(){
                 public void run() {
@@ -84,7 +83,8 @@ public class NewsActivity extends Activity {
                     });
                 }
             }, 1000);
-        }
+        }*/
+
         return true;
     }
 
@@ -96,6 +96,10 @@ public class NewsActivity extends Activity {
             case android.R.id.home:
                 this.finish();
                 DesnoUtils.changeFinishAnimations(activity);
+                return true;
+
+            case R.id.action_news_refresh:
+                // TODO refresh
                 return true;
         }
         return super.onOptionsItemSelected(item);
