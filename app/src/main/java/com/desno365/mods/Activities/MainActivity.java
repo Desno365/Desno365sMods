@@ -62,7 +62,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     public static String unrealMapVersion;
     public static String unrealMapChangelog;
 
-    private Menu optionsMenu;
     public static Toolbar toolbar;
     private NavigationDrawerFragment mNavigationDrawerFragment = new NavigationDrawerFragment();
     private SwipeLayout swipeLayout;
@@ -256,9 +255,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //save the menu in a variable
-        this.optionsMenu = menu;
-
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main_activity, menu);
 
@@ -296,11 +292,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                     NavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
                 else
                     NavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
-                return true;
-
-            case R.id.action_refresh:
-                RetrieveModsUpdates downloadTask = new RetrieveModsUpdates();
-                downloadTask.execute((Void) null);
                 return true;
 
             case R.id.action_info:
@@ -535,22 +526,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                 }
             }
         });
-
-        if (optionsMenu != null) {
-            final MenuItem refreshItem = optionsMenu.findItem(R.id.action_refresh);
-            if (refreshItem != null) {
-                if (refreshing) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            refreshItem.setActionView(R.layout.actionbar_indeterminate_progress);
-                        }
-                    });
-                }else {
-                    refreshItem.setActionView(null);
-                }
-            }
-        }
     }
 
     public class RetrieveModsUpdates extends AsyncTask<Void, String, Void> {

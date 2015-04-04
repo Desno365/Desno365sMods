@@ -23,6 +23,7 @@ public class NewsActivity extends ActionBarActivity {
     private static final String TAG = "DesnoMods-NewsActivity";
 
     public static Activity activity;
+    private Toolbar toolbar;
     private Menu optionsMenu;
     private SwipeRefreshLayout swipeLayout;
 
@@ -30,6 +31,7 @@ public class NewsActivity extends ActionBarActivity {
 
     private boolean isRefreshing;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
@@ -43,7 +45,7 @@ public class NewsActivity extends ActionBarActivity {
 
 
         // Set up the action bar.
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_news); // Attaching the layout to the toolbar object
+        toolbar = (Toolbar) findViewById(R.id.tool_bar_news); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar); // Setting toolbar as the ActionBar with setSupportActionBar() call
         toolbar.setTitle(R.string.news_title);
         toolbar.setNavigationIcon(R.drawable.ic_navigation_arrow_back);
@@ -65,6 +67,13 @@ public class NewsActivity extends ActionBarActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        toolbar.setTitle(R.string.news_title);
     }
 
     @Override
