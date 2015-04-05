@@ -121,7 +121,7 @@
     <string name="notification_bool_title">Notifications for new updates</string>
     <string name="notification_bool_summary">Receive notifications for new mods updates</string>
     <string name="pref_sync_frequency_title">Check for updates frequency</string>
-    <string name="pref_sync_frequency_summary">Set the frequency for checking mods updates</string>
+    <string name="pref_sync_frequency_summary">Set the frequency for checking updates</string>
 
     <string name="language_settings">Language</string>
     <string name="language_title">Set language</string>
@@ -144,6 +144,7 @@
     <string name="notification_new_version_title">New version released</string>
     <string name="notification_new_version_content1">A new version of the</string> //A new version of the *modHere* has been released!
     <string name="notification_new_version_content2">has been released!</string>
+    <string name="notification_unread_news">There are unread news!</string>
     <string name="notification_thread">Thread</string>
     <string name="notification_download">Download</string>
 

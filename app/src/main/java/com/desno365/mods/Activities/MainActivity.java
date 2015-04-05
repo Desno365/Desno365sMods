@@ -183,6 +183,14 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     }
 
     @Override
+    public void onBackPressed() {
+        if(mNavigationDrawerFragment.isDrawerOpen())
+            NavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
+        else
+            super.onBackPressed();
+    }
+
+    @Override
     public void onNavigationDrawerItemSelected(int position) {
         if(position <= 6) {
             if (mAppSectionsPagerAdapter != null) {
@@ -376,8 +384,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                 try {
                     TextView newsText = (TextView) getWindow().getDecorView().findViewById(R.id.news_container);
                     newsText.setText(android.text.Html.fromHtml(newsString));
-                } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTextViews() in news ", err);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "NullPointerException in refreshTextViews for news");
                 }
 
                 try {
@@ -386,8 +394,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
                     TextView textChangelogGuns = (TextView) getWindow().getDecorView().findViewById(R.id.guns_changelog);
                     textChangelogGuns.setText(android.text.Html.fromHtml(gunsModChangelog));
-                } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTextViews() in portal ", err);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "NullPointerException in refreshTextViews for DesnoGuns");
                 }
 
                 try {
@@ -396,8 +404,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
                     TextView textChangelogPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_changelog);
                     textChangelogPortal.setText(android.text.Html.fromHtml(portalModChangelog));
-                } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTextViews() in portal ", err);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "NullPointerException in refreshTextViews for Portal");
                 }
 
                 try {
@@ -406,8 +414,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
                     TextView textChangelogLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_changelog);
                     textChangelogLaser.setText(android.text.Html.fromHtml(laserModChangelog));
-                } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTextViews() in laser ", err);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "NullPointerException in refreshTextViews for Laser");
                 }
 
                 try {
@@ -416,8 +424,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
                     TextView textChangelogTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_changelog);
                     textChangelogTurrets.setText(android.text.Html.fromHtml(turretsModChangelog));
-                } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTextViews() in turrets ", err);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "NullPointerException in refreshTextViews for Turrets");
                 }
 
                 try {
@@ -426,8 +434,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
                     TextView textChangelogJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_changelog);
                     textChangelogJukebox.setText(android.text.Html.fromHtml(jukeboxModChangelog));
-                } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTextViews() in jukebox ", err);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "NullPointerException in refreshTextViews for Jukebox");
                 }
 
                 try {
@@ -436,8 +444,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
                     TextView textChangelogUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_changelog);
                     textChangelogUnreal.setText(android.text.Html.fromHtml(unrealMapChangelog));
-                } catch (Exception err) {
-                    Log.e(TAG, "Exception in refreshTextViews() in unreal ", err);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "NullPointerException in refreshTextViews for Unreal");
                 }
             }
         });
@@ -530,6 +538,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
     public class RetrieveModsUpdates extends AsyncTask<Void, String, Void> {
 
+        private String latestNewsVersion = "";
         private String latestGunsVersion = "";
         private String latestPortalVersion = "";
         private String latestLaserVersion = "";
@@ -543,6 +552,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             setRefreshState(true);
 
             if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
+                latestNewsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS_COUNT);
                 latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
                 latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
                 latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
@@ -571,6 +581,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         protected void onPostExecute(Void unused) {
             Log.i(TAG, "onPostExecute now, the AsyncTask finished");
 
+            DesnoUtils.notifyForUnreadNews(getApplicationContext(), latestNewsVersion);
             DesnoUtils.notifyForNewUpdates(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
 
             gunsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion;

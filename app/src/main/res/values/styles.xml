@@ -40,7 +40,7 @@
     </style>
 
     <style name="ToolBarTitleTheme" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="ToolBarPopupTheme" parent="ThemeOverlay.AppCompat.Dark">

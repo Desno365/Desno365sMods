@@ -16,6 +16,7 @@ import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 
 import com.desno365.mods.Activities.MainActivity;
+import com.desno365.mods.Activities.NewsActivity;
 import com.desno365.mods.Mods.DesnoGuns;
 import com.desno365.mods.Mods.Jukebox;
 import com.desno365.mods.Mods.Laser;
@@ -122,6 +123,32 @@ public class DesnoUtils {
 
     }
 
+    public static void generalNotification(Context context, String title, String content, int id, Intent customIntent) {
+
+        // The stack builder object will contain an artificial back stack for the started Activity.
+        // This ensures that navigating backward from the Activity leads out of your application to the Home screen.
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+        // Adds the back stack for the Intent (but not the Intent itself)
+        stackBuilder.addParentStack(MainActivity.class);
+        // Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(customIntent);
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // notification
+        NotificationCompat.Builder noti = new NotificationCompat.Builder(context);
+        noti.setSmallIcon(R.drawable.ic_notification_main);
+        noti.setContentTitle(title);
+        noti.setContentText(content);
+        noti.setContentIntent(resultPendingIntent);
+        noti.setAutoCancel(true);
+        noti.setStyle(new NotificationCompat.BigTextStyle().bigText(content));
+        noti.setColor(context.getResources().getColor(R.color.minecraft_dirt_dark));
+
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(id, noti.build());
+
+    }
+
     public static void notificationForNewVersion(Context context, Mod mod) {
 
         // content
@@ -200,11 +227,17 @@ public class DesnoUtils {
         //debugVersions(context, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
     }
 
+    public static void notifyForUnreadNews(Context context, String latestNews) {
+
+        if(checkIfNewVersion(context, latestNews, "latest_read_news")) {
+            DesnoUtils.generalNotification(context, context.getString(R.string.app_name), context.getString(R.string.notification_unread_news), NotificationsId.ID_UNREAD_NEWS, new Intent(context, NewsActivity.class));
+        }
+    }
+
     private static boolean checkIfNewVersion(Context context, String latestVersion, String preferenceName) {
 
         // latestVersion is the version that the app found on internet
-        // preferenceName is the string name of the preference of the mod
-        // modName is the name of it
+        // preferenceName is the string name of the preference of the mod/content
 
         boolean isNewVersion = false;
 
@@ -214,7 +247,7 @@ public class DesnoUtils {
         Log.i(TAG, "Checking saved version of " + preferenceName + ", found latest: " + latestVersion + " known: " + knownVersion);
 
         if(latestVersion.equals("") || latestVersion.isEmpty() || latestVersion.equals("Not Found") || latestVersion.equals(errorString)) {
-            Log.e(TAG, "Something went wrong, not displaying notification for " + preferenceName + " (empty String)");
+            Log.e(TAG, "Something went wrong in checkIfNewVersion() for " + preferenceName + " (empty String)");
         } else {
             if(latestVersion.length() > 10) {
                 Log.e(TAG, "The latest version of " + preferenceName + " shouldn't be so long, probably an internal error happened on the website.");
@@ -223,10 +256,10 @@ public class DesnoUtils {
                 // if we have arrived here it means that no errors happened, yay!
                 if(!(knownVersion.equals(latestVersion))) {
                     if(!(knownVersion.equals(notInitializedStringError))) {
-                        Log.i(TAG, "Different version for " + preferenceName + ", displaying notification");
+                        Log.i(TAG, "Different version for " + preferenceName + ". Maybe a notification should appear.");
                         isNewVersion = true;
                     } else {
-                        Log.i(TAG, "First time the app access the known " + preferenceName + " version.");
+                        Log.i(TAG, "First time the app access the saved " + preferenceName + " version.");
                     }
 
                     SharedPreferences.Editor editor = sharedPrefs.edit();

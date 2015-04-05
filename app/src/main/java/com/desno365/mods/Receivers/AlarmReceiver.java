@@ -18,6 +18,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     private static final String TAG = "DesnoMods-AlarmReceiver";
     private static Context currentContext;
 
+    private String latestNewsVersion = "";
     private String latestGunsVersion = "";
     private String latestPortalVersion = "";
     private String latestLaserVersion = "";
@@ -31,7 +32,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             currentContext = context;
             Log.i(TAG, "Alarm running now: checking updates with AsyncTask");
 
-            RetrieveModsUpdatesFromAlarm downloadTask = new RetrieveModsUpdatesFromAlarm();
+            RetrieveNewsAndModsUpdates downloadTask = new RetrieveNewsAndModsUpdates();
             downloadTask.execute((Void) null);
 
         } catch (Exception err) {
@@ -99,11 +100,12 @@ public class AlarmReceiver extends BroadcastReceiver {
         myPendingIntent.cancel();
     }
 
-    private class RetrieveModsUpdatesFromAlarm extends AsyncTask<Void, String, Void> {
+    private class RetrieveNewsAndModsUpdates extends AsyncTask<Void, String, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
             if(DesnoUtils.isNetworkAvailable(currentContext)) {
+                latestNewsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS_COUNT);
                 latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
                 latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
                 latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
@@ -119,6 +121,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         @Override
         protected void onPostExecute(Void unused) {
             Log.i(TAG, "onPostExecute now, the AsyncTask finished");
+
+            DesnoUtils.notifyForUnreadNews(currentContext, latestNewsVersion);
             DesnoUtils.notifyForNewUpdates(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
 
             // debug notification

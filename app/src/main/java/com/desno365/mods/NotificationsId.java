@@ -2,6 +2,8 @@ package com.desno365.mods;
 
 public class NotificationsId {
 
+    public static final int ID_UNREAD_NEWS = 365 + 365;
+
     public static final int ID_DESNOGUNS_NEW_VERSION = 365 + 100 + 1;
     public static final int ID_PORTAL_NEW_VERSION = 365 + 100 + 2;
     public static final int ID_LASER_NEW_VERSION = 365 + 100 + 3;
