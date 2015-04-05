@@ -42,12 +42,11 @@ public class NewsActivity extends ActionBarActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "Activity started (onCreate)");
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 
 		activity = this;
-
-		//newsContent = getResources().getString(R.string.loading);
 
 		// set content of the activity
 		setContentView(R.layout.activity_news);

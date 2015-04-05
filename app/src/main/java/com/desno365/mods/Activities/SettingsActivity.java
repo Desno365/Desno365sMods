@@ -33,6 +33,7 @@ public class SettingsActivity extends PreferenceActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "Activity started (onCreate)");
         DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 

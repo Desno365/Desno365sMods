@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -19,11 +20,14 @@ import it.sephiroth.android.library.tooltip.TooltipManager;
 
 public class HelpActivity extends Activity {
 
+    private static final String TAG = "DesnoMods-HelpActivity";
+
     public static Activity activity;
 
     private TooltipManager mTooltip;
 
     public void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "Activity started (onCreate)");
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);

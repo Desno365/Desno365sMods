@@ -72,6 +72,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
     @SuppressLint("CommitPrefEdits")
     public void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "APP LAUNCHED!");
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
 
@@ -94,8 +95,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         // set content of the activity
         setContentView(R.layout.activity_main);
-
-        Log.i(TAG, "APP LAUNCHED!");
 
 
         // Create the adapter that will return a fragment for each of the three primary sections

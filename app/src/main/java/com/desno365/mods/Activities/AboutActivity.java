@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -14,9 +15,12 @@ import com.desno365.mods.R;
 
 public class AboutActivity extends Activity {
 
+    private static final String TAG = "DesnoMods-AboutActivity";
+
     public static Activity activity;
 
     public void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "Activity started (onCreate)");
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);

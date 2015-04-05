@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,12 +16,15 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class ZoomImageActivity extends Activity {
 
+    private static final String TAG = "DesnoMods-ZoomImageActi";
+
     public static Activity activity;
 
     private PhotoViewAttacher mAttacher;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "Activity started (onCreate)");
         DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zoom_image);
