@@ -16,6 +16,7 @@ Used libraries
 [Tooltip](https://github.com/sephiroth74/android-target-tooltip)<br>
 [PhotoView](https://github.com/chrisbanes/PhotoView)<br>
 [ShowcaseView](https://github.com/amlcurran/ShowcaseView)<br>
+[AnimatedExpandableListView](https://github.com/idunnololz/AnimatedExpandableListView)<br>
 
 Used images
 -----------
