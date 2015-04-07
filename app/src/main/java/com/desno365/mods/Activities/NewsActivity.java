@@ -18,11 +18,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.desno365.mods.CardNews;
+import com.desno365.mods.NewsCard;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.Keys;
 import com.desno365.mods.R;
-import com.desno365.mods.SwipeLayout;
+import com.desno365.mods.MainSwipeRefreshLayout;
 
 public class NewsActivity extends ActionBarActivity {
 
@@ -68,7 +68,7 @@ public class NewsActivity extends ActionBarActivity {
 		// Set up the SwipeRefreshLayout
 		swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container_news);
 		swipeLayout.setColorSchemeResources(R.color.minecraft_dirt_light, R.color.minecraft_dirt_green);
-		swipeLayout.setOnRefreshListener(new SwipeLayout.OnRefreshListener() {
+		swipeLayout.setOnRefreshListener(new MainSwipeRefreshLayout.OnRefreshListener() {
 			@Override
 			public void onRefresh() {
 				startRefreshingNews();
@@ -139,7 +139,7 @@ public class NewsActivity extends ActionBarActivity {
 		activity.runOnUiThread(new Runnable() {
 			public void run() {
 				for (int i = 0; i < cardsNumber; i++) {
-					CardNews card = new CardNews(activity.getApplicationContext(), titles[i], contents[i]);
+					NewsCard card = new NewsCard(activity.getApplicationContext(), titles[i], contents[i]);
 					card.getPARENT().setAnimation(getIntroSet(1000, 0));
 
 					cardsContainer.addView(card.getPARENT());

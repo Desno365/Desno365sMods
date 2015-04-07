@@ -9,13 +9,13 @@ import android.widget.TextView;
 import com.desno365.mods.Activities.NewsActivity;
 
 
-public class CardNews {
+public class NewsCard {
 	private Context CONTEXT;
 	private String TITLE;
 	private String CONTENT;
 	private View PARENT;
 
-	public CardNews(Context c, String title, String content) {
+	public NewsCard(Context c, String title, String content) {
 		TITLE = title;
 		CONTENT = content;
         CONTEXT = c;

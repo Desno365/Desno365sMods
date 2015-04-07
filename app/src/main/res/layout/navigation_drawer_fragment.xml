@@ -1,10 +1,14 @@
-<ListView
+<com.desno365.mods.AnimatedExpandableListView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:choiceMode="singleChoice"
+    android:groupIndicator="@null"
     android:divider="@color/colorPrimaryDark"
+    android:childDivider="@color/colorPrimaryDark"
     android:dividerHeight="1dp"
     android:background="@color/colorPrimary"
-    tools:context="com.desno365.mods.NavigationDrawerFragment" />
+    tools:context="com.desno365.mods.MainNavigationDrawerFragment" />
+    <!-- needs to be fixed, probably the images don't have the correct dimensions  -->

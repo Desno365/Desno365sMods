@@ -7,7 +7,11 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
+* .gitattributes
 * .gitignore
+* LICENSE.md
+* README.md
+* ic_launcher-web.png
 * proguard-project.txt
 
 Moved Files:
@@ -15,9 +19,9 @@ Moved Files:
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => android-typeface-textview/src/main/AndroidManifest.xml
-* res/ => android-typeface-textview/src/main/res/
-* src/ => android-typeface-textview/src/main/java/
+* AndroidManifest.xml => animatedExpandableListView/src/main/AndroidManifest.xml
+* res/ => animatedExpandableListView/src/main/res/
+* src/ => animatedExpandableListView/src/main/java/
 
 Next Steps:
 -----------

@@ -12,13 +12,13 @@ import com.desno365.mods.Mods.Portal;
 import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
 
-public class SwipeLayout extends SwipeRefreshLayout {
+public class MainSwipeRefreshLayout extends SwipeRefreshLayout {
 
-    public SwipeLayout(Context context) {
+    public MainSwipeRefreshLayout(Context context) {
         super(context);
     }
 
-    public SwipeLayout(Context context, AttributeSet attrs) {
+    public MainSwipeRefreshLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

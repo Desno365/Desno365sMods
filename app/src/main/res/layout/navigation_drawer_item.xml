@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/text1"
+    android:id="@+id/navigation_drawer_item_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:gravity="center_vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="5dp"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:textColor="@color/white"/>
+
+
+<!-- <TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigation_drawer_item_text"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
@@ -10,4 +24,4 @@
     android:paddingRight="5dp"
     android:background="?android:attr/activatedBackgroundIndicator"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    android:textColor="@color/white"/>
+    android:textColor="@color/white"/> -->

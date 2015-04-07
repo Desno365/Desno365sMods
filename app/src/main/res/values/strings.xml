@@ -40,6 +40,7 @@
 
     //text - general
     <string name="loading">Loading&#8230;</string>
+    <string name="mods">Mods</string>
     <string name="latest_version_is">The latest version is:</string>
     <string name="internet_error">There was an error while checking for updates, please check your internet connection.</string>
     <string name="show_changelog">Show all the changelog&#8230;</string>
