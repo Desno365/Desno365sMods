@@ -28,7 +28,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="5dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/minecraft_dark_dirt_light"
+                android:textColor="@color/minecraft_brown_dark_dirt_light"
                 android:textStyle="normal" />
 
         </RelativeLayout>
@@ -39,7 +39,7 @@
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="5dp"
-            android:background="@color/minecraft_dirt_darkest" />
+            android:background="@color/minecraft_brown_dirt_darkest" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="5dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/minecraft_dark_dirt_light"
+                android:textColor="@color/minecraft_brown_dark_dirt_light"
                 android:textStyle="normal"
                 android:linksClickable="true"/>
 

@@ -107,7 +107,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 		// Set up the SwipeRefreshLayout
 		swipeLayout = (MainSwipeRefreshLayout) findViewById(R.id.swipe_container);
-		swipeLayout.setColorSchemeResources(R.color.minecraft_dirt_light, R.color.minecraft_dirt_green);
+		swipeLayout.setColorSchemeResources(R.color.minecraft_brown_dirt_light, R.color.minecraft_green_grass_lightest);
 		swipeLayout.setOnRefreshListener(new MainSwipeRefreshLayout.OnRefreshListener() {
 			@Override
 			public void onRefresh() {

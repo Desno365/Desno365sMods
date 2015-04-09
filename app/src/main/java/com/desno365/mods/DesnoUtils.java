@@ -116,7 +116,7 @@ public class DesnoUtils {
         noti.setContentIntent(resultPendingIntent);
         noti.setAutoCancel(true);
         noti.setStyle(new NotificationCompat.BigTextStyle().bigText(content));
-        noti.setColor(context.getResources().getColor(R.color.minecraft_dirt_dark));
+        noti.setColor(context.getResources().getColor(R.color.minecraft_brown_dirt_dark));
 
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(id, noti.build());
@@ -142,7 +142,7 @@ public class DesnoUtils {
         noti.setContentIntent(resultPendingIntent);
         noti.setAutoCancel(true);
         noti.setStyle(new NotificationCompat.BigTextStyle().bigText(content));
-        noti.setColor(context.getResources().getColor(R.color.minecraft_dirt_dark));
+        noti.setColor(context.getResources().getColor(R.color.minecraft_brown_dirt_dark));
 
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(id, noti.build());
@@ -188,7 +188,7 @@ public class DesnoUtils {
         noti.setContentIntent(mainClickPendingIntent);
         noti.setAutoCancel(true);
         noti.setStyle(new NotificationCompat.BigTextStyle().bigText(contentText));
-        noti.setColor(context.getResources().getColor(R.color.minecraft_dirt_dark));
+        noti.setColor(context.getResources().getColor(R.color.minecraft_brown_dirt_dark));
         noti.addAction(R.drawable.ic_notification_download, context.getString(R.string.notification_download), downloadClickPendingIntent);
         noti.addAction(R.drawable.ic_notification_thread, context.getString(R.string.notification_thread), threadClickPendingIntent);
 

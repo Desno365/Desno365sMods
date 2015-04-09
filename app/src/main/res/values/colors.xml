@@ -21,22 +21,30 @@
     <item name="minecraft_button_light" type="color">#FFBCB1AB</item>
     <item name="minecraft_button_dark" type="color">#FF282729</item>
 
-    <item name="minecraft_dark_dirt_light" type="color">#FF3A2A1E</item>
-    <item name="minecraft_dirt_darkest" type="color">#FF583D2B</item>
-    <item name="minecraft_dirt_dark" type="color">#FF78543C</item>
-    <item name="minecraft_dirt_light" type="color">#FF956B4D</item>
-    <item name="minecraft_dirt_lightest" type="color">#FFB88460</item>
-    <item name="minecraft_dirt_green" type="color">#FF7DB463</item>
+    <item name="minecraft_brown_dark_dirt_light" type="color">#FF3A2A1E</item>
+    <item name="minecraft_brown_dirt_darkest" type="color">#FF583D2B</item>
+    <item name="minecraft_brown_dirt_dark" type="color">#FF78543C</item>
+    <item name="minecraft_brown_dirt_light" type="color">#FF956B4D</item>
+    <item name="minecraft_brown_dirt_lightest" type="color">#FFB88460</item>
+
+    <item name="minecraft_green_grass_darkest" type="color">#FF406129</item>
+    <item name="minecraft_green_grass_dark" type="color">#FF476D2D</item>
+    <item name="minecraft_green_grass_light" type="color">#FF537D35</item>
+    <item name="minecraft_green_grass_lightest" type="color">#FF679940</item>
+
+    <item name="minecraft_green_cactus_darkest" type="color">#FF116120</item>
+    <item name="minecraft_green_cactus_light" type="color">#FF17832A</item>
+    <item name="minecraft_green_cactus_lightest" type="color">#FF199130</item>
 
 
     // colors of element of the app
-    <color name="colorPrimary">@color/minecraft_dirt_darkest</color>
-    <color name="colorPrimaryDark">@color/minecraft_dark_dirt_light</color>
+    <color name="colorPrimary">@color/minecraft_brown_dirt_darkest</color>
+    <color name="colorPrimaryDark">@color/minecraft_brown_dark_dirt_light</color>
     <color name="toolbarTitleTextColor">@color/white</color>
     <color name="tabsIndicatorColor">@color/white</color>
     <color name="tabsSelectedTextColor">@color/white</color>
     <color name="tabsNotSelectedTextColor">@color/minecraft_button_light</color>
-    <color name="colorAccent">@color/minecraft_dirt_light</color>
+    <color name="colorAccent">@color/minecraft_brown_dirt_light</color>
     <color name="drawerTextShadow" type="color">#FF292929</color>
 
     <integer-array name="androidcolors">

@@ -67,7 +67,7 @@ public class NewsActivity extends ActionBarActivity {
 
 		// Set up the SwipeRefreshLayout
 		swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container_news);
-		swipeLayout.setColorSchemeResources(R.color.minecraft_dirt_light, R.color.minecraft_dirt_green);
+		swipeLayout.setColorSchemeResources(R.color.minecraft_brown_dirt_light, R.color.minecraft_green_grass_lightest);
 		swipeLayout.setOnRefreshListener(new MainSwipeRefreshLayout.OnRefreshListener() {
 			@Override
 			public void onRefresh() {
