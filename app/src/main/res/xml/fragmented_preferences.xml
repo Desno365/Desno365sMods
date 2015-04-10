@@ -20,9 +20,16 @@
 
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="notification_bool"
-            android:summary="@string/notification_bool_summary"
-            android:title="@string/notification_bool_title" >
+            android:key="notification_bool_mods"
+            android:summary="@string/notification_bool_mods_summary"
+            android:title="@string/notification_bool_mods_title" >
+        </CheckBoxPreference>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="notification_bool_news"
+            android:summary="@string/notification_bool_news_summary"
+            android:title="@string/notification_bool_news_title" >
         </CheckBoxPreference>
 
         <ListPreference

@@ -119,8 +119,10 @@
     <string name="refresh_on_start_summary">Refresh the content on app start</string>
 
     <string name="updates_settings">Updates and notifications</string>
-    <string name="notification_bool_title">Notifications for new updates</string>
-    <string name="notification_bool_summary">Receive notifications for new mods updates</string>
+    <string name="notification_bool_mods_title">Notifications for mods updates</string>
+    <string name="notification_bool_mods_summary">Receive notifications for new mods updates</string>
+    <string name="notification_bool_news_title">Notifications for news</string>
+    <string name="notification_bool_news_summary">Receive notifications for news</string>
     <string name="pref_sync_frequency_title">Check for updates frequency</string>
     <string name="pref_sync_frequency_summary">Set the frequency for checking updates</string>
 

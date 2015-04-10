@@ -26,14 +26,31 @@ public class AlarmReceiver extends BroadcastReceiver {
     private String latestJukeboxVersion = "";
     private String latestUnrealVersion = "";
 
+    private boolean notificationModsBool;
+    private boolean notificationNewsBool;
+
+    private final int ALARM_REQUEST_CODE = 365;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         try {
             currentContext = context;
             Log.i(TAG, "Alarm running now: checking updates with AsyncTask");
 
-            RetrieveNewsAndModsUpdates downloadTask = new RetrieveNewsAndModsUpdates();
-            downloadTask.execute((Void) null);
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(currentContext);
+            notificationModsBool = sharedPreferences.getBoolean("notification_bool_mods", true);
+            notificationNewsBool = sharedPreferences.getBoolean("notification_bool_news", true);
+
+            if(notificationModsBool || notificationNewsBool) {
+                Log.i(TAG, "Alarm: " + ((notificationModsBool) ? "Checking mods updates. " : "NOT checking mods updates. ") + ((notificationNewsBool) ? "Checking news." : "NOT checking news."));
+
+                RetrieveNewsAndModsUpdates downloadTask = new RetrieveNewsAndModsUpdates();
+                downloadTask.execute((Void) null);
+            } else {
+                Log.e(TAG, "Alarm: the alarm shouldn't have been started with preferences for notifications false.");
+                Log.i(TAG, "Alarm canceled.");
+            }
+
 
         } catch (Exception err) {
             Log.e(TAG, "Exception in onReceive() ", err);
@@ -42,8 +59,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     public void setAlarm(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        if(sharedPreferences.getBoolean("notification_bool", true)) {
-            Log.i(TAG, "Alarm set. notification_bool preference = true");
+        notificationModsBool = sharedPreferences.getBoolean("notification_bool_mods", true);
+        notificationNewsBool = sharedPreferences.getBoolean("notification_bool_news", true);
+
+        if(notificationModsBool || notificationNewsBool) {
+            Log.i(TAG, "Alarm set. notification_bool_mods " + notificationModsBool + ", notification_bool_news " + notificationNewsBool);
 
             String selectedFrequency = sharedPreferences.getString("sync_frequency", "err");
             int frequency;
@@ -77,21 +97,21 @@ public class AlarmReceiver extends BroadcastReceiver {
             Log.i(TAG, "AlarmManager will be set every " + timeFrequency + " milliseconds.");
 
             Intent intent = new Intent(context, AlarmReceiver.class);
-            PendingIntent myPendingIntent = PendingIntent.getBroadcast(context, 365, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+            PendingIntent myPendingIntent = PendingIntent.getBroadcast(context, ALARM_REQUEST_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
             // Get the AlarmManager service
             AlarmManager myAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             // start the alarm manager
             myAlarmManager.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis() + AlarmManager.INTERVAL_FIFTEEN_MINUTES, timeFrequency, myPendingIntent);
         } else {
-            Log.i(TAG, "Alarm not set: notification_bool preferences = false");
+            Log.i(TAG, "Alarm not set: notification_bool preferences for mods and news were false");
         }
     }
 
     public void cancelAlarm(Context context) {
         Log.i(TAG, "Alarm canceled.");
         Intent intent = new Intent(context, AlarmReceiver.class);
-        PendingIntent myPendingIntent = PendingIntent.getBroadcast(context, 365, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent myPendingIntent = PendingIntent.getBroadcast(context, ALARM_REQUEST_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         // Get the AlarmManager service
         AlarmManager myAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -105,13 +125,17 @@ public class AlarmReceiver extends BroadcastReceiver {
         @Override
         protected Void doInBackground(Void... params) {
             if(DesnoUtils.isNetworkAvailable(currentContext)) {
-                latestNewsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS_COUNT);
-                latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
-                latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
-                latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
-                latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
-                latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
-                latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
+                if(notificationNewsBool) {
+                    latestNewsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS_COUNT);
+                }
+                if(notificationModsBool) {
+                    latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
+                    latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
+                    latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
+                    latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
+                    latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
+                    latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
+                }
             } else {
                 Log.i(TAG, "Internet connection not found. Expected empty strings");
             }
@@ -122,8 +146,12 @@ public class AlarmReceiver extends BroadcastReceiver {
         protected void onPostExecute(Void unused) {
             Log.i(TAG, "onPostExecute now, the AsyncTask finished");
 
-            DesnoUtils.notifyForUnreadNews(currentContext, latestNewsVersion);
-            DesnoUtils.notifyForNewUpdates(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
+            if(notificationNewsBool) {
+                DesnoUtils.notifyForUnreadNews(currentContext, latestNewsVersion);
+            }
+            if(notificationModsBool) {
+                DesnoUtils.notifyForNewUpdates(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
+            }
 
             // debug notification
             /*Random r = new Random();

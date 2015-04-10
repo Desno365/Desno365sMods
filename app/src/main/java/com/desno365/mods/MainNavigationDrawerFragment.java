@@ -43,9 +43,7 @@ public class MainNavigationDrawerFragment extends Fragment {
 	public AnimatedExpandableListView mDrawerListView;
 	private View mFragmentContainerView;
 
-	private NavigationDrawerAdapter adapter;
-
-	private List<Item> items;
+    private List<Item> items;
 
 	// commented code that change the checked item
 	//public int mCurrentSelectedPosition = 0;
@@ -128,8 +126,7 @@ public class MainNavigationDrawerFragment extends Fragment {
 		items.add(settings);
 
 
-
-		adapter = new NavigationDrawerAdapter(getActivity().getApplicationContext());
+        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(getActivity().getApplicationContext());
 		adapter.setData(items);
 
 		mDrawerListView.setAdapter(adapter);

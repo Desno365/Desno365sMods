@@ -111,8 +111,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		swipeLayout.setOnRefreshListener(new MainSwipeRefreshLayout.OnRefreshListener() {
 			@Override
 			public void onRefresh() {
-				RetrieveModsUpdates downloadTask = new RetrieveModsUpdates();
-				downloadTask.execute((Void) null);
+				startRefreshingAndChecking();
 			}
 		});
 
@@ -165,7 +164,8 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			editor.putBoolean("refresh_on_start", true);
 			editor.commit();
 			editor.putBoolean("is_first_launch", false);
-			editor.putBoolean("notification_bool", true);
+			editor.putBoolean("notification_bool_mods", true);
+            editor.putBoolean("notification_bool_news", true);
 			editor.putString("sync_frequency", "4");
 			editor.putString("selected_language", "not_changed");
 			editor.putString("selected_animations", "0");
@@ -292,8 +292,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 					runOnUiThread(new Runnable() {
 						public void run() {
 							try {
-								RetrieveModsUpdates downloadTask = new RetrieveModsUpdates();
-								downloadTask.execute((Void) null);
+								startRefreshingAndChecking();
 							} catch (Exception err) {
 								Log.e(TAG, "Exception in runOnUiThread() in onCreate() ", err);
 							}
@@ -537,9 +536,8 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		}
 	}
 
-	/** test alarm onClick
-	 *
-	public void testAlarm(View v) {
+	// test alarm onClick
+	/*public void testAlarm(View v) {
 		AlarmReceiver aR = new AlarmReceiver();
 		aR.onReceive(getApplicationContext(), null);
 	}*/
@@ -554,7 +552,12 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		});
 	}
 
-	public class RetrieveModsUpdates extends AsyncTask<Void, String, Void> {
+    private void startRefreshingAndChecking() {
+        RetrieveNewsAndModsUpdates downloadTask = new RetrieveNewsAndModsUpdates();
+	    downloadTask.execute((Void) null);
+    }
+
+	public class RetrieveNewsAndModsUpdates extends AsyncTask<Void, String, Void> {
 
 		private String latestNewsVersion = "";
 		private String latestGunsVersion = "";

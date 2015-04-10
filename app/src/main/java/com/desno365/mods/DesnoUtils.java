@@ -7,12 +7,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.http.AndroidHttpClient;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import com.desno365.mods.Activities.MainActivity;
@@ -330,6 +332,23 @@ public class DesnoUtils {
 
     private static void overrideFinishActivityAnimation(Activity activity, int resId) {
         activity.overridePendingTransition(R.anim.hold, resId);
+    }
+
+    public static int convertDpToPixel(int dp, Context context){
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        int px;
+        px = (int) (dp * metrics.density);
+        return px;
+    }
+
+    @SuppressWarnings("unused")
+    public static int convertPixelsToDp(int px, Context context){
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        int dp;
+        dp = (int) (px / metrics.density);
+        return dp;
     }
 
 }

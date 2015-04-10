@@ -139,7 +139,7 @@ public class NewsActivity extends ActionBarActivity {
 		activity.runOnUiThread(new Runnable() {
 			public void run() {
 				for (int i = 0; i < cardsNumber; i++) {
-					NewsCard card = new NewsCard(activity.getApplicationContext(), titles[i], contents[i]);
+					NewsCard card = new NewsCard(activity.getApplicationContext(), activity.getLayoutInflater(), titles[i], contents[i]);
 					card.getPARENT().setAnimation(getIntroSet(1000, 0));
 
 					cardsContainer.addView(card.getPARENT());
