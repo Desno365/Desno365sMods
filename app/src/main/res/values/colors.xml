@@ -47,6 +47,9 @@
     <color name="colorAccent">@color/minecraft_brown_dirt_light</color>
     <color name="drawerTextShadow" type="color">#FF292929</color>
 
+    <color name="extracted_primary_text_default_material_light">#de000000</color>
+    <color name="extracted_secondary_text_default_material_light">#8a000000</color>
+
     <integer-array name="androidcolors">
         <item>@color/blue</item>
         <item>@color/purple</item>

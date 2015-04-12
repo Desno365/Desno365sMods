@@ -115,6 +115,7 @@ public class SettingsActivity extends PreferenceActivity {
 
 			// Load the preferences from an XML resource
 			addPreferencesFromResource(R.xml.fragmented_preferences);
+            activity.setTheme(R.style.PreferenceFragmentTheme);
 
 			// initialize preferences
 			SharedPreferences sharedPrefs = getPreferenceScreen().getSharedPreferences();
