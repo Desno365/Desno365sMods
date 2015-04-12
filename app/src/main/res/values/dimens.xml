@@ -4,6 +4,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="navigation_drawer_width">200dp</dimen>
+    <!-- calculated with the formula: dp * ((3/4 + 4/5) / 2), the result is rounded up. But the dimension won't be more than 320dp. -->
+    <dimen name="navigation_drawer_width">190dp</dimen>
 
 </resources>
