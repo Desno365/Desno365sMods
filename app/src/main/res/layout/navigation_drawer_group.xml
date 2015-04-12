@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:paddingRight="4dp"
+	android:paddingLeft="4dp">
+
+    <ImageView
+        android:id="@+id/image_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:adjustViewBounds="true"/>
+
+	<TextView
+		android:layout_toRightOf="@id/image_group"
+		android:layout_toEndOf="@id/image_group"
+        android:layout_toStartOf="@+id/image_group_indicator"
+        android:layout_toLeftOf="@+id/image_group_indicator"
+		android:id="@+id/navigation_drawer_group_title"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceListItemSmall"
+		android:layout_centerVertical="true"
+		android:gravity="center_vertical"
+		android:paddingLeft="4dp"
+		android:paddingRight="4dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+		android:background="?android:attr/activatedBackgroundIndicator"
+		android:minHeight="?android:attr/listPreferredItemHeightSmall"
+		android:textColor="@color/white"/>
+
+	<ImageView
+		android:id="@+id/image_group_indicator"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+		android:layout_centerVertical="true"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+		android:src="@drawable/ic_arrow_down"
+		android:adjustViewBounds="true"/>
+
+</RelativeLayout>
