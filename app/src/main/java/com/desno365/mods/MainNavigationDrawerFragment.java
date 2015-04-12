@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.desno365.mods.Activities.MainActivity;
@@ -43,7 +44,7 @@ public class MainNavigationDrawerFragment extends Fragment {
 	public AnimatedExpandableListView mDrawerListView;
 	private View mFragmentContainerView;
 
-    private List<Item> items;
+	private List<Item> items;
 
 	// commented code that change the checked item
 	//public int mCurrentSelectedPosition = 0;
@@ -66,11 +67,15 @@ public class MainNavigationDrawerFragment extends Fragment {
 		// Populate our list with groups and it's children
 		ChildItem home = new ChildItem();
 		home.title = getString(R.string.home_title);
+        home.hasIcon = true;
+        home.iconId = R.drawable.ic_action_rate;
 		items.add(home);
 
 
 		GroupItem mods = new GroupItem();
 		mods.title = getString(R.string.mods);
+        mods.hasIcon = true;
+        mods.iconId = R.drawable.ic_action_social_share;
 
 		ChildItem child1 = new ChildItem();
 		child1.title = getString(R.string.mod5_title);
@@ -101,25 +106,33 @@ public class MainNavigationDrawerFragment extends Fragment {
 
 		ChildItem about = new ChildItem();
 		about.title = getString(R.string.action_info);
+        about.hasIcon = true;
+        about.iconId = R.drawable.ic_action_info;
 		items.add(about);
 
 
 		ChildItem help = new ChildItem();
 		help.title = getString(R.string.action_help);
+        help.hasIcon = true;
+        help.iconId = R.drawable.ic_action_help;
 		items.add(help);
 
 
 		ChildItem news = new ChildItem();
 		news.title = getString(R.string.news_title);
+        news.hasIcon = true;
+        news.iconId = R.drawable.ic_action_news;
 		items.add(news);
 
 
 		ChildItem settings = new ChildItem();
 		settings.title = getString(R.string.action_settings);
+        settings.hasIcon = true;
+        settings.iconId = R.drawable.ic_action_settings;
 		items.add(settings);
 
 
-        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(getActivity().getApplicationContext());
+		NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(getActivity().getApplicationContext());
 		adapter.setData(items);
 
 		mDrawerListView.setAdapter(adapter);
@@ -130,13 +143,17 @@ public class MainNavigationDrawerFragment extends Fragment {
 			@Override
 			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
 				if(isGroupExpandable(groupPosition)) {
+                    GroupItem group = (GroupItem) items.get(groupPosition);
+
 					// We call collapseGroupWithAnimation(int) and
 					// expandGroupWithAnimation(int) to animate group
 					// expansion/collapse.
 					if (mDrawerListView.isGroupExpanded(groupPosition)) {
 						mDrawerListView.collapseGroupWithAnimation(groupPosition);
+                        group.groupIndicatorView.setImageResource(R.drawable.ic_arrow_down);
 					} else {
 						mDrawerListView.expandGroupWithAnimation(groupPosition);
+                        group.groupIndicatorView.setImageResource(R.drawable.ic_arrow_up);
 					}
 				} else {
 					selectGroup(groupPosition);
@@ -145,13 +162,13 @@ public class MainNavigationDrawerFragment extends Fragment {
 			}
 		});
 
-        mDrawerListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                selectItem(groupPosition, childPosition);
-                return false;
-            }
-        });
+		mDrawerListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+			@Override
+			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+				selectItem(groupPosition, childPosition);
+				return false;
+			}
+		});
 
 
 		// commented code that change the checked item
@@ -274,12 +291,13 @@ public class MainNavigationDrawerFragment extends Fragment {
 
 	private static class Item {
 		String title;
-        boolean hasDrawable = false;
-        int drawableId;
+        boolean hasIcon;
+        int iconId;
 	}
 
 	private static class GroupItem extends Item {
 		List<ChildItem> children = new ArrayList<ChildItem>();
+		ImageView groupIndicatorView;
 	}
 
 	private static class ChildItem extends Item {
@@ -313,7 +331,7 @@ public class MainNavigationDrawerFragment extends Fragment {
 
 		@Override
 		public ChildItem getChild(int groupPosition, int childPosition) {
-			Item group = items.get(groupPosition);
+			Item group = getGroup(groupPosition);
 			if(isGroupExpandable(groupPosition)) {
 				// is a group
 				return ((GroupItem) group).children.get(childPosition);
@@ -338,12 +356,12 @@ public class MainNavigationDrawerFragment extends Fragment {
 				convertView = inflater.inflate(R.layout.navigation_drawer_item, parent, false);
 				TextView itemTextView = (TextView) convertView.findViewById(R.id.navigation_drawer_item_title);
 
-				// apply custom font
+				// apply custom font with shadow
 				Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(),"fonts/minecraft.ttf");
 				itemTextView.setTypeface(font);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
 					itemTextView.setShadowLayer(1, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), getResources().getColor(R.color.drawerTextShadow));
-				else
+                else
 					itemTextView.setShadowLayer(0.0001F, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), getResources().getColor(R.color.drawerTextShadow));
 
 				holder.title = itemTextView;
@@ -360,7 +378,7 @@ public class MainNavigationDrawerFragment extends Fragment {
 		@Override
 		public int getRealChildrenCount(int groupPosition) {
 
-			Item group = items.get(groupPosition);
+			Item group = getGroup(groupPosition);
 			if(isGroupExpandable(groupPosition)) {
 				return ((GroupItem) group).children.size();
 			} else {
@@ -393,8 +411,8 @@ public class MainNavigationDrawerFragment extends Fragment {
 				convertView = inflater.inflate(R.layout.navigation_drawer_group, parent, false);
 				TextView groupTextView = (TextView) convertView.findViewById(R.id.navigation_drawer_group_title);
 
-				// apply custom font
-				Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(),"fonts/minecraft.ttf");
+				// apply custom font with shadow
+				Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(), "fonts/minecraft.ttf");
 				groupTextView.setTypeface(font);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
 					groupTextView.setShadowLayer(1, Math.round(groupTextView.getLineHeight() / 8), Math.round(groupTextView.getLineHeight() / 8), getResources().getColor(R.color.drawerTextShadow));
@@ -408,6 +426,21 @@ public class MainNavigationDrawerFragment extends Fragment {
 			}
 
 			holder.title.setText(item.title);
+
+            // group indicator image
+            View groupIndicatorImageView = convertView.findViewById(R.id.image_group_indicator);
+			if(isGroupExpandable(groupPosition)) {
+				GroupItem group = (GroupItem) item;
+				group.groupIndicatorView = (ImageView) groupIndicatorImageView;
+			} else {
+                groupIndicatorImageView.setVisibility(View.GONE);
+            }
+
+            // group image
+            ImageView groupImageView = (ImageView) convertView.findViewById(R.id.image_group);
+            if(item.hasIcon) {
+                groupImageView.setImageResource(item.iconId);
+            }
 
 			return convertView;
 		}

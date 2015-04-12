@@ -28,6 +28,7 @@ import com.astuetz.PagerSlidingTabStrip;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.Keys;
 import com.desno365.mods.MainNavigationDrawerFragment;
+import com.desno365.mods.MainSwipeRefreshLayout;
 import com.desno365.mods.Mods.DesnoGuns;
 import com.desno365.mods.Mods.Jukebox;
 import com.desno365.mods.Mods.Laser;
@@ -36,7 +37,6 @@ import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
-import com.desno365.mods.MainSwipeRefreshLayout;
 import com.desno365.mods.Tabs.FragmentTab1;
 
 import java.lang.ref.WeakReference;
@@ -178,6 +178,8 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		AlarmReceiver aR = new AlarmReceiver();
 		aR.cancelAlarm(getApplicationContext());
 		aR.setAlarm(getApplicationContext());
+
+        Toast.makeText(this, "ScreenWidthDp " + this.getResources().getConfiguration().screenWidthDp, Toast.LENGTH_SHORT).show();
 
 	}
 

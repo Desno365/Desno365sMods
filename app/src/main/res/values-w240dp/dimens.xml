@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="navigation_drawer_width">190dp</dimen>
+
+</resources>

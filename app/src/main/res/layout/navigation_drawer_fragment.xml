@@ -11,4 +11,3 @@
     android:dividerHeight="1dp"
     android:background="@color/colorPrimary"
     tools:context="com.desno365.mods.MainNavigationDrawerFragment" />
-    <!-- needs to be fixed, probably the images don't have the correct dimensions  -->
