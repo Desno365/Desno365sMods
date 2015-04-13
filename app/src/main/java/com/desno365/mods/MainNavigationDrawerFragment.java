@@ -68,14 +68,14 @@ public class MainNavigationDrawerFragment extends Fragment {
 		ChildItem home = new ChildItem();
 		home.title = getString(R.string.home_title);
         home.hasIcon = true;
-        home.iconId = R.drawable.ic_action_rate;
+        home.iconId = R.drawable.ic_action_home;
 		items.add(home);
 
 
 		GroupItem mods = new GroupItem();
 		mods.title = getString(R.string.mods);
         mods.hasIcon = true;
-        mods.iconId = R.drawable.ic_action_social_share;
+        mods.iconId = R.drawable.ic_action_extension;
 
 		ChildItem child1 = new ChildItem();
 		child1.title = getString(R.string.mod5_title);
