@@ -179,8 +179,6 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		aR.cancelAlarm(getApplicationContext());
 		aR.setAlarm(getApplicationContext());
 
-        Toast.makeText(this, "ScreenWidthDp " + this.getResources().getConfiguration().screenWidthDp, Toast.LENGTH_SHORT).show();
-
 	}
 
 	@Override
