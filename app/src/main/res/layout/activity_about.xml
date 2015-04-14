@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Activities.AboutActivity">
 
     <include
         android:id="@+id/tool_bar_about"
@@ -14,110 +15,117 @@
     <ScrollView
         android:id="@+id/scroll_help"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
             android:orientation="vertical" >
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:text="@string/made_by" />
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
-                <ImageView
-                    android:id="@+id/twitter_image"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp">
+
+                    <ImageView
+                        android:id="@+id/twitter_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/twitter"
+                        android:adjustViewBounds="true"
+                        android:onClick="onViewClick" />
+
+                    <TextView
+                        android:id="@+id/twitter_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/follow_me"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/twitter_image"
+                        android:layout_toEndOf="@id/twitter_image"
+                        android:onClick="onViewClick"
+                        android:clickable="true"
+                        android:padding="10dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_alignParentTop="true"
-                    android:src="@drawable/twitter"
-                    android:adjustViewBounds="true"
-                    android:onClick="onViewClick" />
+                    >
 
-                <TextView
-                    android:id="@+id/twitter_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/follow_me"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/twitter_image"
-                    android:layout_toEndOf="@id/twitter_image"
-                    android:onClick="onViewClick"
-                    android:clickable="true" />
+                    <ImageView
+                        android:id="@+id/github_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:src="@drawable/github"
+                        android:adjustViewBounds="true"
+                        android:onClick="onViewClick" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/github_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/source_code"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/github_image"
+                        android:layout_toEndOf="@id/github_image"
+                        android:onClick="onViewClick"
+                        android:clickable="true"
+                        android:padding="10dp"/>
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/github_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_alignParentTop="true"
-                    android:src="@drawable/github"
-                    android:adjustViewBounds="true"
-                    android:onClick="onViewClick" />
-
-                <TextView
-                    android:id="@+id/github_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/source_code"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/github_image"
-                    android:layout_toEndOf="@id/github_image"
-                    android:onClick="onViewClick"
-                    android:clickable="true" />
-
-            </RelativeLayout>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/support_me" />
+                android:text="@string/support_me"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
 
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                >
 
                 <ImageView
                     android:id="@+id/google_play_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:src="@drawable/icon_google_play"
                     android:adjustViewBounds="true"
@@ -128,14 +136,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/take_me_play_store"
-                    android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/google_play_image"
                     android:layout_toEndOf="@id/google_play_image"
                     android:onClick="onViewClick"
-                    android:clickable="true" />
+                    android:clickable="true"
+                    android:padding="10dp"/>
 
             </RelativeLayout>
 
@@ -159,7 +167,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
-                android:text="@string/contributors_content" />
+                android:text="@string/contributors_content"
+                />
 
 
 
@@ -182,11 +191,6 @@
                 android:layout_height="wrap_content"
                 android:autoLink="web"
                 android:text="@string/used_libraries_content" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text=" " />
 
         </LinearLayout>
 
