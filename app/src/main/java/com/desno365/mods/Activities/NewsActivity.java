@@ -121,13 +121,6 @@ public class NewsActivity extends ActionBarActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-			// Respond to the action bar's Up/Home button
-			// this prevent to re-create the MainActivity
-			case android.R.id.home:
-				this.finish();
-				DesnoUtils.changeFinishAnimations(activity);
-				return true;
-
 			case R.id.action_news_refresh:
 				startRefreshingNews();
 				return true;

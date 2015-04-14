@@ -26,6 +26,9 @@ import com.desno365.mods.Mods.Mod;
 import com.desno365.mods.Mods.Portal;
 import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.BufferedHttpEntity;
@@ -42,6 +45,9 @@ public class DesnoUtils {
     private static final String errorString = "Error";
 
     private static final String notInitializedStringError = "r000";
+
+    public static final long MINIMUM_DELAY_FOR_NEW_AD_MILLIS = 30000;
+
 
     public static void setSavedLanguage(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -351,4 +357,57 @@ public class DesnoUtils {
         return dp;
     }
 
+
+    public static InterstitialAdStatic interstitialAdStatic;
+
+    public static class InterstitialAdStatic {
+
+        private InterstitialAd interstitialAd;
+
+        private long latestShowedTime;
+
+        public InterstitialAdStatic(Context context) {
+
+            interstitialAdStatic = this;
+
+            latestShowedTime = 0;
+
+            // Load InterstitialAd
+            interstitialAd = new InterstitialAd(context);
+            interstitialAd.setAdUnitId("ca-app-pub-4328789168608769/6477600530");
+
+            // Set an AdListener that loads again the ad when it closes
+            interstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                }
+
+                @Override
+                public void onAdClosed() {
+                    interstitialAd.loadAd(new AdRequest.Builder().build());
+                }
+            });
+
+            // Start loading the ad now
+            interstitialAd.loadAd(new AdRequest.Builder().build());
+        }
+
+        public void show() {
+            // "this" object should be equal to the interstitialAd object
+            if(System.currentTimeMillis() >= (latestShowedTime + MINIMUM_DELAY_FOR_NEW_AD_MILLIS)) {
+                if(interstitialAd.isLoaded()) {
+                    interstitialAd.show();
+                    latestShowedTime = System.currentTimeMillis();
+                }
+            } else {
+                Log.i(TAG, "Ads: already displayed an ad before. The next ad will be available after " + (((latestShowedTime + MINIMUM_DELAY_FOR_NEW_AD_MILLIS) - System.currentTimeMillis()) / 1000) + " seconds");
+            }
+        }
+    }
+
+    public static void showAd() {
+        if(interstitialAdStatic != null) {
+            interstitialAdStatic.show();
+        }
+    }
 }

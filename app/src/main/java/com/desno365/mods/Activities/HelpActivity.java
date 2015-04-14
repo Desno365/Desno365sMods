@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.desno365.mods.DesnoUtils;
@@ -26,6 +25,7 @@ public class HelpActivity extends Activity {
 
     private TooltipManager mTooltip;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "Activity started (onCreate)");
         DesnoUtils.setSavedLanguage(this);
@@ -76,22 +76,21 @@ public class HelpActivity extends Activity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            //this prevent to re-create the MainActivity
-            case android.R.id.home:
-                this.finish();
-                DesnoUtils.changeFinishAnimations(activity);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+    public void onDestroy() {
+        super.onDestroy();
+        DesnoUtils.showAd();
     }
 
     @Override
     public void onBackPressed() {
         this.finish();
         DesnoUtils.changeFinishAnimations(activity);
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        DesnoUtils.changeStartAnimations(activity);
     }
 
     public void onViewClick(View v) {
@@ -103,11 +102,9 @@ public class HelpActivity extends Activity {
                 try {
                     //play store installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED + Keys.KEY_PACKAGE_MINECRAFT)));
-                    DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED + Keys.KEY_PACKAGE_MINECRAFT)));
-                    DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
 
@@ -117,11 +114,9 @@ public class HelpActivity extends Activity {
                 try {
                     //play store installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED + Keys.KEY_PACKAGE_BLOCKLAUNCHER)));
-                    DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED + Keys.KEY_PACKAGE_BLOCKLAUNCHER)));
-                    DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
 
@@ -131,11 +126,9 @@ public class HelpActivity extends Activity {
                 try {
                     //play store installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED_FILE_MANAGER)));
-                    DesnoUtils.changeStartAnimations(activity);
                 } catch (android.content.ActivityNotFoundException anfe) {
                     //play store not installed
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED_FILE_MANAGER)));
-                    DesnoUtils.changeStartAnimations(activity);
                 }
                 break;
         }
@@ -147,7 +140,6 @@ public class HelpActivity extends Activity {
         Intent i = new Intent(this, ZoomImageActivity.class);
         i.putExtra("viewId", v.getId());
         startActivity(i);
-        DesnoUtils.changeStartAnimations(activity);
 
         // after the first time opening a full resolution image the user doesn't need the tooltip anymore
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);

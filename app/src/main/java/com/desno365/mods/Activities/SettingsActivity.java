@@ -12,7 +12,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -61,6 +60,8 @@ public class SettingsActivity extends PreferenceActivity {
 	public void onDestroy() {
 		super.onDestroy();
 
+        DesnoUtils.showAd();
+
 		Log.i(TAG, "onDestroy. Launched the new alarm.");
 
 		// change alarmManager for notifications
@@ -70,23 +71,16 @@ public class SettingsActivity extends PreferenceActivity {
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			// Respond to the action bar's Up/Home button
-			//this prevent to re-create the MainActivity
-			case android.R.id.home:
-				this.finish();
-				DesnoUtils.changeFinishAnimations(activity);
-				return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
 	public void onBackPressed() {
 		this.finish();
 		DesnoUtils.changeFinishAnimations(activity);
 	}
+
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        DesnoUtils.changeStartAnimations(activity);
+    }
 
 	private static void restartDialogLanguage() {
 		View mView = View.inflate(activity, R.layout.popup_settings_restart_language, null);
@@ -184,7 +178,6 @@ public class SettingsActivity extends PreferenceActivity {
 				@Override
 				public boolean onPreferenceClick(Preference preference) {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_TRANSLATIONS)));
-					DesnoUtils.changeStartAnimations(activity);
 					return false;
 				}
 			});

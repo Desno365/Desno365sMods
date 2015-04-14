@@ -44,10 +44,9 @@ import java.lang.reflect.Method;
 
 public class MainActivity extends ActionBarActivity implements MainNavigationDrawerFragment.NavigationDrawerCallbacks {
 
+	private static final String TAG = "DesnoMods-MainActivity";
 	public static WeakReference<MainActivity> myMainActivity = null;
 	public static Activity activity;
-	private static final String TAG = "DesnoMods-MainActivity";
-
 	public static String newsString;
 	public static String gunsModVersion;
 	public static String gunsModChangelog;
@@ -62,12 +61,15 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	public static String unrealMapVersion;
 	public static String unrealMapChangelog;
 
+	// UI elements
 	public static Toolbar toolbar;
+	public static ViewPager mViewPager;
 	private MainNavigationDrawerFragment mNavigationDrawerFragment = new MainNavigationDrawerFragment();
 	private MainSwipeRefreshLayout swipeLayout;
-	public static ViewPager mViewPager;
+	private AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 
-	AppSectionsPagerAdapter mAppSectionsPagerAdapter;
+	// ads after the click of a button
+	private boolean displayAdAtResume = false;
 
 
 	@SuppressLint("CommitPrefEdits")
@@ -165,7 +167,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			editor.commit();
 			editor.putBoolean("is_first_launch", false);
 			editor.putBoolean("notification_bool_mods", true);
-            editor.putBoolean("notification_bool_news", true);
+			editor.putBoolean("notification_bool_news", true);
 			editor.putString("sync_frequency", "4");
 			editor.putString("selected_language", "not_changed");
 			editor.putString("selected_animations", "0");
@@ -174,11 +176,24 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			Log.i(TAG, "First launch");
 		}
 
-		//load alarmManager for notifications
+		// Load alarmManager for notifications
 		AlarmReceiver aR = new AlarmReceiver();
 		aR.cancelAlarm(getApplicationContext());
 		aR.setAlarm(getApplicationContext());
 
+		// Load the IntersitialAd with the InterstitialAdStatic custom class
+		// Now we don't need to load the ad again, here or in other activities
+		new DesnoUtils.InterstitialAdStatic(this);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+
+		if(displayAdAtResume) {
+			DesnoUtils.showAd();
+			displayAdAtResume = false;
+		}
 	}
 
 	@Override
@@ -205,78 +220,74 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			case 1:
 				// already caught by the NavigationDrawer class because it's a container and not a clickable group
 				break;
-            case 2:
-                new android.os.Handler().postDelayed(new Runnable(){
-                    public void run() {
-                        startActivity(new Intent(getApplicationContext(), AboutActivity.class));
-                        DesnoUtils.changeStartAnimations(activity);
-                    }
-                }, 200);
-                break;
-            case 3:
-                new android.os.Handler().postDelayed(new Runnable(){
-                    public void run() {
-                        startActivity(new Intent(getApplicationContext(), HelpActivity.class));
-                        DesnoUtils.changeStartAnimations(activity);
-                    }
-                }, 200);
-                break;
-            case 4:
-                new android.os.Handler().postDelayed(new Runnable(){
-                    public void run() {
-                        startActivity(new Intent(getApplicationContext(), NewsActivity.class));
-                        DesnoUtils.changeStartAnimations(activity);
-                    }
-                }, 200);
-                break;
-            case 5:
-                new android.os.Handler().postDelayed(new Runnable(){
-                    public void run() {
-                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-                        DesnoUtils.changeStartAnimations(activity);
-                    }
-                }, 200);
-                break;
+			case 2:
+				new android.os.Handler().postDelayed(new Runnable(){
+					public void run() {
+						startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+					}
+				}, 200);
+				break;
+			case 3:
+				new android.os.Handler().postDelayed(new Runnable(){
+					public void run() {
+						startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+					}
+				}, 200);
+				break;
+			case 4:
+				new android.os.Handler().postDelayed(new Runnable(){
+					public void run() {
+						startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+					}
+				}, 200);
+				break;
+			case 5:
+				new android.os.Handler().postDelayed(new Runnable(){
+					public void run() {
+						startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+					}
+				}, 200);
+				break;
 		}
 	}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int groupPosition, int childPosition) {
-        if(groupPosition == 1) {
-            if (mAppSectionsPagerAdapter != null) {
-                mViewPager.setCurrentItem(childPosition + 1); // + 1 because the home isn't in the mods group
-            } else {
-                // update the main content by replacing fragments
-                Fragment myFragment;
-                switch (childPosition + 1) {
-                    case DesnoGuns.viewPagerPosition:
-                        myFragment = DesnoGuns.getFragmentTab();
-                        break;
-                    case Portal.viewPagerPosition:
-                        myFragment = Portal.getFragmentTab();
-                        break;
-                    case Laser.viewPagerPosition:
-                        myFragment = Laser.getFragmentTab();
-                        break;
-                    case Turrets.viewPagerPosition:
-                        myFragment = Turrets.getFragmentTab();
-                        break;
-                    case Jukebox.viewPagerPosition:
-                        myFragment = Jukebox.getFragmentTab();
-                        break;
-                    case Unreal.viewPagerPosition:
-                        myFragment = Unreal.getFragmentTab();
-                        break;
-                    default:
-                        myFragment = new FragmentTab1();
-                        break;
-                }
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, myFragment)
-                        .commit();
-            }
-        }
+		if(groupPosition == 1) {
+			if (mAppSectionsPagerAdapter != null) {
+				mViewPager.setCurrentItem(childPosition + 1); // + 1 because the home isn't in the mods group
+			} else {
+				// update the main content by replacing fragments
+				Fragment myFragment;
+				switch (childPosition + 1) {
+					case DesnoGuns.viewPagerPosition:
+						myFragment = DesnoGuns.getFragmentTab();
+						break;
+					case Portal.viewPagerPosition:
+						myFragment = Portal.getFragmentTab();
+						break;
+					case Laser.viewPagerPosition:
+						myFragment = Laser.getFragmentTab();
+						break;
+					case Turrets.viewPagerPosition:
+						myFragment = Turrets.getFragmentTab();
+						break;
+					case Jukebox.viewPagerPosition:
+						myFragment = Jukebox.getFragmentTab();
+						break;
+					case Unreal.viewPagerPosition:
+						myFragment = Unreal.getFragmentTab();
+						break;
+					default:
+						myFragment = new FragmentTab1();
+						break;
+				}
+				FragmentManager fragmentManager = getSupportFragmentManager();
+				fragmentManager.beginTransaction()
+						.replace(R.id.fragment_container, myFragment)
+						.commit();
+			}
+		}
 	}
 
 	@Override
@@ -321,17 +332,14 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 			case R.id.action_info:
 				startActivity(new Intent(this, AboutActivity.class));
-				DesnoUtils.changeStartAnimations(activity);
 				return true;
 
 			case R.id.action_help:
 				startActivity(new Intent(this, HelpActivity.class));
-				DesnoUtils.changeStartAnimations(activity);
 				return true;
 
 			case R.id.action_news:
 				startActivity(new Intent(this, NewsActivity.class));
-				DesnoUtils.changeStartAnimations(activity);
 				return true;
 
 			case R.id.action_share:
@@ -339,12 +347,10 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				sharingIntent.setType("text/plain");
 				sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share_body));
 				startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_using)));
-				DesnoUtils.changeStartAnimations(activity);
 				return true;
 
 			case R.id.action_feedback:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_THREAD)));
-				DesnoUtils.changeStartAnimations(activity);
 				Toast.makeText(getApplicationContext(), getString(R.string.feedback_toast), Toast.LENGTH_LONG).show();
 				return true;
 
@@ -353,18 +359,15 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				try {
 					//play store installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-					DesnoUtils.changeStartAnimations(activity);
 				} catch (android.content.ActivityNotFoundException anfe) {
 					//play store not installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-					DesnoUtils.changeStartAnimations(activity);
 				}
 				return true;
 
 			case R.id.action_settings:
 				Intent intentSettings = new Intent(this, SettingsActivity.class);
 				startActivity(intentSettings);
-				DesnoUtils.changeStartAnimations(activity);
 				return true;
 
 			default:
@@ -391,6 +394,12 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			}
 		}
 		return super.onMenuOpened(featureId, menu);
+	}
+
+	@Override
+	public void startActivity(Intent intent) {
+		super.startActivity(intent);
+		DesnoUtils.changeStartAnimations(activity);
 	}
 
 	// refresh TextViews after the content has been refreshed
@@ -473,74 +482,74 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			// minecraftforum.net thread buttons
 			case R.id.minecraft_thread_guns_button:
 				startActivity(new DesnoGuns().getVisitThreadIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_portal_button:
 				startActivity(new Portal().getVisitThreadIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_laser_button:
 				startActivity(new Laser().getVisitThreadIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_turrets_button:
 				startActivity(new Turrets().getVisitThreadIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_jukebox_button:
 				startActivity(new Jukebox().getVisitThreadIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_unreal_button:
 				startActivity(new Unreal().getVisitThreadIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 
 			// download from website buttons
 			case R.id.download_guns_button:
 				startActivity(new DesnoGuns().getDownloadFromWebsiteIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.download_portal_button:
 				startActivity(new Portal().getDownloadFromWebsiteIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.download_laser_button:
 				startActivity(new Laser().getDownloadFromWebsiteIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.download_turrets_button:
 				startActivity(new Turrets().getDownloadFromWebsiteIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.download_jukebox_button:
 				startActivity(new Jukebox().getDownloadFromWebsiteIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 			case R.id.download_unreal_button:
 				startActivity(new Unreal().getDownloadFromWebsiteIntent());
-				DesnoUtils.changeStartAnimations(activity);
+				displayAdAtResume = true;
 				break;
 
 			// installation video tutorial button
 			case R.id.installation_video_guns_button:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_DESNOGUNS_VIDEO_TUTORIAL)));
-				DesnoUtils.changeStartAnimations(activity);
 				break;
 
 			// start help activity
 			case R.id.start_help_activity:
 				startActivity(new Intent(this, HelpActivity.class));
-				DesnoUtils.changeStartAnimations(activity);
 				break;
 		}
 	}
 
 	// test alarm onClick
-	/*public void testAlarm(View v) {
+	/**
+	public void testAlarm(View v) {
 		AlarmReceiver aR = new AlarmReceiver();
 		aR.onReceive(getApplicationContext(), null);
-	}*/
+	}
+	*/
 
 	public void setRefreshState(final boolean refreshing) {
 		runOnUiThread(new Runnable() {
@@ -552,69 +561,9 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		});
 	}
 
-    private void startRefreshingAndChecking() {
-        RetrieveNewsAndModsUpdates downloadTask = new RetrieveNewsAndModsUpdates();
-	    downloadTask.execute((Void) null);
-    }
-
-	public class RetrieveNewsAndModsUpdates extends AsyncTask<Void, String, Void> {
-
-		private String latestNewsVersion = "";
-		private String latestGunsVersion = "";
-		private String latestPortalVersion = "";
-		private String latestLaserVersion = "";
-		private String latestTurretsVersion = "";
-		private String latestJukeboxVersion = "";
-		private String latestUnrealVersion = "";
-
-		@Override
-		protected Void doInBackground(Void... params) {
-
-			setRefreshState(true);
-
-			if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
-				latestNewsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS_COUNT);
-				latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
-				latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
-				latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
-				latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
-				latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
-				latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
-
-				newsString = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS);
-				gunsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_CHANGELOG);
-				portalModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_CHANGELOG);
-				laserModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_CHANGELOG);
-				turretsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_CHANGELOG);
-				jukeboxModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_CHANGELOG);
-				unrealMapChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_CHANGELOG);
-			} else {
-				runOnUiThread(new Runnable() {
-					public void run() {
-						Toast.makeText(myMainActivity.get().getApplicationContext(), getResources().getString(R.string.internet_error), Toast.LENGTH_SHORT).show();
-					}
-				});
-			}
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void unused) {
-			Log.i(TAG, "onPostExecute now, the AsyncTask finished");
-
-			DesnoUtils.notifyForUnreadNews(getApplicationContext(), latestNewsVersion);
-			DesnoUtils.notifyForNewUpdates(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
-
-			gunsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion;
-			portalModVersion = getResources().getString(R.string.latest_version_is) + " " + latestPortalVersion;
-			laserModVersion = getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion;
-			turretsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion;
-			jukeboxModVersion = getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion;
-			unrealMapVersion = getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion;
-			refreshTextViews();
-			setRefreshState(false);
-		}
-
+	private void startRefreshingAndChecking() {
+		RetrieveNewsAndModsUpdates downloadTask = new RetrieveNewsAndModsUpdates();
+		downloadTask.execute((Void) null);
 	}
 
 	/**
@@ -675,6 +624,66 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 					return "Missing title";
 			}
 		}
+	}
+
+	public class RetrieveNewsAndModsUpdates extends AsyncTask<Void, String, Void> {
+
+		private String latestNewsVersion = "";
+		private String latestGunsVersion = "";
+		private String latestPortalVersion = "";
+		private String latestLaserVersion = "";
+		private String latestTurretsVersion = "";
+		private String latestJukeboxVersion = "";
+		private String latestUnrealVersion = "";
+
+		@Override
+		protected Void doInBackground(Void... params) {
+
+			setRefreshState(true);
+
+			if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
+				latestNewsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS_COUNT);
+				latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
+				latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
+				latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
+				latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
+				latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
+				latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
+
+				newsString = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS);
+				gunsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_CHANGELOG);
+				portalModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_CHANGELOG);
+				laserModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_CHANGELOG);
+				turretsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_CHANGELOG);
+				jukeboxModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_CHANGELOG);
+				unrealMapChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_CHANGELOG);
+			} else {
+				runOnUiThread(new Runnable() {
+					public void run() {
+						Toast.makeText(myMainActivity.get().getApplicationContext(), getResources().getString(R.string.internet_error), Toast.LENGTH_SHORT).show();
+					}
+				});
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void unused) {
+			Log.i(TAG, "onPostExecute now, the AsyncTask finished");
+
+			DesnoUtils.notifyForUnreadNews(getApplicationContext(), latestNewsVersion);
+			DesnoUtils.notifyForNewUpdates(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
+
+			gunsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion;
+			portalModVersion = getResources().getString(R.string.latest_version_is) + " " + latestPortalVersion;
+			laserModVersion = getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion;
+			turretsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion;
+			jukeboxModVersion = getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion;
+			unrealMapVersion = getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion;
+			refreshTextViews();
+			setRefreshState(false);
+		}
+
 	}
 
 }
