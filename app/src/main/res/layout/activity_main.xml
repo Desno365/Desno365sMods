@@ -15,10 +15,10 @@
 		android:id="@+id/tabs"
 		android:layout_width="match_parent"
 		android:layout_height="48dip"
-		android:background="@color/colorPrimary"
-		android:textColorPrimary="@color/tabsNotSelectedTextColor"
-		app:pstsTextColorSelected="@color/tabsSelectedTextColor"
-		app:pstsIndicatorColor="@color/tabsIndicatorColor"
+		android:background="@color/color_primary"
+		android:textColorPrimary="@color/tabs_not_selected_text_color"
+		app:pstsTextColorSelected="@color/tabs_selected_text_color"
+		app:pstsIndicatorColor="@color/tabs_indicator_color"
 		app:pstsIndicatorHeight="4dip"
 		app:pstsTextAllCaps="true"/>
 

@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:choiceMode="singleChoice"
     android:groupIndicator="@null"
-    android:divider="@color/colorPrimaryDark"
-    android:childDivider="@color/colorPrimaryDark"
+    android:divider="@color/color_primary_dark"
+    android:childDivider="@color/color_primary_dark"
     android:dividerHeight="1dp"
-    android:background="@color/colorPrimary"
+    android:background="@color/color_primary"
     tools:context="com.desno365.mods.MainNavigationDrawerFragment" />

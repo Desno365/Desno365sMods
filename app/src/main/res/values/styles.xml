@@ -17,13 +17,13 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
 
         <!--   your app branding color for the app bar -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/color_primary</item>
 
         <!--   darker variant for the status bar and contextual app bars -->
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
 
         <!--   theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/color_accent</item>
 
     </style>
 
@@ -36,14 +36,14 @@
 
 
     <style name="ToolBarStyle" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@color/color_primary</item>
         <item name="theme">@style/ToolBarTheme</item>
         <item name="popupTheme">@style/ToolBarPopupTheme</item>
         <item name="titleTextAppearance">@style/ToolBarTitleTheme</item>
     </style>
 
     <style name="ToolBarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:textColorPrimary">@color/toolbarTitleTextColor</item>
+        <item name="android:textColorPrimary">@color/toolbar_title_text_color</item>
     </style>
 
     <style name="ToolBarTitleTheme" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
@@ -51,7 +51,7 @@
     </style>
 
     <style name="ToolBarPopupTheme" parent="ThemeOverlay.AppCompat.Dark">
-        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:colorBackground">@color/color_primary_dark</item>
     </style>
 
 

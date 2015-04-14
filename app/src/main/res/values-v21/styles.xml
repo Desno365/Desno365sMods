@@ -9,7 +9,7 @@
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- API 21 theme customizations can go here. -->
 
-        <item name="android:navigationBarColor">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/color_primary</item>
     </style>
 
 </resources>

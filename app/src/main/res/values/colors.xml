@@ -37,16 +37,17 @@
     <item name="minecraft_green_cactus_lightest" type="color">#FF199130</item>
 
 
-    // colors of element of the app
-    <color name="colorPrimary">@color/minecraft_brown_dirt_darkest</color>
-    <color name="colorPrimaryDark">@color/minecraft_brown_dark_dirt_light</color>
-    <color name="toolbarTitleTextColor">@color/white</color>
-    <color name="tabsIndicatorColor">@color/white</color>
-    <color name="tabsSelectedTextColor">@color/white</color>
-    <color name="tabsNotSelectedTextColor">@color/minecraft_button_light</color>
-    <color name="colorAccent">@color/minecraft_brown_dirt_light</color>
-    <color name="drawerTextShadow" type="color">#FF292929</color>
+    <!-- colors of element of the app -->
+    <color name="color_primary">@color/minecraft_brown_dirt_darkest</color>
+    <color name="color_primary_dark">@color/minecraft_brown_dark_dirt_light</color>
+    <color name="color_accent">@color/minecraft_brown_dirt_light</color>
+    <color name="toolbar_title_text_color">@color/white</color>
+    <color name="tabs_indicator_color">@color/white</color>
+    <color name="tabs_selected_text_color">@color/white</color>
+    <color name="tabs_not_selected_text_color">@color/minecraft_button_light</color>
+    <color name="drawer_text_shadow_color" type="color">#FF292929</color>
 
+    <!-- colors used for the Settings page, on pre-lollipop devices the colors were different -->
     <color name="extracted_primary_text_default_material_light">#de000000</color>
     <color name="extracted_secondary_text_default_material_light">#8a000000</color>
 
