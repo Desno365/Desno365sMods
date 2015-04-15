@@ -407,12 +407,12 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		myMainActivity.get().runOnUiThread(new Runnable() {
 			public void run() {
 
-				try {
+				/*try {
 					TextView newsText = (TextView) getWindow().getDecorView().findViewById(R.id.news_container);
 					newsText.setText(android.text.Html.fromHtml(newsString));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for news");
-				}
+				}*/
 
 				try {
 					TextView textUpdatesGuns = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_guns_is);
@@ -536,10 +536,15 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_DESNOGUNS_VIDEO_TUTORIAL)));
 				break;
 
-			// start help activity
-			case R.id.start_help_activity:
-				startActivity(new Intent(this, HelpActivity.class));
+			// start news activity
+			case R.id.button_tab1_news:
+				startActivity(new Intent(this, NewsActivity.class));
 				break;
+
+            // start help activity
+            case R.id.button_tab1_help:
+                startActivity(new Intent(this, HelpActivity.class));
+                break;
 		}
 	}
 

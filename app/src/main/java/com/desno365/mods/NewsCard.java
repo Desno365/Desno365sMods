@@ -32,7 +32,7 @@ public class NewsCard {
 
 	public View getPARENT() {
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-		params.setMargins(convertDpToPixel(4), convertDpToPixel(3), convertDpToPixel(4), convertDpToPixel(6));
+		params.setMargins(CONTEXT.getResources().getDimensionPixelSize(R.dimen.card_margin_horizontal), CONTEXT.getResources().getDimensionPixelSize(R.dimen.card_margin_horizontal), CONTEXT.getResources().getDimensionPixelSize(R.dimen.card_margin_horizontal), CONTEXT.getResources().getDimensionPixelSize(R.dimen.card_margin_horizontal) + convertDpToPixel(2));
 		PARENT.setLayoutParams(params);
 		return PARENT;
 	}

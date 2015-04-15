@@ -5,10 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.TextView;
 
-import com.desno365.mods.Activities.MainActivity;
 import com.desno365.mods.R;
 
 public class FragmentTab1 extends Fragment {
@@ -20,7 +17,7 @@ public class FragmentTab1 extends Fragment {
 
 		View rootView = inflater.inflate(R.layout.fragmenttab1, container, false);
 
-        final TextView textNews = (TextView) rootView.findViewById(R.id.news_container);
+        /*final TextView textNews = (TextView) rootView.findViewById(R.id.news_container);
         textNews.setText(android.text.Html.fromHtml(MainActivity.newsString));
         textNews.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
         textNews.setMaxLines(15);
@@ -51,7 +48,7 @@ public class FragmentTab1 extends Fragment {
                     textShowHide.setVisibility(View.VISIBLE);
                 }
             }
-        });
+        });*/
 
 		return rootView;
 	}

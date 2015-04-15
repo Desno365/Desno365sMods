@@ -1,10 +1,13 @@
 <resources>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+    <dimen name="activity_vertical_margin">8dp</dimen>
 
     <!-- calculated with the formula: dp * ((3/4 + 4/5) / 2), the result is rounded up. But the dimension won't be more than 320dp. -->
     <dimen name="navigation_drawer_width">190dp</dimen>
+
+    <!-- dimension needed to fix the margin bug with card, the margin of a card with api level >= 21 is normal but with api < 21 the margin is bigger -->
+    <dimen name="card_margin_horizontal">0dp</dimen>
 
 </resources>

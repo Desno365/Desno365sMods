@@ -27,7 +27,7 @@
     <string name="contributors_title">Contributors</string>
     <string name="contributors_content">A big thanks to all the people who contributed to the project, by translating it or by helping me! Here the list of the people who contributed: http://desno365.github.io/minecraft/desno365-mods-app/credits/</string>
     <string name="used_libraries_title">Used libraries and images</string>
-    <string name="used_libraries_content" translatable="false">PagerSlidingTabStrip https://github.com/jpardogo/PagerSlidingTabStrip\nTooltip https://github.com/sephiroth74/android-target-tooltip\nPhotoView https://github.com/chrisbanes/PhotoView\nShowcaseView https://github.com/amlcurran/ShowcaseView\nAnimatedExpandableListView https://github.com/idunnololz/AnimatedExpandableListView\nFlatWoken icons https://github.com/alecive/FlatWoken</string>
+    <string name="used_libraries_content" translatable="false">PagerSlidingTabStrip https://github.com/jpardogo/PagerSlidingTabStrip\nTooltip https://github.com/sephiroth74/android-target-tooltip\nPhotoView https://github.com/chrisbanes/PhotoView\nAnimatedExpandableListView https://github.com/idunnololz/AnimatedExpandableListView\nFlatWoken icons https://github.com/alecive/FlatWoken</string>
 
 
     //titles - general

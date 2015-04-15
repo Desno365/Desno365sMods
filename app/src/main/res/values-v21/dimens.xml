@@ -1,0 +1,5 @@
+<resources>
+
+    <dimen name="card_margin_horizontal">5dp</dimen>
+
+</resources>
