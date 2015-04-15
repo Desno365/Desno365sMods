@@ -33,6 +33,7 @@
         <item name="default" translatable="false">Default</item>
         <item name="dutch" translatable="false">Dutch</item>
         <item name="english" translatable="false">English</item>
+        <item name="french" translatable="false">French</item>
         <item name="german" translatable="false">German</item>
         <item name="italian" translatable="false">Italian</item>
         <item name="korean" translatable="false">Korean</item>
@@ -43,6 +44,7 @@
         <item name="default" translatable="false">default</item>
         <item name="dutch" translatable="false">nl</item>
         <item name="english" translatable="false">en</item>
+        <item name="french" translatable="false">fr</item>
         <item name="german" translatable="false">de</item>
         <item name="italian" translatable="false">it</item>
         <item name="korean" translatable="false">ko</item>
