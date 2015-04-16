@@ -220,7 +220,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="6dp"
-                        android:layout_marginBottom="2dp"
+                        android:layout_marginBottom="1dp"
                         android:background="@color/minecraft_brown_dark_dirt_light" />
 
                     <LinearLayout

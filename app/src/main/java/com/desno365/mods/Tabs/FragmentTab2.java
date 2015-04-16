@@ -9,6 +9,7 @@ import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.desno365.mods.Activities.MainActivity;
+import com.desno365.mods.DesnoValues;
 import com.desno365.mods.R;
 
 public class FragmentTab2 extends Fragment {
@@ -26,7 +27,7 @@ public class FragmentTab2 extends Fragment {
         final TextView textChangelogPortal = (TextView) rootView.findViewById(R.id.portal_changelog);
         textChangelogPortal.setText(android.text.Html.fromHtml(MainActivity.portalModChangelog));
         textChangelogPortal.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
-        textChangelogPortal.setMaxLines(15);
+        textChangelogPortal.setMaxLines(DesnoValues.CHANGELOG_TEXT_MAX_LINES);
 
         final TextView textShowHide = (TextView) rootView.findViewById(R.id.changelog_show_hide_tab2);
         textShowHide.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +38,7 @@ public class FragmentTab2 extends Fragment {
                     displayingAllChangelog = true;
                     textShowHide.setText(getResources().getString(R.string.hide_changelog));
                 } else {
-                    textChangelogPortal.setMaxLines(15);
+                    textChangelogPortal.setMaxLines(DesnoValues.CHANGELOG_TEXT_MAX_LINES);
                     displayingAllChangelog = false;
                     textShowHide.setText(getResources().getString(R.string.show_changelog));
                 }
@@ -48,7 +49,7 @@ public class FragmentTab2 extends Fragment {
         vto.addOnGlobalLayoutListener(new android.view.ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                if(textChangelogPortal.getLineCount() < 15) {
+                if(textChangelogPortal.getLineCount() < DesnoValues.CHANGELOG_TEXT_MAX_LINES) {
                     textShowHide.setVisibility(View.GONE);
                 } else {
                     textShowHide.setVisibility(View.VISIBLE);
