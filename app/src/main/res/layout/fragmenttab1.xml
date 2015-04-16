@@ -162,10 +162,13 @@
                         <Button
                             android:id="@+id/button_tab1_news"
                             style="?android:attr/borderlessButtonStyle"
-                            android:layout_width="fill_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/show_news"
-                            android:onClick="onViewClick"/>
+                            android:textColor="@color/extracted_secondary_text_default_material_light"
+                            android:onClick="onViewClick"
+                            android:drawableLeft="@drawable/ic_action_news_dark"
+                            android:drawableStart="@drawable/ic_action_news_dark"/>
 
                     </LinearLayout>
 
@@ -230,10 +233,13 @@
                         <Button
                             android:id="@+id/button_tab1_help"
                             style="?android:attr/borderlessButtonStyle"
-                            android:layout_width="fill_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/help_button"
-                            android:onClick="onViewClick"/>
+                            android:textColor="@color/extracted_secondary_text_default_material_light"
+                            android:onClick="onViewClick"
+                            android:drawableLeft="@drawable/ic_action_help_dark"
+                            android:drawableStart="@drawable/ic_action_help_dark"/>
 
                     </LinearLayout>
 
