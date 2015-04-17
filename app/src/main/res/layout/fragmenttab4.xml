@@ -235,7 +235,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="12sp"
-                                android:textColor="#A5A5A5"
+                                android:textColor="@color/text_changelog_color"
                                 android:layout_centerHorizontal="true" />
 
                         </RelativeLayout>

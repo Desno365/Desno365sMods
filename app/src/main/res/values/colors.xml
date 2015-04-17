@@ -37,7 +37,6 @@
     <item name="minecraft_green_cactus_lightest" type="color">#FF199130</item>
 
 
-    <!-- TODO add changelog text color -->
     <!-- colors of element of the app -->
     <color name="color_primary">@color/minecraft_brown_dirt_darkest</color>
     <color name="color_primary_dark">@color/minecraft_brown_dark_dirt_light</color>
@@ -47,6 +46,7 @@
     <color name="tabs_selected_text_color">@color/white</color>
     <color name="tabs_not_selected_text_color">@color/minecraft_button_light</color>
     <color name="drawer_text_shadow_color" type="color">#FF292929</color>
+    <color name="text_changelog_color" type="color">#FFA5A5A5</color>
 
     <!-- colors used for the Settings page, on pre-lollipop devices the colors were different -->
     <color name="extracted_primary_text_default_material_light">#de000000</color>

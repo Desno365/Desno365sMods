@@ -235,7 +235,7 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								android:textSize="12sp"
-								android:textColor="#A5A5A5"
+								android:textColor="@color/text_changelog_color"
 								android:layout_centerHorizontal="true" />
 
 						</RelativeLayout>
@@ -307,8 +307,8 @@
 							android:layout_height="wrap_content"
 							android:text="@string/minecraft_thread"
 							android:textColor="@color/extracted_secondary_text_default_material_light"
-                            android:textAllCaps="true"
-                            android:textAppearance="?android:attr/textAppearanceButton"
+							android:textAllCaps="true"
+							android:textAppearance="?android:attr/textAppearanceButton"
 							android:onClick="onViewClick"
 							android:drawableLeft="@drawable/ic_action_thread"
 							android:drawableStart="@drawable/ic_action_thread"/>
@@ -336,8 +336,8 @@
 							android:layout_height="wrap_content"
 							android:text="@string/download_mod_from_website"
 							android:textColor="@color/extracted_secondary_text_default_material_light"
-                            android:textAllCaps="true"
-                            android:textAppearance="?android:attr/textAppearanceButton"
+							android:textAllCaps="true"
+							android:textAppearance="?android:attr/textAppearanceButton"
 							android:onClick="onViewClick"
 							android:drawableLeft="@drawable/ic_action_download"
 							android:drawableStart="@drawable/ic_action_download"/>
