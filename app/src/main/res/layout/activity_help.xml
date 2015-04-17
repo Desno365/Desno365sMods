@@ -51,7 +51,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/minecraft_icon"
+                    android:src="@drawable/ic_launcher_minecraft"
                     android:adjustViewBounds="true"
                     android:onClick="onViewClick" />
 
@@ -85,7 +85,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/blocklauncher_icon"
+                    android:src="@drawable/ic_launcher_blocklauncher"
                     android:adjustViewBounds="true"
                     android:onClick="onViewClick" />
 
@@ -135,7 +135,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/help_download_mod_example"
+                    android:src="@drawable/img_help_download_mod_example"
                     android:adjustViewBounds="true"
                     android:onClick="onImageClick"/>
 
@@ -161,7 +161,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
-                    android:src="@drawable/file_manager_icon"
+                    android:src="@drawable/ic_launcher_file_manager_general"
                     android:adjustViewBounds="true"
                     android:onClick="onViewClick" />
 
@@ -205,7 +205,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="47"
-                        android:src="@drawable/help_open_archive"
+                        android:src="@drawable/img_help_open_archive"
                         android:adjustViewBounds="true"
                         android:onClick="onImageClick"/>
 
@@ -220,7 +220,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="47"
-                        android:src="@drawable/help_extract"
+                        android:src="@drawable/img_help_extract"
                         android:adjustViewBounds="true"
                         android:onClick="onImageClick"/>
 
@@ -245,7 +245,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/help_after_extraction"
+                    android:src="@drawable/img_help_after_extraction"
                     android:adjustViewBounds="true"
                     android:onClick="onImageClick"/>
 
@@ -281,7 +281,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/help_manage_modpe_scripts"
+                    android:src="@drawable/img_help_manage_modpe_scripts"
                     android:adjustViewBounds="true"
                     android:onClick="onImageClick"/>
 
@@ -304,7 +304,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/help_import"
+                    android:src="@drawable/img_help_import"
                     android:adjustViewBounds="true"
                     android:onClick="onImageClick"/>
 
@@ -327,7 +327,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/help_script_from_local_storage"
+                    android:src="@drawable/img_help_script_from_local_storage"
                     android:adjustViewBounds="true"
                     android:onClick="onImageClick"/>
 
@@ -363,7 +363,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/help_launcher_options"
+                    android:src="@drawable/img_help_launcher_options"
                     android:adjustViewBounds="true"
                     android:onClick="onImageClick"/>
 
@@ -386,7 +386,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/help_texture_pack"
+                    android:src="@drawable/img_help_texture_pack"
                     android:adjustViewBounds="true"
                     android:onClick="onImageClick"/>
 
@@ -409,7 +409,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/help_select_texture_pack"
+                    android:src="@drawable/img_help_select_texture_pack"
                     android:adjustViewBounds="true"
                     android:onClick="onImageClick"/>
 

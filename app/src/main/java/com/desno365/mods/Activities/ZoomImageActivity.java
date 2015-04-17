@@ -48,34 +48,34 @@ public class ZoomImageActivity extends Activity {
         Drawable mDrawable;
         switch (getIntent().getIntExtra("viewId", 365)) {
             case R.id.help_image_prepare1:
-                mDrawable = getResources().getDrawable(R.drawable.help_download_mod_example_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_download_mod_example_fullres);
                 break;
             case R.id.help_image_prepare2:
-                mDrawable = getResources().getDrawable(R.drawable.help_open_archive_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_open_archive_fullres);
                 break;
             case R.id.help_image_prepare3:
-                mDrawable = getResources().getDrawable(R.drawable.help_extract_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_extract_fullres);
                 break;
             case R.id.help_image_prepare4:
-                mDrawable = getResources().getDrawable(R.drawable.help_after_extraction_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_after_extraction_fullres);
                 break;
             case R.id.help_image_script1:
-                mDrawable = getResources().getDrawable(R.drawable.help_manage_modpe_scripts_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_manage_modpe_scripts_fullres);
                 break;
             case R.id.help_image_script2:
-                mDrawable = getResources().getDrawable(R.drawable.help_import_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_import_fullres);
                 break;
             case R.id.help_image_script3:
-                mDrawable = getResources().getDrawable(R.drawable.help_script_from_local_storage_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_script_from_local_storage_fullres);
                 break;
             case R.id.help_image_texture_pack1:
-                mDrawable = getResources().getDrawable(R.drawable.help_launcher_options_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_launcher_options_fullres);
                 break;
             case R.id.help_image_texture_pack2:
-                mDrawable = getResources().getDrawable(R.drawable.help_texture_pack_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_texture_pack_fullres);
                 break;
             case R.id.help_image_texture_pack3:
-                mDrawable = getResources().getDrawable(R.drawable.help_select_texture_pack_fullres);
+                mDrawable = getResources().getDrawable(R.drawable.img_help_select_texture_pack_fullres);
                 break;
             default:
                 mDrawable = getResources().getDrawable(R.drawable.ic_launcher);
