@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.Keys;
+import com.desno365.mods.Values.Keys;
 import com.desno365.mods.MainNavigationDrawerFragment;
 import com.desno365.mods.MainSwipeRefreshLayout;
 import com.desno365.mods.Mods.DesnoGuns;
@@ -255,7 +255,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	public void onNavigationDrawerItemSelected(int groupPosition, int childPosition) {
 		if(groupPosition == 1) {
 			if (mAppSectionsPagerAdapter != null) {
-				mViewPager.setCurrentItem(childPosition + 1); // + 1 because the home isn't in the mods group
+				mViewPager.setCurrentItem(childPosition + 1); // + 1 because the home Fragment of the ViewPager isn't in the mods group
 			} else {
 				// update the main content by replacing fragments
 				Fragment myFragment;
@@ -406,13 +406,6 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	private void refreshTextViews() {
 		myMainActivity.get().runOnUiThread(new Runnable() {
 			public void run() {
-
-				/*try {
-					TextView newsText = (TextView) getWindow().getDecorView().findViewById(R.id.news_container);
-					newsText.setText(android.text.Html.fromHtml(newsString));
-				} catch (NullPointerException e) {
-					Log.e(TAG, "NullPointerException in refreshTextViews for news");
-				}*/
 
 				try {
 					TextView textUpdatesGuns = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_guns_is);
@@ -655,7 +648,6 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
 				latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
 
-				newsString = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS);
 				gunsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_CHANGELOG);
 				portalModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_CHANGELOG);
 				laserModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_CHANGELOG);

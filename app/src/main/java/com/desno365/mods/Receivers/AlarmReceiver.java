@@ -11,7 +11,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.Keys;
+import com.desno365.mods.Values.Keys;
 
 public class AlarmReceiver extends BroadcastReceiver {
 

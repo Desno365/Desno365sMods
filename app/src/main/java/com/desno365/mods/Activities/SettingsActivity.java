@@ -16,7 +16,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.Keys;
+import com.desno365.mods.Values.Keys;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
 

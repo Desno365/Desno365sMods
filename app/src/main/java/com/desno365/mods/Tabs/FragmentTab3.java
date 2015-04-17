@@ -9,7 +9,7 @@ import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.desno365.mods.Activities.MainActivity;
-import com.desno365.mods.DesnoValues;
+import com.desno365.mods.Values.Values;
 import com.desno365.mods.R;
 
 public class FragmentTab3 extends Fragment {
@@ -27,7 +27,7 @@ public class FragmentTab3 extends Fragment {
         final TextView textChangelogLaser = (TextView) rootView.findViewById(R.id.laser_changelog);
         textChangelogLaser.setText(android.text.Html.fromHtml(MainActivity.laserModChangelog));
         textChangelogLaser.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
-        textChangelogLaser.setMaxLines(DesnoValues.CHANGELOG_TEXT_MAX_LINES);
+        textChangelogLaser.setMaxLines(Values.CHANGELOG_TEXT_MAX_LINES);
 
         final TextView textShowHide = (TextView) rootView.findViewById(R.id.changelog_show_hide_tab3);
         textShowHide.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +38,7 @@ public class FragmentTab3 extends Fragment {
                     displayingAllChangelog = true;
                     textShowHide.setText(getResources().getString(R.string.hide_changelog));
                 } else {
-                    textChangelogLaser.setMaxLines(DesnoValues.CHANGELOG_TEXT_MAX_LINES);
+                    textChangelogLaser.setMaxLines(Values.CHANGELOG_TEXT_MAX_LINES);
                     displayingAllChangelog = false;
                     textShowHide.setText(getResources().getString(R.string.show_changelog));
                 }
@@ -49,7 +49,7 @@ public class FragmentTab3 extends Fragment {
         vto.addOnGlobalLayoutListener(new android.view.ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                if(textChangelogLaser.getLineCount() < DesnoValues.CHANGELOG_TEXT_MAX_LINES) {
+                if(textChangelogLaser.getLineCount() < Values.CHANGELOG_TEXT_MAX_LINES) {
                     textShowHide.setVisibility(View.GONE);
                 } else {
                     textShowHide.setVisibility(View.VISIBLE);

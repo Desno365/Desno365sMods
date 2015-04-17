@@ -1,4 +1,4 @@
-package com.desno365.mods;
+package com.desno365.mods.Values;
 
 public class NotificationsId {
 
