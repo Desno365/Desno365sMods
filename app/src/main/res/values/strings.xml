@@ -56,6 +56,7 @@
     <string name="welcome_title">Welcome</string>
     <string name="welcome_content">Welcome to the Desno365\'s Mods app.\nHere you can check the latest version and the changelog of all my mods.</string>
     <string name="news_title">News</string>
+    <string name="news_button">Take me to the news page</string>
     <string name="show_news">Show all the news&#8230;</string>
     <string name="hide_news">Hide the news&#8230;</string>
     <string name="need_help_title">Need help?</string>

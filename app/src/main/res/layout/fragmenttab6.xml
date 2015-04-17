@@ -307,9 +307,11 @@
                             android:layout_height="wrap_content"
                             android:text="@string/minecraft_thread"
                             android:textColor="@color/extracted_secondary_text_default_material_light"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceButton"
                             android:onClick="onViewClick"
-                            android:drawableLeft="@drawable/ic_action_help_dark"
-                            android:drawableStart="@drawable/ic_action_help_dark"/>
+                            android:drawableLeft="@drawable/ic_action_thread"
+                            android:drawableStart="@drawable/ic_action_thread"/>
 
                     </LinearLayout>
 
@@ -334,9 +336,11 @@
                             android:layout_height="wrap_content"
                             android:text="@string/installation_video_tutorial"
                             android:textColor="@color/extracted_secondary_text_default_material_light"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceButton"
                             android:onClick="onViewClick"
-                            android:drawableLeft="@drawable/ic_action_help_dark"
-                            android:drawableStart="@drawable/ic_action_help_dark"/>
+                            android:drawableLeft="@drawable/ic_action_video"
+                            android:drawableStart="@drawable/ic_action_video"/>
 
                     </LinearLayout>
 
@@ -361,9 +365,11 @@
                             android:layout_height="wrap_content"
                             android:text="@string/download_mod_from_website"
                             android:textColor="@color/extracted_secondary_text_default_material_light"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceButton"
                             android:onClick="onViewClick"
-                            android:drawableLeft="@drawable/ic_action_help_dark"
-                            android:drawableStart="@drawable/ic_action_help_dark"/>
+                            android:drawableLeft="@drawable/ic_action_download"
+                            android:drawableStart="@drawable/ic_action_download"/>
 
                     </LinearLayout>
 
