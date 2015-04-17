@@ -77,9 +77,7 @@
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    >
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/github_image"
@@ -95,8 +93,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/source_code"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/github_image"
                         android:layout_toEndOf="@id/github_image"
@@ -119,8 +115,7 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                >
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/google_play_image"
@@ -136,8 +131,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/take_me_play_store"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/google_play_image"
                     android:layout_toEndOf="@id/google_play_image"
