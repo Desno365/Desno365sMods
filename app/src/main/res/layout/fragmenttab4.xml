@@ -330,6 +330,35 @@
                         android:orientation="vertical" >
 
                         <Button
+                            android:id="@+id/button_help"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/instruction_for_installing"
+                            android:textColor="@color/extracted_secondary_text_default_material_light"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceButton"
+                            android:onClick="onViewClick"
+                            android:drawableLeft="@drawable/ic_action_help_dark"
+                            android:drawableStart="@drawable/ic_action_help_dark"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:background="@color/minecraft_brown_dark_dirt_light" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:orientation="vertical" >
+
+                        <Button
                             android:id="@+id/download_turrets_button"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"

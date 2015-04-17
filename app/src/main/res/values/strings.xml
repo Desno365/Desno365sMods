@@ -46,6 +46,7 @@
     <string name="show_changelog">Show all the changelog&#8230;</string>
     <string name="hide_changelog">Hide the changelog&#8230;</string>
     <string name="minecraft_thread">minecraftforum.net thread</string>
+    <string name="instruction_for_installing">Read the instructions for installing</string>
     <string name="installation_video_tutorial">Watch the installation video tutorial</string>
     <string name="download_mod_from_website">Download this mod from Desno\'s website</string>
     <string name="download_map_from_website">Download this map from Desno\'s website</string>

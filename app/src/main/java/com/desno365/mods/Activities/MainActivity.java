@@ -530,12 +530,12 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				break;
 
 			// start news activity
-			case R.id.button_tab1_news:
+			case R.id.button_news:
 				startActivity(new Intent(this, NewsActivity.class));
 				break;
 
             // start help activity
-            case R.id.button_tab1_help:
+            case R.id.button_help:
                 startActivity(new Intent(this, HelpActivity.class));
                 break;
 		}

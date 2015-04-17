@@ -160,7 +160,7 @@
                         android:orientation="vertical" >
 
                         <Button
-                            android:id="@+id/button_tab1_news"
+                            android:id="@+id/button_news"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -233,7 +233,7 @@
                         android:orientation="vertical" >
 
                         <Button
-                            android:id="@+id/button_tab1_help"
+                            android:id="@+id/button_help"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
