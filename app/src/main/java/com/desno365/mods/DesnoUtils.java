@@ -298,6 +298,7 @@ public class DesnoUtils {
         return isNewVersion;
     }
 
+    @SuppressWarnings("unused")
     private static void debugVersions(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
         DesnoUtils.notificationForNewVersion(context, new DesnoGuns());
 
