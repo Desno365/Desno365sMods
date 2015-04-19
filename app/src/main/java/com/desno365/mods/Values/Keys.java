@@ -18,8 +18,8 @@ package com.desno365.mods.Values;
 
 public class Keys {
 
-    public static final String KEY_NEWS = "https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/desno365-mods-app/app-news-v2.html";
-    public static final String KEY_NEWS_COUNT = "https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/desno365-mods-app/app-news-count";
+    public static final String KEY_NEWS = "https://raw.githubusercontent.com/Desno365/Desno365sMods/gh-pages/app-news.html";
+    public static final String KEY_NEWS_COUNT = "https://raw.githubusercontent.com/Desno365/Desno365sMods/gh-pages/app-news-count";
 
     public static final String KEY_APP_THREAD = "http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2275389-app-desno365s-mods-an-app-that-give-you";
     public static final String KEY_APP_GITHUB = "https://github.com/Desno365/Desno365sMods";

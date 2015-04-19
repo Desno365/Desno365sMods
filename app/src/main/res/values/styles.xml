@@ -76,8 +76,8 @@
         <item name="ttlm_padding">25dip</item>
         <item name="ttlm_strokeWeight">1dip</item>
         <item name="ttlm_cornerRadius">8dip</item>
-        <item name="ttlm_strokeColor">@color/minecraft_brown_dark_dirt_light</item>
-        <item name="ttlm_backgroundColor">@color/minecraft_brown_dirt_darkest</item>
+        <item name="ttlm_strokeColor">@color/black</item>
+        <item name="ttlm_backgroundColor">@color/minecraft_brown_dark_dirt_light</item>
     </style>
 
 
