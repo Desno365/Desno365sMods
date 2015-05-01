@@ -348,13 +348,14 @@ public class AnimatedExpandableListView extends ExpandableListView {
         /**
          * Override {@link #getChildView(int, int, boolean, android.view.View, android.view.ViewGroup)} instead.
          */
+        @SuppressWarnings("JavaDoc")
         @Override
         public final View getChildView(final int groupPosition, int childPosition, boolean isLastChild, View convertView, final ViewGroup parent) {
             final GroupInfo info = getGroupInfo(groupPosition);
 
             if (info.animating) {
                 // If this group is animating, return the a DummyView...
-                if (convertView instanceof DummyView == false) {
+                if (!(convertView instanceof DummyView)) {
                     convertView = new DummyView(parent.getContext());
                     convertView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 0));
                 }

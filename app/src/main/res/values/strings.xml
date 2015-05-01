@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     //app name
     <string name="app_name" translatable="false">Desno365\'s Mods</string>
@@ -74,8 +74,6 @@
     <string name="welcome_content">Welcome to the Desno365\'s Mods app.\nHere you can check the latest version and the changelog of all my mods.</string>
     <string name="news_title">News</string>
     <string name="news_button">Take me to the news page</string>
-    <string name="show_news">Show all the news&#8230;</string>
-    <string name="hide_news">Hide the news&#8230;</string>
     <string name="need_help_title">Need help?</string>
     <string name="help_button">Take me to the help page</string>
 
@@ -171,9 +169,11 @@
 
 
     // removed strings
-    <string name="themes_title">Theme</string>
-    <string name="themes_summary">Select app\'s theme</string>
-    <string name="restart_text_popup">The app needs to be restarted for the theme change to be activated.</string>
-    <string name="zoom_image_showcase_content">Pinch or double tap the screen to zoom the image</string>
+    <string name="show_news" tools:ignore="UnusedResources">Show all the news&#8230;</string>
+    <string name="hide_news" tools:ignore="UnusedResources">Hide the news&#8230;</string>
+    <string name="themes_title" tools:ignore="UnusedResources">Theme</string>
+    <string name="themes_summary" tools:ignore="UnusedResources">Select app\'s theme</string>
+    <string name="restart_text_popup" tools:ignore="UnusedResources">The app needs to be restarted for the theme change to be activated.</string>
+    <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pinch or double tap the screen to zoom the image</string>
 
 </resources>

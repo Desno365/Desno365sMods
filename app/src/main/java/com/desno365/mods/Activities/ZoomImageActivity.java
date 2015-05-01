@@ -64,36 +64,47 @@ public class ZoomImageActivity extends Activity {
         Drawable mDrawable;
         switch (getIntent().getIntExtra("viewId", 365)) {
             case R.id.help_image_prepare1:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_download_mod_example_fullres);
                 break;
             case R.id.help_image_prepare2:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_open_archive_fullres);
                 break;
             case R.id.help_image_prepare3:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_extract_fullres);
                 break;
             case R.id.help_image_prepare4:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_after_extraction_fullres);
                 break;
             case R.id.help_image_script1:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_manage_modpe_scripts_fullres);
                 break;
             case R.id.help_image_script2:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_import_fullres);
                 break;
             case R.id.help_image_script3:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_script_from_local_storage_fullres);
                 break;
             case R.id.help_image_texture_pack1:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_launcher_options_fullres);
                 break;
             case R.id.help_image_texture_pack2:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_texture_pack_fullres);
                 break;
             case R.id.help_image_texture_pack3:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.img_help_select_texture_pack_fullres);
                 break;
             default:
+                //noinspection deprecation
                 mDrawable = getResources().getDrawable(R.drawable.ic_launcher);
                 break;
         }
