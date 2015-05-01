@@ -17,6 +17,7 @@ Used libraries
 [PhotoView](https://github.com/chrisbanes/PhotoView)<br>
 [ShowcaseView](https://github.com/amlcurran/ShowcaseView)<br>
 [AnimatedExpandableListView](https://github.com/idunnololz/AnimatedExpandableListView)<br>
+[Hugo](https://github.com/JakeWharton/hugo)<br>
 
 Used images
 -----------

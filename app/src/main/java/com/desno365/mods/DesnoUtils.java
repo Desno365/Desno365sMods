@@ -26,7 +26,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.http.AndroidHttpClient;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -47,13 +46,14 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.entity.BufferedHttpEntity;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Locale;
+
+import hugo.weaving.DebugLog;
 
 public class DesnoUtils {
 
@@ -95,14 +95,18 @@ public class DesnoUtils {
         return (activeNetworkInfo != null && activeNetworkInfo.isConnected());
     }
 
-    public static String getTextFromUrl(String url) {
+    @DebugLog
+    public static String getTextFromUrl(String stringUrl) {
         try {
 
-            AndroidHttpClient httpClient = AndroidHttpClient.newInstance("Mozilla/5.0");
-            HttpEntity myHttpEntity = httpClient.execute(new org.apache.http.client.methods.HttpGet(url)).getEntity();
-            BufferedHttpEntity myBufferedEntity = new BufferedHttpEntity(myHttpEntity);
-            InputStream myInputStream = myBufferedEntity.getContent();
+            // Download content
+            URL url = new URL(stringUrl);
+            URLConnection connection = url.openConnection();
 
+            // Get content
+            InputStream myInputStream = connection.getInputStream();
+
+            // Read result
             String loadedText = "";
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(myInputStream));
             String row;
@@ -110,7 +114,6 @@ public class DesnoUtils {
                 loadedText += row;
             }
             bufferedReader.close();
-            httpClient.close();
 
             return loadedText;
 
