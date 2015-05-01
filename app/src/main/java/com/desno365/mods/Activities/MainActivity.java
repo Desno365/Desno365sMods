@@ -42,7 +42,7 @@ import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.Values.Keys;
+import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.MainNavigationDrawerFragment;
 import com.desno365.mods.MainSwipeRefreshLayout;
 import com.desno365.mods.Mods.DesnoGuns;

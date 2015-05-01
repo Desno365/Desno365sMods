@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.desno365.mods.Values;
+package com.desno365.mods.SharedConstants;
 
 public class NotificationsId {
 

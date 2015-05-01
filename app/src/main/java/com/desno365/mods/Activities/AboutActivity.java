@@ -25,7 +25,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.Values.Keys;
+import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.R;
 
 public class AboutActivity extends Activity {

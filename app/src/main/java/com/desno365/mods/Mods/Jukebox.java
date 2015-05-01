@@ -16,8 +16,8 @@
 
 package com.desno365.mods.Mods;
 
-import com.desno365.mods.Values.Keys;
-import com.desno365.mods.Values.NotificationsId;
+import com.desno365.mods.SharedConstants.Keys;
+import com.desno365.mods.SharedConstants.NotificationsId;
 import com.desno365.mods.R;
 import com.desno365.mods.Tabs.FragmentTab5;
 
