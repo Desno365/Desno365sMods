@@ -25,7 +25,7 @@
 
 	<include
 		android:id="@+id/tool_bar"
-		layout="@layout/tool_bar"/>
+		layout="@layout/tool_bar" />
 
 	<com.astuetz.PagerSlidingTabStrip
 		android:id="@+id/tabs"
@@ -36,47 +36,47 @@
 		app:pstsTextColorSelected="@color/tabs_selected_text_color"
 		app:pstsIndicatorColor="@color/tabs_indicator_color"
 		app:pstsIndicatorHeight="4dip"
-		app:pstsTextAllCaps="true"/>
+		app:pstsTextAllCaps="true" />
 
 	<android.support.v4.widget.DrawerLayout
 		android:id="@+id/drawer_layout"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context="com.desno365.mods.Activities.MainActivity" >
+		tools:context="com.desno365.mods.Activities.MainActivity">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 
-            <com.desno365.mods.MainSwipeRefreshLayout
-                android:id="@+id/swipe_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <!-- android:layout_above="@+id/adFragmentFooter" -->
+			<com.desno365.mods.MainSwipeRefreshLayout
+				android:id="@+id/swipe_container"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+				<!-- android:layout_above="@+id/adFragmentFooter" -->
 
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/fragment_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+				<android.support.v4.view.ViewPager
+					android:id="@+id/fragment_container"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent" />
 
-            </com.desno365.mods.MainSwipeRefreshLayout>
+			</com.desno365.mods.MainSwipeRefreshLayout>
 
-            <!-- <fragment
-                android:id="@+id/adFragmentFooter"
-                android:name="com.desno365.mods.AdFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true" /> -->
+			<!-- <fragment
+				android:id="@+id/adFragmentFooter"
+				android:name="com.desno365.mods.AdFragment"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true" /> -->
 
-        </RelativeLayout>
+		</RelativeLayout>
 
-        <fragment
-            android:id="@+id/navigation_drawer"
-            android:layout_width="@dimen/navigation_drawer_width"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:name="com.desno365.mods.MainNavigationDrawerFragment"
-            tools:layout="@layout/navigation_drawer_fragment" />
+		<fragment
+			android:id="@+id/navigation_drawer"
+			android:layout_width="@dimen/navigation_drawer_width"
+			android:layout_height="match_parent"
+			android:layout_gravity="start"
+			android:name="com.desno365.mods.MainNavigationDrawerFragment"
+			tools:layout="@layout/navigation_drawer_fragment" />
 
 	</android.support.v4.widget.DrawerLayout>
 

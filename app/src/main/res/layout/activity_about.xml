@@ -16,192 +16,192 @@
   -->
 
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Activities.AboutActivity">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".Activities.AboutActivity">
 
-    <include
-        android:id="@+id/tool_bar_about"
-        layout="@layout/tool_bar"/>
+	<include
+		android:id="@+id/tool_bar_about"
+		layout="@layout/tool_bar" />
 
-    <ScrollView
-        android:id="@+id/scroll_help"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+	<ScrollView
+		android:id="@+id/scroll_help"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_vertical_margin"
-            android:paddingRight="@dimen/activity_vertical_margin"
-            android:paddingTop="@dimen/activity_horizontal_margin"
-            android:paddingBottom="@dimen/activity_horizontal_margin"
-            android:orientation="vertical" >
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="@dimen/activity_vertical_margin"
+			android:paddingRight="@dimen/activity_vertical_margin"
+			android:paddingTop="@dimen/activity_horizontal_margin"
+			android:paddingBottom="@dimen/activity_horizontal_margin"
+			android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp">
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/made_by" />
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentTop="true"
+					android:layout_centerHorizontal="true"
+					android:text="@string/made_by" />
 
-            </RelativeLayout>
+			</RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:layout_marginTop="5dp"
+				android:layout_marginBottom="5dp">
 
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp">
+				<RelativeLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="5dp">
 
-                    <ImageView
-                        android:id="@+id/twitter_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:src="@drawable/ic_app_twitter"
-                        android:adjustViewBounds="true"
-                        android:onClick="onViewClick" />
+					<ImageView
+						android:id="@+id/twitter_image"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentTop="true"
+						android:src="@drawable/ic_app_twitter"
+						android:adjustViewBounds="true"
+						android:onClick="onViewClick" />
 
-                    <TextView
-                        android:id="@+id/twitter_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/follow_me"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/twitter_image"
-                        android:layout_toEndOf="@id/twitter_image"
-                        android:onClick="onViewClick"
-                        android:clickable="true"
-                        android:padding="10dp"/>
+					<TextView
+						android:id="@+id/twitter_text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/follow_me"
+						android:layout_centerVertical="true"
+						android:layout_toRightOf="@id/twitter_image"
+						android:layout_toEndOf="@id/twitter_image"
+						android:onClick="onViewClick"
+						android:clickable="true"
+						android:padding="10dp" />
 
-                </RelativeLayout>
+				</RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
+				<RelativeLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/github_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:src="@drawable/ic_app_github"
-                        android:adjustViewBounds="true"
-                        android:onClick="onViewClick" />
+					<ImageView
+						android:id="@+id/github_image"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentTop="true"
+						android:src="@drawable/ic_app_github"
+						android:adjustViewBounds="true"
+						android:onClick="onViewClick" />
 
-                    <TextView
-                        android:id="@+id/github_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/source_code"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/github_image"
-                        android:layout_toEndOf="@id/github_image"
-                        android:onClick="onViewClick"
-                        android:clickable="true"
-                        android:padding="10dp"/>
+					<TextView
+						android:id="@+id/github_text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/source_code"
+						android:layout_centerVertical="true"
+						android:layout_toRightOf="@id/github_image"
+						android:layout_toEndOf="@id/github_image"
+						android:onClick="onViewClick"
+						android:clickable="true"
+						android:padding="10dp" />
 
-                </RelativeLayout>
+				</RelativeLayout>
 
-            </LinearLayout>
+			</LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/support_me"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"/>
-
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <ImageView
-                    android:id="@+id/google_play_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:src="@drawable/ic_launcher_google_play"
-                    android:adjustViewBounds="true"
-                    android:onClick="onViewClick" />
-
-                <TextView
-                    android:id="@+id/google_play_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/take_me_play_store"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/google_play_image"
-                    android:layout_toEndOf="@id/google_play_image"
-                    android:onClick="onViewClick"
-                    android:clickable="true"
-                    android:padding="10dp"/>
-
-            </RelativeLayout>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/support_me"
+				android:layout_marginTop="5dp"
+				android:layout_marginBottom="5dp" />
 
 
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp">
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/minecraft_brown_dirt_darkest"/>
+				<ImageView
+					android:id="@+id/google_play_image"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentTop="true"
+					android:src="@drawable/ic_launcher_google_play"
+					android:adjustViewBounds="true"
+					android:onClick="onViewClick" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/contributors_title"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+				<TextView
+					android:id="@+id/google_play_text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/take_me_play_store"
+					android:layout_centerVertical="true"
+					android:layout_toRightOf="@id/google_play_image"
+					android:layout_toEndOf="@id/google_play_image"
+					android:onClick="onViewClick"
+					android:clickable="true"
+					android:padding="10dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoLink="web"
-                android:text="@string/contributors_content"
-                />
+			</RelativeLayout>
 
 
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/minecraft_brown_dirt_darkest"/>
+			<View
+				android:layout_width="fill_parent"
+				android:layout_height="1dp"
+				android:layout_marginTop="15dp"
+				android:layout_marginBottom="10dp"
+				android:background="@color/minecraft_brown_dirt_darkest" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/used_libraries_title"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/contributors_title"
+				android:textSize="18sp"
+				android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoLink="web"
-                android:text="@string/used_libraries_content" />
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:autoLink="web"
+				android:text="@string/contributors_content"
+				/>
 
-        </LinearLayout>
 
-    </ScrollView>
+
+			<View
+				android:layout_width="fill_parent"
+				android:layout_height="1dp"
+				android:layout_marginTop="15dp"
+				android:layout_marginBottom="10dp"
+				android:background="@color/minecraft_brown_dirt_darkest" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/used_libraries_title"
+				android:textSize="18sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:autoLink="web"
+				android:text="@string/used_libraries_content" />
+
+		</LinearLayout>
+
+	</ScrollView>
 
 </LinearLayout>

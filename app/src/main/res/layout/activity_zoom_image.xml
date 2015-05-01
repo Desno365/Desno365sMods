@@ -16,24 +16,24 @@
   -->
 
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Activities.ZoomImageActivity">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".Activities.ZoomImageActivity">
 
-    <include
-        android:id="@+id/tool_bar_zoom_image"
-        layout="@layout/tool_bar"/>
+	<include
+		android:id="@+id/tool_bar_zoom_image"
+		layout="@layout/tool_bar" />
 
-    <uk.co.senab.photoview.PhotoView
-        android:id="@+id/iv_photo"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:paddingLeft="@dimen/activity_vertical_margin"
-        android:paddingRight="@dimen/activity_vertical_margin"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/activity_horizontal_margin"/>
+	<uk.co.senab.photoview.PhotoView
+		android:id="@+id/iv_photo"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:paddingLeft="@dimen/activity_vertical_margin"
+		android:paddingRight="@dimen/activity_vertical_margin"
+		android:paddingTop="@dimen/activity_horizontal_margin"
+		android:paddingBottom="@dimen/activity_horizontal_margin" />
 
 </LinearLayout>

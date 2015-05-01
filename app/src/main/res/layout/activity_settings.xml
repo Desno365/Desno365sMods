@@ -16,21 +16,21 @@
   -->
 
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Activities.SettingsActivity">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".Activities.SettingsActivity">
 
-    <include
-        android:id="@+id/tool_bar_settings"
-        layout="@layout/tool_bar"/>
+	<include
+		android:id="@+id/tool_bar_settings"
+		layout="@layout/tool_bar" />
 
-    <fragment
-        android:id="@+id/fragment_container_preference"
-        android:name="com.desno365.mods.Activities.SettingsActivity$PrefsFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+	<fragment
+		android:id="@+id/fragment_container_preference"
+		android:name="com.desno365.mods.Activities.SettingsActivity$PrefsFragment"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
 
 </LinearLayout>

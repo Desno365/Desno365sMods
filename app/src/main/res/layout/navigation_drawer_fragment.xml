@@ -15,16 +15,16 @@
   -->
 
 <com.desno365.mods.AnimatedExpandableListView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:choiceMode="singleChoice"
-    android:groupIndicator="@null"
-    android:divider="@color/color_primary_dark"
-    android:childDivider="@color/color_primary_dark"
-    android:dividerHeight="1dp"
-    android:background="@color/color_primary"
-    tools:context="com.desno365.mods.MainNavigationDrawerFragment"
-    tools:ignore="Overdraw"/>
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/drawer"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:choiceMode="singleChoice"
+	android:groupIndicator="@null"
+	android:divider="@color/color_primary_dark"
+	android:childDivider="@color/color_primary_dark"
+	android:dividerHeight="1dp"
+	android:background="@color/color_primary"
+	tools:context="com.desno365.mods.MainNavigationDrawerFragment"
+	tools:ignore="Overdraw" />
