@@ -34,11 +34,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.desno365.mods.NewsCard;
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.SharedConstants.Keys;
-import com.desno365.mods.R;
 import com.desno365.mods.MainSwipeRefreshLayout;
+import com.desno365.mods.NewsCard;
+import com.desno365.mods.R;
+import com.desno365.mods.SharedConstants.Keys;
+
 
 public class NewsActivity extends ActionBarActivity {
 
@@ -52,13 +53,13 @@ public class NewsActivity extends ActionBarActivity {
 
 	private boolean isRefreshing = false;
 	private boolean newsCorrectlyDownloaded = false;
-    private int numberOfNews;
-    private String[] newsTitles;
-    private String[] newsContents;
+	private int numberOfNews;
+	private String[] newsTitles;
+	private String[] newsContents;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-        Log.i(TAG, "Activity started (onCreate)");
+		Log.i(TAG, "Activity started (onCreate)");
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 
@@ -96,16 +97,16 @@ public class NewsActivity extends ActionBarActivity {
 	}
 
 	@Override
+	public void onBackPressed() {
+		this.finish();
+		DesnoUtils.changeFinishAnimations(activity);
+	}
+
+	@Override
 	public void onResume() {
 		super.onResume();
 
 		toolbar.setTitle(R.string.news_title);
-	}
-
-	@Override
-	public void onBackPressed() {
-		this.finish();
-		DesnoUtils.changeFinishAnimations(activity);
 	}
 
 	@Override
@@ -117,7 +118,7 @@ public class NewsActivity extends ActionBarActivity {
 		getMenuInflater().inflate(R.menu.menu_news_activity, menu);
 
 		//refresh content on start
-		new android.os.Handler().postDelayed(new Runnable(){
+		new android.os.Handler().postDelayed(new Runnable() {
 			public void run() {
 				runOnUiThread(new Runnable() {
 					public void run() {
@@ -213,7 +214,7 @@ public class NewsActivity extends ActionBarActivity {
 							refreshItem.setActionView(R.layout.actionbar_indeterminate_progress);
 						}
 					});
-				}else {
+				} else {
 					refreshItem.setActionView(null);
 				}
 			}
@@ -221,12 +222,12 @@ public class NewsActivity extends ActionBarActivity {
 	}
 
 	private void startRefreshingNews() {
-		if(!isRefreshing) {
+		if (!isRefreshing) {
 			isRefreshing = true;
 			setRefreshState(true);
 
 			int count = cardsContainer.getChildCount();
-			if(count == 0) {
+			if (count == 0) {
 				RetrieveNewsContent downloadTask = new RetrieveNewsContent();
 				downloadTask.execute((Void) null);
 			} else {
@@ -271,20 +272,20 @@ public class NewsActivity extends ActionBarActivity {
 		protected Void doInBackground(Void... params) {
 
 			try {
-				if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
+				if (DesnoUtils.isNetworkAvailable(getApplicationContext())) {
 					String downloadedNews = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS);
 
-                    String[] cardsText = downloadedNews.split("<endcontent>");
-                    numberOfNews = cardsText.length;
-                    newsTitles = new String[numberOfNews];
-                    newsContents = new String[numberOfNews];
-                    for (int i = 0; i < numberOfNews; i++) {
-                        String[] titleAndContent = cardsText[i].split("<endtitle>");
-                        newsTitles[i] = titleAndContent[0]; // 0 = title
-                        newsContents[i] = titleAndContent[1]; // 1 = content
-                    }
+					String[] cardsText = downloadedNews.split("<endcontent>");
+					numberOfNews = cardsText.length;
+					newsTitles = new String[numberOfNews];
+					newsContents = new String[numberOfNews];
+					for (int i = 0; i < numberOfNews; i++) {
+						String[] titleAndContent = cardsText[i].split("<endtitle>");
+						newsTitles[i] = titleAndContent[0]; // 0 = title
+						newsContents[i] = titleAndContent[1]; // 1 = content
+					}
 
-                    newsCorrectlyDownloaded = newsTitles.length >= numberOfNews && newsContents.length >= numberOfNews;
+					newsCorrectlyDownloaded = newsTitles.length >= numberOfNews && newsContents.length >= numberOfNews;
 				} else {
 					newsCorrectlyDownloaded = false;
 				}
@@ -299,9 +300,9 @@ public class NewsActivity extends ActionBarActivity {
 		protected void onPostExecute(Void unused) {
 			Log.i(TAG, "onPostExecute now, the AsyncTask for the news finished loading with result " + (newsCorrectlyDownloaded ? "successful" : "not successful"));
 
-			if(newsCorrectlyDownloaded) {
+			if (newsCorrectlyDownloaded) {
 				findViewById(R.id.news_loading_text).setVisibility(View.GONE);
-                createCards(numberOfNews, newsTitles, newsContents);
+				createCards(numberOfNews, newsTitles, newsContents);
 			} else {
 				findViewById(R.id.news_loading_text).setVisibility(View.VISIBLE);
 				((TextView) findViewById(R.id.news_loading_text)).setText(getResources().getString(R.string.internet_error));
@@ -312,8 +313,8 @@ public class NewsActivity extends ActionBarActivity {
 				});
 			}
 
-            setRefreshState(false);
-            isRefreshing = false;
+			setRefreshState(false);
+			isRefreshing = false;
 		}
 
 	}

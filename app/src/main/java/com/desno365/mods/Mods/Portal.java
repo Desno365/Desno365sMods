@@ -16,30 +16,31 @@
 
 package com.desno365.mods.Mods;
 
+import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.SharedConstants.NotificationsId;
-import com.desno365.mods.R;
 import com.desno365.mods.Tabs.FragmentTab2;
+
 
 public class Portal extends Mod {
 
-    public static final int viewPagerPosition = 2;
+	public static final int viewPagerPosition = 2;
 
-    public Portal() {
+	public Portal() {
 
-        super();
+		super();
 
-        this.ID = 2;
-        this.nameId = R.string.mod1_title;
+		this.ID = 2;
+		this.nameId = R.string.mod1_title;
 
-        this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_PORTAL_NEW_VERSION;
-        this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_PORTAL_DOWNLOAD;
-        this.THREAD_LINK = Keys.KEY_PORTAL_THREAD;
+		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_PORTAL_NEW_VERSION;
+		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_PORTAL_DOWNLOAD;
+		this.THREAD_LINK = Keys.KEY_PORTAL_THREAD;
 
-    }
+	}
 
-    public static FragmentTab2 getFragmentTab() {
-        return new FragmentTab2();
-    }
+	public static FragmentTab2 getFragmentTab() {
+		return new FragmentTab2();
+	}
 
 }

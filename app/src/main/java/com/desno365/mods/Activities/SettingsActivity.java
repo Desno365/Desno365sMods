@@ -32,9 +32,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
+import com.desno365.mods.SharedConstants.Keys;
+
 
 public class SettingsActivity extends PreferenceActivity {
 
@@ -46,6 +47,25 @@ public class SettingsActivity extends PreferenceActivity {
 
 	private static boolean monitorNotificationModsPrefrence;
 	private static boolean monitorNotificationNewsPrefrence;
+
+	private static void restartDialogLanguage() {
+		View mView = View.inflate(activity, R.layout.popup_settings_restart_language, null);
+
+		android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
+		builder.setView(mView);
+		builder.setTitle(activity.getResources().getString(R.string.app_name));
+		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				MainActivity.myMainActivity.get().finish();
+				System.exit(0);
+			}
+		});
+		builder.setCancelable(false);
+
+		android.app.AlertDialog popup = builder.create();
+		popup.setCanceledOnTouchOutside(false);
+		popup.show();
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -76,7 +96,7 @@ public class SettingsActivity extends PreferenceActivity {
 	public void onDestroy() {
 		super.onDestroy();
 
-        DesnoUtils.showAd();
+		DesnoUtils.showAd();
 
 		Log.i(TAG, "onDestroy. Launched the new alarm.");
 
@@ -92,29 +112,10 @@ public class SettingsActivity extends PreferenceActivity {
 		DesnoUtils.changeFinishAnimations(activity);
 	}
 
-    @Override
-    public void startActivity(Intent intent) {
-        super.startActivity(intent);
-        DesnoUtils.changeStartAnimations(activity);
-    }
-
-	private static void restartDialogLanguage() {
-		View mView = View.inflate(activity, R.layout.popup_settings_restart_language, null);
-
-		android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
-		builder.setView(mView);
-		builder.setTitle(activity.getResources().getString(R.string.app_name));
-		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				MainActivity.myMainActivity.get().finish();
-				System.exit(0);
-			}
-		});
-		builder.setCancelable(false);
-
-		android.app.AlertDialog popup = builder.create();
-		popup.setCanceledOnTouchOutside(false);
-		popup.show();
+	@Override
+	public void startActivity(Intent intent) {
+		super.startActivity(intent);
+		DesnoUtils.changeStartAnimations(activity);
 	}
 
 	public static class PrefsFragment extends PreferenceFragment {
@@ -125,7 +126,7 @@ public class SettingsActivity extends PreferenceActivity {
 
 			// Load the preferences from an XML resource
 			addPreferencesFromResource(R.xml.fragmented_preferences);
-            activity.setTheme(R.style.PreferenceFragmentTheme);
+			activity.setTheme(R.style.PreferenceFragmentTheme);
 
 			// initialize preferences
 			SharedPreferences sharedPrefs = getPreferenceScreen().getSharedPreferences();
@@ -174,7 +175,7 @@ public class SettingsActivity extends PreferenceActivity {
 
 
 			// enable or disable frequency preference at start
-			if(monitorNotificationModsPrefrence || monitorNotificationNewsPrefrence)
+			if (monitorNotificationModsPrefrence || monitorNotificationNewsPrefrence)
 				frequencyPreference.setEnabled(true);
 			else
 				frequencyPreference.setEnabled(false);

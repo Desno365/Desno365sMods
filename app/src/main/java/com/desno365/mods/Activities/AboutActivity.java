@@ -25,80 +25,84 @@ import android.util.Log;
 import android.view.View;
 
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.R;
+import com.desno365.mods.SharedConstants.Keys;
+
 
 public class AboutActivity extends Activity {
 
-    private static final String TAG = "DesnoMods-AboutActivity";
+	private static final String TAG = "DesnoMods-AboutActivity";
 
-    public static Activity activity;
+	public static Activity activity;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        Log.i(TAG, "Activity started (onCreate)");
-        DesnoUtils.setSavedLanguage(this);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		Log.i(TAG, "Activity started (onCreate)");
+		DesnoUtils.setSavedLanguage(this);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_about);
 
-        activity = this;
+		activity = this;
 
-        // Set up the action bar.
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_about); // Attaching the layout to the toolbar object
-        toolbar.setNavigationIcon(R.drawable.ic_navigation_arrow_back);
-        toolbar.setTitle(R.string.action_info);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.finish();
-                DesnoUtils.changeFinishAnimations(activity);
-            }
-        });
+		// Set up the action bar.
+		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_about); // Attaching the layout to the toolbar object
+		toolbar.setNavigationIcon(R.drawable.ic_navigation_arrow_back);
+		toolbar.setTitle(R.string.action_info);
+		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				activity.finish();
+				DesnoUtils.changeFinishAnimations(activity);
+			}
+		});
 
-    }
+	}
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        DesnoUtils.showAd();
-    }
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		DesnoUtils.showAd();
+	}
 
-    @Override
-    public void onBackPressed() {
-        this.finish();
-        DesnoUtils.changeFinishAnimations(activity);
-    }
+	@Override
+	public void onBackPressed() {
+		this.finish();
+		DesnoUtils.changeFinishAnimations(activity);
+	}
 
-    @Override
-    public void startActivity(Intent intent) {
-        super.startActivity(intent);
-        DesnoUtils.changeStartAnimations(activity);
-    }
+	@Override
+	public void startActivity(Intent intent) {
+		super.startActivity(intent);
+		DesnoUtils.changeStartAnimations(activity);
+	}
 
-    public void onViewClick(View v) {
-        switch (v.getId()) {
+	public void onViewClick(View v) {
+		switch (v.getId()) {
 
-            // twitter image and text
-            case R.id.twitter_image: case R.id.twitter_text:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
-                break;
+			// twitter image and text
+			case R.id.twitter_image:
+			case R.id.twitter_text:
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
+				break;
 
-            // github image and text
-            case R.id.github_image: case R.id.github_text:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_GITHUB)));
-                break;
+			// github image and text
+			case R.id.github_image:
+			case R.id.github_text:
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_GITHUB)));
+				break;
 
-            // google play image and text
-            case R.id.google_play_image:case R.id.google_play_text:
-                final String appPackageName = getPackageName();
-                try {
-                    //play store installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    //play store not installed
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-                }
-        }
-    }
+			// google play image and text
+			case R.id.google_play_image:
+			case R.id.google_play_text:
+				final String appPackageName = getPackageName();
+				try {
+					//play store installed
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+				} catch (android.content.ActivityNotFoundException anfe) {
+					//play store not installed
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+				}
+		}
+	}
 }
 

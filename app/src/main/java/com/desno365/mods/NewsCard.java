@@ -33,12 +33,12 @@ public class NewsCard {
 	public NewsCard(Context c, LayoutInflater layoutInflater, String title, String content) {
 		TITLE = title;
 		CONTENT = content;
-        CONTEXT = c;
+		CONTEXT = c;
 		//PARENT = ((LayoutInflater) CONTEXT.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.card_layout, null);
-        PARENT = layoutInflater.inflate(R.layout.card_layout, null); // this fixes the "Calling startActivity() from outside of an Activity context requires the FLAG_ACTIVITY_NEW_TASK flag" error when clicking links
+		PARENT = layoutInflater.inflate(R.layout.card_layout, null); // this fixes the "Calling startActivity() from outside of an Activity context requires the FLAG_ACTIVITY_NEW_TASK flag" error when clicking links
 		((TextView) PARENT.findViewById(R.id.card_title)).setText(android.text.Html.fromHtml(TITLE));
 		TextView textViewContent = (TextView) PARENT.findViewById(R.id.card_content_text);
-        textViewContent.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
+		textViewContent.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 		textViewContent.setText(android.text.Html.fromHtml(CONTENT));
 	}
 
@@ -53,8 +53,8 @@ public class NewsCard {
 		return PARENT;
 	}
 
-    private int convertDpToPixel(int dp) {
-        return DesnoUtils.convertDpToPixel(dp, CONTEXT);
-    }
+	private int convertDpToPixel(int dp) {
+		return DesnoUtils.convertDpToPixel(dp, CONTEXT);
+	}
 
 }

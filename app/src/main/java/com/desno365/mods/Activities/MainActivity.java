@@ -42,7 +42,6 @@ import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.MainNavigationDrawerFragment;
 import com.desno365.mods.MainSwipeRefreshLayout;
 import com.desno365.mods.Mods.DesnoGuns;
@@ -53,10 +52,12 @@ import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
+import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.Tabs.FragmentTab1;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
+
 
 public class MainActivity extends ActionBarActivity implements MainNavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -158,13 +159,13 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				// When swiping between different app sections
 
 				// change toolbar title
-				if(position == 0)
+				if (position == 0)
 					toolbar.setTitle(getResources().getString(R.string.app_name));
 				else
 					toolbar.setTitle(mAppSectionsPagerAdapter.getPageTitle(position));
 
 				// close drawer
-				if(mNavigationDrawerFragment.isDrawerOpen())
+				if (mNavigationDrawerFragment.isDrawerOpen())
 					MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
 			}
 		});
@@ -175,8 +176,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 		//action to do at the first launch of the app
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		if(sharedPrefs.getBoolean("is_first_launch", true))
-		{
+		if (sharedPrefs.getBoolean("is_first_launch", true)) {
 			//first launch, the app has never been launched before
 			SharedPreferences.Editor editor = sharedPrefs.edit();
 			editor.putBoolean("refresh_on_start", true);
@@ -203,73 +203,45 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	}
 
 	@Override
-	public void onResume() {
-		super.onResume();
-
-		if(displayAdAtResume) {
-			DesnoUtils.showAd();
-			displayAdAtResume = false;
+	public boolean onMenuOpened(int featureId, Menu menu) {
+		//add icons near menu items
+		if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
+			if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+				try {
+					Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+					m.setAccessible(true);
+					m.invoke(menu, true);
+				} catch (NoSuchMethodException e) {
+					Log.e(TAG, "onMenuOpened", e);
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			}
 		}
+		return super.onMenuOpened(featureId, menu);
 	}
 
 	@Override
 	public void onBackPressed() {
-		if(mNavigationDrawerFragment.isDrawerOpen())
+		if (mNavigationDrawerFragment.isDrawerOpen())
 			MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
 		else
 			super.onBackPressed();
 	}
 
 	@Override
-	public void onNavigationDrawerGroupSelected(int position) {
-		switch (position) {
-			case 0:
-				if (mAppSectionsPagerAdapter != null) {
-					mViewPager.setCurrentItem(position);
-				} else {
-					FragmentManager fragmentManager = getSupportFragmentManager();
-					fragmentManager.beginTransaction()
-							.replace(R.id.fragment_container, new FragmentTab1())
-							.commit();
-				}
-				break;
-			case 1:
-				// already caught by the NavigationDrawer class because it's a container and not a clickable group
-				break;
-			case 2:
-				new android.os.Handler().postDelayed(new Runnable(){
-					public void run() {
-						startActivity(new Intent(getApplicationContext(), AboutActivity.class));
-					}
-				}, 200);
-				break;
-			case 3:
-				new android.os.Handler().postDelayed(new Runnable(){
-					public void run() {
-						startActivity(new Intent(getApplicationContext(), HelpActivity.class));
-					}
-				}, 200);
-				break;
-			case 4:
-				new android.os.Handler().postDelayed(new Runnable(){
-					public void run() {
-						startActivity(new Intent(getApplicationContext(), NewsActivity.class));
-					}
-				}, 200);
-				break;
-			case 5:
-				new android.os.Handler().postDelayed(new Runnable(){
-					public void run() {
-						startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
-					}
-				}, 200);
-				break;
+	public void onResume() {
+		super.onResume();
+
+		if (displayAdAtResume) {
+			DesnoUtils.showAd();
+			displayAdAtResume = false;
 		}
 	}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int groupPosition, int childPosition) {
-		if(groupPosition == 1) {
+		if (groupPosition == 1) {
 			if (mAppSectionsPagerAdapter != null) {
 				mViewPager.setCurrentItem(childPosition + 1); // + 1 because the home Fragment of the ViewPager isn't in the mods group
 			} else {
@@ -307,14 +279,61 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	}
 
 	@Override
+	public void onNavigationDrawerGroupSelected(int position) {
+		switch (position) {
+			case 0:
+				if (mAppSectionsPagerAdapter != null) {
+					mViewPager.setCurrentItem(position);
+				} else {
+					FragmentManager fragmentManager = getSupportFragmentManager();
+					fragmentManager.beginTransaction()
+							.replace(R.id.fragment_container, new FragmentTab1())
+							.commit();
+				}
+				break;
+			case 1:
+				// already caught by the NavigationDrawer class because it's a container and not a clickable group
+				break;
+			case 2:
+				new android.os.Handler().postDelayed(new Runnable() {
+					public void run() {
+						startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+					}
+				}, 200);
+				break;
+			case 3:
+				new android.os.Handler().postDelayed(new Runnable() {
+					public void run() {
+						startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+					}
+				}, 200);
+				break;
+			case 4:
+				new android.os.Handler().postDelayed(new Runnable() {
+					public void run() {
+						startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+					}
+				}, 200);
+				break;
+			case 5:
+				new android.os.Handler().postDelayed(new Runnable() {
+					public void run() {
+						startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+					}
+				}, 200);
+				break;
+		}
+	}
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_main_activity, menu);
 
 		//refresh content on start
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		if(sharedPrefs.getBoolean("refresh_on_start", true)) {
-			new android.os.Handler().postDelayed(new Runnable(){
+		if (sharedPrefs.getBoolean("refresh_on_start", true)) {
+			new android.os.Handler().postDelayed(new Runnable() {
 				public void run() {
 					runOnUiThread(new Runnable() {
 						public void run() {
@@ -340,7 +359,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		switch (item.getItemId()) {
 
 			case android.R.id.home:
-				if(mNavigationDrawerFragment.isDrawerOpen())
+				if (mNavigationDrawerFragment.isDrawerOpen())
 					MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
 				else
 					MainNavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
@@ -389,27 +408,6 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			default:
 				return super.onOptionsItemSelected(item);
 		}
-	}
-
-	@Override
-	public boolean onMenuOpened(int featureId, Menu menu) {
-		//add icons near menu items
-		if(featureId == Window.FEATURE_ACTION_BAR && menu != null){
-			if(menu.getClass().getSimpleName().equals("MenuBuilder")){
-				try{
-					Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
-					m.setAccessible(true);
-					m.invoke(menu, true);
-				}
-				catch(NoSuchMethodException e){
-					Log.e(TAG, "onMenuOpened", e);
-				}
-				catch(Exception e){
-					throw new RuntimeException(e);
-				}
-			}
-		}
-		return super.onMenuOpened(featureId, menu);
 	}
 
 	@Override
@@ -487,7 +485,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	}
 
 	public void onViewClick(View v) {
-		switch(v.getId()) {
+		switch (v.getId()) {
 			// minecraftforum.net thread buttons
 			case R.id.minecraft_thread_guns_button:
 				startActivity(new DesnoGuns().getVisitThreadIntent());
@@ -558,12 +556,13 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	}
 
 	// test alarm onClick
+
 	/**
-	public void testAlarm(View v) {
-		AlarmReceiver aR = new AlarmReceiver();
-		aR.onReceive(getApplicationContext(), null);
-	}
-	*/
+	 * public void testAlarm(View v) {
+	 * AlarmReceiver aR = new AlarmReceiver();
+	 * aR.onReceive(getApplicationContext(), null);
+	 * }
+	 */
 
 	public void setRefreshState(final boolean refreshing) {
 		runOnUiThread(new Runnable() {
@@ -655,7 +654,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 			setRefreshState(true);
 
-			if(DesnoUtils.isNetworkAvailable(getApplicationContext())) {
+			if (DesnoUtils.isNetworkAvailable(getApplicationContext())) {
 				latestNewsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS_COUNT);
 				latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
 				latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);

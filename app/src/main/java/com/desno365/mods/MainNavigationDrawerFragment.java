@@ -46,18 +46,16 @@ import java.util.List;
  */
 public class MainNavigationDrawerFragment extends Fragment {
 
+	public static DrawerLayout mDrawerLayout;
+	public AnimatedExpandableListView mDrawerListView;
 	/**
 	 * A pointer to the current callbacks instance (the Activity).
 	 */
 	private NavigationDrawerCallbacks mCallbacks;
-
 	/**
 	 * Helper component that ties the action bar to the navigation drawer.
 	 */
 	private ActionBarDrawerToggle mDrawerToggle;
-
-	public static DrawerLayout mDrawerLayout;
-	public AnimatedExpandableListView mDrawerListView;
 	private View mFragmentContainerView;
 
 	private List<Item> items;
@@ -65,7 +63,18 @@ public class MainNavigationDrawerFragment extends Fragment {
 	// commented code that change the checked item
 	//public int mCurrentSelectedPosition = 0;
 
-	public MainNavigationDrawerFragment() {}
+	public MainNavigationDrawerFragment() {
+	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		try {
+			mCallbacks = (NavigationDrawerCallbacks) activity;
+		} catch (ClassCastException e) {
+			throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
+		}
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -83,15 +92,15 @@ public class MainNavigationDrawerFragment extends Fragment {
 		// Populate our list with groups and it's children
 		ChildItem home = new ChildItem();
 		home.title = getString(R.string.home_title);
-        home.hasIcon = true;
-        home.iconId = R.drawable.ic_action_home;
+		home.hasIcon = true;
+		home.iconId = R.drawable.ic_action_home;
 		items.add(home);
 
 
 		GroupItem mods = new GroupItem();
 		mods.title = getString(R.string.mods);
-        mods.hasIcon = true;
-        mods.iconId = R.drawable.ic_action_extension;
+		mods.hasIcon = true;
+		mods.iconId = R.drawable.ic_action_extension;
 
 		ChildItem child1 = new ChildItem();
 		child1.title = getString(R.string.mod5_title);
@@ -122,29 +131,29 @@ public class MainNavigationDrawerFragment extends Fragment {
 
 		ChildItem about = new ChildItem();
 		about.title = getString(R.string.action_info);
-        about.hasIcon = true;
-        about.iconId = R.drawable.ic_action_info;
+		about.hasIcon = true;
+		about.iconId = R.drawable.ic_action_info;
 		items.add(about);
 
 
 		ChildItem help = new ChildItem();
 		help.title = getString(R.string.action_help);
-        help.hasIcon = true;
-        help.iconId = R.drawable.ic_action_help;
+		help.hasIcon = true;
+		help.iconId = R.drawable.ic_action_help;
 		items.add(help);
 
 
 		ChildItem news = new ChildItem();
 		news.title = getString(R.string.news_title);
-        news.hasIcon = true;
-        news.iconId = R.drawable.ic_action_news;
+		news.hasIcon = true;
+		news.iconId = R.drawable.ic_action_news;
 		items.add(news);
 
 
 		ChildItem settings = new ChildItem();
 		settings.title = getString(R.string.action_settings);
-        settings.hasIcon = true;
-        settings.iconId = R.drawable.ic_action_settings;
+		settings.hasIcon = true;
+		settings.iconId = R.drawable.ic_action_settings;
 		items.add(settings);
 
 
@@ -158,18 +167,18 @@ public class MainNavigationDrawerFragment extends Fragment {
 		mDrawerListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 			@Override
 			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-				if(isGroupExpandable(groupPosition)) {
-                    GroupItem group = (GroupItem) items.get(groupPosition);
+				if (isGroupExpandable(groupPosition)) {
+					GroupItem group = (GroupItem) items.get(groupPosition);
 
 					// We call collapseGroupWithAnimation(int) and
 					// expandGroupWithAnimation(int) to animate group
 					// expansion/collapse.
 					if (mDrawerListView.isGroupExpanded(groupPosition)) {
 						mDrawerListView.collapseGroupWithAnimation(groupPosition);
-                        group.groupIndicatorView.setImageResource(R.drawable.ic_arrow_down);
+						group.groupIndicatorView.setImageResource(R.drawable.ic_arrow_down);
 					} else {
 						mDrawerListView.expandGroupWithAnimation(groupPosition);
-                        group.groupIndicatorView.setImageResource(R.drawable.ic_arrow_up);
+						group.groupIndicatorView.setImageResource(R.drawable.ic_arrow_up);
 					}
 				} else {
 					selectGroup(groupPosition);
@@ -193,13 +202,10 @@ public class MainNavigationDrawerFragment extends Fragment {
 	}
 
 	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		try {
-			mCallbacks = (NavigationDrawerCallbacks) activity;
-		} catch (ClassCastException e) {
-			throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
-		}
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		// Forward the new configuration the drawer toggle component.
+		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 
 	@Override
@@ -207,26 +213,6 @@ public class MainNavigationDrawerFragment extends Fragment {
 		super.onDetach();
 		mCallbacks = null;
 	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
-		// Forward the new configuration the drawer toggle component.
-		mDrawerToggle.onConfigurationChanged(newConfig);
-	}
-
-	/**
-	 * Callbacks interface that all activities using this fragment must implement.
-	 */
-	public static interface NavigationDrawerCallbacks {
-		/**
-		 * Called when an item or a group in the navigation drawer is selected.
-		 */
-		void onNavigationDrawerItemSelected(int groupPosition, int childPosition);
-
-		void onNavigationDrawerGroupSelected(int position);
-	}
-
 
 	public boolean isDrawerOpen() {
 		return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
@@ -256,13 +242,13 @@ public class MainNavigationDrawerFragment extends Fragment {
 				R.string.close_dialog  /* "close drawer" description for accessibility */
 		) {
 			@Override
-			public void onDrawerClosed(View drawerView) {
-				super.onDrawerClosed(drawerView);
+			public void onDrawerOpened(View drawerView) {
+				super.onDrawerOpened(drawerView);
 			}
 
 			@Override
-			public void onDrawerOpened(View drawerView) {
-				super.onDrawerOpened(drawerView);
+			public void onDrawerClosed(View drawerView) {
+				super.onDrawerClosed(drawerView);
 			}
 		};
 
@@ -304,11 +290,22 @@ public class MainNavigationDrawerFragment extends Fragment {
 		return !(items.get(position) instanceof ChildItem);
 	}
 
+	/**
+	 * Callbacks interface that all activities using this fragment must implement.
+	 */
+	public static interface NavigationDrawerCallbacks {
+		/**
+		 * Called when an item or a group in the navigation drawer is selected.
+		 */
+		void onNavigationDrawerItemSelected(int groupPosition, int childPosition);
+
+		void onNavigationDrawerGroupSelected(int position);
+	}
 
 	private static class Item {
 		String title;
-        boolean hasIcon;
-        int iconId;
+		boolean hasIcon;
+		int iconId;
 	}
 
 	private static class GroupItem extends Item {
@@ -346,24 +343,6 @@ public class MainNavigationDrawerFragment extends Fragment {
 		}
 
 		@Override
-		public ChildItem getChild(int groupPosition, int childPosition) {
-			Item group = getGroup(groupPosition);
-			if(isGroupExpandable(groupPosition)) {
-				// is a group
-				return ((GroupItem) group).children.get(childPosition);
-			} else {
-				// is a not expandable group
-				return ((ChildItem) group);
-			}
-
-		}
-
-		@Override
-		public long getChildId(int groupPosition, int childPosition) {
-			return childPosition;
-		}
-
-		@Override
 		public View getRealChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 			ChildHolder holder;
 			ChildItem item = getChild(groupPosition, childPosition);
@@ -373,11 +352,11 @@ public class MainNavigationDrawerFragment extends Fragment {
 				TextView itemTextView = (TextView) convertView.findViewById(R.id.navigation_drawer_item_title);
 
 				// apply custom font with shadow
-				Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(),"fonts/minecraft.ttf");
+				Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(), "fonts/minecraft.ttf");
 				itemTextView.setTypeface(font);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
 					itemTextView.setShadowLayer(1, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), getResources().getColor(R.color.drawer_text_shadow_color));
-                else
+				else
 					itemTextView.setShadowLayer(0.0001F, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), getResources().getColor(R.color.drawer_text_shadow_color));
 
 				holder.title = itemTextView;
@@ -395,7 +374,7 @@ public class MainNavigationDrawerFragment extends Fragment {
 		public int getRealChildrenCount(int groupPosition) {
 
 			Item group = getGroup(groupPosition);
-			if(isGroupExpandable(groupPosition)) {
+			if (isGroupExpandable(groupPosition)) {
 				return ((GroupItem) group).children.size();
 			} else {
 				return 0;
@@ -404,18 +383,41 @@ public class MainNavigationDrawerFragment extends Fragment {
 		}
 
 		@Override
-		public Item getGroup(int groupPosition) {
-			return items.get(groupPosition);
-		}
-
-		@Override
 		public int getGroupCount() {
 			return items.size();
 		}
 
 		@Override
+		public Item getGroup(int groupPosition) {
+			return items.get(groupPosition);
+		}
+
+		@Override
+		public ChildItem getChild(int groupPosition, int childPosition) {
+			Item group = getGroup(groupPosition);
+			if (isGroupExpandable(groupPosition)) {
+				// is a group
+				return ((GroupItem) group).children.get(childPosition);
+			} else {
+				// is a not expandable group
+				return ((ChildItem) group);
+			}
+
+		}
+
+		@Override
 		public long getGroupId(int groupPosition) {
 			return groupPosition;
+		}
+
+		@Override
+		public long getChildId(int groupPosition, int childPosition) {
+			return childPosition;
+		}
+
+		@Override
+		public boolean hasStableIds() {
+			return true;
 		}
 
 		@Override
@@ -443,27 +445,22 @@ public class MainNavigationDrawerFragment extends Fragment {
 
 			holder.title.setText(item.title);
 
-            // group indicator image
-            View groupIndicatorImageView = convertView.findViewById(R.id.image_group_indicator);
-			if(isGroupExpandable(groupPosition)) {
+			// group indicator image
+			View groupIndicatorImageView = convertView.findViewById(R.id.image_group_indicator);
+			if (isGroupExpandable(groupPosition)) {
 				GroupItem group = (GroupItem) item;
 				group.groupIndicatorView = (ImageView) groupIndicatorImageView;
 			} else {
-                groupIndicatorImageView.setVisibility(View.GONE);
-            }
+				groupIndicatorImageView.setVisibility(View.GONE);
+			}
 
-            // group image
-            ImageView groupImageView = (ImageView) convertView.findViewById(R.id.image_group);
-            if(item.hasIcon) {
-                groupImageView.setImageResource(item.iconId);
-            }
+			// group image
+			ImageView groupImageView = (ImageView) convertView.findViewById(R.id.image_group);
+			if (item.hasIcon) {
+				groupImageView.setImageResource(item.iconId);
+			}
 
 			return convertView;
-		}
-
-		@Override
-		public boolean hasStableIds() {
-			return true;
 		}
 
 		@Override
