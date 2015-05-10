@@ -43,10 +43,11 @@
 
     </style>
 
+
+
     <style name="PreferenceFragmentTheme" parent="AppTheme">
         <item name="android:textColor">@color/extracted_primary_text_default_material_light</item>
         <item name="android:textColorSecondary">@color/extracted_secondary_text_default_material_light</item>
-        <item name="android:textColorTertiary">@color/blue</item>
     </style>
 
 

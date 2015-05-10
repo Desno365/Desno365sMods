@@ -18,6 +18,7 @@ package com.desno365.mods.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -61,7 +62,7 @@ import java.lang.reflect.Method;
 
 public class MainActivity extends ActionBarActivity implements MainNavigationDrawerFragment.NavigationDrawerCallbacks {
 
-	private static final String TAG = "DesnoMods-MainActivity";
+	public static final String TAG = "DesnoMods-MainActivity";
 	public static WeakReference<MainActivity> myMainActivity = null;
 	public static Activity activity;
 	public static String newsString;
@@ -412,8 +413,20 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 	@Override
 	public void startActivity(Intent intent) {
-		super.startActivity(intent);
-		DesnoUtils.changeStartAnimations(activity);
+		try {
+			super.startActivity(intent);
+			DesnoUtils.changeStartAnimations(activity);
+		} catch (ActivityNotFoundException e1) {
+			Log.e(TAG, "Start activity failed for the first time.", e1);
+
+			try {
+				super.startActivity(intent);
+				DesnoUtils.changeStartAnimations(activity);
+			} catch (ActivityNotFoundException e2) {
+				Log.e(TAG, "Start activity failed for the second and last time.", e2);
+				Toast.makeText(activity.getApplicationContext(), "Error: can't start the Activity, please try again.", Toast.LENGTH_SHORT).show();
+			}
+		}
 	}
 
 	// refresh TextViews after the content has been refreshed

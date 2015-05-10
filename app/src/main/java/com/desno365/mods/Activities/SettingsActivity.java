@@ -17,6 +17,7 @@
 package com.desno365.mods.Activities;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -114,8 +115,20 @@ public class SettingsActivity extends PreferenceActivity {
 
 	@Override
 	public void startActivity(Intent intent) {
-		super.startActivity(intent);
-		DesnoUtils.changeStartAnimations(activity);
+		try {
+			super.startActivity(intent);
+			DesnoUtils.changeStartAnimations(activity);
+		} catch (ActivityNotFoundException e1) {
+			Log.e(TAG, "Start activity failed for the first time.", e1);
+
+			try {
+				super.startActivity(intent);
+				DesnoUtils.changeStartAnimations(activity);
+			} catch (ActivityNotFoundException e2) {
+				Log.e(TAG, "Start activity failed for the second and last time.", e2);
+				Toast.makeText(activity.getApplicationContext(), "Error: can't start the Activity, please try again.", Toast.LENGTH_SHORT).show();
+			}
+		}
 	}
 
 	public static class PrefsFragment extends PreferenceFragment {

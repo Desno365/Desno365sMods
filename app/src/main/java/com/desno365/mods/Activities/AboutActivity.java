@@ -17,12 +17,14 @@
 package com.desno365.mods.Activities;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
@@ -72,8 +74,20 @@ public class AboutActivity extends Activity {
 
 	@Override
 	public void startActivity(Intent intent) {
-		super.startActivity(intent);
-		DesnoUtils.changeStartAnimations(activity);
+		try {
+			super.startActivity(intent);
+			DesnoUtils.changeStartAnimations(activity);
+		} catch (ActivityNotFoundException e1) {
+			Log.e(TAG, "Start activity failed for the first time.", e1);
+
+			try {
+				super.startActivity(intent);
+				DesnoUtils.changeStartAnimations(activity);
+			} catch (ActivityNotFoundException e2) {
+				Log.e(TAG, "Start activity failed for the second and last time.", e2);
+				Toast.makeText(activity.getApplicationContext(), "Error: can't start the Activity, please try again.", Toast.LENGTH_SHORT).show();
+			}
+		}
 	}
 
 	public void onViewClick(View v) {
