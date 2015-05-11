@@ -14,7 +14,8 @@
   ~ limitations under the License.
   -->
 
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -57,6 +58,7 @@
         <item name="theme">@style/ToolBarTheme</item>
         <item name="popupTheme">@style/ToolBarPopupTheme</item>
         <item name="titleTextAppearance">@style/ToolBarTitleTheme</item>
+        <item name="android:elevation" tools:targetApi="21">3dp</item>
     </style>
 
     <style name="ToolBarTheme" parent="ThemeOverlay.AppCompat.ActionBar">

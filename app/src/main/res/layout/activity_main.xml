@@ -33,16 +33,20 @@
 		android:layout_height="48dip"
 		android:background="@color/color_primary"
 		android:textColorPrimary="@color/tabs_not_selected_text_color"
+		android:elevation="3dp"
 		app:pstsTextColorSelected="@color/tabs_selected_text_color"
 		app:pstsIndicatorColor="@color/tabs_indicator_color"
 		app:pstsIndicatorHeight="4dip"
-		app:pstsTextAllCaps="true" />
+		app:pstsTextAllCaps="true"
+		tools:ignore="UnusedAttribute" />
 
 	<android.support.v4.widget.DrawerLayout
 		android:id="@+id/drawer_layout"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context="com.desno365.mods.Activities.MainActivity">
+		android:elevation="3dp"
+		tools:context="com.desno365.mods.Activities.MainActivity"
+		tools:ignore="UnusedAttribute">
 
 		<RelativeLayout
 			android:layout_width="match_parent"

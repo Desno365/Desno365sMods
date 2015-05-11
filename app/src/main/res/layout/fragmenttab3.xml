@@ -38,6 +38,7 @@
 			android:layout_marginRight="@dimen/activity_vertical_margin"
 			android:layout_alignParentTop="true"
 			android:layout_centerHorizontal="true"
+			card:cardUseCompatPadding="true"
 			card:cardBackgroundColor="@color/white"
 			card:cardCornerRadius="4dp"
 			card:cardElevation="4dp">
@@ -68,6 +69,7 @@
 				android:layout_marginBottom="@dimen/card_margin_horizontal"
 				android:layout_marginLeft="@dimen/activity_vertical_margin"
 				android:layout_marginRight="@dimen/activity_vertical_margin"
+				card:cardUseCompatPadding="true"
 				card:cardBackgroundColor="@color/white"
 				card:cardCornerRadius="4dp"
 				card:cardElevation="4dp">
@@ -130,6 +132,7 @@
 				android:layout_marginBottom="@dimen/card_margin_horizontal"
 				android:layout_marginLeft="@dimen/activity_vertical_margin"
 				android:layout_marginRight="@dimen/activity_vertical_margin"
+				card:cardUseCompatPadding="true"
 				card:cardBackgroundColor="@color/white"
 				card:cardCornerRadius="4dp"
 				card:cardElevation="4dp">
@@ -193,6 +196,7 @@
 				android:layout_marginBottom="@dimen/card_margin_horizontal"
 				android:layout_marginLeft="@dimen/activity_vertical_margin"
 				android:layout_marginRight="@dimen/activity_vertical_margin"
+				card:cardUseCompatPadding="true"
 				card:cardBackgroundColor="@color/white"
 				card:cardCornerRadius="4dp"
 				card:cardElevation="4dp">
@@ -271,6 +275,7 @@
 				android:layout_marginBottom="@dimen/activity_horizontal_margin"
 				android:layout_marginLeft="@dimen/activity_vertical_margin"
 				android:layout_marginRight="@dimen/activity_vertical_margin"
+				card:cardUseCompatPadding="true"
 				card:cardBackgroundColor="@color/white"
 				card:cardCornerRadius="4dp"
 				card:cardElevation="4dp">
