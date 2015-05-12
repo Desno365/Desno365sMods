@@ -38,10 +38,7 @@
 			android:layout_marginRight="@dimen/activity_vertical_margin"
 			android:layout_alignParentTop="true"
 			android:layout_centerHorizontal="true"
-			card:cardUseCompatPadding="true"
-			card:cardBackgroundColor="@color/white"
-			card:cardCornerRadius="4dp"
-			card:cardElevation="4dp">
+			style="@style/CardViewStyle">
 
 			<ImageView
 				android:layout_width="wrap_content"
@@ -69,10 +66,7 @@
 				android:layout_marginBottom="@dimen/card_margin_horizontal"
 				android:layout_marginLeft="@dimen/activity_vertical_margin"
 				android:layout_marginRight="@dimen/activity_vertical_margin"
-				card:cardUseCompatPadding="true"
-				card:cardBackgroundColor="@color/white"
-				card:cardCornerRadius="4dp"
-				card:cardElevation="4dp">
+				style="@style/CardViewStyle">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -132,10 +126,7 @@
 				android:layout_marginBottom="@dimen/card_margin_horizontal"
 				android:layout_marginLeft="@dimen/activity_vertical_margin"
 				android:layout_marginRight="@dimen/activity_vertical_margin"
-				card:cardUseCompatPadding="true"
-				card:cardBackgroundColor="@color/white"
-				card:cardCornerRadius="4dp"
-				card:cardElevation="4dp">
+				style="@style/CardViewStyle">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -180,16 +171,13 @@
 
 						<Button
 							android:id="@+id/button_news"
-							style="?android:attr/borderlessButtonStyle"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:text="@string/news_button"
-							android:textColor="@color/extracted_secondary_text_default_material_light"
-							android:textAllCaps="true"
-							android:textAppearance="?android:attr/textAppearanceButton"
 							android:onClick="onViewClick"
 							android:drawableLeft="@drawable/ic_action_news_dark"
-							android:drawableStart="@drawable/ic_action_news_dark" />
+							android:drawableStart="@drawable/ic_action_news_dark"
+							style="@style/ButtonTransparentStyle"/>
 
 					</LinearLayout>
 
@@ -206,10 +194,7 @@
 				android:layout_marginBottom="@dimen/activity_horizontal_margin"
 				android:layout_marginLeft="@dimen/activity_vertical_margin"
 				android:layout_marginRight="@dimen/activity_vertical_margin"
-				card:cardUseCompatPadding="true"
-				card:cardBackgroundColor="@color/white"
-				card:cardCornerRadius="4dp"
-				card:cardElevation="4dp">
+				style="@style/CardViewStyle">
 
 				<LinearLayout
 					android:layout_width="match_parent"
@@ -254,16 +239,13 @@
 
 						<Button
 							android:id="@+id/button_help"
-							style="?android:attr/borderlessButtonStyle"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:text="@string/help_button"
-							android:textColor="@color/extracted_secondary_text_default_material_light"
-							android:textAllCaps="true"
-							android:textAppearance="?android:attr/textAppearanceButton"
 							android:onClick="onViewClick"
 							android:drawableLeft="@drawable/ic_action_help_dark"
-							android:drawableStart="@drawable/ic_action_help_dark" />
+							android:drawableStart="@drawable/ic_action_help_dark"
+							style="@style/ButtonTransparentStyle"/>
 
 					</LinearLayout>
 

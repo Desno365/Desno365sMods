@@ -25,4 +25,6 @@
 
     <dimen name="card_margin_horizontal">0dp</dimen>
 
+    <dimen name="elevation_default">3dp</dimen>
+
 </resources>

@@ -79,7 +79,7 @@ public class HelpActivity extends Activity {
 								.closePolicy(TooltipManager.ClosePolicy.TouchOutside, 10000)
 								.text(getResources().getString(R.string.click_image_to_view))
 								.maxWidth((metrics.widthPixels) / 10 * 9)
-								.withStyleId(R.style.ToolTipTheme)
+								.withStyleId(R.style.ToolTipStyle)
 								.show();
 
 						// don't show the tooltip if the user has already learned to view the full resolution image

@@ -58,7 +58,7 @@
         <item name="theme">@style/ToolBarTheme</item>
         <item name="popupTheme">@style/ToolBarPopupTheme</item>
         <item name="titleTextAppearance">@style/ToolBarTitleTheme</item>
-        <item name="android:elevation" tools:targetApi="21">3dp</item>
+        <item name="android:elevation" tools:targetApi="21">@dimen/elevation_default</item>
     </style>
 
     <style name="ToolBarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
@@ -75,7 +75,31 @@
 
 
 
-    <style name="ToolTipTheme">
+    <style name="CardViewStyle" parent="CardView.Light">
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">4dp</item>
+    </style>
+
+    <style name="CardViewStyleDark" parent="CardView.Dark">
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardBackgroundColor">@color/red</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">4dp</item>
+    </style>
+    
+    
+    
+    <style name="ButtonTransparentStyle" parent="android:Widget.DeviceDefault.Button.Borderless">
+        <item name="android:textColor">@color/extracted_secondary_text_default_material_light</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
+    </style>
+
+
+
+    <style name="ToolTipStyle">
         <item name="ttlm_padding">25dip</item>
         <item name="ttlm_strokeWeight">1dip</item>
         <item name="ttlm_cornerRadius">8dip</item>
