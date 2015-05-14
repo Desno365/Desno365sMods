@@ -46,8 +46,8 @@ public class SettingsActivity extends PreferenceActivity {
 
 	private static Preference frequencyPreference;
 
-	private static boolean monitorNotificationModsPrefrence;
-	private static boolean monitorNotificationNewsPrefrence;
+	private static boolean monitorNotificationModsPreference;
+	private static boolean monitorNotificationNewsPreference;
 
 	private static void restartDialogLanguage() {
 		View mView = View.inflate(activity, R.layout.popup_settings_restart_language, null);
@@ -150,18 +150,18 @@ public class SettingsActivity extends PreferenceActivity {
 			Preference helpTranslatingPreference = findPreference("help_translating");
 			Preference restoreTipsPreference = findPreference("restore_tips");
 
-			monitorNotificationModsPrefrence = sharedPrefs.getBoolean(notificationModsPreference.getKey(), true);
-			monitorNotificationNewsPrefrence = sharedPrefs.getBoolean(notificationNewsPreference.getKey(), true);
+			monitorNotificationModsPreference = sharedPrefs.getBoolean(notificationModsPreference.getKey(), true);
+			monitorNotificationNewsPreference = sharedPrefs.getBoolean(notificationNewsPreference.getKey(), true);
 
 
 			notificationModsPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-					monitorNotificationModsPrefrence = !monitorNotificationModsPrefrence;
+					monitorNotificationModsPreference = !monitorNotificationModsPreference;
 
-					Log.i(TAG, "notification_bool_mods set to " + monitorNotificationModsPrefrence);
+					Log.i(TAG, "notification_bool_mods set to " + monitorNotificationModsPreference);
 
-					if (monitorNotificationModsPrefrence || monitorNotificationNewsPrefrence)
+					if (monitorNotificationModsPreference || monitorNotificationNewsPreference)
 						frequencyPreference.setEnabled(true);
 					else
 						frequencyPreference.setEnabled(false);
@@ -173,11 +173,11 @@ public class SettingsActivity extends PreferenceActivity {
 			notificationNewsPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-					monitorNotificationNewsPrefrence = !monitorNotificationNewsPrefrence;
+					monitorNotificationNewsPreference = !monitorNotificationNewsPreference;
 
-					Log.i(TAG, "notification_bool_news set to " + monitorNotificationNewsPrefrence);
+					Log.i(TAG, "notification_bool_news set to " + monitorNotificationNewsPreference);
 
-					if (monitorNotificationModsPrefrence || monitorNotificationNewsPrefrence)
+					if (monitorNotificationModsPreference || monitorNotificationNewsPreference)
 						frequencyPreference.setEnabled(true);
 					else
 						frequencyPreference.setEnabled(false);
@@ -188,7 +188,7 @@ public class SettingsActivity extends PreferenceActivity {
 
 
 			// enable or disable frequency preference at start
-			if (monitorNotificationModsPrefrence || monitorNotificationNewsPrefrence)
+			if (monitorNotificationModsPreference || monitorNotificationNewsPreference)
 				frequencyPreference.setEnabled(true);
 			else
 				frequencyPreference.setEnabled(false);
