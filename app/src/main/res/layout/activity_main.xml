@@ -31,7 +31,7 @@
 		android:id="@+id/tabs"
 		android:layout_width="match_parent"
 		android:layout_height="48dip"
-		android:background="@color/color_primary"
+		android:background="?color_primary"
 		android:textColorPrimary="@color/tabs_not_selected_text_color"
 		android:elevation="3dp"
 		app:pstsTextColorSelected="@color/tabs_selected_text_color"

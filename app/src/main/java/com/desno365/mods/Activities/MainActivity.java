@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -127,13 +128,17 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 		// Set up the SwipeRefreshLayout
 		swipeLayout = (MainSwipeRefreshLayout) findViewById(R.id.swipe_container);
-		swipeLayout.setColorSchemeResources(R.color.minecraft_brown_dirt_light, R.color.minecraft_green_grass_lightest);
 		swipeLayout.setOnRefreshListener(new MainSwipeRefreshLayout.OnRefreshListener() {
 			@Override
 			public void onRefresh() {
 				startRefreshingAndChecking();
 			}
 		});
+		TypedArray a = getTheme().obtainStyledAttributes(new int[]{R.attr.color_primary, R.attr.color_accent});
+		int color1 = a.getColor(0, 0);
+		int color2 = a.getColor(1, 0);
+		a.recycle();
+		swipeLayout.setColorSchemeColors(color1, color2);
 
 		// Set up the ViewPager and attaching the adapter
 		mViewPager = (ViewPager) findViewById(R.id.fragment_container);

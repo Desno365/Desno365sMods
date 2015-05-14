@@ -80,6 +80,7 @@ public class HelpActivity extends Activity {
 								.text(getResources().getString(R.string.click_image_to_view))
 								.maxWidth((metrics.widthPixels) / 10 * 9)
 								.withStyleId(R.style.ToolTipStyle)
+								.withCustomView(R.layout.tooltip_textview, false)
 								.show();
 
 						// don't show the tooltip if the user has already learned to view the full resolution image

@@ -17,6 +17,7 @@
 package com.desno365.mods.Activities;
 
 import android.app.Activity;
+import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -84,13 +85,17 @@ public class NewsActivity extends ActionBarActivity {
 
 		// Set up the SwipeRefreshLayout
 		swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container_news);
-		swipeLayout.setColorSchemeResources(R.color.minecraft_brown_dirt_light, R.color.minecraft_green_grass_lightest);
 		swipeLayout.setOnRefreshListener(new MainSwipeRefreshLayout.OnRefreshListener() {
 			@Override
 			public void onRefresh() {
 				startRefreshingNews();
 			}
 		});
+		TypedArray a = getTheme().obtainStyledAttributes(new int[]{R.attr.color_primary, R.attr.color_accent});
+		int color1 = a.getColor(0, 0);
+		int color2 = a.getColor(1, 0);
+		a.recycle();
+		swipeLayout.setColorSchemeColors(color1, color2);
 
 		cardsContainer = (LinearLayout) findViewById(R.id.cards_container);
 

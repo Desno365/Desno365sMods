@@ -15,8 +15,11 @@
   ~ limitations under the License.
   -->
 
-<android.support.v7.widget.Toolbar
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	style="@style/ToolBarStyle"/>
+<resources>
+
+    <attr name="color_primary" format="color|reference" />
+    <attr name="color_primary_dark" format="color|reference" />
+    <attr name="color_accent" format="color|reference" />
+    <attr name="color_drawer_divider" format="color|reference" />
+
+</resources>

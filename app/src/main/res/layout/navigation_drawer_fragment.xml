@@ -22,9 +22,9 @@
 	android:layout_height="match_parent"
 	android:choiceMode="singleChoice"
 	android:groupIndicator="@null"
-	android:divider="@color/color_primary_dark"
-	android:childDivider="@color/color_primary_dark"
+	android:divider="?color_drawer_divider"
+	android:childDivider="?color_drawer_divider"
 	android:dividerHeight="1dp"
-	android:background="@color/color_primary"
+	android:background="?color_primary"
 	tools:context="com.desno365.mods.MainNavigationDrawerFragment"
 	tools:ignore="Overdraw" />

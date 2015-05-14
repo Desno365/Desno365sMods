@@ -54,9 +54,6 @@
 
 
     <!-- colors of element of the app -->
-    <color name="color_primary">@color/minecraft_brown_dirt_darkest</color>
-    <color name="color_primary_dark">@color/minecraft_brown_dark_dirt_light</color>
-    <color name="color_accent">@color/minecraft_brown_dirt_light</color>
     <color name="toolbar_title_text_color">@color/white</color>
     <color name="tabs_indicator_color">@color/white</color>
     <color name="tabs_selected_text_color">@color/white</color>
