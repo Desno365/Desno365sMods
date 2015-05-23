@@ -120,7 +120,7 @@ public class HelpActivity extends Activity {
 				DesnoUtils.changeStartAnimations(activity);
 			} catch (ActivityNotFoundException e2) {
 				Log.e(TAG, "Start activity failed for the second and last time.", e2);
-				Toast.makeText(activity.getApplicationContext(), "Error: can't start the Activity, please try again.", Toast.LENGTH_SHORT).show();
+				Toast.makeText(activity.getApplicationContext(), "Error: can't start the Activity, please try again and make sure you have a Internet browser installed.", Toast.LENGTH_LONG).show();
 			}
 		}
 	}
