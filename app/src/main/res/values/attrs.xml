@@ -21,5 +21,6 @@
     <attr name="color_primary_dark" format="color|reference" />
     <attr name="color_accent" format="color|reference" />
     <attr name="color_drawer_divider" format="color|reference" />
+    <attr name="color_preferences" format="color|reference" />
 
 </resources>

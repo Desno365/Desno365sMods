@@ -40,6 +40,7 @@
         <item name="color_accent">@color/minecraft_green_grass_lightest</item>
         <item name="color_drawer_divider">?color_primary_dark</item>
         <item name="android:textColorLink">?color_primary</item>
+        <item name="color_preferences">?color_accent</item>
 
         <!--   your app branding color for the app bar -->
         <item name="colorPrimary">?color_primary</item>
@@ -61,6 +62,7 @@
         <item name="color_accent">@color/minecraft_brown_dirt_dark</item>
         <item name="color_drawer_divider">@color/minecraft_green_grass_lightest</item>
         <item name="android:textColorLink">?color_primary</item>
+        <item name="color_preferences">?color_primary</item>
 
         <!--   your app branding color for the app bar -->
         <item name="colorPrimary">?color_primary</item>
@@ -76,7 +78,7 @@
 
 
     <style name="PreferenceFragmentTheme" parent="AppBaseTheme">
-        <item name="colorAccent">?color_primary</item>
+        <item name="colorAccent">?color_preferences</item>
         <item name="android:textColor">@color/extracted_primary_text_default_material_light</item>
         <item name="android:textColorSecondary">@color/extracted_secondary_text_default_material_light</item>
     </style>
