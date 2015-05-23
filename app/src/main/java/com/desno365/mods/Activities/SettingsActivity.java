@@ -17,6 +17,7 @@
 package com.desno365.mods.Activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -49,28 +50,10 @@ public class SettingsActivity extends PreferenceActivity {
 	private static boolean monitorNotificationModsPreference;
 	private static boolean monitorNotificationNewsPreference;
 
-	private static void restartDialogLanguage() {
-		View mView = View.inflate(activity, R.layout.popup_settings_restart_language, null);
-
-		android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
-		builder.setView(mView);
-		builder.setTitle(activity.getResources().getString(R.string.app_name));
-		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				MainActivity.myMainActivity.get().finish();
-				System.exit(0);
-			}
-		});
-		builder.setCancelable(false);
-
-		android.app.AlertDialog popup = builder.create();
-		popup.setCanceledOnTouchOutside(false);
-		popup.show();
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
+		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 
@@ -148,6 +131,7 @@ public class SettingsActivity extends PreferenceActivity {
 			frequencyPreference = findPreference("sync_frequency");
 			Preference languagePreference = findPreference("selected_language");
 			Preference helpTranslatingPreference = findPreference("help_translating");
+			Preference themePreference = findPreference("selected_theme");
 			Preference restoreTipsPreference = findPreference("restore_tips");
 
 			monitorNotificationModsPreference = sharedPrefs.getBoolean(notificationModsPreference.getKey(), true);
@@ -212,6 +196,14 @@ public class SettingsActivity extends PreferenceActivity {
 				}
 			});
 
+			// open popup when theme preference is changed
+			themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+				public boolean onPreferenceChange(Preference preference, Object newValue) {
+					restartDialogTheme();
+					return true;
+				}
+			});
+
 			// restore suggestions preference
 			restoreTipsPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 				@Override
@@ -228,6 +220,44 @@ public class SettingsActivity extends PreferenceActivity {
 			});
 
 		}
+	}
+
+	private static void restartDialogLanguage() {
+		View mView = View.inflate(activity, R.layout.popup_settings_restart_language, null);
+
+		android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
+		builder.setView(mView);
+		builder.setTitle(activity.getResources().getString(R.string.app_name));
+		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				MainActivity.myMainActivity.get().finish();
+				System.exit(0);
+			}
+		});
+		builder.setCancelable(false);
+
+		android.app.AlertDialog popup = builder.create();
+		popup.setCanceledOnTouchOutside(false);
+		popup.show();
+	}
+
+	private static void restartDialogTheme() {
+		View mView = View.inflate(activity, R.layout.popup_settings_restart_theme, null);
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+		builder.setView(mView);
+		builder.setTitle(activity.getResources().getString(R.string.app_name));
+		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				MainActivity.myMainActivity.get().finish();
+				System.exit(0);
+			}
+		});
+		builder.setCancelable(false);
+
+		AlertDialog popup = builder.create();
+		popup.setCanceledOnTouchOutside(false);
+		popup.show();
 	}
 
 }

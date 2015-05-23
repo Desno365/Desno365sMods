@@ -47,6 +47,7 @@ public class HelpActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
+		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_help);

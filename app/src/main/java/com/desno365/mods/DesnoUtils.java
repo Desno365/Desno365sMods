@@ -87,6 +87,21 @@ public class DesnoUtils {
 		}
 	}
 
+	public static void setSavedTheme(Context context) {
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+		String theme = sharedPrefs.getString("selected_theme", "0");
+		int themeNumber = Integer.parseInt(theme);
+		switch (themeNumber) {
+			case 0:
+				context.setTheme(R.style.AppTheme_Brown);
+				break;
+			case 1:
+				context.setTheme(R.style.AppTheme_Green);
+				break;
+		}
+	}
+
+
 	public static boolean isNetworkAvailable(Context currentContext) {
 		ConnectivityManager connectivityManager = (ConnectivityManager) currentContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();

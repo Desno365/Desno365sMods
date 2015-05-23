@@ -94,6 +94,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	@SuppressLint("CommitPrefEdits")
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "APP LAUNCHED!");
+		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 
@@ -192,6 +193,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			editor.putBoolean("notification_bool_news", true);
 			editor.putString("sync_frequency", "4");
 			editor.putString("selected_language", "not_changed");
+			editor.putString("selected_theme", "0");
 			editor.putString("selected_animations", "0");
 			editor.putBoolean("user_understood_full_resolution_help", false);
 			editor.apply();

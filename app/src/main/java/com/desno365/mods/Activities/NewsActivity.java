@@ -61,6 +61,7 @@ public class NewsActivity extends ActionBarActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
+		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 

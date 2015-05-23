@@ -40,7 +40,7 @@
         <item name="color_accent">@color/minecraft_green_grass_lightest</item>
         <item name="color_drawer_divider">?color_primary_dark</item>
         <item name="android:textColorLink">?color_primary</item>
-        <item name="color_preferences">?color_accent</item>
+        <item name="color_preferences">@color/minecraft_brown_dirt_light</item>
 
         <!--   your app branding color for the app bar -->
         <item name="colorPrimary">?color_primary</item>
