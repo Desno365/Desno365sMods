@@ -20,7 +20,6 @@ import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -32,12 +31,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.MainSwipeRefreshLayout;
 import com.desno365.mods.NewsCard;
+import com.desno365.mods.NewsSwipeRefreshLayout;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
 
@@ -46,12 +44,15 @@ public class NewsActivity extends ActionBarActivity {
 
 	private static final String TAG = "DesnoMods-NewsActivity";
 
+	private final int SHAPELOADINGVIEW_MIN_TIME_DISPLAYING = 500;
+
 	public static Activity activity;
 	private Toolbar toolbar;
 	private Menu optionsMenu;
-	private SwipeRefreshLayout swipeLayout;
+	private NewsSwipeRefreshLayout swipeLayout;
 	private LinearLayout cardsContainer;
 
+	private boolean firstRefresh = true;
 	private boolean isRefreshing = false;
 	private boolean newsCorrectlyDownloaded = false;
 	private int numberOfNews;
@@ -84,9 +85,9 @@ public class NewsActivity extends ActionBarActivity {
 			}
 		});
 
-		// Set up the SwipeRefreshLayout
-		swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container_news);
-		swipeLayout.setOnRefreshListener(new MainSwipeRefreshLayout.OnRefreshListener() {
+		// Set up the NewSwipeRefreshLayout
+		swipeLayout = (NewsSwipeRefreshLayout) findViewById(R.id.swipe_container_news);
+		swipeLayout.setOnRefreshListener(new NewsSwipeRefreshLayout.OnRefreshListener() {
 			@Override
 			public void onRefresh() {
 				startRefreshingNews();
@@ -156,7 +157,7 @@ public class NewsActivity extends ActionBarActivity {
 			public void run() {
 				for (int i = 0; i < cardsNumber; i++) {
 					NewsCard card = new NewsCard(activity.getApplicationContext(), activity.getLayoutInflater(), titles[i], contents[i]);
-					card.getPARENT().setAnimation(getIntroSet(1000, 0));
+					card.getPARENT().setAnimation(getIntroSet(750 + (25 * cardsNumber), 0));
 
 					cardsContainer.addView(card.getPARENT());
 					card.getPARENT().animate();
@@ -190,7 +191,7 @@ public class NewsActivity extends ActionBarActivity {
 				Animation.RELATIVE_TO_PARENT, 0,
 				Animation.RELATIVE_TO_PARENT, 0,
 				Animation.RELATIVE_TO_PARENT, 0,
-				Animation.RELATIVE_TO_PARENT, 1);
+				Animation.RELATIVE_TO_PARENT, 0.5f);
 
 		final AnimationSet set = new AnimationSet(false);
 		set.addAnimation(animation1);
@@ -234,13 +235,26 @@ public class NewsActivity extends ActionBarActivity {
 
 			int count = cardsContainer.getChildCount();
 			if (count == 0) {
+				// no need to animate cards
 				RetrieveNewsContent downloadTask = new RetrieveNewsContent();
 				downloadTask.execute((Void) null);
 			} else {
-				final View lastChild = cardsContainer.getChildAt(count - 1);
+				// start exit animation
+				final View lastChild = cardsContainer.getChildAt(0);
 				for (int i = 0; i < count; i++) {
 					final View v = cardsContainer.getChildAt(i);
-					AnimationSet set = getOutroSet(500, (count - 1 - i) * 200);
+					int invertedVerticalPosition = count - i;
+					AnimationSet set;
+					if(count <= 15) {
+						// not synchronized animation
+						// ((1500 / count) + 50) = base offset
+						// formula to calculate the total offset of the animations based on the number of cards (x):
+						// (((1500 / count) + 50) * x --> 1500 + 50x milliseconds
+						set = getOutroSet(500, (invertedVerticalPosition - 1) * ((1500 / count) + 50));
+					} else {
+						// synchronized animation, all the cards move together
+						set = getOutroSet(750 + (25 * count), 0);
+					}
 					set.setAnimationListener(new Animation.AnimationListener() {
 						@Override
 						public void onAnimationStart(Animation animation) {
@@ -279,6 +293,10 @@ public class NewsActivity extends ActionBarActivity {
 
 			try {
 				if (DesnoUtils.isNetworkAvailable(getApplicationContext())) {
+
+					long startTime = System.currentTimeMillis();
+
+					// START
 					String downloadedNews = DesnoUtils.getTextFromUrl(Keys.KEY_NEWS);
 
 					String[] cardsText = downloadedNews.split("<endcontent>");
@@ -292,6 +310,22 @@ public class NewsActivity extends ActionBarActivity {
 					}
 
 					newsCorrectlyDownloaded = newsTitles.length >= numberOfNews && newsContents.length >= numberOfNews;
+					// END
+
+					long endTime = System.currentTimeMillis();
+					long time = (endTime - startTime);
+
+					Log.i(TAG, "Getting news took " + time + " milliseconds");
+					if(firstRefresh && time < SHAPELOADINGVIEW_MIN_TIME_DISPLAYING) {
+						firstRefresh = false;
+						try {
+							// if necessary the asynctask will stop so the user can see at least the first half second of the animation of the ShapeLoadingView
+							Thread.sleep((SHAPELOADINGVIEW_MIN_TIME_DISPLAYING - time) + 100);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+
 				} else {
 					newsCorrectlyDownloaded = false;
 				}
@@ -307,11 +341,12 @@ public class NewsActivity extends ActionBarActivity {
 			Log.i(TAG, "onPostExecute now, the AsyncTask for the news finished loading with result " + (newsCorrectlyDownloaded ? "successful" : "not successful"));
 
 			if (newsCorrectlyDownloaded) {
-				findViewById(R.id.news_loading_text).setVisibility(View.GONE);
+				findViewById(R.id.news_load_view).setVisibility(View.GONE);
+				findViewById(R.id.news_error_loading_text).setVisibility(View.GONE);
 				createCards(numberOfNews, newsTitles, newsContents);
 			} else {
-				findViewById(R.id.news_loading_text).setVisibility(View.VISIBLE);
-				((TextView) findViewById(R.id.news_loading_text)).setText(getResources().getString(R.string.internet_error));
+				findViewById(R.id.news_load_view).setVisibility(View.GONE);
+				findViewById(R.id.news_error_loading_text).setVisibility(View.VISIBLE);
 				runOnUiThread(new Runnable() {
 					public void run() {
 						Toast.makeText(activity.getApplicationContext(), getResources().getString(R.string.internet_error), Toast.LENGTH_SHORT).show();
