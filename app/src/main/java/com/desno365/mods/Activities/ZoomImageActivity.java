@@ -18,8 +18,10 @@ package com.desno365.mods.Activities;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.transition.Explode;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,7 +47,9 @@ public class ZoomImageActivity extends Activity {
 		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
+		DesnoUtils.enableTransition(getWindow());
 		setContentView(R.layout.activity_zoom_image);
+		setupWindowAnimations();
 
 		activity = this;
 
@@ -143,6 +147,14 @@ public class ZoomImageActivity extends Activity {
 				return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void setupWindowAnimations() {
+		if (Build.VERSION.SDK_INT >= 21) {
+			Explode explode = new Explode();
+			explode.setDuration(750);
+			getWindow().setEnterTransition(explode);
+		}
 	}
 
 }

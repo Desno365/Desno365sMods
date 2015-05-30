@@ -26,11 +26,19 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.TextView;
 
 import com.desno365.mods.Activities.MainActivity;
 import com.desno365.mods.Activities.NewsActivity;
@@ -42,6 +50,7 @@ import com.desno365.mods.Mods.Portal;
 import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.SharedConstants.NotificationsId;
+import com.desno365.mods.SharedConstants.SharedConstants;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -389,6 +398,56 @@ public class DesnoUtils {
 		int dp;
 		dp = (int) (px / metrics.density);
 		return dp;
+	}
+
+	public static void enableTransition(Window window) {
+		if (Build.VERSION.SDK_INT >= 21) {
+			//enable window content transition
+			window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+		}
+	}
+
+	public static void setViewHeight(final View view, final int height) {
+		ViewGroup.LayoutParams params = view.getLayoutParams();
+		params.height = height;
+		view.setLayoutParams(params);
+	}
+
+	public static void expandTextView(ViewGroup container, TextView tv) {
+		// animation
+		if (Build.VERSION.SDK_INT >= 19) {
+			TransitionManager.beginDelayedTransition(container, new AutoTransition().setDuration(SharedConstants.CHANGELOG_ANIMATION_DURATION_PER_LINE * tv.getLineCount()));
+		}
+
+		// expand the TextView with setMaxLines
+		tv.setMaxLines(Integer.MAX_VALUE);
+	}
+
+	public static void collapseTextView(ViewGroup container, final TextView tv, int collapsedHeight) {
+
+		if (Build.VERSION.SDK_INT >= 19) {
+			int lines = tv.getLineCount();
+
+			// animation
+			TransitionManager.beginDelayedTransition(container, new AutoTransition().setDuration(SharedConstants.CHANGELOG_ANIMATION_DURATION_PER_LINE * lines));
+
+			// collapse the view by setting the collapsed height
+			DesnoUtils.setViewHeight(tv, collapsedHeight);
+
+			// restore initial state of the TextView when the animation finishes
+			Handler handler = new Handler();
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					DesnoUtils.setViewHeight(tv, ViewGroup.LayoutParams.WRAP_CONTENT);
+					tv.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
+				}
+			}, SharedConstants.CHANGELOG_ANIMATION_DURATION_PER_LINE * lines + 100);
+		} else {
+			// no animation without the new APIs :/
+			tv.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
+		}
+
 	}
 
 	public static void showAd() {

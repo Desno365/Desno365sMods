@@ -17,10 +17,12 @@
 package com.desno365.mods.Activities;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
@@ -50,6 +52,7 @@ public class HelpActivity extends Activity {
 		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
+		DesnoUtils.enableTransition(getWindow());
 		setContentView(R.layout.activity_help);
 
 		activity = this;
@@ -172,7 +175,14 @@ public class HelpActivity extends Activity {
 		// starting the zoomImage activity (it has a switch case for the id passed to the intent)
 		Intent i = new Intent(this, ZoomImageActivity.class);
 		i.putExtra("viewId", v.getId());
-		startActivity(i);
+
+		if (Build.VERSION.SDK_INT >= 21) {
+			String transitionName = "transitionZoom";
+			ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, v, transitionName);
+			startActivity(i, transitionActivityOptions.toBundle());
+		} else {
+			startActivity(i);
+		}
 
 		// after the first time opening a full resolution image the user doesn't need the tooltip anymore
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);

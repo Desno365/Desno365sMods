@@ -25,48 +25,62 @@ import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.desno365.mods.Activities.MainActivity;
+import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.SharedConstants;
 
 
 public class FragmentTab2 extends Fragment {
 
-	private Boolean displayingAllChangelog = false;
+	private boolean displayingAllChangelog = false;
+
+	private int changelogHiddenHeight;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
 
-		View rootView = inflater.inflate(R.layout.fragmenttab2, container, false);
+		View rootView = inflater.inflate(R.layout.fragmenttab2, container, false); // xml tab
 
-		TextView textPortal = (TextView) rootView.findViewById(R.id.latest_version_portal_is);
-		textPortal.setText(MainActivity.portalModVersion);
+		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_portal_is); // id TextView version
+		textVersion.setText(MainActivity.portalModVersion); // MainActivity variable that holds the latest version
 
-		final TextView textChangelogPortal = (TextView) rootView.findViewById(R.id.portal_changelog);
-		textChangelogPortal.setText(android.text.Html.fromHtml(MainActivity.portalModChangelog));
-		textChangelogPortal.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
-		textChangelogPortal.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
+		final TextView textChangelog = (TextView) rootView.findViewById(R.id.portal_changelog); // id TextView changelog
+		textChangelog.setText(android.text.Html.fromHtml(MainActivity.portalModChangelog)); // MainActivity variable that holds the latest changelog
+		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
+		textChangelog.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 
-		final TextView textShowHide = (TextView) rootView.findViewById(R.id.changelog_show_hide_tab2);
+		final TextView textShowHide = (TextView) rootView.findViewById(R.id.changelog_show_hide_tab2); // id TextView show/hide changelog
+		textShowHide.setText(getResources().getString(R.string.show_changelog));
 		textShowHide.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+
 				if (!displayingAllChangelog) {
-					textChangelogPortal.setMaxLines(99999);
+
+					// get the TextView height that will be used when hiding the changelog
+					changelogHiddenHeight = textChangelog.getHeight();
+
+					DesnoUtils.expandTextView(container, textChangelog);
+
 					displayingAllChangelog = true;
 					textShowHide.setText(getResources().getString(R.string.hide_changelog));
+
 				} else {
-					textChangelogPortal.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
+
+					DesnoUtils.collapseTextView(container, textChangelog, changelogHiddenHeight);
+
 					displayingAllChangelog = false;
 					textShowHide.setText(getResources().getString(R.string.show_changelog));
 				}
 			}
 		});
-		textShowHide.setText(getResources().getString(R.string.show_changelog));
+
+		// make the show/hide button invisible if it is not necessary
 		ViewTreeObserver vto = textShowHide.getViewTreeObserver();
 		vto.addOnGlobalLayoutListener(new android.view.ViewTreeObserver.OnGlobalLayoutListener() {
 			@Override
 			public void onGlobalLayout() {
-				if (textChangelogPortal.getLineCount() < SharedConstants.CHANGELOG_TEXT_MAX_LINES) {
+				if (textChangelog.getLineCount() <= SharedConstants.CHANGELOG_TEXT_MAX_LINES) {
 					textShowHide.setVisibility(View.GONE);
 				} else {
 					textShowHide.setVisibility(View.VISIBLE);
@@ -76,6 +90,5 @@ public class FragmentTab2 extends Fragment {
 
 		return rootView;
 	}
-
 }
 
