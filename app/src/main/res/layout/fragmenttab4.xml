@@ -238,13 +238,9 @@
 							android:layout_width="fill_parent"
 							android:layout_height="wrap_content">
 
-							<TextView
+							<include
 								android:id="@+id/changelog_show_hide_tab4"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								android:textSize="12sp"
-								android:textColor="@color/text_changelog_color"
-								android:layout_centerHorizontal="true" />
+								layout="@layout/textview_show_and_hide" />
 
 						</RelativeLayout>
 
