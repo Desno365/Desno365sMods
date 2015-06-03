@@ -95,20 +95,17 @@ public class AboutActivity extends Activity {
 		switch (v.getId()) {
 
 			// twitter image and text
-			case R.id.twitter_image:
-			case R.id.twitter_text:
+			case R.id.twitter_layout:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
 				break;
 
 			// github image and text
-			case R.id.github_image:
-			case R.id.github_text:
+			case R.id.github_layout:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_GITHUB)));
 				break;
 
 			// google play image and text
-			case R.id.google_play_image:
-			case R.id.google_play_text:
+			case R.id.google_play_layout:
 				final String appPackageName = getPackageName();
 				try {
 					//play store installed
