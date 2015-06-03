@@ -53,25 +53,26 @@
 				android:text="@string/what_you_need_content" />
 
 			<RelativeLayout
+				android:id="@+id/minecraft_app_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="10dp"
 				android:layout_marginLeft="10dp"
-				android:layout_marginRight="10dp">
+				android:layout_marginRight="10dp"
+				android:background="?attr/selectableItemBackground"
+				android:onClick="onViewClick">
 
 				<ImageView
-					android:id="@+id/minecraft_image"
+					android:id="@+id/minecraft_app_image"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="5dp"
 					android:layout_marginBottom="5dp"
 					android:layout_alignParentTop="true"
 					android:src="@drawable/ic_launcher_minecraft"
-					android:adjustViewBounds="true"
-					android:onClick="onViewClick" />
+					android:adjustViewBounds="true" />
 
 				<TextView
-					android:id="@+id/minecraft_text"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:text="@string/get_it_store"
@@ -79,33 +80,32 @@
 					android:layout_marginLeft="10dp"
 					android:layout_marginRight="10dp"
 					android:layout_centerVertical="true"
-					android:layout_toRightOf="@id/minecraft_image"
-					android:layout_toEndOf="@id/minecraft_image"
-					android:onClick="onViewClick"
-					android:clickable="true" />
+					android:layout_toRightOf="@id/minecraft_app_image"
+					android:layout_toEndOf="@id/minecraft_app_image" />
 
 			</RelativeLayout>
 
 			<RelativeLayout
+				android:id="@+id/blocklauncher_app_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="10dp"
 				android:layout_marginLeft="10dp"
-				android:layout_marginRight="10dp">
+				android:layout_marginRight="10dp"
+				android:background="?attr/selectableItemBackground"
+				android:onClick="onViewClick">
 
 				<ImageView
-					android:id="@+id/blocklauncher_image"
+					android:id="@+id/blocklauncher_app_image"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="5dp"
 					android:layout_marginBottom="5dp"
 					android:layout_alignParentTop="true"
 					android:src="@drawable/ic_launcher_blocklauncher"
-					android:adjustViewBounds="true"
-					android:onClick="onViewClick" />
+					android:adjustViewBounds="true" />
 
 				<TextView
-					android:id="@+id/blocklauncher_text"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:text="@string/get_it_store"
@@ -113,10 +113,8 @@
 					android:layout_marginLeft="10dp"
 					android:layout_marginRight="10dp"
 					android:layout_centerVertical="true"
-					android:layout_toRightOf="@id/blocklauncher_image"
-					android:layout_toEndOf="@id/blocklauncher_image"
-					android:onClick="onViewClick"
-					android:clickable="true" />
+					android:layout_toRightOf="@id/blocklauncher_app_image"
+					android:layout_toEndOf="@id/blocklauncher_app_image" />
 
 			</RelativeLayout>
 
@@ -164,11 +162,14 @@
 				android:layout_marginTop="5dp" />
 
 			<RelativeLayout
+				android:id="@+id/file_manager_layout"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="10dp"
 				android:layout_marginLeft="10dp"
-				android:layout_marginRight="10dp">
+				android:layout_marginRight="10dp"
+				android:background="?attr/selectableItemBackground"
+				android:onClick="onViewClick">
 
 				<ImageView
 					android:id="@+id/file_manager_image"
@@ -178,11 +179,9 @@
 					android:layout_marginBottom="5dp"
 					android:layout_alignParentTop="true"
 					android:src="@drawable/ic_launcher_file_manager_general"
-					android:adjustViewBounds="true"
-					android:onClick="onViewClick" />
+					android:adjustViewBounds="true" />
 
 				<TextView
-					android:id="@+id/file_manager_text"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:text="@string/get_one_store"
@@ -191,9 +190,7 @@
 					android:layout_marginRight="10dp"
 					android:layout_centerVertical="true"
 					android:layout_toRightOf="@id/file_manager_image"
-					android:layout_toEndOf="@id/file_manager_image"
-					android:onClick="onViewClick"
-					android:clickable="true" />
+					android:layout_toEndOf="@id/file_manager_image" />
 
 			</RelativeLayout>
 

@@ -133,8 +133,7 @@ public class HelpActivity extends Activity {
 		switch (v.getId()) {
 
 			//minecraft image and text
-			case R.id.minecraft_image:
-			case R.id.minecraft_text:
+			case R.id.minecraft_app_layout:
 				try {
 					//play store installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED + Keys.KEY_PACKAGE_MINECRAFT)));
@@ -145,8 +144,7 @@ public class HelpActivity extends Activity {
 				break;
 
 			//blocklauncher image and text
-			case R.id.blocklauncher_image:
-			case R.id.blocklauncher_text:
+			case R.id.blocklauncher_app_layout:
 				try {
 					//play store installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED + Keys.KEY_PACKAGE_BLOCKLAUNCHER)));
@@ -157,8 +155,7 @@ public class HelpActivity extends Activity {
 				break;
 
 			//file manager image and text
-			case R.id.file_manager_image:
-			case R.id.file_manager_text:
+			case R.id.file_manager_layout:
 				try {
 					//play store installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED_FILE_MANAGER)));
