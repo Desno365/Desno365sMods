@@ -15,7 +15,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="action_refresh">새로 고침</string>
   <string name="action_info">소개</string>
   <string name="action_help">도움말</string>
@@ -55,8 +55,6 @@
   <string name="welcome_content">Desno365의 모드 앱에 오신 것을 환영합니다!\n여기서 최신 버전과 저의 모든 모드의 변경기록을 확인하실 수 있습니다.</string>
   <string name="news_title">소식</string>
   <string name="news_button">Take me to the news page</string>
-  <string name="show_news">모든 소식 보기...</string>
-  <string name="hide_news">소식 숨기기...</string>
   <string name="need_help_title">도움이 필요하십니까?</string>
   <string name="help_button">도움말 페이지로 이동</string>
   <string name="click_image_to_view">이 페이지에서 전체 해상도로 보실려면 아무 사진이나 클릭하세요.</string>
@@ -113,8 +111,10 @@
   <string name="notification_unread_news">There are unread news</string>
   <string name="notification_thread">Thread</string>
   <string name="notification_download">Download</string>
-  <string name="themes_title">테마</string>
-  <string name="themes_summary">앱의 테마 선택</string>
-  <string name="restart_text_popup">테마를 변경한 것이 적용될려면 앱이 재시작되어야 합니다.</string>
-  <string name="zoom_image_showcase_content">이미지를 확대하려면 두 손가락으로 확대하거나 화면을 두 번 탭</string>
+  <string name="show_news" tools:ignore="UnusedResources">모든 소식 보기...</string>
+  <string name="hide_news" tools:ignore="UnusedResources">소식 숨기기...</string>
+  <string name="themes_title" tools:ignore="UnusedResources">테마</string>
+  <string name="themes_summary" tools:ignore="UnusedResources">앱의 테마 선택</string>
+  <string name="restart_text_popup" tools:ignore="UnusedResources">테마를 변경한 것이 적용될려면 앱이 재시작되어야 합니다.</string>
+  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">이미지를 확대하려면 두 손가락으로 확대하거나 화면을 두 번 탭</string>
 </resources>

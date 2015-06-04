@@ -15,7 +15,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="action_refresh">actualiser</string>
   <string name="action_info">À Propos</string>
   <string name="action_help">Aide</string>
@@ -59,8 +59,6 @@
   <string name="welcome_content">Bienvenu dans l\'application des Mods de Desno365.\nIci vous pourrez vérifier les dernières version et les changements de tout mes mods.</string>
   <string name="news_title">Informations</string>
   <string name="news_button">Take me to the news page</string>
-  <string name="show_news">Afficher toutes les infos&#8230;</string>
-  <string name="hide_news">Masquer les infos&#8230;</string>
   <string name="need_help_title">Besoin d\'aide ?</string>
   <string name="help_button">Prenez-moi pour aider la page</string>
   <string name="click_image_to_view">Clickez sur n\'importe quelle image dans cette page pour la voir en entier.</string>
@@ -119,8 +117,10 @@
   <string name="notification_unread_news">There are unread news</string>
   <string name="notification_thread">Fil</string>
   <string name="notification_download">Téléchargement</string>
-  <string name="themes_title">Thème</string>
-  <string name="themes_summary">Sélectionnez le thème de l\'application</string>
-  <string name="restart_text_popup">L\'application doit être redémarré pour que le changement de thème sois pris en compte.</string>
-  <string name="zoom_image_showcase_content">Pincez ou tapez deux fois sur l\'écran pour zoomer l\'image</string>
+  <string name="show_news" tools:ignore="UnusedResources">Afficher toutes les infos&#8230;</string>
+  <string name="hide_news" tools:ignore="UnusedResources">Masquer les infos&#8230;</string>
+  <string name="themes_title" tools:ignore="UnusedResources">Thème</string>
+  <string name="themes_summary" tools:ignore="UnusedResources">Sélectionnez le thème de l\'application</string>
+  <string name="restart_text_popup" tools:ignore="UnusedResources">L\'application doit être redémarré pour que le changement de thème sois pris en compte.</string>
+  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pincez ou tapez deux fois sur l\'écran pour zoomer l\'image</string>
 </resources>

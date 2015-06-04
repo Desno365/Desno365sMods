@@ -15,7 +15,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="action_refresh">Actualizar lista</string>
   <string name="action_info">Mas</string>
   <string name="action_help">Ayuda</string>
@@ -55,8 +55,6 @@
   <string name="welcome_content">Bienvenido a Mods aplicación del Desno365. \nAquí puede comprobar la última versión y el registro de cambios de todos mis mods.</string>
   <string name="news_title">Noticias</string>
   <string name="news_button">Take me to the news page</string>
-  <string name="show_news">Mostrar todas las noticias&#8230;</string>
-  <string name="hide_news">Ocultar las noticias&#8230;</string>
   <string name="need_help_title">¿Necesita ayuda?</string>
   <string name="help_button">Llévame a la página de ayuda</string>
   <string name="click_image_to_view">Hace click en cualquier imagen para verla en la completa resolucion.</string>
@@ -113,8 +111,10 @@
   <string name="notification_unread_news">There are unread news</string>
   <string name="notification_thread">Thread</string>
   <string name="notification_download">Download</string>
-  <string name="themes_title">Tema</string>
-  <string name="themes_summary">Select app\'s theme</string>
-  <string name="restart_text_popup">The app needs to be restarted for the theme change to be activated.</string>
-  <string name="zoom_image_showcase_content">Pellizcar o tocar dos veces la pantalla para ampliar la imagen</string>
+  <string name="show_news" tools:ignore="UnusedResources">Mostrar todas las noticias&#8230;</string>
+  <string name="hide_news" tools:ignore="UnusedResources">Ocultar las noticias&#8230;</string>
+  <string name="themes_title" tools:ignore="UnusedResources">Tema</string>
+  <string name="themes_summary" tools:ignore="UnusedResources">Select app\'s theme</string>
+  <string name="restart_text_popup" tools:ignore="UnusedResources">The app needs to be restarted for the theme change to be activated.</string>
+  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pellizcar o tocar dos veces la pantalla para ampliar la imagen</string>
 </resources>

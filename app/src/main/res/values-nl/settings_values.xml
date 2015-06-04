@@ -28,19 +28,6 @@
     <item name="h24" translatable="false">24</item>
     <item name="h72" translatable="false">72</item>
   </string-array>
-  <string-array name="animations">
-    <item name="default">Standaard
-</item>
-    <item name="up_down">Ga omhoog/omlaag</item>
-    <item name="corner">Open vanuit de hoek</item>
-    <item name="book">Open en sluit de pagina Als een boek</item>
-  </string-array>
-  <string-array name="animations_values">
-    <item name="default" translatable="false">0</item>
-    <item name="up_down" translatable="false">1</item>
-    <item name="corner" translatable="false">2</item>
-    <item name="book" translatable="false">3</item>
-  </string-array>
   <string-array name="languages">
     <item name="default" translatable="false">Default</item>
     <item name="dutch" translatable="false">Dutch</item>
@@ -60,5 +47,26 @@
     <item name="italian" translatable="false">it</item>
     <item name="korean" translatable="false">ko</item>
     <item name="spanish" translatable="false">es</item>
+  </string-array>
+  <string-array name="themes">
+    <item name="brown">Dirt</item>
+    <item name="green">Cactus</item>
+  </string-array>
+  <string-array name="themes_values">
+    <item name="brown" translatable="false">0</item>
+    <item name="green" translatable="false">1</item>
+  </string-array>
+  <string-array name="animations">
+    <item name="default">Standaard
+</item>
+    <item name="up_down">Ga omhoog/omlaag</item>
+    <item name="corner">Open vanuit de hoek</item>
+    <item name="book">Open en sluit de pagina Als een boek</item>
+  </string-array>
+  <string-array name="animations_values">
+    <item name="default" translatable="false">0</item>
+    <item name="up_down" translatable="false">1</item>
+    <item name="corner" translatable="false">2</item>
+    <item name="book" translatable="false">3</item>
   </string-array>
 </resources>

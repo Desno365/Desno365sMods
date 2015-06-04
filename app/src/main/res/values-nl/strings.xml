@@ -15,7 +15,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="action_refresh">Vernieuw</string>
   <string name="action_info">over</string>
   <string name="action_help">Hulp</string>
@@ -42,14 +42,14 @@ minecraftforum.net</string>
   <string name="updates_title">Updates</string>
   <string name="changelog_title">Veranderd</string>
   <string name="useful_links_title">Handige Links</string>
-  <string name="loading">Loading&#8230;</string>
+  <string name="loading">Laden...</string>
   <string name="mods">Mods</string>
   <string name="latest_version_is">De laatste versie is:</string>
   <string name="internet_error">Er is een Fout opgetreden. U kunt deze versie nu niet Updaten. Controleer uw internet verbinding.</string>
   <string name="show_changelog">wat is er allemaal Nieuw</string>
   <string name="hide_changelog">Verberg dit stuk tekst</string>
   <string name="minecraft_thread">Minecraftforum.net</string>
-  <string name="instruction_for_installing">Read the instructions for installing</string>
+  <string name="instruction_for_installing">Bekijk eerst de handleiding voor dat je het instaleert</string>
   <string name="installation_video_tutorial">Kijk de uitleg video</string>
   <string name="download_mod_from_website">Download deze mod van Desno\'s website</string>
   <string name="download_map_from_website">Download deze mod van Desno\'s website</string>
@@ -57,9 +57,7 @@ minecraftforum.net</string>
   <string name="welcome_content">Welkom Bezoeker. Dit is de Desno365 Mods App.
 hier kunt u de laatste mods vinden en natuurlijk wat er nieuw is.</string>
   <string name="news_title">Nieuws</string>
-  <string name="news_button">Take me to the news page</string>
-  <string name="show_news">Bekijk al het nieuws.</string>
-  <string name="hide_news">Verberg \"het Nieuws\"</string>
+  <string name="news_button">Naar de nieuws pagina</string>
   <string name="need_help_title">Heeft u Hulp Nodig?</string>
   <string name="help_button">Ga naar de Help Pagina.</string>
   <string name="click_image_to_view">Klik op een afbeelding om het te vergroten.</string>
@@ -92,12 +90,12 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="refresh_on_start_title">vernieuw van Start</string>
   <string name="refresh_on_start_summary">Vernieuw de inhoud van de app</string>
   <string name="updates_settings">nieuwe updates en Meldingen</string>
-  <string name="notification_bool_mods_title">Notifications for mods updates</string>
-  <string name="notification_bool_mods_summary">Receive notifications for new mods updates</string>
-  <string name="notification_bool_news_title">Notifications for news</string>
-  <string name="notification_bool_news_summary">Receive notifications for news</string>
+  <string name="notification_bool_mods_title">Meldingen voor mod updates</string>
+  <string name="notification_bool_mods_summary">Ontvang nieuwe mod updates</string>
+  <string name="notification_bool_news_title">Meldingen voor nieuws</string>
+  <string name="notification_bool_news_summary">Meld als er nieuws is</string>
   <string name="pref_sync_frequency_title">scan voor verbeteringen en nieuwe updates frequentie</string>
-  <string name="pref_sync_frequency_summary">Set the frequency for checking updates</string>
+  <string name="pref_sync_frequency_summary">Stel een tijd in om te controleren voor updates</string>
   <string name="language_settings">Taal</string>
   <string name="language_title">Kies een Taal</string>
   <string name="language_summary">Selecteer de taal van deze app</string>
@@ -114,11 +112,13 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="notification_new_version_title">Nieuwe versie is uitgekomen!</string>
   <string name="notification_new_version_content1">Een Nieuwe versie van de</string>
   <string name="notification_new_version_content2">Is uitgekomen!</string>
-  <string name="notification_unread_news">There are unread news</string>
+  <string name="notification_unread_news">Er is ongelezen nieuws!</string>
   <string name="notification_thread">Discussie</string>
   <string name="notification_download">Download</string>
-  <string name="themes_title">Thema</string>
-  <string name="themes_summary">Selecteer het thema voor de App</string>
-  <string name="restart_text_popup">de app moet worden herstart als u het Thema wilt wijzigen.</string>
-  <string name="zoom_image_showcase_content">Klik twee keer om de afbeelding te vergroten.</string>
+  <string name="show_news" tools:ignore="UnusedResources">Bekijk al het nieuws.</string>
+  <string name="hide_news" tools:ignore="UnusedResources">Verberg \"het Nieuws\"</string>
+  <string name="themes_title" tools:ignore="UnusedResources">Thema</string>
+  <string name="themes_summary" tools:ignore="UnusedResources">Selecteer het thema voor de App</string>
+  <string name="restart_text_popup" tools:ignore="UnusedResources">de app moet worden herstart als u het Thema wilt wijzigen.</string>
+  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Klik twee keer om de afbeelding te vergroten.</string>
 </resources>

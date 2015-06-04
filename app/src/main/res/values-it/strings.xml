@@ -15,7 +15,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="action_refresh">Aggiorna</string>
   <string name="action_info">A riguardo</string>
   <string name="action_help">Aiuto</string>
@@ -55,8 +55,6 @@
   <string name="welcome_content">Benvenuto in \"Desno365\'s Mods\".\nQui potrai controllare le ultime versioni e i changelog di tutte le mie mod.</string>
   <string name="news_title">News</string>
   <string name="news_button">Portami alla pagina delle notizie</string>
-  <string name="show_news">Mostrami tutte le news&#8230;</string>
-  <string name="hide_news">Nascondi le news&#8230;</string>
   <string name="need_help_title">Hai bisogno di aiuto?</string>
   <string name="help_button">Portami alla pagina di aiuto</string>
   <string name="click_image_to_view">Clicca qualsiasi immagine in questa pagina per vederla alla massima risoluzione.</string>
@@ -113,8 +111,10 @@
   <string name="notification_unread_news">Ci sono notizie non lette</string>
   <string name="notification_thread">Thread</string>
   <string name="notification_download">Download</string>
-  <string name="themes_title">Tema</string>
-  <string name="themes_summary">Seleziona il tema dell\'app</string>
-  <string name="restart_text_popup">L\'applicazione deve essere riavviata affinché i cambiamenti del tema abbiano effetto.</string>
-  <string name="zoom_image_showcase_content">Pizzica con due dita o fai doppio tap sullo schermo per aumentare lo zoom</string>
+  <string name="show_news" tools:ignore="UnusedResources">Mostrami tutte le news&#8230;</string>
+  <string name="hide_news" tools:ignore="UnusedResources">Nascondi le news&#8230;</string>
+  <string name="themes_title" tools:ignore="UnusedResources">Tema</string>
+  <string name="themes_summary" tools:ignore="UnusedResources">Seleziona il tema dell\'app</string>
+  <string name="restart_text_popup" tools:ignore="UnusedResources">L\'applicazione deve essere riavviata affinché i cambiamenti del tema abbiano effetto.</string>
+  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pizzica con due dita o fai doppio tap sullo schermo per aumentare lo zoom</string>
 </resources>
