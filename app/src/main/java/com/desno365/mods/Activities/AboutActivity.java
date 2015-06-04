@@ -26,9 +26,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
+
+import java.util.Random;
 
 
 public class AboutActivity extends Activity {
@@ -58,6 +62,31 @@ public class AboutActivity extends Activity {
 				DesnoUtils.changeFinishAnimations(activity);
 			}
 		});
+
+		// Animate "Made by" TextView
+        findViewById(R.id.textview_made_by).setVisibility(View.INVISIBLE);
+		new android.os.Handler().postDelayed(new Runnable() {
+			public void run() {
+
+				findViewById(R.id.textview_made_by).setVisibility(View.VISIBLE);
+
+				int random = new Random().nextInt(5); // max exclusive: 3, so: 0, 1, 2
+				YoYo.AnimationComposer anim;
+				switch (random) {
+					case 0:
+						anim = YoYo.with(Techniques.DropOut);
+						break;
+					case 2:
+						anim = YoYo.with(Techniques.SlideInDown);
+                        break;
+					default:
+						anim = YoYo.with(Techniques.DropOut);
+				}
+				anim.duration(1500);
+				anim.playOn(findViewById(R.id.textview_made_by));
+
+			}
+		}, 400);
 
 	}
 

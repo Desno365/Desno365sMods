@@ -47,11 +47,16 @@
 				android:layout_marginBottom="5dp">
 
 				<TextView
-					android:layout_width="wrap_content"
+					android:id="@+id/textview_made_by"
+					android:layout_width="fill_parent"
 					android:layout_height="wrap_content"
 					android:layout_alignParentTop="true"
 					android:layout_centerHorizontal="true"
-					android:text="@string/made_by" />
+					android:gravity="center_horizontal"
+					android:padding="4dp"
+					android:text="@string/made_by"
+					android:textStyle="bold"
+					android:textSize="15sp"/>
 
 			</RelativeLayout>
 

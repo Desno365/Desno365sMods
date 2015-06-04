@@ -19,6 +19,8 @@ Used libraries
 [AnimatedExpandableListView](https://github.com/idunnololz/AnimatedExpandableListView)<br>
 [Hugo](https://github.com/JakeWharton/hugo)<br>
 [android-shapeLoadingView](https://github.com/zzz40500/android-shapeLoadingView)<br>
+[AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations)<br>
+
 
 Used images
 -----------
