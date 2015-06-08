@@ -38,18 +38,18 @@
         <item name="color_primary_dark">@color/minecraft_brown_dark_dirt_light</item>
         <item name="color_primary">@color/minecraft_brown_dirt_darkest</item>
         <item name="color_accent">@color/minecraft_green_grass_lightest</item>
-        <item name="color_drawer_divider">?color_primary_dark</item>
-        <item name="android:textColorLink">?color_primary</item>
+        <item name="color_drawer_divider">?attr/color_primary_dark</item>
+        <item name="android:textColorLink">?attr/color_primary</item>
         <item name="color_preferences">@color/minecraft_brown_dirt_light</item>
 
         <!--   your app branding color for the app bar -->
-        <item name="colorPrimary">?color_primary</item>
+        <item name="colorPrimary">?attr/color_primary</item>
 
         <!--   darker variant for the status bar and contextual app bars -->
-        <item name="colorPrimaryDark">?color_primary_dark</item>
+        <item name="colorPrimaryDark">?attr/color_primary_dark</item>
 
         <!--   theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">?color_accent</item>
+        <item name="colorAccent">?attr/color_accent</item>
 
     </style>
 
@@ -61,24 +61,24 @@
         <item name="color_primary">@color/minecraft_green_cactus_light</item>
         <item name="color_accent">@color/minecraft_brown_dirt_dark</item>
         <item name="color_drawer_divider">@color/minecraft_green_grass_lightest</item>
-        <item name="android:textColorLink">?color_primary</item>
-        <item name="color_preferences">?color_primary</item>
+        <item name="android:textColorLink">?attr/color_primary</item>
+        <item name="color_preferences">?attr/color_primary</item>
 
         <!--   your app branding color for the app bar -->
-        <item name="colorPrimary">?color_primary</item>
+        <item name="colorPrimary">?attr/color_primary</item>
 
         <!--   darker variant for the status bar and contextual app bars -->
-        <item name="colorPrimaryDark">?color_primary_dark</item>
+        <item name="colorPrimaryDark">?attr/color_primary_dark</item>
 
         <!--   theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">?color_accent</item>
+        <item name="colorAccent">?attr/color_accent</item>
 
     </style>
 
 
 
     <style name="PreferenceFragmentTheme" parent="AppBaseTheme">
-        <item name="colorAccent">?color_preferences</item>
+        <item name="colorAccent">?attr/color_preferences</item>
         <item name="android:textColor">@color/extracted_primary_text_default_material_light</item>
         <item name="android:textColorSecondary">@color/extracted_secondary_text_default_material_light</item>
     </style>
@@ -86,7 +86,7 @@
 
 
     <style name="ToolBarStyle" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">?color_primary</item>
+        <item name="android:background">?attr/color_primary</item>
         <item name="theme">@style/ToolBarTheme</item>
         <item name="popupTheme">@style/ToolBarPopupTheme</item>
         <item name="titleTextAppearance">@style/ToolBarTitleTheme</item>
@@ -102,7 +102,7 @@
     </style>
 
     <style name="ToolBarPopupTheme" parent="ThemeOverlay.AppCompat.Dark">
-        <item name="android:colorBackground">?color_primary_dark</item>
+        <item name="android:colorBackground">?attr/color_primary_dark</item>
     </style>
 
 
@@ -128,7 +128,7 @@
         <item name="ttlm_padding">25dip</item>
         <item name="ttlm_strokeWeight">2dip</item>
         <item name="ttlm_cornerRadius">8dip</item>
-        <item name="ttlm_strokeColor">?color_primary</item>
+        <item name="ttlm_strokeColor">?attr/color_primary</item>
         <item name="ttlm_backgroundColor">@color/white</item>
     </style>
 

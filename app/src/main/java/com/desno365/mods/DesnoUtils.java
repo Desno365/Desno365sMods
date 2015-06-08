@@ -99,15 +99,24 @@ public class DesnoUtils {
 	public static void setSavedTheme(Context context) {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 		String theme = sharedPrefs.getString("selected_theme", "0");
-		int themeNumber = Integer.parseInt(theme);
-		switch (themeNumber) {
-			case 0:
-				context.setTheme(R.style.AppTheme_Brown);
-				break;
-			case 1:
-				context.setTheme(R.style.AppTheme_Green);
-				break;
-		}
+        try {
+            int themeNumber = Integer.parseInt(theme);
+            switch (themeNumber) {
+                case 0:
+                    context.setTheme(R.style.AppTheme_Brown);
+                    break;
+                case 1:
+                    context.setTheme(R.style.AppTheme_Green);
+                    break;
+                default:
+                    context.setTheme(R.style.AppTheme_Brown);
+                    break;
+            }
+        } catch(NumberFormatException e) {
+            Log.e(TAG, "NumberFormatExcpetion in setSavedTheme() with " + theme, e);
+            context.setTheme(R.style.AppTheme_Brown);
+        }
+
 	}
 
 
