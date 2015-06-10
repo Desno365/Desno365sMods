@@ -181,10 +181,10 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		mNavigationDrawerFragment = (MainNavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
-		//action to do at the first launch of the app
+		// actions to do at the first launch of the app
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 		if (sharedPrefs.getBoolean("is_first_launch", true)) {
-			//first launch, the app has never been launched before
+			// first launch, the app has never been launched before
 			SharedPreferences.Editor editor = sharedPrefs.edit();
 			editor.putBoolean("refresh_on_start", true);
 			editor.commit();
