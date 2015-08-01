@@ -44,6 +44,11 @@ public class FragmentTab6 extends Fragment {
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_guns_is); // id TextView version
 		textVersion.setText(MainActivity.gunsModVersion); // MainActivity variable that holds the latest version
 
+
+		TextView textCompatibility = (TextView) rootView.findViewById(R.id.guns_compatibility); // id TextView compatibility
+		textCompatibility.setText(MainActivity.gunsModCompatibility); // MainActivity variable that holds the versions compatibility
+
+
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.guns_changelog); // id TextView changelog
 		textChangelog.setText(android.text.Html.fromHtml(MainActivity.gunsModChangelog)); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());

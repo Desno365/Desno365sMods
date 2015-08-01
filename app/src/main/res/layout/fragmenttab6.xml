@@ -207,6 +207,67 @@
 							android:layout_alignParentStart="true"
 							android:layout_alignParentLeft="true"
 							android:layout_centerVertical="true"
+							android:text="@string/compatibility_title"
+							android:textSize="18sp"
+							android:textStyle="bold" />
+
+					</RelativeLayout>
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginTop="6dp"
+						android:layout_marginBottom="10dp"
+						android:background="@color/minecraft_brown_dark_dirt_light" />
+
+					<LinearLayout
+						android:layout_width="fill_parent"
+						android:layout_height="fill_parent"
+						android:layout_marginLeft="4dp"
+						android:layout_marginRight="4dp"
+						android:orientation="vertical">
+
+						<TextView
+							android:id="@+id/guns_compatibility"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/loading" />
+
+					</LinearLayout>
+
+				</LinearLayout>
+
+			</android.support.v7.widget.CardView>
+
+
+
+			<android.support.v7.widget.CardView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/card_margin_horizontal"
+				android:layout_marginBottom="@dimen/card_margin_horizontal"
+				android:layout_marginLeft="@dimen/activity_vertical_margin"
+				android:layout_marginRight="@dimen/activity_vertical_margin"
+				style="@style/CardViewStyle">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:padding="8dp">
+
+					<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginLeft="4dp"
+							android:layout_marginRight="4dp"
+							android:layout_alignParentStart="true"
+							android:layout_alignParentLeft="true"
+							android:layout_centerVertical="true"
 							android:text="@string/changelog_title"
 							android:textSize="18sp"
 							android:textStyle="bold" />

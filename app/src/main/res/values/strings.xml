@@ -49,6 +49,7 @@
     <string name="info_title">Information</string>
     <string name="features_title">Features</string>
     <string name="updates_title">Updates</string>
+    <string name="compatibility_title">Compatibility</string>
     <string name="changelog_title">Changelog</string>
     <string name="useful_links_title">Useful links</string>
 
@@ -57,6 +58,7 @@
     <string name="loading">Loading&#8230;</string>
     <string name="mods">Mods</string>
     <string name="latest_version_is">The latest version is:</string>
+    <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
     <string name="internet_error">There was an error while checking for updates, please check your internet connection.</string>
     <string name="show_changelog">Show all the changelog&#8230;</string>
     <string name="hide_changelog">Hide the changelog&#8230;</string>

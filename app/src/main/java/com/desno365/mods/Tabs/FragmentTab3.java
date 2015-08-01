@@ -44,6 +44,11 @@ public class FragmentTab3 extends Fragment {
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_laser_is); // id TextView version
 		textVersion.setText(MainActivity.laserModVersion); // MainActivity variable that holds the latest version
 
+
+		TextView textCompatibility = (TextView) rootView.findViewById(R.id.laser_compatibility); // id TextView compatibility
+		textCompatibility.setText(MainActivity.laserModCompatibility); // MainActivity variable that holds the versions compatibility
+
+
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.laser_changelog); // id TextView changelog
 		textChangelog.setText(android.text.Html.fromHtml(MainActivity.laserModChangelog)); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());

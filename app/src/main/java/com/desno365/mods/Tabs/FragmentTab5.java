@@ -44,6 +44,11 @@ public class FragmentTab5 extends Fragment {
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_jukebox_is); // id TextView version
 		textVersion.setText(MainActivity.jukeboxModVersion); // MainActivity variable that holds the latest version
 
+
+		TextView textCompatibility = (TextView) rootView.findViewById(R.id.jukebox_compatibility); // id TextView compatibility
+		textCompatibility.setText(MainActivity.jukeboxModCompatibility); // MainActivity variable that holds the versions compatibility
+
+
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.jukebox_changelog); // id TextView changelog
 		textChangelog.setText(android.text.Html.fromHtml(MainActivity.jukeboxModChangelog)); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());

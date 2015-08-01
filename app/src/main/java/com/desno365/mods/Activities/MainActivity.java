@@ -68,17 +68,29 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	public static Activity activity;
 
 	public static String newsString;
+
 	public static String gunsModVersion;
+	public static String gunsModCompatibility;
 	public static String gunsModChangelog;
+
 	public static String portalModVersion;
+	public static String portalModCompatibility;
 	public static String portalModChangelog;
+
 	public static String laserModVersion;
+	public static String laserModCompatibility;
 	public static String laserModChangelog;
+
 	public static String turretsModVersion;
+	public static String turretsModCompatibility;
 	public static String turretsModChangelog;
+
 	public static String jukeboxModVersion;
+	public static String jukeboxModCompatibility;
 	public static String jukeboxModChangelog;
+
 	public static String unrealMapVersion;
+	public static String unrealMapCompatibility;
 	public static String unrealMapChangelog;
 
 	// UI elements
@@ -103,17 +115,29 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		myMainActivity = new WeakReference<MainActivity>(this);
 
 		newsString = getResources().getString(R.string.loading);
+
 		gunsModVersion = getResources().getString(R.string.loading);
+		gunsModCompatibility = getResources().getString(R.string.loading);
 		gunsModChangelog = getResources().getString(R.string.loading);
+
 		portalModVersion = getResources().getString(R.string.loading);
+		portalModCompatibility = getResources().getString(R.string.loading);
 		portalModChangelog = getResources().getString(R.string.loading);
+
 		laserModVersion = getResources().getString(R.string.loading);
+		laserModCompatibility = getResources().getString(R.string.loading);
 		laserModChangelog = getResources().getString(R.string.loading);
+
 		turretsModVersion = getResources().getString(R.string.loading);
+		turretsModCompatibility = getResources().getString(R.string.loading);
 		turretsModChangelog = getResources().getString(R.string.loading);
+
 		jukeboxModVersion = getResources().getString(R.string.loading);
+		jukeboxModCompatibility = getResources().getString(R.string.loading);
 		jukeboxModChangelog = getResources().getString(R.string.loading);
+
 		unrealMapVersion = getResources().getString(R.string.loading);
+		unrealMapCompatibility = getResources().getString(R.string.loading);
 		unrealMapChangelog = getResources().getString(R.string.loading);
 
 		// set content of the activity
@@ -451,6 +475,9 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 					TextView textUpdatesGuns = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_guns_is);
 					textUpdatesGuns.setText(gunsModVersion);
 
+					TextView textCompatibilityGuns = (TextView) getWindow().getDecorView().findViewById(R.id.guns_compatibility);
+					textCompatibilityGuns.setText(gunsModCompatibility);
+
 					TextView textChangelogGuns = (TextView) getWindow().getDecorView().findViewById(R.id.guns_changelog);
 					textChangelogGuns.setText(android.text.Html.fromHtml(gunsModChangelog));
 				} catch (NullPointerException e) {
@@ -460,6 +487,9 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				try {
 					TextView textUpdatesPortal = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_portal_is);
 					textUpdatesPortal.setText(portalModVersion);
+
+					TextView textCompatibilityPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_compatibility);
+					textCompatibilityPortal.setText(android.text.Html.fromHtml(portalModCompatibility));
 
 					TextView textChangelogPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_changelog);
 					textChangelogPortal.setText(android.text.Html.fromHtml(portalModChangelog));
@@ -471,6 +501,9 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 					TextView textUpdatesLaser = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_laser_is);
 					textUpdatesLaser.setText(laserModVersion);
 
+					TextView textCompatibilityLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_compatibility);
+					textCompatibilityLaser.setText(android.text.Html.fromHtml(laserModCompatibility));
+
 					TextView textChangelogLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_changelog);
 					textChangelogLaser.setText(android.text.Html.fromHtml(laserModChangelog));
 				} catch (NullPointerException e) {
@@ -480,6 +513,9 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				try {
 					TextView textUpdatesTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_turrets_is);
 					textUpdatesTurrets.setText(turretsModVersion);
+
+					TextView textCompatibilityTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_compatibility);
+					textCompatibilityTurrets.setText(android.text.Html.fromHtml(turretsModCompatibility));
 
 					TextView textChangelogTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_changelog);
 					textChangelogTurrets.setText(android.text.Html.fromHtml(turretsModChangelog));
@@ -491,6 +527,9 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 					TextView textUpdatesJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_jukebox_is);
 					textUpdatesJukebox.setText(jukeboxModVersion);
 
+					TextView textCompatibilityJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_compatibility);
+					textCompatibilityJukebox.setText(android.text.Html.fromHtml(jukeboxModCompatibility));
+
 					TextView textChangelogJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_changelog);
 					textChangelogJukebox.setText(android.text.Html.fromHtml(jukeboxModChangelog));
 				} catch (NullPointerException e) {
@@ -500,6 +539,9 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				try {
 					TextView textUpdatesUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_unreal_is);
 					textUpdatesUnreal.setText(unrealMapVersion);
+
+					TextView textCompatibilityUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_compatibility);
+					textCompatibilityUnreal.setText(android.text.Html.fromHtml(unrealMapCompatibility));
 
 					TextView textChangelogUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_changelog);
 					textChangelogUnreal.setText(android.text.Html.fromHtml(unrealMapChangelog));
@@ -582,7 +624,6 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	}
 
 	// test alarm onClick
-
 	/**
 	 * public void testAlarm(View v) {
 	 * AlarmReceiver aR = new AlarmReceiver();
@@ -688,6 +729,13 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
 				latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
 				latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
+
+				gunsModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_COMPATIBILITY);
+				portalModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_COMPATIBILITY);
+				laserModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_LASER_COMPATIBILITY);
+				turretsModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_COMPATIBILITY);
+				jukeboxModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_COMPATIBILITY);
+				unrealMapCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_COMPATIBILITY);
 
 				gunsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_CHANGELOG);
 				portalModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_CHANGELOG);
