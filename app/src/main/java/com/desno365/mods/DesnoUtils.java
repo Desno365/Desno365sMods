@@ -69,10 +69,10 @@ import hugo.weaving.DebugLog;
 
 public class DesnoUtils {
 
-	public static final long MINIMUM_DELAY_FOR_NEW_AD_MILLIS = 30000;
+	private static final long MINIMUM_DELAY_FOR_NEW_AD_MILLIS = 30000;
 	private static final String TAG = "DesnoMods-DesnoUtils";
-	private static final String errorString = "Error";
-	private static final String notInitializedStringError = "r000";
+	private static final String ERROR_STRING = "Error";
+	private static final String NOT_INITIALIZED_ERROR_STRING = "r000";
 	public static InterstitialAdStatic interstitialAdStatic;
 
 	public static void setSavedLanguage(Context context) {
@@ -152,7 +152,7 @@ public class DesnoUtils {
 
 		} catch (Exception err) {
 			Log.e(TAG, "Exception in getTextFromUrl() ", err);
-			return errorString;
+			return ERROR_STRING;
 		}
 	}
 
@@ -303,11 +303,11 @@ public class DesnoUtils {
 		boolean isNewVersion = false;
 
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-		String knownVersion = sharedPrefs.getString(preferenceName, notInitializedStringError);
+		String knownVersion = sharedPrefs.getString(preferenceName, NOT_INITIALIZED_ERROR_STRING);
 
 		Log.i(TAG, "Checking saved version of " + preferenceName + ", found latest: " + latestVersion + " known: " + knownVersion);
 
-		if (latestVersion.equals("") || latestVersion.isEmpty() || latestVersion.equals("Not Found") || latestVersion.equals(errorString)) {
+		if (latestVersion.equals("") || latestVersion.isEmpty() || latestVersion.equals("Not Found") || latestVersion.equals(ERROR_STRING)) {
 			Log.e(TAG, "Something went wrong in checkIfNewVersion() for " + preferenceName + " (empty String)");
 		} else {
 			if (latestVersion.length() > 10) {
@@ -316,7 +316,7 @@ public class DesnoUtils {
 
 				// if we have arrived here it means that no errors happened, yay!
 				if (!(knownVersion.equals(latestVersion))) {
-					if (!(knownVersion.equals(notInitializedStringError))) {
+					if (!(knownVersion.equals(NOT_INITIALIZED_ERROR_STRING))) {
 						Log.i(TAG, "Different version for " + preferenceName + ". Maybe a notification should appear.");
 						isNewVersion = true;
 					} else {
@@ -340,12 +340,12 @@ public class DesnoUtils {
 
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-		String knownGunsVersion = sharedPrefs.getString("known_guns_version", notInitializedStringError);
-		String knownPortalVersion = sharedPrefs.getString("known_portal_version", notInitializedStringError);
-		String knownLaserVersion = sharedPrefs.getString("known_laser_version", notInitializedStringError);
-		String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", notInitializedStringError);
-		String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", notInitializedStringError);
-		String knownUnrealVersion = sharedPrefs.getString("known_unreal_version", notInitializedStringError);
+		String knownGunsVersion = sharedPrefs.getString("known_guns_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownPortalVersion = sharedPrefs.getString("known_portal_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownLaserVersion = sharedPrefs.getString("known_laser_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownUnrealVersion = sharedPrefs.getString("known_unreal_version", NOT_INITIALIZED_ERROR_STRING);
 
 		Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion);
 
