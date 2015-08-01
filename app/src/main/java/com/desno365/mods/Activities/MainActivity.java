@@ -393,8 +393,13 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				return true;
 
 			case R.id.action_feedback:
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_THREAD)));
-				Toast.makeText(getApplicationContext(), getString(R.string.feedback_toast), Toast.LENGTH_LONG).show();
+				Intent intent = new Intent(Intent.ACTION_SENDTO);
+				intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+				intent.putExtra(Intent.EXTRA_EMAIL, new String[]{ "desno365@gmail.com" });
+				intent.putExtra(Intent.EXTRA_SUBJECT, "Desno365's Mods feedback");
+				if (intent.resolveActivity(getPackageManager()) != null) {
+					startActivity(intent);
+				}
 				return true;
 
 			case R.id.action_rate:
