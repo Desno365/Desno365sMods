@@ -28,7 +28,6 @@
     <string name="share_using">Share using&#8230;</string>
     <string name="share_body">I\'m using the \"Desno365\'s Mods\" app to download and use some incredible Minecraft Pocket Edition Mods! Check it out http://bit.ly/DesnoMods</string>
     <string name="action_feedback">Feedback</string>
-    <string name="feedback_toast">Tell me what you think of this app on the minecraftforum.net thread</string>
     <string name="action_rate">Rate this app</string>
     <string name="action_settings">Settings</string>
     <string name="close_dialog">Close</string>
@@ -72,6 +71,9 @@
     <string name="home_title" translatable="false">Home</string>
     <string name="welcome_title">Welcome</string>
     <string name="welcome_content">Welcome to the Desno365\'s Mods app.\nHere you can check the latest version and the changelog of all my mods.</string>
+    <string name="minecraft_version_title">MCPE version</string>
+    <string name="minecraft_version_content">Installed version: Minecraft PE %1$s</string>
+    <string name="minecraft_not_installed">Minecraft PE not installed</string>
     <string name="news_title">News</string>
     <string name="news_button">Take me to the news page</string>
     <string name="need_help_title">Need help?</string>
@@ -150,6 +152,9 @@
     <string name="help_translating_summary">Collaborate to this project and help translating the app</string>
 
     <string name="customization_settings">Customization</string>
+    <string name="themes_title">Theme</string>
+    <string name="themes_summary">Select app\'s theme</string>
+    <string name="restart_text_popup">The app needs to be restarted for the theme change to be activated.</string>
     <string name="animations_title">Animations</string>
     <string name="animations_summary">Select app\'s animations</string>
 
@@ -171,9 +176,7 @@
     // removed strings
     <string name="show_news" tools:ignore="UnusedResources">Show all the news&#8230;</string>
     <string name="hide_news" tools:ignore="UnusedResources">Hide the news&#8230;</string>
-    <string name="themes_title" tools:ignore="UnusedResources">Theme</string>
-    <string name="themes_summary" tools:ignore="UnusedResources">Select app\'s theme</string>
-    <string name="restart_text_popup" tools:ignore="UnusedResources">The app needs to be restarted for the theme change to be activated.</string>
     <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pinch or double tap the screen to zoom the image</string>
+    <string name="feedback_toast" tools:ignore="UnusedResources">Tell me what you think of this app on the minecraftforum.net thread</string>
 
 </resources>

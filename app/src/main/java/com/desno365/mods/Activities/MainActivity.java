@@ -66,6 +66,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	public static final String TAG = "DesnoMods-MainActivity";
 	public static WeakReference<MainActivity> myMainActivity = null;
 	public static Activity activity;
+
 	public static String newsString;
 	public static String gunsModVersion;
 	public static String gunsModChangelog;

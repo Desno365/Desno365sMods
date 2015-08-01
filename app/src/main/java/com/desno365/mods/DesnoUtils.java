@@ -22,6 +22,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
@@ -507,6 +509,16 @@ public class DesnoUtils {
 			} else {
 				Log.i(TAG, "Ads: already displayed an ad before. The next ad will be available after " + (((latestShowedTime + MINIMUM_DELAY_FOR_NEW_AD_MILLIS) - System.currentTimeMillis()) / 1000) + " seconds");
 			}
+		}
+	}
+
+	public static String getMinecraftVersion(Context context) {
+		try {
+			PackageInfo pInfo = context.getPackageManager().getPackageInfo("com.mojang.minecraftpe", 0);
+			return pInfo.versionName.replace("b", "beta");
+		} catch (PackageManager.NameNotFoundException e) {
+			Log.e(TAG, "Minecraft PE not installed");
+			return null;
 		}
 	}
 }

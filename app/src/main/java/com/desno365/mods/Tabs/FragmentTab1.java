@@ -21,7 +21,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 
 
@@ -31,6 +33,15 @@ public class FragmentTab1 extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 		View rootView = inflater.inflate(R.layout.fragmenttab1, container, false);
+
+		String version = DesnoUtils.getMinecraftVersion(getActivity());
+		if(version != null) {
+			version = getResources().getString(R.string.minecraft_version_content, version);
+		} else {
+			version = getResources().getString(R.string.minecraft_not_installed);
+		}
+		TextView textVersion = (TextView) rootView.findViewById(R.id.installed_minecraft_version);
+		textVersion.setText(version);
 
 		return rootView;
 	}
