@@ -10,6 +10,10 @@ License
 -----------
 Licensed under the Apache License, Version 2.0
 
+Translations
+-----------
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/desno365s-mods/localized.png)](https://crowdin.com/project/desno365s-mods)
+
 Used libraries
 -----------
 [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)<br>
