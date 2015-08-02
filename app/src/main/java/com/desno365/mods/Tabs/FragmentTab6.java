@@ -42,15 +42,15 @@ public class FragmentTab6 extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragmenttab6, container, false); // xml tab
 
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_guns_is); // id TextView version
-		textVersion.setText(MainActivity.gunsModVersion); // MainActivity variable that holds the latest version
+		textVersion.setText(MainActivity.MOD_GUNS.version); // MainActivity variable that holds the latest version
 
 
 		TextView textCompatibility = (TextView) rootView.findViewById(R.id.guns_compatibility); // id TextView compatibility
-		textCompatibility.setText(MainActivity.gunsModCompatibility); // MainActivity variable that holds the versions compatibility
+		textCompatibility.setText(MainActivity.MOD_GUNS.compatibility); // MainActivity variable that holds the versions compatibility
 
 
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.guns_changelog); // id TextView changelog
-		textChangelog.setText(android.text.Html.fromHtml(MainActivity.gunsModChangelog)); // MainActivity variable that holds the latest changelog
+		textChangelog.setText(android.text.Html.fromHtml(MainActivity.MOD_GUNS.changelog)); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 		textChangelog.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 

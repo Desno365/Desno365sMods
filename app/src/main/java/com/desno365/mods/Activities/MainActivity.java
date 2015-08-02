@@ -49,6 +49,7 @@ import com.desno365.mods.MainSwipeRefreshLayout;
 import com.desno365.mods.Mods.DesnoGuns;
 import com.desno365.mods.Mods.Jukebox;
 import com.desno365.mods.Mods.Laser;
+import com.desno365.mods.Mods.Mod;
 import com.desno365.mods.Mods.Portal;
 import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
@@ -57,42 +58,24 @@ import com.desno365.mods.Receivers.AlarmReceiver;
 import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.Tabs.FragmentTab1;
 
-import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 
 
 public class MainActivity extends ActionBarActivity implements MainNavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	public static final String TAG = "DesnoMods-MainActivity";
-	public static WeakReference<MainActivity> myMainActivity = null;
+
 	public static Activity activity;
 
 	public static String newsString;
 
-	public static String gunsModVersion;
-	public static String gunsModCompatibility;
-	public static String gunsModChangelog;
-
-	public static String portalModVersion;
-	public static String portalModCompatibility;
-	public static String portalModChangelog;
-
-	public static String laserModVersion;
-	public static String laserModCompatibility;
-	public static String laserModChangelog;
-
-	public static String turretsModVersion;
-	public static String turretsModCompatibility;
-	public static String turretsModChangelog;
-
-	public static String jukeboxModVersion;
-	public static String jukeboxModCompatibility;
-	public static String jukeboxModChangelog;
-
-	public static String unrealMapVersion;
-	public static String unrealMapCompatibility;
-	public static String unrealMapChangelog;
-
+	public static Mod MOD_GUNS;
+	public static Mod MOD_PORTAL;
+	public static Mod MOD_LASER;
+	public static Mod MOD_TURRETS;
+	public static Mod MOD_JUKEBOX;
+	public static Mod MAP_UNREAL;
+	
 	// UI elements
 	public static Toolbar toolbar;
 	public static ViewPager mViewPager;
@@ -112,33 +95,15 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		super.onCreate(savedInstanceState);
 
 		activity = this;
-		myMainActivity = new WeakReference<MainActivity>(this);
 
 		newsString = getResources().getString(R.string.loading);
 
-		gunsModVersion = getResources().getString(R.string.loading);
-		gunsModCompatibility = getResources().getString(R.string.loading);
-		gunsModChangelog = getResources().getString(R.string.loading);
-
-		portalModVersion = getResources().getString(R.string.loading);
-		portalModCompatibility = getResources().getString(R.string.loading);
-		portalModChangelog = getResources().getString(R.string.loading);
-
-		laserModVersion = getResources().getString(R.string.loading);
-		laserModCompatibility = getResources().getString(R.string.loading);
-		laserModChangelog = getResources().getString(R.string.loading);
-
-		turretsModVersion = getResources().getString(R.string.loading);
-		turretsModCompatibility = getResources().getString(R.string.loading);
-		turretsModChangelog = getResources().getString(R.string.loading);
-
-		jukeboxModVersion = getResources().getString(R.string.loading);
-		jukeboxModCompatibility = getResources().getString(R.string.loading);
-		jukeboxModChangelog = getResources().getString(R.string.loading);
-
-		unrealMapVersion = getResources().getString(R.string.loading);
-		unrealMapCompatibility = getResources().getString(R.string.loading);
-		unrealMapChangelog = getResources().getString(R.string.loading);
+		MOD_GUNS = new DesnoGuns(this);
+		MOD_PORTAL = new Portal(this);
+		MOD_LASER = new Laser(this);
+		MOD_TURRETS = new Turrets(this);
+		MOD_JUKEBOX = new Jukebox(this);
+		MAP_UNREAL = new Unreal(this);
 
 		// set content of the activity
 		setContentView(R.layout.activity_main);
@@ -468,83 +433,83 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 	// refresh TextViews after the content has been refreshed
 	private void refreshTextViews() {
-		myMainActivity.get().runOnUiThread(new Runnable() {
+		activity.runOnUiThread(new Runnable() {
 			public void run() {
 
 				try {
 					TextView textUpdatesGuns = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_guns_is);
-					textUpdatesGuns.setText(gunsModVersion);
+					textUpdatesGuns.setText(MOD_GUNS.version);
 
 					TextView textCompatibilityGuns = (TextView) getWindow().getDecorView().findViewById(R.id.guns_compatibility);
-					textCompatibilityGuns.setText(gunsModCompatibility);
+					textCompatibilityGuns.setText(MOD_GUNS.compatibility);
 
 					TextView textChangelogGuns = (TextView) getWindow().getDecorView().findViewById(R.id.guns_changelog);
-					textChangelogGuns.setText(android.text.Html.fromHtml(gunsModChangelog));
+					textChangelogGuns.setText(android.text.Html.fromHtml(MOD_GUNS.changelog));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for DesnoGuns");
 				}
 
 				try {
 					TextView textUpdatesPortal = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_portal_is);
-					textUpdatesPortal.setText(portalModVersion);
+					textUpdatesPortal.setText(MOD_PORTAL.version);
 
 					TextView textCompatibilityPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_compatibility);
-					textCompatibilityPortal.setText(android.text.Html.fromHtml(portalModCompatibility));
+					textCompatibilityPortal.setText(android.text.Html.fromHtml(MOD_PORTAL.compatibility));
 
 					TextView textChangelogPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_changelog);
-					textChangelogPortal.setText(android.text.Html.fromHtml(portalModChangelog));
+					textChangelogPortal.setText(android.text.Html.fromHtml(MOD_PORTAL.changelog));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Portal");
 				}
 
 				try {
 					TextView textUpdatesLaser = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_laser_is);
-					textUpdatesLaser.setText(laserModVersion);
+					textUpdatesLaser.setText(MOD_PORTAL.version);
 
 					TextView textCompatibilityLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_compatibility);
-					textCompatibilityLaser.setText(android.text.Html.fromHtml(laserModCompatibility));
+					textCompatibilityLaser.setText(android.text.Html.fromHtml(MOD_LASER.compatibility));
 
 					TextView textChangelogLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_changelog);
-					textChangelogLaser.setText(android.text.Html.fromHtml(laserModChangelog));
+					textChangelogLaser.setText(android.text.Html.fromHtml(MOD_LASER.changelog));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Laser");
 				}
 
 				try {
 					TextView textUpdatesTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_turrets_is);
-					textUpdatesTurrets.setText(turretsModVersion);
+					textUpdatesTurrets.setText(MOD_TURRETS.version);
 
 					TextView textCompatibilityTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_compatibility);
-					textCompatibilityTurrets.setText(android.text.Html.fromHtml(turretsModCompatibility));
+					textCompatibilityTurrets.setText(android.text.Html.fromHtml(MOD_TURRETS.compatibility));
 
 					TextView textChangelogTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_changelog);
-					textChangelogTurrets.setText(android.text.Html.fromHtml(turretsModChangelog));
+					textChangelogTurrets.setText(android.text.Html.fromHtml(MOD_TURRETS.changelog));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Turrets");
 				}
 
 				try {
 					TextView textUpdatesJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_jukebox_is);
-					textUpdatesJukebox.setText(jukeboxModVersion);
+					textUpdatesJukebox.setText(MOD_JUKEBOX.version);
 
 					TextView textCompatibilityJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_compatibility);
-					textCompatibilityJukebox.setText(android.text.Html.fromHtml(jukeboxModCompatibility));
+					textCompatibilityJukebox.setText(android.text.Html.fromHtml(MOD_JUKEBOX.compatibility));
 
 					TextView textChangelogJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_changelog);
-					textChangelogJukebox.setText(android.text.Html.fromHtml(jukeboxModChangelog));
+					textChangelogJukebox.setText(android.text.Html.fromHtml(MOD_JUKEBOX.changelog));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Jukebox");
 				}
 
 				try {
 					TextView textUpdatesUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_unreal_is);
-					textUpdatesUnreal.setText(unrealMapVersion);
+					textUpdatesUnreal.setText(MAP_UNREAL.version);
 
 					TextView textCompatibilityUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_compatibility);
-					textCompatibilityUnreal.setText(android.text.Html.fromHtml(unrealMapCompatibility));
+					textCompatibilityUnreal.setText(android.text.Html.fromHtml(MAP_UNREAL.compatibility));
 
 					TextView textChangelogUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_changelog);
-					textChangelogUnreal.setText(android.text.Html.fromHtml(unrealMapChangelog));
+					textChangelogUnreal.setText(android.text.Html.fromHtml(MAP_UNREAL.changelog));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Unreal");
 				}
@@ -556,53 +521,53 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		switch (v.getId()) {
 			// minecraftforum.net thread buttons
 			case R.id.minecraft_thread_guns_button:
-				startActivity(new DesnoGuns().getVisitThreadIntent());
+				startActivity(MOD_GUNS.getVisitThreadIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_portal_button:
-				startActivity(new Portal().getVisitThreadIntent());
+				startActivity(MOD_PORTAL.getVisitThreadIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_laser_button:
-				startActivity(new Laser().getVisitThreadIntent());
+				startActivity(MOD_LASER.getVisitThreadIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_turrets_button:
-				startActivity(new Turrets().getVisitThreadIntent());
+				startActivity(MOD_TURRETS.getVisitThreadIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_jukebox_button:
-				startActivity(new Jukebox().getVisitThreadIntent());
+				startActivity(MOD_JUKEBOX.getVisitThreadIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.minecraft_thread_unreal_button:
-				startActivity(new Unreal().getVisitThreadIntent());
+				startActivity(MAP_UNREAL.getVisitThreadIntent());
 				displayAdAtResume = true;
 				break;
 
 			// download from website buttons
 			case R.id.download_guns_button:
-				startActivity(new DesnoGuns().getDownloadFromWebsiteIntent());
+				startActivity(MOD_GUNS.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.download_portal_button:
-				startActivity(new Portal().getDownloadFromWebsiteIntent());
+				startActivity(MOD_PORTAL.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.download_laser_button:
-				startActivity(new Laser().getDownloadFromWebsiteIntent());
+				startActivity(MOD_LASER.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.download_turrets_button:
-				startActivity(new Turrets().getDownloadFromWebsiteIntent());
+				startActivity(MOD_TURRETS.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.download_jukebox_button:
-				startActivity(new Jukebox().getDownloadFromWebsiteIntent());
+				startActivity(MOD_JUKEBOX.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
 				break;
 			case R.id.download_unreal_button:
-				startActivity(new Unreal().getDownloadFromWebsiteIntent());
+				startActivity(MAP_UNREAL.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
 				break;
 
@@ -687,19 +652,19 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 		public CharSequence getPageTitle(int position) {
 			switch (position) {
 				case 0:
-					return myMainActivity.get().getString(R.string.home_title);
+					return activity.getString(R.string.home_title);
 				case 1:
-					return new DesnoGuns().getName(myMainActivity.get());
+					return MOD_GUNS.getName(activity);
 				case 2:
-					return new Portal().getName(myMainActivity.get());
+					return MOD_PORTAL.getName(activity);
 				case 3:
-					return new Laser().getName(myMainActivity.get());
+					return MOD_LASER.getName(activity);
 				case 4:
-					return new Turrets().getName(myMainActivity.get());
+					return MOD_TURRETS.getName(activity);
 				case 5:
-					return new Jukebox().getName(myMainActivity.get());
+					return MOD_JUKEBOX.getName(activity);
 				case 6:
-					return new Unreal().getName(myMainActivity.get());
+					return MAP_UNREAL.getName(activity);
 				default:
 					return "Missing title";
 			}
@@ -730,23 +695,23 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
 				latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
 
-				gunsModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_COMPATIBILITY);
-				portalModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_COMPATIBILITY);
-				laserModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_LASER_COMPATIBILITY);
-				turretsModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_COMPATIBILITY);
-				jukeboxModCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_COMPATIBILITY);
-				unrealMapCompatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_COMPATIBILITY);
+				MOD_GUNS.compatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_COMPATIBILITY);
+				MOD_PORTAL.compatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_COMPATIBILITY);
+				MOD_LASER.compatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_LASER_COMPATIBILITY);
+				MOD_TURRETS.compatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_COMPATIBILITY);
+				MOD_JUKEBOX.compatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_COMPATIBILITY);
+				MAP_UNREAL.compatibility = getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_COMPATIBILITY);
 
-				gunsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_CHANGELOG);
-				portalModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_CHANGELOG);
-				laserModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_CHANGELOG);
-				turretsModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_CHANGELOG);
-				jukeboxModChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_CHANGELOG);
-				unrealMapChangelog = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_CHANGELOG);
+				MOD_GUNS.changelog = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_CHANGELOG);
+				MOD_PORTAL.changelog = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_CHANGELOG);
+				MOD_LASER.changelog = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_CHANGELOG);
+				MOD_TURRETS.changelog = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_CHANGELOG);
+				MOD_JUKEBOX.changelog = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_CHANGELOG);
+				MAP_UNREAL.changelog = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_CHANGELOG);
 			} else {
 				runOnUiThread(new Runnable() {
 					public void run() {
-						Toast.makeText(myMainActivity.get().getApplicationContext(), getResources().getString(R.string.internet_error), Toast.LENGTH_SHORT).show();
+						Toast.makeText(activity.getApplicationContext(), getResources().getString(R.string.internet_error), Toast.LENGTH_SHORT).show();
 					}
 				});
 			}
@@ -760,12 +725,12 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 			DesnoUtils.notifyForUnreadNews(getApplicationContext(), latestNewsVersion);
 			DesnoUtils.notifyForNewUpdates(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
 
-			gunsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion;
-			portalModVersion = getResources().getString(R.string.latest_version_is) + " " + latestPortalVersion;
-			laserModVersion = getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion;
-			turretsModVersion = getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion;
-			jukeboxModVersion = getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion;
-			unrealMapVersion = getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion;
+			MOD_GUNS.version = getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion;
+			MOD_PORTAL.version = getResources().getString(R.string.latest_version_is) + " " + latestPortalVersion;
+			MOD_PORTAL.version = getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion;
+			MOD_TURRETS.version = getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion;
+			MOD_JUKEBOX.version = getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion;
+			MAP_UNREAL.version = getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion;
 			refreshTextViews();
 			setRefreshState(false);
 		}

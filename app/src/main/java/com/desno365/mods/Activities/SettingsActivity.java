@@ -230,7 +230,7 @@ public class SettingsActivity extends PreferenceActivity {
 		builder.setTitle(activity.getResources().getString(R.string.app_name));
 		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				MainActivity.myMainActivity.get().finish();
+				MainActivity.activity.finish();
 				System.exit(0);
 			}
 		});
@@ -249,7 +249,7 @@ public class SettingsActivity extends PreferenceActivity {
 		builder.setTitle(activity.getResources().getString(R.string.app_name));
 		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				MainActivity.myMainActivity.get().finish();
+				MainActivity.activity.finish();
 				System.exit(0);
 			}
 		});

@@ -42,15 +42,15 @@ public class FragmentTab4 extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragmenttab4, container, false); // xml tab
 
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_turrets_is); // id TextView version
-		textVersion.setText(MainActivity.turretsModVersion); // MainActivity variable that holds the latest version
+		textVersion.setText(MainActivity.MOD_TURRETS.version); // MainActivity variable that holds the latest version
 
 
 		TextView textCompatibility = (TextView) rootView.findViewById(R.id.turrets_compatibility); // id TextView compatibility
-		textCompatibility.setText(MainActivity.turretsModCompatibility); // MainActivity variable that holds the versions compatibility
+		textCompatibility.setText(MainActivity.MOD_TURRETS.compatibility); // MainActivity variable that holds the versions compatibility
 
 
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.turrets_changelog); // id TextView changelog
-		textChangelog.setText(android.text.Html.fromHtml(MainActivity.turretsModChangelog)); // MainActivity variable that holds the latest changelog
+		textChangelog.setText(android.text.Html.fromHtml(MainActivity.MOD_TURRETS.changelog)); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 		textChangelog.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 

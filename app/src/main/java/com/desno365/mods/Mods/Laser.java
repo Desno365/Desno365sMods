@@ -16,6 +16,8 @@
 
 package com.desno365.mods.Mods;
 
+import android.content.Context;
+
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.SharedConstants.NotificationsId;
@@ -26,12 +28,16 @@ public class Laser extends Mod {
 
 	public static final int viewPagerPosition = 3;
 
-	public Laser() {
+	public Laser(Context context) {
 
 		super();
 
 		this.ID = 3;
 		this.nameId = R.string.mod2_title;
+
+		this.version = context.getResources().getString(R.string.loading);
+		this.compatibility = context.getResources().getString(R.string.loading);
+		this.changelog = context.getResources().getString(R.string.loading);
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_LASER_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_LASER_DOWNLOAD;

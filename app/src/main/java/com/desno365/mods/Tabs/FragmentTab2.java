@@ -42,15 +42,15 @@ public class FragmentTab2 extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragmenttab2, container, false); // xml tab
 
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_portal_is); // id TextView version
-		textVersion.setText(MainActivity.portalModVersion); // MainActivity variable that holds the latest version
+		textVersion.setText(MainActivity.MOD_PORTAL.version); // MainActivity variable that holds the latest version
 
 
 		TextView textCompatibility = (TextView) rootView.findViewById(R.id.portal_compatibility); // id TextView compatibility
-		textCompatibility.setText(MainActivity.portalModCompatibility); // MainActivity variable that holds the versions compatibility
+		textCompatibility.setText(MainActivity.MOD_PORTAL.compatibility); // MainActivity variable that holds the versions compatibility
 
 
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.portal_changelog); // id TextView changelog
-		textChangelog.setText(android.text.Html.fromHtml(MainActivity.portalModChangelog)); // MainActivity variable that holds the latest changelog
+		textChangelog.setText(android.text.Html.fromHtml(MainActivity.MOD_PORTAL.changelog)); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 		textChangelog.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 

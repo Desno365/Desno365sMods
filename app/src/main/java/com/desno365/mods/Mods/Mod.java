@@ -24,12 +24,15 @@ import android.net.Uri;
 public class Mod {
 
 	public int ID;
+	public int nameId; // id of the string containing the name
 
-	public int nameId;
+	public String version;
+	public String compatibility;
+	public String changelog;
 
-	public int NOTIFICATION_ID_NEW_VERSION;
-	public String DOWNLOAD_FROM_WEBSITE_LINK;
-	public String THREAD_LINK;
+	public int NOTIFICATION_ID_NEW_VERSION; // id for a notification
+	public String DOWNLOAD_FROM_WEBSITE_LINK; // link to website
+	public String THREAD_LINK; // link to minecraftforum thread
 
 	public String getName(Context context) {
 		return context.getString(this.nameId);

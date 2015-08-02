@@ -31,6 +31,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.transition.AutoTransition;
@@ -44,13 +45,7 @@ import android.widget.TextView;
 
 import com.desno365.mods.Activities.MainActivity;
 import com.desno365.mods.Activities.NewsActivity;
-import com.desno365.mods.Mods.DesnoGuns;
-import com.desno365.mods.Mods.Jukebox;
-import com.desno365.mods.Mods.Laser;
 import com.desno365.mods.Mods.Mod;
-import com.desno365.mods.Mods.Portal;
-import com.desno365.mods.Mods.Turrets;
-import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.SharedConstants.NotificationsId;
 import com.desno365.mods.SharedConstants.SharedConstants;
 import com.google.android.gms.ads.AdListener;
@@ -69,11 +64,11 @@ import hugo.weaving.DebugLog;
 
 public class DesnoUtils {
 
-	private static final long MINIMUM_DELAY_FOR_NEW_AD_MILLIS = 30000;
 	private static final String TAG = "DesnoMods-DesnoUtils";
+
 	private static final String ERROR_STRING = "Error";
 	private static final String NOT_INITIALIZED_ERROR_STRING = "r000";
-	public static InterstitialAdStatic interstitialAdStatic;
+
 
 	public static void setSavedLanguage(Context context) {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -121,7 +116,99 @@ public class DesnoUtils {
 
 	}
 
+	private static boolean checkIfNewVersion(Context context, String latestVersion, String preferenceName) {
 
+		// latestVersion is the version that the app found on internet
+		// preferenceName is the string name of the preference of the mod/content
+
+		boolean isNewVersion = false;
+
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+		String knownVersion = sharedPrefs.getString(preferenceName, NOT_INITIALIZED_ERROR_STRING);
+
+		Log.i(TAG, "Checking saved version of " + preferenceName + ", found latest: " + latestVersion + " known: " + knownVersion);
+
+		if (latestVersion.equals("") || latestVersion.isEmpty() || latestVersion.equals("Not Found") || latestVersion.equals(ERROR_STRING)) {
+			Log.e(TAG, "Something went wrong in checkIfNewVersion() for " + preferenceName + " (empty String)");
+		} else {
+			if (latestVersion.length() > 10) {
+				Log.e(TAG, "The latest version of " + preferenceName + " shouldn't be so long, probably an internal error happened on the website.");
+			} else {
+
+				// if we have arrived here it means that no errors happened, yay!
+				if (!(knownVersion.equals(latestVersion))) {
+					if (!(knownVersion.equals(NOT_INITIALIZED_ERROR_STRING))) {
+						Log.i(TAG, "Different version for " + preferenceName + ". Maybe a notification should appear.");
+						isNewVersion = true;
+					} else {
+						Log.i(TAG, "First time the app access the saved " + preferenceName + " version.");
+					}
+
+					SharedPreferences.Editor editor = sharedPrefs.edit();
+					editor.putString(preferenceName, latestVersion);
+					editor.apply();
+				}
+
+			}
+		}
+
+		return isNewVersion;
+	}
+
+	@SuppressWarnings("unused")
+	private static void debugVersions(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
+		DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_GUNS);
+
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+		String knownGunsVersion = sharedPrefs.getString("known_guns_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownPortalVersion = sharedPrefs.getString("known_portal_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownLaserVersion = sharedPrefs.getString("known_laser_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownUnrealVersion = sharedPrefs.getString("known_unreal_version", NOT_INITIALIZED_ERROR_STRING);
+
+		Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion);
+
+		DesnoUtils.generalNotification(context, "Log", "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion, NotificationsId.ID_DEBUG_VERSIONS);
+	}
+
+	@Nullable
+	public static String getMinecraftVersion(Context context) {
+		try {
+			PackageInfo pInfo = context.getPackageManager().getPackageInfo("com.mojang.minecraftpe", 0);
+			return pInfo.versionName.replace("b", "beta");
+		} catch (PackageManager.NameNotFoundException e) {
+			Log.e(TAG, "Minecraft PE not installed");
+			return null;
+		}
+	}
+
+	public static int convertDpToPixel(int dp, Context context) {
+		Resources resources = context.getResources();
+		DisplayMetrics metrics = resources.getDisplayMetrics();
+		int px;
+		px = (int) (dp * metrics.density);
+		return px;
+	}
+
+	@SuppressWarnings("unused")
+	public static int convertPixelsToDp(int px, Context context) {
+		Resources resources = context.getResources();
+		DisplayMetrics metrics = resources.getDisplayMetrics();
+		int dp;
+		dp = (int) (px / metrics.density);
+		return dp;
+	}
+
+	public static void setViewHeight(final View view, final int height) {
+		ViewGroup.LayoutParams params = view.getLayoutParams();
+		params.height = height;
+		view.setLayoutParams(params);
+	}
+
+
+	/* ######### NETWORK ######### */
 	public static boolean isNetworkAvailable(Context currentContext) {
 		ConnectivityManager connectivityManager = (ConnectivityManager) currentContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -155,7 +242,10 @@ public class DesnoUtils {
 			return ERROR_STRING;
 		}
 	}
+	/* ######### NETWORK ######### */
 
+
+	/* ######### NOTIFICATIONS ######### */
 	public static void generalNotification(Context context, String title, String content, int id) {
 
 		Intent notificationIntent = new Intent(context, MainActivity.class);
@@ -261,27 +351,27 @@ public class DesnoUtils {
 	public static void notifyForNewUpdates(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
 
 		if (checkIfNewVersion(context, latestGunsVersion, "known_guns_version")) {
-			DesnoUtils.notificationForNewVersion(context, new DesnoGuns());
+			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_GUNS);
 		}
 
 		if (checkIfNewVersion(context, latestPortalVersion, "known_portal_version")) {
-			DesnoUtils.notificationForNewVersion(context, new Portal());
+			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_PORTAL);
 		}
 
 		if (checkIfNewVersion(context, latestLaserVersion, "known_laser_version")) {
-			DesnoUtils.notificationForNewVersion(context, new Laser());
+			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_LASER);
 		}
 
 		if (checkIfNewVersion(context, latestTurretsVersion, "known_turrets_version")) {
-			DesnoUtils.notificationForNewVersion(context, new Turrets());
+			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_TURRETS);
 		}
 
 		if (checkIfNewVersion(context, latestJukeboxVersion, "known_jukebox_version")) {
-			DesnoUtils.notificationForNewVersion(context, new Jukebox());
+			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_JUKEBOX);
 		}
 
 		if (checkIfNewVersion(context, latestUnrealVersion, "known_unreal_version")) {
-			DesnoUtils.notificationForNewVersion(context, new Unreal());
+			DesnoUtils.notificationForNewVersion(context, MainActivity.MAP_UNREAL);
 		}
 
 		// debug
@@ -289,69 +379,14 @@ public class DesnoUtils {
 	}
 
 	public static void notifyForUnreadNews(Context context, String latestNews) {
-
 		if (checkIfNewVersion(context, latestNews, "latest_read_news")) {
 			DesnoUtils.generalNotification(context, context.getString(R.string.app_name), context.getString(R.string.notification_unread_news), NotificationsId.ID_UNREAD_NEWS, new Intent(context, NewsActivity.class));
 		}
 	}
+	/* ######### NOTIFICATIONS ######### */
 
-	private static boolean checkIfNewVersion(Context context, String latestVersion, String preferenceName) {
 
-		// latestVersion is the version that the app found on internet
-		// preferenceName is the string name of the preference of the mod/content
-
-		boolean isNewVersion = false;
-
-		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-		String knownVersion = sharedPrefs.getString(preferenceName, NOT_INITIALIZED_ERROR_STRING);
-
-		Log.i(TAG, "Checking saved version of " + preferenceName + ", found latest: " + latestVersion + " known: " + knownVersion);
-
-		if (latestVersion.equals("") || latestVersion.isEmpty() || latestVersion.equals("Not Found") || latestVersion.equals(ERROR_STRING)) {
-			Log.e(TAG, "Something went wrong in checkIfNewVersion() for " + preferenceName + " (empty String)");
-		} else {
-			if (latestVersion.length() > 10) {
-				Log.e(TAG, "The latest version of " + preferenceName + " shouldn't be so long, probably an internal error happened on the website.");
-			} else {
-
-				// if we have arrived here it means that no errors happened, yay!
-				if (!(knownVersion.equals(latestVersion))) {
-					if (!(knownVersion.equals(NOT_INITIALIZED_ERROR_STRING))) {
-						Log.i(TAG, "Different version for " + preferenceName + ". Maybe a notification should appear.");
-						isNewVersion = true;
-					} else {
-						Log.i(TAG, "First time the app access the saved " + preferenceName + " version.");
-					}
-
-					SharedPreferences.Editor editor = sharedPrefs.edit();
-					editor.putString(preferenceName, latestVersion);
-					editor.apply();
-				}
-
-			}
-		}
-
-		return isNewVersion;
-	}
-
-	@SuppressWarnings("unused")
-	private static void debugVersions(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
-		DesnoUtils.notificationForNewVersion(context, new DesnoGuns());
-
-		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-		String knownGunsVersion = sharedPrefs.getString("known_guns_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownPortalVersion = sharedPrefs.getString("known_portal_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownLaserVersion = sharedPrefs.getString("known_laser_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownUnrealVersion = sharedPrefs.getString("known_unreal_version", NOT_INITIALIZED_ERROR_STRING);
-
-		Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion);
-
-		DesnoUtils.generalNotification(context, "Log", "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion, NotificationsId.ID_DEBUG_VERSIONS);
-	}
-
+	/* ######### ANIMATIONS ######### */
 	public static void changeStartAnimations(Activity activity) {
 		Context currentContext = activity.getApplicationContext();
 		switch (Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(currentContext).getString("selected_animations", "0"))) {
@@ -394,34 +429,11 @@ public class DesnoUtils {
 		activity.overridePendingTransition(R.anim.hold, resId);
 	}
 
-	public static int convertDpToPixel(int dp, Context context) {
-		Resources resources = context.getResources();
-		DisplayMetrics metrics = resources.getDisplayMetrics();
-		int px;
-		px = (int) (dp * metrics.density);
-		return px;
-	}
-
-	@SuppressWarnings("unused")
-	public static int convertPixelsToDp(int px, Context context) {
-		Resources resources = context.getResources();
-		DisplayMetrics metrics = resources.getDisplayMetrics();
-		int dp;
-		dp = (int) (px / metrics.density);
-		return dp;
-	}
-
 	public static void enableTransition(Window window) {
 		if (Build.VERSION.SDK_INT >= 21) {
 			//enable window content transition
 			window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 		}
-	}
-
-	public static void setViewHeight(final View view, final int height) {
-		ViewGroup.LayoutParams params = view.getLayoutParams();
-		params.height = height;
-		view.setLayoutParams(params);
 	}
 
 	public static void expandTextView(ViewGroup container, TextView tv) {
@@ -460,6 +472,12 @@ public class DesnoUtils {
 		}
 
 	}
+	/* ######### ANIMATIONS ######### */
+
+
+	/* ######### ADS ######### */
+	private static final long MINIMUM_DELAY_FOR_NEW_AD_MILLIS = 30000;
+	public static InterstitialAdStatic interstitialAdStatic;
 
 	public static void showAd() {
 		if (interstitialAdStatic != null) {
@@ -511,14 +529,6 @@ public class DesnoUtils {
 			}
 		}
 	}
+	/* ######### ADS ######### */
 
-	public static String getMinecraftVersion(Context context) {
-		try {
-			PackageInfo pInfo = context.getPackageManager().getPackageInfo("com.mojang.minecraftpe", 0);
-			return pInfo.versionName.replace("b", "beta");
-		} catch (PackageManager.NameNotFoundException e) {
-			Log.e(TAG, "Minecraft PE not installed");
-			return null;
-		}
-	}
 }

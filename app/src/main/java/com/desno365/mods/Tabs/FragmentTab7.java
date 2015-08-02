@@ -42,15 +42,15 @@ public class FragmentTab7 extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragmenttab7, container, false); // xml tab
 
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_unreal_is); // id TextView version
-		textVersion.setText(MainActivity.unrealMapVersion); // MainActivity variable that holds the latest version
+		textVersion.setText(MainActivity.MAP_UNREAL.version); // MainActivity variable that holds the latest version
 
 
 		TextView textCompatibility = (TextView) rootView.findViewById(R.id.unreal_compatibility); // id TextView compatibility
-		textCompatibility.setText(MainActivity.unrealMapCompatibility); // MainActivity variable that holds the versions compatibility
+		textCompatibility.setText(MainActivity.MAP_UNREAL.compatibility); // MainActivity variable that holds the versions compatibility
 
 
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.unreal_changelog); // id TextView changelog
-		textChangelog.setText(android.text.Html.fromHtml(MainActivity.unrealMapChangelog)); // MainActivity variable that holds the latest changelog
+		textChangelog.setText(android.text.Html.fromHtml(MainActivity.MAP_UNREAL.changelog)); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 		textChangelog.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 

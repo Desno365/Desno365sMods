@@ -352,7 +352,7 @@ public class MainNavigationDrawerFragment extends Fragment {
 				TextView itemTextView = (TextView) convertView.findViewById(R.id.navigation_drawer_item_title);
 
 				// apply custom font with shadow
-				Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(), "fonts/minecraft.ttf");
+				Typeface font = Typeface.createFromAsset(MainActivity.activity.getAssets(), "fonts/minecraft.ttf");
 				itemTextView.setTypeface(font);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
 					itemTextView.setShadowLayer(1, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), getResources().getColor(R.color.drawer_text_shadow_color));
@@ -430,7 +430,7 @@ public class MainNavigationDrawerFragment extends Fragment {
 				TextView groupTextView = (TextView) convertView.findViewById(R.id.navigation_drawer_group_title);
 
 				// apply custom font with shadow
-				Typeface font = Typeface.createFromAsset(MainActivity.myMainActivity.get().getAssets(), "fonts/minecraft.ttf");
+				Typeface font = Typeface.createFromAsset(MainActivity.activity.getAssets(), "fonts/minecraft.ttf");
 				groupTextView.setTypeface(font);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
 					groupTextView.setShadowLayer(1, Math.round(groupTextView.getLineHeight() / 8), Math.round(groupTextView.getLineHeight() / 8), getResources().getColor(R.color.drawer_text_shadow_color));

@@ -42,15 +42,15 @@ public class FragmentTab5 extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragmenttab5, container, false); // xml tab
 
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_jukebox_is); // id TextView version
-		textVersion.setText(MainActivity.jukeboxModVersion); // MainActivity variable that holds the latest version
+		textVersion.setText(MainActivity.MOD_JUKEBOX.version); // MainActivity variable that holds the latest version
 
 
 		TextView textCompatibility = (TextView) rootView.findViewById(R.id.jukebox_compatibility); // id TextView compatibility
-		textCompatibility.setText(MainActivity.jukeboxModCompatibility); // MainActivity variable that holds the versions compatibility
+		textCompatibility.setText(MainActivity.MOD_JUKEBOX.compatibility); // MainActivity variable that holds the versions compatibility
 
 
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.jukebox_changelog); // id TextView changelog
-		textChangelog.setText(android.text.Html.fromHtml(MainActivity.jukeboxModChangelog)); // MainActivity variable that holds the latest changelog
+		textChangelog.setText(android.text.Html.fromHtml(MainActivity.MOD_JUKEBOX.changelog)); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 		textChangelog.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 
