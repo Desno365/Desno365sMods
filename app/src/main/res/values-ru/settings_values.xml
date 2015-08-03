@@ -17,10 +17,10 @@
   -->
 <resources>
   <string-array name="sync_frequency">
-    <item name="h4">Ogni 4 ore</item>
-    <item name="h12">Ogni 12 ore</item>
-    <item name="h24">Ogni giorno</item>
-    <item name="h72">Ogni 3 giorni</item>
+    <item name="h4">Каждые 4 часа</item>
+    <item name="h12">Каждые 12 часов</item>
+    <item name="h24">Каждый день</item>
+    <item name="h72">Каждые 3 дня</item>
   </string-array>
   <string-array name="sync_frequency_values">
     <item name="h4" translatable="false">4</item>
@@ -59,18 +59,18 @@
     <item name="turkish" translatable="false">tr</item>
   </string-array>
   <string-array name="themes">
-    <item name="brown">Terra</item>
-    <item name="green">Cactus</item>
+    <item name="brown">Земля</item>
+    <item name="green">Кактус</item>
   </string-array>
   <string-array name="themes_values">
     <item name="brown" translatable="false">0</item>
     <item name="green" translatable="false">1</item>
   </string-array>
   <string-array name="animations">
-    <item name="default">Default</item>
-    <item name="up_down">Spingi su/sotto</item>
-    <item name="corner">Muovi da/verso l\'angolo</item>
-    <item name="book">Apri/chiudi la pagina come un libro</item>
+    <item name="default">Стандартный</item>
+    <item name="up_down">Нажмите вниз/вверх</item>
+    <item name="corner">Двигайтесь к/от угла</item>
+    <item name="book">Откройте/закройте страницу как книгу</item>
   </string-array>
   <string-array name="animations_values">
     <item name="default" translatable="false">0</item>

@@ -30,34 +30,44 @@
   </string-array>
   <string-array name="languages">
     <item name="default" translatable="false">Default</item>
+    <item name="danish" translatable="false">Danish</item>
     <item name="dutch" translatable="false">Dutch</item>
     <item name="english" translatable="false">English</item>
     <item name="french" translatable="false">French</item>
     <item name="german" translatable="false">German</item>
     <item name="italian" translatable="false">Italian</item>
     <item name="korean" translatable="false">Korean</item>
+    <item name="portuguese" translatable="false">Portuguese</item>
+    <item name="portuguese_brazilian" translatable="false">Portuguese, Brazilian</item>
+    <item name="russian" translatable="false">Russian</item>
     <item name="spanish" translatable="false">Spanish</item>
+    <item name="turkish" translatable="false">Turkish</item>
   </string-array>
   <string-array name="languages_values">
     <item name="default" translatable="false">default</item>
+    <item name="danish" translatable="false">da</item>
     <item name="dutch" translatable="false">nl</item>
     <item name="english" translatable="false">en</item>
     <item name="french" translatable="false">fr</item>
     <item name="german" translatable="false">de</item>
     <item name="italian" translatable="false">it</item>
     <item name="korean" translatable="false">ko</item>
+    <item name="portuguese" translatable="false">pt-rPT</item>
+    <item name="portuguese_brazilian" translatable="false">pt-rBR</item>
+    <item name="russian" translatable="false">ru</item>
     <item name="spanish" translatable="false">es</item>
+    <item name="turkish" translatable="false">tr</item>
   </string-array>
   <string-array name="themes">
-    <item name="brown">Dirt</item>
-    <item name="green">Cactus</item>
+    <item name="brown">Erde</item>
+    <item name="green">Kaktus</item>
   </string-array>
   <string-array name="themes_values">
     <item name="brown" translatable="false">0</item>
     <item name="green" translatable="false">1</item>
   </string-array>
   <string-array name="animations">
-    <item name="default">Standart</item>
+    <item name="default">Standard</item>
     <item name="up_down">Hoch-/Runterschieben</item>
     <item name="corner">Von/zu den Ecken hinbewegen</item>
     <item name="book">Seiten umblättern wie in einem Buch</item>

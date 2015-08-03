@@ -72,10 +72,14 @@ public class DesnoUtils {
 
 	public static void setSavedLanguage(Context context) {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-		String language = sharedPrefs.getString("selected_language", "not_changed");
+		String[] language = sharedPrefs.getString("selected_language", "not_changed").split("-r");
 
-		if (!language.equals("default") && !language.equals("not_changed")) {
-			Locale locale = new Locale(language);
+		if (!language[0].equals("default") && !language[0].equals("not_changed")) {
+			Locale locale;
+			if(language.length == 1)
+				locale = new Locale(language[0]);
+			else
+				locale = new Locale(language[0], language[1]);
 			Locale.setDefault(locale);
 			Configuration config = new Configuration();
 			config.locale = locale;
@@ -84,7 +88,7 @@ public class DesnoUtils {
 
 		// this will be removed when languages become more accurate
 		// languages that I'm sure are accurate are not affected
-		if (language.equals("not_changed") && !Locale.getDefault().getCountry().equals("IT")) {
+		if (language[0].equals("not_changed") && !Locale.getDefault().getCountry().equals("IT")) {
 			Locale locale = new Locale("en");
 			Locale.setDefault(locale);
 			Configuration config = new Configuration();

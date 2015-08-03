@@ -23,7 +23,6 @@
   <string name="share_using">Condividi con&#8230;</string>
   <string name="share_body">Prova l\'applicazione \"Desno\'s Mods\" che ti permetterà di scaricare alcune fantastiche mod di Minecraft: http://bit.ly/DesnoMods </string>
   <string name="action_feedback">Feedback</string>
-  <string name="feedback_toast">Aiutami a migliorare quest\'app. Fammi sapere cosa ne pensi e se hai dei suggerimenti sul thread di minecraftforum.net</string>
   <string name="action_rate">Valuta quest\'app</string>
   <string name="action_settings">Impostazioni</string>
   <string name="close_dialog">Chiudi</string>
@@ -38,11 +37,13 @@
   <string name="info_title">Informazioni</string>
   <string name="features_title">Caratterisitche</string>
   <string name="updates_title">Aggiornamenti</string>
+  <string name="compatibility_title">Compatibilità</string>
   <string name="changelog_title">Changelog</string>
   <string name="useful_links_title">Link utili</string>
   <string name="loading">Caricamento&#8230;</string>
   <string name="mods">Mod</string>
   <string name="latest_version_is">L\'ultima versione è:</string>
+  <string name="mod_compatibility_content">Versioni compatibili di Minecraft PE:</string>
   <string name="internet_error">C\'è stato un errore durante il controllo degli aggiornamenti, controlla la tua connessione ad Internet.</string>
   <string name="show_changelog">Mostrami tutto il changelog&#8230;</string>
   <string name="hide_changelog">Nascondi il changelog&#8230;</string>
@@ -53,6 +54,9 @@
   <string name="download_map_from_website">Scarica questa mappa dal sito web di Desno</string>
   <string name="welcome_title">Benvenuto</string>
   <string name="welcome_content">Benvenuto in \"Desno365\'s Mods\".\nQui potrai controllare le ultime versioni e i changelog di tutte le mie mod.</string>
+  <string name="minecraft_version_title">Versione di MCPE</string>
+  <string name="minecraft_version_content">Versione installata: Minecraft PE %1$s</string>
+  <string name="minecraft_not_installed">Minecraft PE non installato</string>
   <string name="news_title">News</string>
   <string name="news_button">Portami alla pagina delle notizie</string>
   <string name="need_help_title">Hai bisogno di aiuto?</string>
@@ -99,6 +103,9 @@
   <string name="help_translating_title">Aiuta a tradurre</string>
   <string name="help_translating_summary">Collabora al progetto e aiuta a tradurre l\'app</string>
   <string name="customization_settings">Personalizzazione</string>
+  <string name="themes_title">Tema</string>
+  <string name="themes_summary">Seleziona il tema dell\'app</string>
+  <string name="restart_text_popup">L\'applicazione deve essere riavviata affinché i cambiamenti del tema abbiano effetto.</string>
   <string name="animations_title">Animazioni</string>
   <string name="animations_summary">Seleziona le animazioni per l\'app</string>
   <string name="help_settings">Suggerimenti e aiuto</string>
@@ -113,8 +120,6 @@
   <string name="notification_download">Download</string>
   <string name="show_news" tools:ignore="UnusedResources">Mostrami tutte le news&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Nascondi le news&#8230;</string>
-  <string name="themes_title" tools:ignore="UnusedResources">Tema</string>
-  <string name="themes_summary" tools:ignore="UnusedResources">Seleziona il tema dell\'app</string>
-  <string name="restart_text_popup" tools:ignore="UnusedResources">L\'applicazione deve essere riavviata affinché i cambiamenti del tema abbiano effetto.</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pizzica con due dita o fai doppio tap sullo schermo per aumentare lo zoom</string>
+  <string name="feedback_toast" tools:ignore="UnusedResources">Aiutami a migliorare quest\'app. Fammi sapere cosa ne pensi e se hai dei suggerimenti sul thread di minecraftforum.net</string>
 </resources>

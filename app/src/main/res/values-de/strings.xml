@@ -23,7 +23,6 @@
   <string name="share_using">Teilen mit...</string>
   <string name="share_body">Die \"Desno365´s Mods\"-App erlaubt es ihnen einige Minecraft Pocket Edition Mods herunterzuladen und zu spielen! Sehen sie es sich an: http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Feedback</string>
-  <string name="feedback_toast">Sagen sie uns auf dem minecraftforum.net-thread was sie von dieser App halten!</string>
   <string name="action_rate">Diese App bewerten</string>
   <string name="action_settings">Einstellungen</string>
   <string name="close_dialog">Schliessen</string>
@@ -38,11 +37,13 @@
   <string name="info_title">Info</string>
   <string name="features_title">Funktionen</string>
   <string name="updates_title">Updates</string>
+  <string name="compatibility_title">Compatibility</string>
   <string name="changelog_title">Changelog</string>
   <string name="useful_links_title">Coole Links</string>
   <string name="loading">Bitte warten...</string>
   <string name="mods">Mod-Scripte</string>
   <string name="latest_version_is">Die aktuelle Version ist:</string>
+  <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
   <string name="internet_error">Beim Prüfen auf Updates ist ein Fehler aufgetreten, bitte überprüfen Sie Ihre Internetverbindung.</string>
   <string name="show_changelog">Alle Changelogs anzeigen...</string>
   <string name="hide_changelog">Changelog verstecken...</string>
@@ -53,6 +54,9 @@
   <string name="download_map_from_website">Lade diese Website von Deines Website herunter</string>
   <string name="welcome_title">Willkommen</string>
   <string name="welcome_content">Willkommen in der Desno365s Mods-App. Hier könne sie  die neueste Version und die Changelogs meiner Mods ansehen.</string>
+  <string name="minecraft_version_title">MCPE version</string>
+  <string name="minecraft_version_content">Installed version: Minecraft PE %1$s</string>
+  <string name="minecraft_not_installed">Minecraft PE not installed</string>
   <string name="news_title">Neuigkeiten</string>
   <string name="news_button">Hier zu den Neuigkeiten</string>
   <string name="need_help_title">Brauchen sie Hilfe?</string>
@@ -99,6 +103,9 @@
   <string name="help_translating_title">Helfen Sie beim Übersetzen</string>
   <string name="help_translating_summary">Tragen sie diesem Projekt bei, indem sie beim Übersetzen der App helfen</string>
   <string name="customization_settings">Anpassen</string>
+  <string name="themes_title">Thema</string>
+  <string name="themes_summary">Wählen Sie die App-Thema</string>
+  <string name="restart_text_popup">Die Anwendung muss neu gestartet werden, damit die Thema-Änderung funktioniert.</string>
   <string name="animations_title">Animationen</string>
   <string name="animations_summary">Wählen Sie die App-Animationen</string>
   <string name="help_settings">Tipps und Hilfe</string>
@@ -113,8 +120,6 @@
   <string name="notification_download">Download</string>
   <string name="show_news" tools:ignore="UnusedResources">Alle News anzeigen&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">News verbergen&#8230;</string>
-  <string name="themes_title" tools:ignore="UnusedResources">Thema</string>
-  <string name="themes_summary" tools:ignore="UnusedResources">Wählen Sie die App-Thema</string>
-  <string name="restart_text_popup" tools:ignore="UnusedResources">Die Anwendung muss neu gestartet werden, damit die Thema-Änderung funktioniert.</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Doppel tippe oder halte den Bildschirm gedrückt um das Bild zu vergrößern</string>
+  <string name="feedback_toast" tools:ignore="UnusedResources">Sagen sie uns auf dem minecraftforum.net-thread was sie von dieser App halten!</string>
 </resources>

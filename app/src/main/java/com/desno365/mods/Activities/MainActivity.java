@@ -464,7 +464,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 				try {
 					TextView textUpdatesLaser = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_laser_is);
-					textUpdatesLaser.setText(MOD_PORTAL.version);
+					textUpdatesLaser.setText(MOD_LASER.version);
 
 					TextView textCompatibilityLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_compatibility);
 					textCompatibilityLaser.setText(android.text.Html.fromHtml(MOD_LASER.compatibility));
@@ -727,7 +727,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 			MOD_GUNS.version = getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion;
 			MOD_PORTAL.version = getResources().getString(R.string.latest_version_is) + " " + latestPortalVersion;
-			MOD_PORTAL.version = getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion;
+			MOD_LASER.version = getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion;
 			MOD_TURRETS.version = getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion;
 			MOD_JUKEBOX.version = getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion;
 			MAP_UNREAL.version = getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion;

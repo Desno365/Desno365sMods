@@ -17,10 +17,10 @@
   -->
 <resources>
   <string-array name="sync_frequency">
-    <item name="h4">Ogni 4 ore</item>
-    <item name="h12">Ogni 12 ore</item>
-    <item name="h24">Ogni giorno</item>
-    <item name="h72">Ogni 3 giorni</item>
+    <item name="h4">Hver 4. time</item>
+    <item name="h12">Hver 12. time</item>
+    <item name="h24">Hver dag</item>
+    <item name="h72">Hver 3. dag</item>
   </string-array>
   <string-array name="sync_frequency_values">
     <item name="h4" translatable="false">4</item>
@@ -59,18 +59,18 @@
     <item name="turkish" translatable="false">tr</item>
   </string-array>
   <string-array name="themes">
-    <item name="brown">Terra</item>
-    <item name="green">Cactus</item>
+    <item name="brown">Jord</item>
+    <item name="green">Kaktus</item>
   </string-array>
   <string-array name="themes_values">
     <item name="brown" translatable="false">0</item>
     <item name="green" translatable="false">1</item>
   </string-array>
   <string-array name="animations">
-    <item name="default">Default</item>
-    <item name="up_down">Spingi su/sotto</item>
-    <item name="corner">Muovi da/verso l\'angolo</item>
-    <item name="book">Apri/chiudi la pagina come un libro</item>
+    <item name="default">Standard</item>
+    <item name="up_down">Skub ned/op</item>
+    <item name="corner">Flyt til/fra hjørne</item>
+    <item name="book">Åbn/luk side som i en bog</item>
   </string-array>
   <string-array name="animations_values">
     <item name="default" translatable="false">0</item>

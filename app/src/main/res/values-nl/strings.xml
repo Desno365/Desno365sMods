@@ -24,8 +24,6 @@
   <string name="share_body">Ik gebruik de \"Desno365\'s Mods app voor het downloaden van Leuke en Goeie Minecraft pocket edition Mods. Nu ook in het Nederlands.
 http://bit.ly/DesnoMods </string>
   <string name="action_feedback">Commentaar</string>
-  <string name="feedback_toast">Vertel wat je van onze app vindt. geef een reactie op 
-minecraftforum.net</string>
   <string name="action_rate">Beoordeel deze app</string>
   <string name="action_settings">instellingen</string>
   <string name="close_dialog">Sluiten</string>
@@ -40,11 +38,13 @@ minecraftforum.net</string>
   <string name="info_title">Informatie</string>
   <string name="features_title">Eigenschappen</string>
   <string name="updates_title">Updates</string>
+  <string name="compatibility_title">Compatibility</string>
   <string name="changelog_title">Veranderd</string>
   <string name="useful_links_title">Handige Links</string>
   <string name="loading">Laden...</string>
   <string name="mods">Mods</string>
   <string name="latest_version_is">De laatste versie is:</string>
+  <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
   <string name="internet_error">Er is een Fout opgetreden. U kunt deze versie nu niet Updaten. Controleer uw internet verbinding.</string>
   <string name="show_changelog">wat is er allemaal Nieuw</string>
   <string name="hide_changelog">Verberg dit stuk tekst</string>
@@ -56,6 +56,9 @@ minecraftforum.net</string>
   <string name="welcome_title">Welkom Bezoeker</string>
   <string name="welcome_content">Welkom Bezoeker. Dit is de Desno365 Mods App.
 hier kunt u de laatste mods vinden en natuurlijk wat er nieuw is.</string>
+  <string name="minecraft_version_title">MCPE version</string>
+  <string name="minecraft_version_content">Installed version: Minecraft PE %1$s</string>
+  <string name="minecraft_not_installed">Minecraft PE not installed</string>
   <string name="news_title">Nieuws</string>
   <string name="news_button">Naar de nieuws pagina</string>
   <string name="need_help_title">Heeft u Hulp Nodig?</string>
@@ -103,6 +106,9 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="help_translating_title">Help mij met vertalen!</string>
   <string name="help_translating_summary">Samenwerken aan dit project en help met het vertalen van deze app</string>
   <string name="customization_settings">Aanpassingen</string>
+  <string name="themes_title">Thema</string>
+  <string name="themes_summary">Selecteer het thema voor de App</string>
+  <string name="restart_text_popup">de app moet worden herstart als u het Thema wilt wijzigen.</string>
   <string name="animations_title">Animaties</string>
   <string name="animations_summary">Selecteer de app animaties</string>
   <string name="help_settings">Tips en Hulp</string>
@@ -117,8 +123,7 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="notification_download">Download</string>
   <string name="show_news" tools:ignore="UnusedResources">Bekijk al het nieuws.</string>
   <string name="hide_news" tools:ignore="UnusedResources">Verberg \"het Nieuws\"</string>
-  <string name="themes_title" tools:ignore="UnusedResources">Thema</string>
-  <string name="themes_summary" tools:ignore="UnusedResources">Selecteer het thema voor de App</string>
-  <string name="restart_text_popup" tools:ignore="UnusedResources">de app moet worden herstart als u het Thema wilt wijzigen.</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Klik twee keer om de afbeelding te vergroten.</string>
+  <string name="feedback_toast" tools:ignore="UnusedResources">Vertel wat je van onze app vindt. geef een reactie op 
+minecraftforum.net</string>
 </resources>

@@ -16,7 +16,7 @@
   ~ limitations under the License.
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <string name="action_refresh">actualiser</string>
+  <string name="action_refresh">Rafraîchire</string>
   <string name="action_info">À Propos</string>
   <string name="action_help">Aide</string>
   <string name="action_share">Partager</string>
@@ -25,7 +25,6 @@
 
 </string>
   <string name="action_feedback">Commentaires</string>
-  <string name="feedback_toast">Dites-moi de quoi vous pensez de cette app sur le fil de minecraftforum.net</string>
   <string name="action_rate">Noter cette application</string>
   <string name="action_settings">Paramètres</string>
   <string name="close_dialog">Fermer</string>
@@ -33,34 +32,39 @@
   <string name="follow_me">Suivez-moi sur Twitter</string>
   <string name="source_code">Obtenez le code-source de cet app</string>
   <string name="support_me">\n Vous avez une idée sur la façon d\'améliorer cette apps? \nContactez moi sur Twitter! \n\n Si vous souhaitez me soutenir, s\'il vous plaît notez l\'apps 5 étoiles sur le play store de Google. Cela va m\'aider à faire de nouveaux mods fantastiques ! Merci:)</string>
-  <string name="take_me_play_store">Prenez-moi au Play Store</string>
+  <string name="take_me_play_store">Télécharger moi au Play Store</string>
   <string name="contributors_title">Donateurs</string>
   <string name="contributors_content">Un grand merci à tout ce qui ont contribuer au projet, en le traduisant ou en m\'aidant! Voici la liste des gens qui on contribué: http://desno365.github.io/minecraft/desno365-mods-app/credits/
 
 </string>
   <string name="used_libraries_title">Utilisé avec des bibliothèques et des images</string>
-  <string name="info_title">Information</string>
+  <string name="info_title">Informations</string>
   <string name="features_title">Fonctionnalités</string>
   <string name="updates_title">Mises à jour</string>
+  <string name="compatibility_title">Compatibility</string>
   <string name="changelog_title">Historique des changements</string>
   <string name="useful_links_title">Liens utiles</string>
-  <string name="loading">Loading&#8230;</string>
+  <string name="loading">Chargement&#8230;</string>
   <string name="mods">Mods</string>
   <string name="latest_version_is">La dernière version est :</string>
+  <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
   <string name="internet_error">Il y a eu une erreur pour vérifier les mises à jours, s\'il vous plaît vérifiez votre connexion internet.</string>
   <string name="show_changelog">Montrer tout les changements...</string>
   <string name="hide_changelog">Cacher les changements</string>
   <string name="minecraft_thread">Thread minecraftforum.net</string>
-  <string name="instruction_for_installing">Read the instructions for installing</string>
+  <string name="instruction_for_installing">Lire les instructions pour installer</string>
   <string name="installation_video_tutorial">Regarder le tutoriel d\'installation</string>
   <string name="download_mod_from_website">Télécharger ce mod depuis le site de Desno</string>
   <string name="download_map_from_website">Télécharger cette carte depuis le site de Desno</string>
   <string name="welcome_title">Bienvenue</string>
   <string name="welcome_content">Bienvenu dans l\'application des Mods de Desno365.\nIci vous pourrez vérifier les dernières version et les changements de tout mes mods.</string>
+  <string name="minecraft_version_title">MCPE version</string>
+  <string name="minecraft_version_content">Installed version: Minecraft PE %1$s</string>
+  <string name="minecraft_not_installed">Minecraft PE not installed</string>
   <string name="news_title">Informations</string>
-  <string name="news_button">Take me to the news page</string>
+  <string name="news_button">Aller à la page d\'actualités</string>
   <string name="need_help_title">Besoin d\'aide ?</string>
-  <string name="help_button">Prenez-moi pour aider la page</string>
+  <string name="help_button">Aller à la page d\'aide</string>
   <string name="click_image_to_view">Clickez sur n\'importe quelle image dans cette page pour la voir en entier.</string>
   <string name="zoom_image_showcase_title">Zoomer sur l\'image</string>
   <string name="what_you_need_title">Pourquoi avez-vous besoin des mods</string>
@@ -68,7 +72,7 @@
   <string name="get_it_store">Obtenez-le sur le Play Store</string>
   <string name="how_to_prepare_mods_title">Comment préparer les mods</string>
   <string name="how_to_prepare_mods_download">D\'abords téléchargez le mod que vous voulez utiliser. Pour le télécharger le mod vous pouvez appuyez sur \"Télécharger le mod depuis le site de Desno\"pour aller sur le sit web où vous pourrez télécharger le mod, souvenez-vous de bien lire la section\"Instructions\"  dans le site (lez mods ont une installations différente).</string>
-  <string name="how_to_prepare_mods_file_manager">Normalement les mods sont dans un fichier zip donc vous devrez avoir besoin d\'un gestionnaire de fichiers pour l\'extraire (il y en a plent sur le Google Play Store).</string>
+  <string name="how_to_prepare_mods_file_manager">Normalement les mods sont dans un fichier zip donc vous devrez avoir besoin d\'un gestionnaire de fichiers pour l\'extraire (il y en a beaucoup sur le Google Play Store).</string>
   <string name="get_one_store">Obtenez-en un sur le Play Store</string>
   <string name="how_to_prepare_mods_extract">Extraire est vraiment facile: vous devez allez dans le dossier \"Download\" avec votre gestionnaire de fichiers, cliquez sur le fichier .zip qui contient tout ce dont vous avez besoin pour utiliser le mod (d\'habitude l\'icone du .zip est une archive) et pour l\'extraire.</string>
   <string name="how_to_prepare_mods_after_extraction">C\'est un exemple du zip du mod Portal 2 après l\'extraction:</string>
@@ -91,20 +95,23 @@
   <string name="connection_settings">Connexion</string>
   <string name="refresh_on_start_title">Actualiser au démarrage</string>
   <string name="refresh_on_start_summary">Actualiser le contenu au démarrage de l\'application</string>
-  <string name="updates_settings">Mises à jour et les notifications</string>
-  <string name="notification_bool_mods_title">Notifications for mods updates</string>
-  <string name="notification_bool_mods_summary">Receive notifications for new mods updates</string>
-  <string name="notification_bool_news_title">Notifications for news</string>
-  <string name="notification_bool_news_summary">Receive notifications for news</string>
+  <string name="updates_settings">Mises à jour et notifications</string>
+  <string name="notification_bool_mods_title">Notifications des mises à jour de mods</string>
+  <string name="notification_bool_mods_summary">Recevoir des notifications pour les nouvelles mises à jour des mods</string>
+  <string name="notification_bool_news_title">Notifications pour les nouvelles</string>
+  <string name="notification_bool_news_summary">Recevoir des notifications pour les nouvelles</string>
   <string name="pref_sync_frequency_title">Fréquence des recherche de mise a jour</string>
-  <string name="pref_sync_frequency_summary">Set the frequency for checking updates</string>
+  <string name="pref_sync_frequency_summary">Régler la fréquence de vérification des mises à jour</string>
   <string name="language_settings">Langue</string>
   <string name="language_title">Définir la langue</string>
   <string name="language_summary">Sélectionnez la langue de l\'application</string>
-  <string name="restart_text_language_popup">L\'application doit être redémarré pour que le changement de langue sois pris en compte.\n\nATTENTION : langues personnalisés ne sont pas exactes.</string>
+  <string name="restart_text_language_popup">L\'application doit être redémarré pour que le changement de langue sois pris en compte.\n\nATTENTION: les langues personnalisés ne sont pas exactes.</string>
   <string name="help_translating_title">Aidez-nous à traduire</string>
   <string name="help_translating_summary">Collaborer à ce projet et aider à traduire l\'app</string>
   <string name="customization_settings">Personnalisation</string>
+  <string name="themes_title">Thème</string>
+  <string name="themes_summary">Sélectionnez le thème de l\'application</string>
+  <string name="restart_text_popup">L\'application doit être redémarré pour que le changement de thème sois pris en compte.</string>
   <string name="animations_title">Animations</string>
   <string name="animations_summary">Sélectionnez les animations de l\'application</string>
   <string name="help_settings">Conseils et aide</string>
@@ -114,13 +121,11 @@
   <string name="notification_new_version_title">Nouvelle version trouvée</string>
   <string name="notification_new_version_content1">Une nouvelle version de la</string>
   <string name="notification_new_version_content2">A été trouvée</string>
-  <string name="notification_unread_news">There are unread news</string>
-  <string name="notification_thread">Fil</string>
+  <string name="notification_unread_news">Il y a des nouvelles non lus</string>
+  <string name="notification_thread">Fil de discussion</string>
   <string name="notification_download">Téléchargement</string>
   <string name="show_news" tools:ignore="UnusedResources">Afficher toutes les infos&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Masquer les infos&#8230;</string>
-  <string name="themes_title" tools:ignore="UnusedResources">Thème</string>
-  <string name="themes_summary" tools:ignore="UnusedResources">Sélectionnez le thème de l\'application</string>
-  <string name="restart_text_popup" tools:ignore="UnusedResources">L\'application doit être redémarré pour que le changement de thème sois pris en compte.</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pincez ou tapez deux fois sur l\'écran pour zoomer l\'image</string>
+  <string name="feedback_toast" tools:ignore="UnusedResources">Dites-moi de quoi vous pensez de cette app sur le fil de minecraftforum.net</string>
 </resources>
