@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
 import android.util.Log;
@@ -33,7 +34,7 @@ import com.desno365.mods.R;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 
-public class ZoomImageActivity extends Activity {
+public class ZoomImageActivity extends AppCompatActivity {
 
 	private static final String TAG = "DesnoMods-ZoomImageActi";
 
@@ -46,8 +47,8 @@ public class ZoomImageActivity extends Activity {
 		Log.i(TAG, "Activity started (onCreate)");
 		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
-		super.onCreate(savedInstanceState);
 		DesnoUtils.enableTransition(getWindow());
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_zoom_image);
 		setupWindowAnimations();
 

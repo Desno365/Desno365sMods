@@ -45,8 +45,8 @@
   <string name="latest_version_is">A versão mais recente é:</string>
   <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
   <string name="internet_error">Ocorreu um erro durante a verificação de atualizações, por favor, verifique sua conexão de internet.</string>
-  <string name="show_changelog">Mostre o changelog todo...</string>
-  <string name="hide_changelog">Esconda o changelog...</string>
+  <string name="show_changelog">Mostre o changelog todo…</string>
+  <string name="hide_changelog">Esconda o changelog…</string>
   <string name="minecraft_thread">Thread de minecraftforum.net</string>
   <string name="instruction_for_installing">Leia as instruções de instalação</string>
   <string name="installation_video_tutorial">Assista o vídeo tutorial de instalação</string>
@@ -118,8 +118,8 @@
   <string name="notification_unread_news">Há notícias não lidas</string>
   <string name="notification_thread">Tópico</string>
   <string name="notification_download">Descarregar</string>
-  <string name="show_news" tools:ignore="UnusedResources">Mostre todas as notícias...</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Esconda a notícia...</string>
+  <string name="show_news" tools:ignore="UnusedResources">Mostre todas as notícias…</string>
+  <string name="hide_news" tools:ignore="UnusedResources">Esconda a notícia…</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Belisque ou toque duas vezes na tela para ampliar a imagem</string>
   <string name="feedback_toast" tools:ignore="UnusedResources">diga-me o que você acha deste app no segmento de minecraftforum.net</string>
 </resources>

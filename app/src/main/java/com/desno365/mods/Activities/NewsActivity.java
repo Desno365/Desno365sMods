@@ -20,7 +20,7 @@ import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -40,7 +40,7 @@ import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
 
 
-public class NewsActivity extends ActionBarActivity {
+public class NewsActivity extends AppCompatActivity {
 
 	private static final String TAG = "DesnoMods-NewsActivity";
 

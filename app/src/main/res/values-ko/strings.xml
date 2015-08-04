@@ -20,7 +20,7 @@
   <string name="action_info">소개</string>
   <string name="action_help">도움말</string>
   <string name="action_share">공유</string>
-  <string name="share_using">배포 공유...</string>
+  <string name="share_using">배포 공유…</string>
   <string name="share_body">나는 마인크래프트 포켓에디션에 엄청난 모드들을 다운 받기 위해 \"Desno365\'s Mods\" 앱을 쓰고 있어! 확인해 봐.  http://bit.ly/DesnoMods </string>
   <string name="action_feedback">의견</string>
   <string name="action_rate">이 앱 평가하기</string>
@@ -40,13 +40,13 @@
   <string name="compatibility_title">Compatibility</string>
   <string name="changelog_title">변경사항</string>
   <string name="useful_links_title">유용한 링크</string>
-  <string name="loading">로딩중...</string>
+  <string name="loading">로딩중…</string>
   <string name="mods">모드들</string>
   <string name="latest_version_is">최신 버전은:</string>
   <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
   <string name="internet_error">업데이트를 확인하는 동안 오류가 발생했습니다, 귀하의 인터넷 연결을 확인해 주십시오.</string>
-  <string name="show_changelog">모든 변경사항 보기...</string>
-  <string name="hide_changelog">변경사항 숨기기...</string>
+  <string name="show_changelog">모든 변경사항 보기…</string>
+  <string name="hide_changelog">변경사항 숨기기…</string>
   <string name="minecraft_thread">minecraftforum.net 스레드</string>
   <string name="instruction_for_installing">설치 설명서 읽기</string>
   <string name="installation_video_tutorial">비디오 튜토리얼 시청</string>
@@ -118,8 +118,8 @@
   <string name="notification_unread_news">읽지 않은 뉴스가 있습니다!</string>
   <string name="notification_thread">스레드</string>
   <string name="notification_download">다운로드</string>
-  <string name="show_news" tools:ignore="UnusedResources">모든 소식 보기...</string>
-  <string name="hide_news" tools:ignore="UnusedResources">소식 숨기기...</string>
+  <string name="show_news" tools:ignore="UnusedResources">모든 소식 보기…</string>
+  <string name="hide_news" tools:ignore="UnusedResources">소식 숨기기…</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">이미지를 확대하려면 두 손가락으로 확대하거나 화면을 두 번 탭</string>
   <string name="feedback_toast" tools:ignore="UnusedResources">이 앱이 minecraftforum.net 스레드에 올라가 있는 것이 어떤지 말해주세요.</string>
 </resources>

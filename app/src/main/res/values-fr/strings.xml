@@ -49,7 +49,7 @@
   <string name="latest_version_is">La dernière version est :</string>
   <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
   <string name="internet_error">Il y a eu une erreur pour vérifier les mises à jours, s\'il vous plaît vérifiez votre connexion internet.</string>
-  <string name="show_changelog">Montrer tout les changements...</string>
+  <string name="show_changelog">Montrer tout les changements…</string>
   <string name="hide_changelog">Cacher les changements</string>
   <string name="minecraft_thread">Thread minecraftforum.net</string>
   <string name="instruction_for_installing">Lire les instructions pour installer</string>

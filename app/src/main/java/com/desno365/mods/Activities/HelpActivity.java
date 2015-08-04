@@ -25,6 +25,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -38,7 +39,7 @@ import com.desno365.mods.SharedConstants.Keys;
 import it.sephiroth.android.library.tooltip.TooltipManager;
 
 
-public class HelpActivity extends Activity {
+public class HelpActivity extends AppCompatActivity {
 
 	private static final String TAG = "DesnoMods-HelpActivity";
 
@@ -51,8 +52,8 @@ public class HelpActivity extends Activity {
 		Log.i(TAG, "Activity started (onCreate)");
 		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
-		super.onCreate(savedInstanceState);
 		DesnoUtils.enableTransition(getWindow());
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_help);
 
 		activity = this;

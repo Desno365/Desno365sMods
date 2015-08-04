@@ -20,7 +20,7 @@
   <string name="action_info">О приложении</string>
   <string name="action_help">Помощь</string>
   <string name="action_share">Поделиться</string>
-  <string name="share_using">Поделиться с помощью...</string>
+  <string name="share_using">Поделиться с помощью…</string>
   <string name="share_body">Я использую приложение «Desno365\'s Mods» для того чтобы загружать и использовать некоторые невероятные моды Minecraft Pocket Edition! Скачать http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Обратная связь</string>
   <string name="action_rate">Оцените это приложение</string>
@@ -45,8 +45,8 @@
   <string name="latest_version_is">В последней версии:</string>
   <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
   <string name="internet_error">Произошла ошибка при проверке наличия обновлений, проверьте подключение к Интернету.</string>
-  <string name="show_changelog">Просмотр всех изменений...</string>
-  <string name="hide_changelog">Скрыть список изменений...</string>
+  <string name="show_changelog">Просмотр всех изменений…</string>
+  <string name="hide_changelog">Скрыть список изменений…</string>
   <string name="minecraft_thread">minecraftforum.net thread</string>
   <string name="instruction_for_installing">Прочитайте инструкцию по установке</string>
   <string name="installation_video_tutorial">Посмотрите видео-гайд по установке</string>
@@ -118,8 +118,8 @@
   <string name="notification_unread_news">Есть непрочитанные новости</string>
   <string name="notification_thread">Ветка</string>
   <string name="notification_download">Скачать</string>
-  <string name="show_news" tools:ignore="UnusedResources">Показать все новости...</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Скрыть новости...</string>
+  <string name="show_news" tools:ignore="UnusedResources">Показать все новости…</string>
+  <string name="hide_news" tools:ignore="UnusedResources">Скрыть новости…</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Растяни или нажите дважды на экран, чтобы увеличить изображение</string>
   <string name="feedback_toast" tools:ignore="UnusedResources">Скажите, что вы думаете об этом приложении на ветке minecraftforum.net</string>
 </resources>

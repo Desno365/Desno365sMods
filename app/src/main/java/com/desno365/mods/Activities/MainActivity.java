@@ -31,14 +31,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,7 +60,7 @@ import com.desno365.mods.Tabs.FragmentTab1;
 import java.lang.reflect.Method;
 
 
-public class MainActivity extends ActionBarActivity implements MainNavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends AppCompatActivity implements MainNavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	public static final String TAG = "DesnoMods-MainActivity";
 
@@ -88,6 +87,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 
 
 	@SuppressLint("CommitPrefEdits")
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "APP LAUNCHED!");
 		DesnoUtils.setSavedTheme(this);
@@ -201,9 +201,9 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 	}
 
 	@Override
-	public boolean onMenuOpened(int featureId, Menu menu) {
+	public boolean onPrepareOptionsPanel(View view, Menu menu) {
 		//add icons near menu items
-		if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
+		if (menu != null) {
 			if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
 				try {
 					Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
@@ -216,7 +216,7 @@ public class MainActivity extends ActionBarActivity implements MainNavigationDra
 				}
 			}
 		}
-		return super.onMenuOpened(featureId, menu);
+		return super.onPrepareOptionsPanel(view, menu);
 	}
 
 	@Override

@@ -17,7 +17,8 @@
 
 <TextView
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/navigation_drawer_item_title"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_drawer_item_title"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:textAppearance="?android:attr/textAppearanceListItemSmall"
@@ -28,4 +29,5 @@
 	android:minHeight="?android:attr/listPreferredItemHeightSmall"
 	android:textColor="@color/white"
 	android:singleLine="true"
-	android:ellipsize="end" />
+	android:ellipsize="end"
+    tools:ignore="RtlHardcoded" />

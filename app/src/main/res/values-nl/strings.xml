@@ -41,7 +41,7 @@ http://bit.ly/DesnoMods </string>
   <string name="compatibility_title">Compatibility</string>
   <string name="changelog_title">Veranderd</string>
   <string name="useful_links_title">Handige Links</string>
-  <string name="loading">Laden...</string>
+  <string name="loading">Laden…</string>
   <string name="mods">Mods</string>
   <string name="latest_version_is">De laatste versie is:</string>
   <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
@@ -89,7 +89,7 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="features_content_tab4">Maak een \"Turrent\" and plaats het waar je wilt. Gebruik de \"Turrent options\" en het zal elke mob doden die in de buurt komt. Turrent is een soort toren die op alles zal schieten wat je hebt aangewezen. Ook kun je je huis beschermen tegen je vrienden ;)</string>
   <string name="features_content_tab5">- Er zijn 12 cd\'s met 12 verschillende lieden. Dit Ding is al bekend op minecraft Pc. de CD speler. Door er op te klikken met een cd zal het de cd spler het lied afspelen. hoe langer de afstand van de cd speler hoe lager het volume. Ook kunnen er meerdere cd\'s op hetzelfde moment worden afgespeeld. Ook kan een cd in survival worden gevonden door een vijandige mob te doden. De kans is 1/30 dat deze een cd zal uitwerpen. Als u nog een keer op de cd speler klikt zal het lied stoppen. Ook als het afgelopen is werpt de cd zich zelf uit. u kunt de blokken in de creative inventory vinden. Het maken van een cd speler werkt hetzelfde als op de PC versie</string>
   <string name="info_content_tab7">Deze minecraft custom map moet worden gekoppeld met een mod. De Non-Euclidean geometry mod is een onlogisch verschijnsel. Die niet te verklaren zijn in de werkelijkheid. Waneer je door binnenkomt zul je rechts een muur zien. Links kun je doorlopen en een rondje maken. Maar de muur is opeens verdwenen. Onverklaarbaar? Bekijk anders de video.</string>
-  <string name="connection_settings">Verbinding...</string>
+  <string name="connection_settings">Verbinding…</string>
   <string name="refresh_on_start_title">vernieuw van Start</string>
   <string name="refresh_on_start_summary">Vernieuw de inhoud van de app</string>
   <string name="updates_settings">nieuwe updates en Meldingen</string>
