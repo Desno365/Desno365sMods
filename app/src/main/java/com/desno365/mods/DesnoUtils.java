@@ -26,12 +26,15 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.transition.AutoTransition;
@@ -209,6 +212,27 @@ public class DesnoUtils {
 		ViewGroup.LayoutParams params = view.getLayoutParams();
 		params.height = height;
 		view.setLayoutParams(params);
+	}
+
+	public static void showDefaultSnackbar(View parent, int text) {
+		showDefaultSnackbar(parent, text, Snackbar.LENGTH_SHORT);
+	}
+
+	public static void showDefaultSnackbar(View parent, int text, int duration) {
+		Snackbar snack = Snackbar.make(parent, text, duration);
+
+		// make text white
+		View view = snack.getView();
+		TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
+		tv.setTextColor(Color.WHITE);
+
+		// set background color
+		TypedArray a = parent.getContext().getTheme().obtainStyledAttributes(new int[]{ R.attr.color_primary_dark });
+		int color1 = a.getColor(0, 0);
+		a.recycle();
+		view.setBackgroundColor(color1);
+
+		snack.show();
 	}
 
 

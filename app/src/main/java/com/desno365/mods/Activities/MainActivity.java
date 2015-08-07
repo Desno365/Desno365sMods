@@ -711,7 +711,7 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 			} else {
 				runOnUiThread(new Runnable() {
 					public void run() {
-						Toast.makeText(activity.getApplicationContext(), getResources().getString(R.string.internet_error), Toast.LENGTH_SHORT).show();
+						DesnoUtils.showDefaultSnackbar(activity.findViewById(R.id.coordinator_main), R.string.internet_error, 2000);
 					}
 				});
 			}

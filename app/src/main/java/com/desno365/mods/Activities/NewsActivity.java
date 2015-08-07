@@ -31,7 +31,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.NewsCard;
@@ -349,7 +348,7 @@ public class NewsActivity extends AppCompatActivity {
 				findViewById(R.id.news_error_loading_text).setVisibility(View.VISIBLE);
 				runOnUiThread(new Runnable() {
 					public void run() {
-						Toast.makeText(activity.getApplicationContext(), getResources().getString(R.string.internet_error), Toast.LENGTH_SHORT).show();
+						DesnoUtils.showDefaultSnackbar(activity.findViewById(R.id.scroll_news), R.string.internet_error);
 					}
 				});
 			}

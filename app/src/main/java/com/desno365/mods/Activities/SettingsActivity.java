@@ -214,7 +214,7 @@ public class SettingsActivity extends AppCompatActivity {
 					editor.putBoolean("user_understood_full_resolution_help", false);
 					editor.apply();
 
-					Toast.makeText(activity.getApplicationContext(), getString(R.string.restored_toast), Toast.LENGTH_SHORT).show();
+					DesnoUtils.showDefaultSnackbar(activity.findViewById(R.id.fragment_container_preference), R.string.restored_toast);
 					return false;
 				}
 			});
