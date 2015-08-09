@@ -54,6 +54,7 @@ import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
+import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.Tabs.FragmentTab1;
 import com.google.android.gms.analytics.Tracker;
@@ -190,16 +191,16 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 		if (sharedPrefs.getBoolean("is_first_launch", true)) {
 			// first launch, the app has never been launched before
 			SharedPreferences.Editor editor = sharedPrefs.edit();
-			editor.putBoolean("refresh_on_start", true);
-			editor.commit();
 			editor.putBoolean("is_first_launch", false);
-			editor.putBoolean("notification_bool_mods", true);
-			editor.putBoolean("notification_bool_news", true);
+
+			editor.putBoolean("refresh_on_start", DefaultSettingsValues.REFRESH_ON_START);
+			editor.putBoolean("notification_bool_mods", DefaultSettingsValues.NOTIFICATIONS_MODS);
+			editor.putBoolean("notification_bool_news", DefaultSettingsValues.NOTIFICATIONS_NEWS);
 			editor.putString("sync_frequency", "4");
 			editor.putString("selected_language", "not_changed");
 			editor.putString("selected_theme", "0");
 			editor.putString("selected_animations", "0");
-			editor.putBoolean("anonymous_statistics", true);
+			editor.putBoolean("anonymous_statistics", DefaultSettingsValues.ANONYMOUS_STATISTICS);
 			editor.putBoolean("user_understood_full_resolution_help", false);
 			editor.apply();
 			Log.i(TAG, "First launch");
@@ -241,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 
 		//refresh content on start
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		if (sharedPrefs.getBoolean("refresh_on_start", true)) {
+		if (sharedPrefs.getBoolean("refresh_on_start", DefaultSettingsValues.REFRESH_ON_START)) {
 			new android.os.Handler().postDelayed(new Runnable() {
 				public void run() {
 					runOnUiThread(new Runnable() {

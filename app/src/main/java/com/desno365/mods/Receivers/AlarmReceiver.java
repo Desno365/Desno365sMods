@@ -27,6 +27,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.Keys;
 
 
@@ -52,8 +53,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 			Log.i(TAG, "Alarm running now: checking updates with AsyncTask");
 
 			SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(currentContext);
-			notificationModsBool = sharedPreferences.getBoolean("notification_bool_mods", true);
-			notificationNewsBool = sharedPreferences.getBoolean("notification_bool_news", true);
+			notificationModsBool = sharedPreferences.getBoolean("notification_bool_mods", DefaultSettingsValues.NOTIFICATIONS_MODS);
+			notificationNewsBool = sharedPreferences.getBoolean("notification_bool_news", DefaultSettingsValues.NOTIFICATIONS_NEWS);
 
 			if (notificationModsBool || notificationNewsBool) {
 				Log.i(TAG, "Alarm: " + ((notificationModsBool) ? "Checking mods updates. " : "NOT checking mods updates. ") + ((notificationNewsBool) ? "Checking news." : "NOT checking news."));
@@ -71,8 +72,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 	public void setAlarm(Context context) {
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-		notificationModsBool = sharedPreferences.getBoolean("notification_bool_mods", true);
-		notificationNewsBool = sharedPreferences.getBoolean("notification_bool_news", true);
+		notificationModsBool = sharedPreferences.getBoolean("notification_bool_mods", DefaultSettingsValues.NOTIFICATIONS_MODS);
+		notificationNewsBool = sharedPreferences.getBoolean("notification_bool_news", DefaultSettingsValues.NOTIFICATIONS_NEWS);
 
 		if (notificationModsBool || notificationNewsBool) {
 			Log.i(TAG, "Alarm set. notification_bool_mods " + notificationModsBool + ", notification_bool_news " + notificationNewsBool);

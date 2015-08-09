@@ -36,6 +36,7 @@ import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
+import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.SharedVariables.SharedVariables;
 import com.google.android.gms.analytics.Tracker;
@@ -149,9 +150,9 @@ public class SettingsActivity extends AppCompatActivity {
 			Preference restoreTipsPreference = findPreference("restore_tips");
 			Preference anonymousStatisticsPreference = findPreference("anonymous_statistics");
 
-			monitorNotificationModsPreference = sharedPrefs.getBoolean(notificationModsPreference.getKey(), true);
-			monitorNotificationNewsPreference = sharedPrefs.getBoolean(notificationNewsPreference.getKey(), true);
-			monitorAnonymousStatisticsPreference = sharedPrefs.getBoolean(anonymousStatisticsPreference.getKey(), true);
+			monitorNotificationModsPreference = sharedPrefs.getBoolean(notificationModsPreference.getKey(), DefaultSettingsValues.NOTIFICATIONS_MODS);
+			monitorNotificationNewsPreference = sharedPrefs.getBoolean(notificationNewsPreference.getKey(), DefaultSettingsValues.NOTIFICATIONS_NEWS);
+			monitorAnonymousStatisticsPreference = sharedPrefs.getBoolean(anonymousStatisticsPreference.getKey(), DefaultSettingsValues.ANONYMOUS_STATISTICS);
 
 
 			notificationModsPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -228,7 +229,6 @@ public class SettingsActivity extends AppCompatActivity {
 					monitorAnonymousStatisticsPreference = !monitorAnonymousStatisticsPreference;
 
 					SharedVariables.areStatisticsEnabled = monitorAnonymousStatisticsPreference;
-					Log.d(TAG, (SharedVariables.areStatisticsEnabled) ? "Enabled" : "Disabled");
 					return true;
 				}
 			});
