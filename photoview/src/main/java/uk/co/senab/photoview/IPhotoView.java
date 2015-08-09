@@ -116,6 +116,7 @@ public interface IPhotoView {
 
     /**
      * Return the current scale type in use by the ImageView.
+     *      *
      *
      * @return current ImageView.ScaleType
      */
@@ -187,6 +188,16 @@ public interface IPhotoView {
      * @param maximumScale maximum allowed scale preset
      */
     void setMaximumScale(float maximumScale);
+
+    /**
+     * Allows to set all three scale levels at once, so you don't run into problem with setting
+     * medium/minimum scale before the maximum one
+     *
+     * @param minimumScale minimum allowed scale
+     * @param mediumScale  medium allowed scale
+     * @param maximumScale maximum allowed scale preset
+     */
+    void setScaleLevels(float minimumScale, float mediumScale, float maximumScale);
 
     /**
      * Register a callback to be invoked when the Photo displayed by this view is long-pressed.
@@ -328,5 +339,12 @@ public interface IPhotoView {
      *
      * @param newOnDoubleTapListener custom OnDoubleTapListener to be set on ImageView
      */
-    public void setOnDoubleTapListener(GestureDetector.OnDoubleTapListener newOnDoubleTapListener);
+    void setOnDoubleTapListener(GestureDetector.OnDoubleTapListener newOnDoubleTapListener);
+
+    /**
+     * Will report back about scale changes
+     *
+     * @param onScaleChangeListener OnScaleChangeListener instance
+     */
+    void setOnScaleChangeListener(PhotoViewAttacher.OnScaleChangeListener onScaleChangeListener);
 }
