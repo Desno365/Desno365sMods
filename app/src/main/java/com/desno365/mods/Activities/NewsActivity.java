@@ -16,7 +16,6 @@
 
 package com.desno365.mods.Activities;
 
-import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -38,6 +37,7 @@ import com.desno365.mods.NewsCard;
 import com.desno365.mods.NewsSwipeRefreshLayout;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
+import com.desno365.mods.SharedConstants.SharedConstants;
 import com.google.android.gms.analytics.Tracker;
 
 
@@ -45,9 +45,7 @@ public class NewsActivity extends AppCompatActivity {
 
 	private static final String TAG = "DesnoMods-NewsActivity";
 
-	private final int SHAPELOADINGVIEW_MIN_TIME_DISPLAYING = 500;
-
-	public static Activity activity;
+	public static AppCompatActivity activity;
 	private Toolbar toolbar;
 	private Menu optionsMenu;
 	private NewsSwipeRefreshLayout swipeLayout;
@@ -324,11 +322,11 @@ public class NewsActivity extends AppCompatActivity {
 					long time = (endTime - startTime);
 
 					Log.i(TAG, "Getting news took " + time + " milliseconds");
-					if(firstRefresh && time < SHAPELOADINGVIEW_MIN_TIME_DISPLAYING) {
+					if(firstRefresh && time < SharedConstants.SHAPELOADINGVIEW_MIN_TIME_DISPLAYING) {
 						firstRefresh = false;
 						try {
 							// if necessary the asynctask will stop so the user can see at least the first half second of the animation of the ShapeLoadingView
-							Thread.sleep((SHAPELOADINGVIEW_MIN_TIME_DISPLAYING - time) + 100);
+							Thread.sleep((SharedConstants.SHAPELOADINGVIEW_MIN_TIME_DISPLAYING - time) + 100);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}

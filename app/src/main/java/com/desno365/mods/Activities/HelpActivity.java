@@ -16,8 +16,6 @@
 
 package com.desno365.mods.Activities;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,6 +23,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
@@ -45,7 +44,7 @@ public class HelpActivity extends AppCompatActivity {
 
 	private static final String TAG = "DesnoMods-HelpActivity";
 
-	public static Activity activity;
+	public static AppCompatActivity activity;
 
 	private TooltipManager mTooltip;
 
@@ -57,7 +56,6 @@ public class HelpActivity extends AppCompatActivity {
 		Log.i(TAG, "Activity started (onCreate)");
 		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
-		DesnoUtils.enableTransition(getWindow());
 		super.onCreate(savedInstanceState);
 
 		activity = this;
@@ -194,7 +192,7 @@ public class HelpActivity extends AppCompatActivity {
 
 		if (Build.VERSION.SDK_INT >= 21) {
 			String transitionName = "transitionZoom";
-			ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(this, v, transitionName);
+			ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, v, transitionName);
 			startActivity(i, transitionActivityOptions.toBundle());
 		} else {
 			startActivity(i);

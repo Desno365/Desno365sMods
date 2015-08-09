@@ -29,13 +29,13 @@
 
 	<uk.co.senab.photoview.PhotoView
 		android:id="@+id/iv_photo"
-		android:transitionName="transitionZoom"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:paddingLeft="@dimen/activity_vertical_margin"
 		android:paddingRight="@dimen/activity_vertical_margin"
 		android:paddingTop="@dimen/activity_horizontal_margin"
 		android:paddingBottom="@dimen/activity_horizontal_margin"
+		android:transitionName="transitionZoom"
 		tools:ignore="UnusedAttribute" /> <!-- transitionZoom is used on API level >= 21 -->
 
 </LinearLayout>

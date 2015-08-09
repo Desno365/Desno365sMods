@@ -43,7 +43,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.TextView;
 
 import com.desno365.mods.Activities.MainActivity;
@@ -457,13 +456,6 @@ public class DesnoUtils {
 
 	private static void overrideFinishActivityAnimation(Activity activity, int resId) {
 		activity.overridePendingTransition(R.anim.hold, resId);
-	}
-
-	public static void enableTransition(Window window) {
-		if (Build.VERSION.SDK_INT >= 21) {
-			//enable window content transition
-			window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-		}
 	}
 
 	public static void expandTextView(ViewGroup container, TextView tv) {

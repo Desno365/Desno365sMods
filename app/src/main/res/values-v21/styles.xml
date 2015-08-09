@@ -26,6 +26,9 @@
         <!-- API 21 theme customizations can go here. -->
 
         <item name="android:navigationBarColor">?attr/color_primary</item>
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 
 </resources>

@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 
 	public static final String TAG = "DesnoMods-MainActivity";
 
-	public static Activity activity;
+	public static AppCompatActivity activity;
 
 	public static String newsString;
 

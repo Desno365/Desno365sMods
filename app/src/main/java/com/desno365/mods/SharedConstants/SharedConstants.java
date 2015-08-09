@@ -22,6 +22,6 @@ public class SharedConstants {
 
 	public static final int CHANGELOG_ANIMATION_DURATION_PER_LINE = 10; // collapse/expand animations
 
-	public static final int ANIMATION_DURATION_EXPLODE = 750;
+	public static final int SHAPELOADINGVIEW_MIN_TIME_DISPLAYING = 500;
 
 }

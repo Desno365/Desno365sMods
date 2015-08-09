@@ -16,15 +16,11 @@
 
 package com.desno365.mods.Activities;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -40,7 +36,7 @@ public class ZoomImageActivity extends AppCompatActivity {
 
 	private static final String TAG = "DesnoMods-ZoomImageActi";
 
-	public static Activity activity;
+	public static AppCompatActivity activity;
 
 	private PhotoViewAttacher mAttacher;
 
@@ -49,13 +45,11 @@ public class ZoomImageActivity extends AppCompatActivity {
 		Log.i(TAG, "Activity started (onCreate)");
 		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
-		DesnoUtils.enableTransition(getWindow());
 		super.onCreate(savedInstanceState);
 
 		activity = this;
 
 		setContentView(R.layout.activity_zoom_image);
-		setupWindowAnimations();
 
 
 
@@ -73,7 +67,7 @@ public class ZoomImageActivity extends AppCompatActivity {
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				activity.finish();
+				activity.supportFinishAfterTransition();
 				DesnoUtils.changeFinishAnimations(activity);
 			}
 		});
@@ -145,28 +139,8 @@ public class ZoomImageActivity extends AppCompatActivity {
 
 	@Override
 	public void onBackPressed() {
-		this.finish();
+		supportFinishAfterTransition();
 		DesnoUtils.changeFinishAnimations(activity);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			// Respond to the action bar's Up/Home button
-			case android.R.id.home:
-				this.finish();
-				DesnoUtils.changeFinishAnimations(activity);
-				return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	private void setupWindowAnimations() {
-		if (Build.VERSION.SDK_INT >= 21) {
-			Explode explode = new Explode();
-			explode.setDuration(750);
-			getWindow().setEnterTransition(explode);
-		}
 	}
 
 }

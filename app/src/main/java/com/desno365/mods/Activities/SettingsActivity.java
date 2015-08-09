@@ -16,7 +16,6 @@
 
 package com.desno365.mods.Activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
@@ -45,7 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
 
 	private static final String TAG = "DesnoMods-SettingsActiv";
 
-	public static Activity activity;
+	public static AppCompatActivity activity;
 
 	// analytics tracker
 	private static Tracker mTracker;

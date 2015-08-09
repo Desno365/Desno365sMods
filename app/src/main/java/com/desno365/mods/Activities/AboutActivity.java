@@ -16,7 +16,6 @@
 
 package com.desno365.mods.Activities;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -42,7 +41,7 @@ public class AboutActivity extends AppCompatActivity {
 
 	private static final String TAG = "DesnoMods-AboutActivity";
 
-	public static Activity activity;
+	public static AppCompatActivity activity;
 
 	// analytics tracker
 	private Tracker mTracker;
