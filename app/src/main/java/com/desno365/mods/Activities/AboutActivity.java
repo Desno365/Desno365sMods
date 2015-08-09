@@ -29,9 +29,11 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.Random;
 
@@ -42,15 +44,28 @@ public class AboutActivity extends AppCompatActivity {
 
 	public static Activity activity;
 
+	// analytics tracker
+	private Tracker mTracker;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
 		DesnoUtils.setSavedTheme(this);
 		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_about);
 
 		activity = this;
+
+		setContentView(R.layout.activity_about);
+
+
+
+		// Starting Google Analytics
+		AnalyticsApplication application = (AnalyticsApplication) getApplication();
+		mTracker = application.getDefaultTracker();
+
+		// Send screen change
+		DesnoUtils.sendScreenChange(mTracker, "AboutActivity");
 
 		// Set up the action bar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_about); // Attaching the layout to the toolbar object
@@ -87,7 +102,7 @@ public class AboutActivity extends AppCompatActivity {
 				anim.playOn(findViewById(R.id.textview_made_by));
 
 			}
-		}, 400);
+		}, 300);
 
 	}
 
@@ -127,11 +142,13 @@ public class AboutActivity extends AppCompatActivity {
 			// twitter image and text
 			case R.id.twitter_layout:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
+				DesnoUtils.sendAction(mTracker, "Twitter-follow");
 				break;
 
 			// github image and text
 			case R.id.github_layout:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_GITHUB)));
+				DesnoUtils.sendAction(mTracker, "Github-source-code");
 				break;
 
 			// google play image and text
@@ -144,6 +161,8 @@ public class AboutActivity extends AppCompatActivity {
 					//play store not installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
 				}
+				DesnoUtils.sendAction(mTracker, "Rate-app~about");
+				break;
 		}
 	}
 }

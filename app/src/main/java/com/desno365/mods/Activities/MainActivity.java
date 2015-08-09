@@ -42,6 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.MainNavigationDrawerFragment;
 import com.desno365.mods.MainSwipeRefreshLayout;
@@ -56,6 +57,7 @@ import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
 import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.Tabs.FragmentTab1;
+import com.google.android.gms.analytics.Tracker;
 
 import java.lang.reflect.Method;
 
@@ -85,6 +87,9 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 	// ads after the click of a button
 	private boolean displayAdAtResume = false;
 
+	// analytics tracker
+	private Tracker mTracker;
+
 
 	@SuppressLint("CommitPrefEdits")
 	@Override
@@ -109,11 +114,12 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 		setContentView(R.layout.activity_main);
 
 
-		// Create the adapter that will return a fragment for each of the three primary sections
-		// of the app.
-		mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
 
-		// Set up the action bar.
+		// Starting Google Analytics
+		AnalyticsApplication application = (AnalyticsApplication) getApplication();
+		mTracker = application.getDefaultTracker();
+
+		// Set up the ToolBar.
 		toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
 		setSupportActionBar(toolbar); // Setting toolbar as the ActionBar with setSupportActionBar() call
 
@@ -130,6 +136,9 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 		int color2 = a.getColor(1, 0);
 		a.recycle();
 		swipeLayout.setColorSchemeColors(color1, color2);
+
+		// Create the adapter that will return a fragment for each section of the app.
+		mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
 
 		// Set up the ViewPager and attaching the adapter
 		mViewPager = (ViewPager) findViewById(R.id.fragment_container);
@@ -164,6 +173,9 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 				// close drawer
 				if (mNavigationDrawerFragment.isDrawerOpen())
 					MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
+
+				// analytics
+				DesnoUtils.sendScreenChange(mTracker, mAppSectionsPagerAdapter.getPageTitle(position).toString());
 			}
 		});
 
@@ -220,6 +232,99 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 	}
 
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_main_activity, menu);
+
+		//refresh content on start
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+		if (sharedPrefs.getBoolean("refresh_on_start", true)) {
+			new android.os.Handler().postDelayed(new Runnable() {
+				public void run() {
+					runOnUiThread(new Runnable() {
+						public void run() {
+							try {
+								startRefreshingAndChecking();
+							} catch (Exception err) {
+								Log.e(TAG, "Exception in runOnUiThread() in onCreate() ", err);
+							}
+						}
+					});
+				}
+			}, 1000);
+		}
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+
+		switch (item.getItemId()) {
+
+			case android.R.id.home:
+				if (mNavigationDrawerFragment.isDrawerOpen())
+					MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
+				else
+					MainNavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
+				return true;
+
+			case R.id.action_info:
+				startActivity(new Intent(this, AboutActivity.class));
+				return true;
+
+			case R.id.action_help:
+				startActivity(new Intent(this, HelpActivity.class));
+				return true;
+
+			case R.id.action_news:
+				startActivity(new Intent(this, NewsActivity.class));
+				return true;
+
+			case R.id.action_share:
+				Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+				sharingIntent.setType("text/plain");
+				sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share_body));
+				startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_using)));
+				DesnoUtils.sendAction(mTracker, "Share");
+				return true;
+
+			case R.id.action_feedback:
+				Intent intent = new Intent(Intent.ACTION_SENDTO);
+				intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+				intent.putExtra(Intent.EXTRA_EMAIL, new String[]{ "desno365@gmail.com" });
+				intent.putExtra(Intent.EXTRA_SUBJECT, "Desno365's Mods feedback");
+				if (intent.resolveActivity(getPackageManager()) != null) {
+					startActivity(intent);
+				}
+				DesnoUtils.sendAction(mTracker, "Feedback");
+				return true;
+
+			case R.id.action_rate:
+				final String appPackageName = getPackageName();
+				try {
+					//play store installed
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+				} catch (android.content.ActivityNotFoundException anfe) {
+					//play store not installed
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+				}
+				DesnoUtils.sendAction(mTracker, "Rate-app");
+				return true;
+
+			case R.id.action_settings:
+				Intent intentSettings = new Intent(this, SettingsActivity.class);
+				startActivity(intentSettings);
+				return true;
+
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+	}
+
+	@Override
 	public void onBackPressed() {
 		if (mNavigationDrawerFragment.isDrawerOpen())
 			MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
@@ -231,6 +336,7 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 	public void onResume() {
 		super.onResume();
 
+		// ads
 		if (displayAdAtResume) {
 			DesnoUtils.showAd();
 			displayAdAtResume = false;
@@ -324,96 +430,6 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main_activity, menu);
-
-		//refresh content on start
-		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		if (sharedPrefs.getBoolean("refresh_on_start", true)) {
-			new android.os.Handler().postDelayed(new Runnable() {
-				public void run() {
-					runOnUiThread(new Runnable() {
-						public void run() {
-							try {
-								startRefreshingAndChecking();
-							} catch (Exception err) {
-								Log.e(TAG, "Exception in runOnUiThread() in onCreate() ", err);
-							}
-						}
-					});
-				}
-			}, 1000);
-		}
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-
-		switch (item.getItemId()) {
-
-			case android.R.id.home:
-				if (mNavigationDrawerFragment.isDrawerOpen())
-					MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
-				else
-					MainNavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
-				return true;
-
-			case R.id.action_info:
-				startActivity(new Intent(this, AboutActivity.class));
-				return true;
-
-			case R.id.action_help:
-				startActivity(new Intent(this, HelpActivity.class));
-				return true;
-
-			case R.id.action_news:
-				startActivity(new Intent(this, NewsActivity.class));
-				return true;
-
-			case R.id.action_share:
-				Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-				sharingIntent.setType("text/plain");
-				sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.share_body));
-				startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_using)));
-				return true;
-
-			case R.id.action_feedback:
-				Intent intent = new Intent(Intent.ACTION_SENDTO);
-				intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-				intent.putExtra(Intent.EXTRA_EMAIL, new String[]{ "desno365@gmail.com" });
-				intent.putExtra(Intent.EXTRA_SUBJECT, "Desno365's Mods feedback");
-				if (intent.resolveActivity(getPackageManager()) != null) {
-					startActivity(intent);
-				}
-				return true;
-
-			case R.id.action_rate:
-				final String appPackageName = getPackageName();
-				try {
-					//play store installed
-					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-				} catch (android.content.ActivityNotFoundException anfe) {
-					//play store not installed
-					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
-				}
-				return true;
-
-			case R.id.action_settings:
-				Intent intentSettings = new Intent(this, SettingsActivity.class);
-				startActivity(intentSettings);
-				return true;
-
-			default:
-				return super.onOptionsItemSelected(item);
-		}
-	}
-
-	@Override
 	public void startActivity(Intent intent) {
 		try {
 			super.startActivity(intent);
@@ -431,7 +447,6 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 		}
 	}
 
-	// refresh TextViews after the content has been refreshed
 	private void refreshTextViews() {
 		activity.runOnUiThread(new Runnable() {
 			public void run() {
@@ -523,57 +538,70 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 			case R.id.minecraft_thread_guns_button:
 				startActivity(MOD_GUNS.getVisitThreadIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Guns");
 				break;
 			case R.id.minecraft_thread_portal_button:
 				startActivity(MOD_PORTAL.getVisitThreadIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Portal");
 				break;
 			case R.id.minecraft_thread_laser_button:
 				startActivity(MOD_LASER.getVisitThreadIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Laser");
 				break;
 			case R.id.minecraft_thread_turrets_button:
 				startActivity(MOD_TURRETS.getVisitThreadIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Turrets");
 				break;
 			case R.id.minecraft_thread_jukebox_button:
 				startActivity(MOD_JUKEBOX.getVisitThreadIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Jukebox");
 				break;
 			case R.id.minecraft_thread_unreal_button:
 				startActivity(MAP_UNREAL.getVisitThreadIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Unreal");
 				break;
 
 			// download from website buttons
 			case R.id.download_guns_button:
 				startActivity(MOD_GUNS.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Download-Guns");
 				break;
 			case R.id.download_portal_button:
 				startActivity(MOD_PORTAL.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Download-Portal");
 				break;
 			case R.id.download_laser_button:
 				startActivity(MOD_LASER.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Download-Laser");
 				break;
 			case R.id.download_turrets_button:
 				startActivity(MOD_TURRETS.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Download-Turrets");
 				break;
 			case R.id.download_jukebox_button:
 				startActivity(MOD_JUKEBOX.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Download-Jukebox");
 				break;
 			case R.id.download_unreal_button:
 				startActivity(MAP_UNREAL.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
+				DesnoUtils.sendAction(mTracker, "Download-Unreal");
 				break;
 
 			// installation video tutorial button
 			case R.id.installation_video_guns_button:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_DESNOGUNS_VIDEO_TUTORIAL)));
+				DesnoUtils.sendAction(mTracker, "Video-Guns");
 				break;
 
 			// start news activity

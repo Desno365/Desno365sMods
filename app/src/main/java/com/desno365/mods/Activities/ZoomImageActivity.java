@@ -28,8 +28,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
+import com.google.android.gms.analytics.Tracker;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -49,11 +51,20 @@ public class ZoomImageActivity extends AppCompatActivity {
 		DesnoUtils.setSavedLanguage(this);
 		DesnoUtils.enableTransition(getWindow());
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_zoom_image);
-		setupWindowAnimations();
 
 		activity = this;
 
+		setContentView(R.layout.activity_zoom_image);
+		setupWindowAnimations();
+
+
+
+		// Starting Google Analytics
+		AnalyticsApplication application = (AnalyticsApplication) getApplication();
+		Tracker mTracker = application.getDefaultTracker();
+
+		// Send screen change
+		DesnoUtils.sendScreenChange(mTracker, "ZoomImageActivity");
 
 		// Set up the action bar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_zoom_image); // Attaching the layout to the toolbar object

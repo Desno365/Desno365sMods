@@ -32,11 +32,13 @@ import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 
+import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.NewsCard;
 import com.desno365.mods.NewsSwipeRefreshLayout;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
+import com.google.android.gms.analytics.Tracker;
 
 
 public class NewsActivity extends AppCompatActivity {
@@ -67,9 +69,16 @@ public class NewsActivity extends AppCompatActivity {
 
 		activity = this;
 
-		// set content of the activity
 		setContentView(R.layout.activity_news);
 
+
+
+		// Starting Google Analytics
+		AnalyticsApplication application = (AnalyticsApplication) getApplication();
+		Tracker mTracker = application.getDefaultTracker();
+
+		// Send screen change
+		DesnoUtils.sendScreenChange(mTracker, "NewsActivity");
 
 		// Set up the action bar.
 		toolbar = (Toolbar) findViewById(R.id.tool_bar_news); // Attaching the layout to the toolbar object

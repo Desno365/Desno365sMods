@@ -33,10 +33,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
 import com.desno365.mods.SharedConstants.Keys;
+import com.google.android.gms.analytics.Tracker;
 
 
 public class SettingsActivity extends AppCompatActivity {
@@ -44,6 +46,9 @@ public class SettingsActivity extends AppCompatActivity {
 	private static final String TAG = "DesnoMods-SettingsActiv";
 
 	public static Activity activity;
+
+	// analytics tracker
+	private static Tracker mTracker;
 
 	private static Preference frequencyPreference;
 
@@ -61,6 +66,14 @@ public class SettingsActivity extends AppCompatActivity {
 
 		setContentView(R.layout.activity_settings);
 
+
+
+		// Starting Google Analytics
+		AnalyticsApplication application = (AnalyticsApplication) getApplication();
+		mTracker = application.getDefaultTracker();
+
+		// Send screen change
+		DesnoUtils.sendScreenChange(mTracker, "SettingsActivity");
 
 		// Set up the action bar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_settings); // Attaching the layout to the toolbar object
@@ -182,6 +195,7 @@ public class SettingsActivity extends AppCompatActivity {
 			languagePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
 					restartDialogLanguage();
+					DesnoUtils.sendAction(mTracker, "Language-changed");
 					return true;
 				}
 			});
@@ -192,6 +206,7 @@ public class SettingsActivity extends AppCompatActivity {
 				@Override
 				public boolean onPreferenceClick(Preference preference) {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_TRANSLATIONS)));
+					DesnoUtils.sendAction(mTracker, "Translate-app-Crowdin");
 					return false;
 				}
 			});
@@ -200,6 +215,7 @@ public class SettingsActivity extends AppCompatActivity {
 			themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
 					restartDialogTheme();
+					DesnoUtils.sendAction(mTracker, "Theme-changed");
 					return true;
 				}
 			});

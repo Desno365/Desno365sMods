@@ -32,9 +32,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
+import com.google.android.gms.analytics.Tracker;
 
 import it.sephiroth.android.library.tooltip.TooltipManager;
 
@@ -47,6 +49,9 @@ public class HelpActivity extends AppCompatActivity {
 
 	private TooltipManager mTooltip;
 
+	// analytics tracker
+	private Tracker mTracker;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
@@ -54,9 +59,19 @@ public class HelpActivity extends AppCompatActivity {
 		DesnoUtils.setSavedLanguage(this);
 		DesnoUtils.enableTransition(getWindow());
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_help);
 
 		activity = this;
+
+		setContentView(R.layout.activity_help);
+
+
+
+		// Starting Google Analytics
+		AnalyticsApplication application = (AnalyticsApplication) getApplication();
+		mTracker = application.getDefaultTracker();
+
+		// Send screen change
+		DesnoUtils.sendScreenChange(mTracker, "HelpActivity");
 
 		// Set up the action bar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_help); // Attaching the layout to the toolbar object
@@ -142,6 +157,7 @@ public class HelpActivity extends AppCompatActivity {
 					//play store not installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED + Keys.KEY_PACKAGE_MINECRAFT)));
 				}
+				DesnoUtils.sendAction(mTracker, "Minecraft-app");
 				break;
 
 			//blocklauncher image and text
@@ -153,6 +169,7 @@ public class HelpActivity extends AppCompatActivity {
 					//play store not installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED + Keys.KEY_PACKAGE_BLOCKLAUNCHER)));
 				}
+				DesnoUtils.sendAction(mTracker, "Blocklauncher-app");
 				break;
 
 			//file manager image and text
@@ -164,6 +181,7 @@ public class HelpActivity extends AppCompatActivity {
 					//play store not installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED_FILE_MANAGER)));
 				}
+				DesnoUtils.sendAction(mTracker, "File-manager-app");
 				break;
 		}
 	}

@@ -54,6 +54,8 @@ import com.desno365.mods.SharedConstants.SharedConstants;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -558,5 +560,20 @@ public class DesnoUtils {
 		}
 	}
 	/* ######### ADS ######### */
+
+
+	/* ######### ANALYTICS ######### */
+	public static void sendScreenChange(Tracker tracker, String name) {
+		tracker.setScreenName("Screen~" + name);
+		tracker.send(new HitBuilders.ScreenViewBuilder().build());
+	}
+
+	public static void sendAction(Tracker tracker, String action) {
+		tracker.send(new HitBuilders.EventBuilder()
+				.setCategory("Action")
+				.setAction(action)
+				.build());
+	}
+	/* ######### ANALYTICS ######### */
 
 }

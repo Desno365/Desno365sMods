@@ -64,7 +64,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 				Log.e(TAG, "Alarm: the alarm shouldn't have been started with preferences for notifications false.");
 				Log.i(TAG, "Alarm canceled.");
 			}
-
 		} catch (Exception err) {
 			Log.e(TAG, "Exception in onReceive() ", err);
 		}
