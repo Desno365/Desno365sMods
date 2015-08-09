@@ -42,7 +42,7 @@ import it.sephiroth.android.library.tooltip.TooltipManager;
 
 public class HelpActivity extends AppCompatActivity {
 
-	private static final String TAG = "DesnoMods-HelpActivity";
+	private static final String TAG = "HelpActivity";
 
 	public static AppCompatActivity activity;
 

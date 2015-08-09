@@ -87,7 +87,7 @@
 
     <style name="ToolBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">?attr/color_primary</item>
-        <item name="theme">@style/ToolBarTheme</item>
+        <item name="android:theme">@style/ToolBarTheme</item>
         <item name="popupTheme">@style/ToolBarPopupTheme</item>
         <item name="titleTextAppearance">@style/ToolBarTitleTheme</item>
         <item name="android:elevation" tools:targetApi="21">@dimen/elevation_default</item>

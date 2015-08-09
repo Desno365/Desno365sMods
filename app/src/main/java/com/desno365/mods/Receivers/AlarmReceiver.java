@@ -32,7 +32,7 @@ import com.desno365.mods.SharedConstants.Keys;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
-	private static final String TAG = "DesnoMods-AlarmReceiver";
+	private static final String TAG = "AlarmReceiver";
 	private static Context currentContext;
 	private final int ALARM_REQUEST_CODE = 365;
 	private String latestNewsVersion = "";

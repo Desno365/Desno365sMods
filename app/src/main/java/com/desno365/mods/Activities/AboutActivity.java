@@ -39,7 +39,7 @@ import java.util.Random;
 
 public class AboutActivity extends AppCompatActivity {
 
-	private static final String TAG = "DesnoMods-AboutActivity";
+	private static final String TAG = "AboutActivity";
 
 	public static AppCompatActivity activity;
 

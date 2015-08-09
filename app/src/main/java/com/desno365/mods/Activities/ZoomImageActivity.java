@@ -34,7 +34,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class ZoomImageActivity extends AppCompatActivity {
 
-	private static final String TAG = "DesnoMods-ZoomImageActi";
+	private static final String TAG = "ZoomImageActivity";
 
 	public static AppCompatActivity activity;
 

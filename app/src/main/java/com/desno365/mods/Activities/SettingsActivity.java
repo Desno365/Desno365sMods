@@ -37,12 +37,13 @@ import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
 import com.desno365.mods.SharedConstants.Keys;
+import com.desno365.mods.SharedVariables.SharedVariables;
 import com.google.android.gms.analytics.Tracker;
 
 
 public class SettingsActivity extends AppCompatActivity {
 
-	private static final String TAG = "DesnoMods-SettingsActiv";
+	private static final String TAG = "SettingsActivity";
 
 	public static AppCompatActivity activity;
 
@@ -53,6 +54,7 @@ public class SettingsActivity extends AppCompatActivity {
 
 	private static boolean monitorNotificationModsPreference;
 	private static boolean monitorNotificationNewsPreference;
+	private static boolean monitorAnonymousStatisticsPreference;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -145,9 +147,11 @@ public class SettingsActivity extends AppCompatActivity {
 			Preference helpTranslatingPreference = findPreference("help_translating");
 			Preference themePreference = findPreference("selected_theme");
 			Preference restoreTipsPreference = findPreference("restore_tips");
+			Preference anonymousStatisticsPreference = findPreference("anonymous_statistics");
 
 			monitorNotificationModsPreference = sharedPrefs.getBoolean(notificationModsPreference.getKey(), true);
 			monitorNotificationNewsPreference = sharedPrefs.getBoolean(notificationNewsPreference.getKey(), true);
+			monitorAnonymousStatisticsPreference = sharedPrefs.getBoolean(anonymousStatisticsPreference.getKey(), true);
 
 
 			notificationModsPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -215,6 +219,16 @@ public class SettingsActivity extends AppCompatActivity {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
 					restartDialogTheme();
 					DesnoUtils.sendAction(mTracker, "Theme-changed");
+					return true;
+				}
+			});
+
+			anonymousStatisticsPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+				public boolean onPreferenceChange(Preference preference, Object newValue) {
+					monitorAnonymousStatisticsPreference = !monitorAnonymousStatisticsPreference;
+
+					SharedVariables.areStatisticsEnabled = monitorAnonymousStatisticsPreference;
+					Log.d(TAG, (SharedVariables.areStatisticsEnabled) ? "Enabled" : "Disabled");
 					return true;
 				}
 			});

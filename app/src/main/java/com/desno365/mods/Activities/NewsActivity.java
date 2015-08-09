@@ -43,7 +43,7 @@ import com.google.android.gms.analytics.Tracker;
 
 public class NewsActivity extends AppCompatActivity {
 
-	private static final String TAG = "DesnoMods-NewsActivity";
+	private static final String TAG = "NewsActivity";
 
 	public static AppCompatActivity activity;
 	private Toolbar toolbar;

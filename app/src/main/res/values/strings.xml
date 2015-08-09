@@ -165,6 +165,10 @@
     <string name="restore_tips_summary">Restore tips and suggestions in the Help page</string>
     <string name="restored_toast">Tips and suggestions restored.</string>
 
+    <string name="statistics_settings">Anonymous statistics</string>
+    <string name="anonymous_statistics_title">App usage statistics</string>
+    <string name="anonymous_statistics_summary">Allow anonymous tracking of errors and general usage</string>
+
 
     // notifications
     <string name="notification_new_version_title">New version released</string>

@@ -17,7 +17,6 @@
 package com.desno365.mods.Activities;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -64,7 +63,7 @@ import java.lang.reflect.Method;
 
 public class MainActivity extends AppCompatActivity implements MainNavigationDrawerFragment.NavigationDrawerCallbacks {
 
-	public static final String TAG = "DesnoMods-MainActivity";
+	public static final String TAG = "MainActivity";
 
 	public static AppCompatActivity activity;
 
@@ -118,6 +117,9 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 		// Starting Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		mTracker = application.getDefaultTracker();
+
+		// Send screen change
+		DesnoUtils.sendScreenChange(mTracker, "MainActivity");
 
 		// Set up the ToolBar.
 		toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
@@ -197,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 			editor.putString("selected_language", "not_changed");
 			editor.putString("selected_theme", "0");
 			editor.putString("selected_animations", "0");
+			editor.putBoolean("anonymous_statistics", true);
 			editor.putBoolean("user_understood_full_resolution_help", false);
 			editor.apply();
 			Log.i(TAG, "First launch");

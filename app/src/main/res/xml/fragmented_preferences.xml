@@ -96,10 +96,22 @@
 
     <PreferenceCategory android:title="@string/help_settings" >
 
-        <Preference android:title="@string/restore_tips_title"
-                    android:summary="@string/restore_tips_summary"
-                    android:key="restore_tips">
+        <Preference
+            android:title="@string/restore_tips_title"
+            android:summary="@string/restore_tips_summary"
+            android:key="restore_tips">
         </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/statistics_settings" >
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:title="@string/anonymous_statistics_title"
+            android:summary="@string/anonymous_statistics_summary"
+            android:key="anonymous_statistics">
+        </CheckBoxPreference>
 
     </PreferenceCategory>
 

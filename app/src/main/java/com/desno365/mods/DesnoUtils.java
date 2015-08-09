@@ -50,6 +50,7 @@ import com.desno365.mods.Activities.NewsActivity;
 import com.desno365.mods.Mods.Mod;
 import com.desno365.mods.SharedConstants.NotificationsId;
 import com.desno365.mods.SharedConstants.SharedConstants;
+import com.desno365.mods.SharedVariables.SharedVariables;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -68,7 +69,7 @@ import hugo.weaving.DebugLog;
 
 public class DesnoUtils {
 
-	private static final String TAG = "DesnoMods-DesnoUtils";
+	private static final String TAG = "DesnoUtils";
 
 	private static final String ERROR_STRING = "Error";
 	private static final String NOT_INITIALIZED_ERROR_STRING = "r000";
@@ -556,15 +557,23 @@ public class DesnoUtils {
 
 	/* ######### ANALYTICS ######### */
 	public static void sendScreenChange(Tracker tracker, String name) {
-		tracker.setScreenName("Screen~" + name);
-		tracker.send(new HitBuilders.ScreenViewBuilder().build());
+		if(SharedVariables.areStatisticsEnabled) {
+			tracker.setScreenName("Screen~" + name);
+			tracker.send(new HitBuilders.ScreenViewBuilder().build());
+		} else {
+			Log.i(TAG, "Analytics disabled, screen \"" + name + "\" not sent");
+		}
 	}
 
 	public static void sendAction(Tracker tracker, String action) {
-		tracker.send(new HitBuilders.EventBuilder()
-				.setCategory("Action")
-				.setAction(action)
-				.build());
+		if(SharedVariables.areStatisticsEnabled) {
+			tracker.send(new HitBuilders.EventBuilder()
+					.setCategory("Action")
+					.setAction(action)
+					.build());
+		} else {
+			Log.i(TAG, "Analytics disabled, action \"" + action + "\" not sent");
+		}
 	}
 	/* ######### ANALYTICS ######### */
 
