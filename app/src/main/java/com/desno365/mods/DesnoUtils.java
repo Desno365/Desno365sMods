@@ -48,6 +48,7 @@ import android.widget.TextView;
 import com.desno365.mods.Activities.MainActivity;
 import com.desno365.mods.Activities.NewsActivity;
 import com.desno365.mods.Mods.Mod;
+import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.NotificationsId;
 import com.desno365.mods.SharedConstants.SharedConstants;
 import com.desno365.mods.SharedVariables.SharedVariables;
@@ -574,6 +575,11 @@ public class DesnoUtils {
 		} else {
 			Log.i(TAG, "Analytics disabled, action \"" + action + "\" not sent");
 		}
+	}
+
+	public static void updateStatisticsEnabledBool(Context context) {
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+		SharedVariables.areStatisticsEnabled = sharedPrefs.getBoolean("anonymous_statistics", DefaultSettingsValues.ANONYMOUS_STATISTICS);
 	}
 	/* ######### ANALYTICS ######### */
 

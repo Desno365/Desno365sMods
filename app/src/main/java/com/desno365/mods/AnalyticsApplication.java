@@ -17,11 +17,7 @@
 package com.desno365.mods;
 
 import android.app.Application;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
-import com.desno365.mods.SharedConstants.DefaultSettingsValues;
-import com.desno365.mods.SharedVariables.SharedVariables;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
@@ -40,9 +36,7 @@ public class AnalyticsApplication extends Application {
         if (mTracker == null) {
             GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
 
-            // are statistics enabled?
-            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedVariables.areStatisticsEnabled = sharedPrefs.getBoolean("anonymous_statistics", DefaultSettingsValues.ANONYMOUS_STATISTICS);
+            DesnoUtils.updateStatisticsEnabledBool(this);
 
             // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
             mTracker = analytics.newTracker("UA-55378092-6");

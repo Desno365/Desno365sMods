@@ -41,6 +41,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.crashlytics.android.Crashlytics;
 import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.MainNavigationDrawerFragment;
@@ -56,10 +57,13 @@ import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
 import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.Keys;
+import com.desno365.mods.SharedVariables.SharedVariables;
 import com.desno365.mods.Tabs.FragmentTab1;
 import com.google.android.gms.analytics.Tracker;
 
 import java.lang.reflect.Method;
+
+import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity implements MainNavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -114,6 +118,13 @@ public class MainActivity extends AppCompatActivity implements MainNavigationDra
 		setContentView(R.layout.activity_main);
 
 
+
+		// Are statistics (crashlytics and analytics) enabled?
+		DesnoUtils.updateStatisticsEnabledBool(this);
+
+		// Load crashlytics
+		if(SharedVariables.areStatisticsEnabled)
+			Fabric.with(this, new Crashlytics());
 
 		// Starting Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
