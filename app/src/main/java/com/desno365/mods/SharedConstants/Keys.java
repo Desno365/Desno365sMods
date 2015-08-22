@@ -24,6 +24,7 @@ public class Keys {
 	public static final String KEY_APP_THREAD = "http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2275389-app-desno365s-mods-an-app-that-give-you";
 	public static final String KEY_APP_GITHUB = "https://github.com/Desno365/Desno365sMods";
 	public static final String KEY_APP_TRANSLATIONS = "https://crowdin.com/project/desno365s-mods";
+	public static final String KEY_APP_CONTRIBUTORS = "http://desno365.github.io/minecraft/desno365-mods-app/credits/";
 
 	public static final String KEY_DESNOGUNS_VERSION = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/desnogunsMOD-version";
 	public static final String KEY_DESNOGUNS_COMPATIBILITY = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/desnogunsMOD-compatibility";

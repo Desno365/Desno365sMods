@@ -140,9 +140,8 @@ public class AboutActivity extends AppCompatActivity {
 
 			// twitter image and text
 			case R.id.twitter_layout:
-				/*startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
-				DesnoUtils.sendAction(mTracker, "Twitter-follow");*/
-				startActivity(new Intent(activity, LibrariesActivity.class));
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
+				DesnoUtils.sendAction(mTracker, "Twitter-follow");
 				break;
 
 			// github image and text
@@ -162,6 +161,14 @@ public class AboutActivity extends AppCompatActivity {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
 				}
 				DesnoUtils.sendAction(mTracker, "Rate-app~about");
+				break;
+
+			case R.id.button_contributors:
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_CONTRIBUTORS)));
+				break;
+
+			case R.id.button_libraries:
+				startActivity(new Intent(activity, LibrariesActivity.class));
 				break;
 		}
 	}

@@ -120,6 +120,7 @@
         <item name="android:textColor">@color/extracted_secondary_text_default_material_light</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
+        <item name="android:gravity">center_vertical|start|left</item>
     </style>
 
 
