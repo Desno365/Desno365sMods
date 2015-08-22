@@ -232,7 +232,7 @@
 
 						<Button
 							android:id="@+id/button_news"
-							android:layout_width="wrap_content"
+							android:layout_width="fill_parent"
 							android:layout_height="wrap_content"
 							android:text="@string/news_button"
 							android:onClick="onViewClick"
@@ -300,7 +300,7 @@
 
 						<Button
 							android:id="@+id/button_help"
-							android:layout_width="wrap_content"
+							android:layout_width="fill_parent"
 							android:layout_height="wrap_content"
 							android:text="@string/help_button"
 							android:onClick="onViewClick"

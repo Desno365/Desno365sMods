@@ -365,7 +365,7 @@
 
 						<Button
 							android:id="@+id/minecraft_thread_unreal_button"
-							android:layout_width="wrap_content"
+							android:layout_width="fill_parent"
 							android:layout_height="wrap_content"
 							android:text="@string/minecraft_thread"
 							android:onClick="onViewClick"
@@ -391,7 +391,7 @@
 
 						<Button
 							android:id="@+id/button_help"
-							android:layout_width="wrap_content"
+							android:layout_width="fill_parent"
 							android:layout_height="wrap_content"
 							android:text="@string/instruction_for_installing"
 							android:onClick="onViewClick"
@@ -417,7 +417,7 @@
 
 						<Button
 							android:id="@+id/download_unreal_button"
-							android:layout_width="wrap_content"
+							android:layout_width="fill_parent"
 							android:layout_height="wrap_content"
 							android:text="@string/download_map_from_website"
 							android:onClick="onViewClick"
