@@ -80,6 +80,10 @@
                   android:parentActivityName=".Activities.MainActivity"
                   tools:ignore="InnerclassSeparator,UnusedAttribute"/>
 
+        <activity android:name=".Activities.LibrariesActivity"
+            android:parentActivityName=".Activities.AboutActivity"
+            tools:ignore="InnerclassSeparator,UnusedAttribute"/>
+
         <activity android:name=".Activities.HelpActivity"
             android:parentActivityName=".Activities.MainActivity"
             tools:ignore="InnerclassSeparator,UnusedAttribute"/>

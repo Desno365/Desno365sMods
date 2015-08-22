@@ -93,7 +93,7 @@ public class AboutActivity extends AppCompatActivity {
 						break;
 					case 2:
 						anim = YoYo.with(Techniques.SlideInDown);
-                        break;
+						break;
 					default:
 						anim = YoYo.with(Techniques.DropOut);
 				}
@@ -140,8 +140,9 @@ public class AboutActivity extends AppCompatActivity {
 
 			// twitter image and text
 			case R.id.twitter_layout:
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
-				DesnoUtils.sendAction(mTracker, "Twitter-follow");
+				/*startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_MY_TWITTER)));
+				DesnoUtils.sendAction(mTracker, "Twitter-follow");*/
+				startActivity(new Intent(activity, LibrariesActivity.class));
 				break;
 
 			// github image and text
