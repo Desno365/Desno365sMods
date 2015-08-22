@@ -355,7 +355,7 @@ public class NewsActivity extends AppCompatActivity {
 				findViewById(R.id.news_error_loading_text).setVisibility(View.VISIBLE);
 				runOnUiThread(new Runnable() {
 					public void run() {
-						DesnoUtils.showDefaultSnackbar(activity.findViewById(R.id.scroll_news), R.string.internet_error);
+						DesnoUtils.showDefaultSnackbar(activity.findViewById(R.id.coordinator_news), R.string.internet_error);
 					}
 				});
 			}
