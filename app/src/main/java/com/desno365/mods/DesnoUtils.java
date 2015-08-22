@@ -16,6 +16,7 @@
 
 package com.desno365.mods;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -45,6 +46,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.daimajia.easing.Glider;
+import com.daimajia.easing.Skill;
 import com.desno365.mods.Activities.MainActivity;
 import com.desno365.mods.Activities.NewsActivity;
 import com.desno365.mods.Mods.Mod;
@@ -57,6 +60,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.nineoldandroids.animation.AnimatorSet;
+import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -222,10 +227,48 @@ public class DesnoUtils {
 	}
 
 	public static void showDefaultSnackbar(View parent, int text, int duration) {
+		Snackbar snack = getDefaultSnackbar(parent, text, duration);
+
+		snack.show();
+	}
+
+	public static void showAnimatedDefaultSnackbar(View parent, final ViewGroup animatingViewGroup, int text) {
+		showAnimatedDefaultSnackbar(parent, animatingViewGroup, text, Snackbar.LENGTH_SHORT);
+	}
+
+	public static void showAnimatedDefaultSnackbar(View parent, final ViewGroup animatingViewGroup, int text, int duration) {
+		final Snackbar snack = getDefaultSnackbar(parent, text, duration);
+		
+		// add animations to the container layout
+		snack.setCallback(new Snackbar.Callback() {
+			@Override
+			public void onDismissed(Snackbar snackbar, int event) {
+				super.onDismissed(snackbar, event);
+
+				final AnimatorSet set2 = new AnimatorSet();
+				set2.play(Glider.glide(Skill.Linear, 0.005f, ObjectAnimator.ofFloat(animatingViewGroup, "translationY", -snackbar.getView().getHeight(), 0)));
+				set2.start();
+			}
+
+			@Override
+			public void onShown(Snackbar snackbar) {
+				super.onShown(snackbar);
+
+				final AnimatorSet set = new AnimatorSet();
+				set.play(Glider.glide(Skill.CircEaseOut, 0.005f, ObjectAnimator.ofFloat(animatingViewGroup, "translationY", 0, -snackbar.getView().getHeight())));
+				set.start();
+			}
+		});
+
+		snack.show();
+	}
+
+	private static Snackbar getDefaultSnackbar(View parent, int text, int duration) {
 		Snackbar snack = Snackbar.make(parent, text, duration);
 
 		// make text white
 		View view = snack.getView();
+		@SuppressLint("PrivateResource")
 		TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
 		tv.setTextColor(Color.WHITE);
 
@@ -235,7 +278,7 @@ public class DesnoUtils {
 		a.recycle();
 		view.setBackgroundColor(color1);
 
-		snack.show();
+		return snack;
 	}
 
 

@@ -31,11 +31,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <fragment
-            android:id="@+id/fragment_container_preference"
-            android:name="com.desno365.mods.Activities.SettingsActivity$PrefsFragment"
+        <LinearLayout
+            android:id="@+id/viewgroup_snackbar_animator_settings"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent" />
+            android:layout_height="match_parent">
+
+            <fragment
+                android:id="@+id/fragment_container_preference"
+                android:name="com.desno365.mods.Activities.SettingsActivity$PrefsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent" />
+
+        </LinearLayout>
 
   </android.support.design.widget.CoordinatorLayout>
 

@@ -30,6 +30,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.desno365.mods.AnalyticsApplication;
@@ -243,7 +244,7 @@ public class SettingsActivity extends AppCompatActivity {
 					editor.putBoolean("user_understood_full_resolution_help", false);
 					editor.apply();
 
-					DesnoUtils.showDefaultSnackbar(activity.findViewById(R.id.fragment_container_preference), R.string.restored_toast);
+					DesnoUtils.showAnimatedDefaultSnackbar(activity.findViewById(R.id.fragment_container_preference), (ViewGroup) activity.findViewById(R.id.viewgroup_snackbar_animator_settings), R.string.restored_toast);
 					return false;
 				}
 			});
