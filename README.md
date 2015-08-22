@@ -19,7 +19,6 @@ Used libraries
 [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)<br>
 [Tooltip](https://github.com/sephiroth74/android-target-tooltip)<br>
 [PhotoView](https://github.com/chrisbanes/PhotoView)<br>
-[ShowcaseView](https://github.com/amlcurran/ShowcaseView)<br>
 [AnimatedExpandableListView](https://github.com/idunnololz/AnimatedExpandableListView)<br>
 [Hugo](https://github.com/JakeWharton/hugo)<br>
 [android-shapeLoadingView](https://github.com/zzz40500/android-shapeLoadingView)<br>
