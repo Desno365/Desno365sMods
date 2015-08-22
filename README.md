@@ -16,7 +16,7 @@ Translations
 
 Used libraries
 -----------
-[PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)<br>
+[PagerSlidingTabStrip](https://github.com/jpardogo/PagerSlidingTabStrip)<br>
 [Tooltip](https://github.com/sephiroth74/android-target-tooltip)<br>
 [PhotoView](https://github.com/chrisbanes/PhotoView)<br>
 [AnimatedExpandableListView](https://github.com/idunnololz/AnimatedExpandableListView)<br>

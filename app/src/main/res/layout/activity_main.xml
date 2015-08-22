@@ -32,12 +32,11 @@
 		android:layout_width="match_parent"
 		android:layout_height="48dip"
 		android:background="?attr/color_primary"
-		android:textColorPrimary="@color/tabs_not_selected_text_color"
 		android:elevation="3dp"
-		app:pstsTextColorSelected="@color/tabs_selected_text_color"
+		app:pstsTabTextColor="@color/tabs_text"
 		app:pstsIndicatorColor="@color/tabs_indicator_color"
 		app:pstsIndicatorHeight="4dip"
-		app:pstsTextAllCaps="true"
+		app:pstsTabTextAllCaps="true"
 		tools:ignore="UnusedAttribute" />
 
 	<android.support.v4.widget.DrawerLayout
