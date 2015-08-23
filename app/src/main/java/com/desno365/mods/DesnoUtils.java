@@ -44,6 +44,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.daimajia.easing.Glider;
@@ -222,6 +223,15 @@ public class DesnoUtils {
 		view.setLayoutParams(params);
 	}
 
+	public static void removeOnGlobalLayoutListener(View v, ViewTreeObserver.OnGlobalLayoutListener listener){
+		if (Build.VERSION.SDK_INT < 16) {
+			//noinspection deprecation
+			v.getViewTreeObserver().removeGlobalOnLayoutListener(listener);
+		} else {
+			v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
+		}
+	}
+
 	public static void showDefaultSnackbar(View parent, int text) {
 		showDefaultSnackbar(parent, text, Snackbar.LENGTH_SHORT);
 	}
@@ -232,30 +242,35 @@ public class DesnoUtils {
 		snack.show();
 	}
 
-	public static void showAnimatedDefaultSnackbar(View parent, final ViewGroup animatingViewGroup, int text) {
-		showAnimatedDefaultSnackbar(parent, animatingViewGroup, text, Snackbar.LENGTH_SHORT);
+	public static void showAnimatedDefaultSnackbar(ViewGroup parent, int text) {
+		showAnimatedDefaultSnackbar(parent, text, Snackbar.LENGTH_SHORT);
 	}
 
-	public static void showAnimatedDefaultSnackbar(View parent, final ViewGroup animatingViewGroup, int text, int duration) {
+	public static void showAnimatedDefaultSnackbar(final ViewGroup parent, int text, int duration) {
+		// the parent ViewGroup, that is the container that is animated when showing the Snackbar, mustn't be a CoordinatorLayout
+
 		final Snackbar snack = getDefaultSnackbar(parent, text, duration);
 		
-		// add animations to the container layout
+		// add dismiss animations to the container layout
 		snack.setCallback(new Snackbar.Callback() {
 			@Override
 			public void onDismissed(Snackbar snackbar, int event) {
 				super.onDismissed(snackbar, event);
 
 				final AnimatorSet set2 = new AnimatorSet();
-				set2.play(Glider.glide(Skill.Linear, 0.005f, ObjectAnimator.ofFloat(animatingViewGroup, "translationY", -snackbar.getView().getHeight(), 0)));
+				set2.play(Glider.glide(Skill.Linear, 0.005f, ObjectAnimator.ofFloat(parent, "translationY", -snackbar.getView().getHeight(), 0)));
 				set2.start();
 			}
+		});
 
+		// add show animations to the container layout
+		snack.getView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 			@Override
-			public void onShown(Snackbar snackbar) {
-				super.onShown(snackbar);
+			public void onGlobalLayout() {
+				DesnoUtils.removeOnGlobalLayoutListener(snack.getView(), this);
 
 				final AnimatorSet set = new AnimatorSet();
-				set.play(Glider.glide(Skill.CircEaseOut, 0.005f, ObjectAnimator.ofFloat(animatingViewGroup, "translationY", 0, -snackbar.getView().getHeight())));
+				set.play(Glider.glide(Skill.CircEaseOut, 0.005f, ObjectAnimator.ofFloat(parent, "translationY", 0, -snack.getView().getHeight())));
 				set.start();
 			}
 		});

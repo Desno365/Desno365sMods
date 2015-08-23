@@ -32,7 +32,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/viewgroup_snackbar_animator_settings"
+            android:id="@+id/viewgroup_snackbar_container_settings"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

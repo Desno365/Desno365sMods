@@ -244,7 +244,7 @@ public class SettingsActivity extends AppCompatActivity {
 					editor.putBoolean("user_understood_full_resolution_help", false);
 					editor.apply();
 
-					DesnoUtils.showAnimatedDefaultSnackbar(activity.findViewById(R.id.fragment_container_preference), (ViewGroup) activity.findViewById(R.id.viewgroup_snackbar_animator_settings), R.string.restored_toast);
+					DesnoUtils.showAnimatedDefaultSnackbar((ViewGroup) activity.findViewById(R.id.viewgroup_snackbar_container_settings), R.string.restored_toast);
 					return false;
 				}
 			});
