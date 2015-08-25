@@ -16,15 +16,12 @@
 
 package com.desno365.mods.Activities;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
@@ -36,7 +33,7 @@ import com.mikepenz.aboutlibraries.LibsConfiguration;
 import com.mikepenz.aboutlibraries.entity.Library;
 import com.mikepenz.aboutlibraries.ui.LibsFragment;
 
-public class LibrariesActivity extends AppCompatActivity {
+public class LibrariesActivity extends BaseActivity {
 
     private static final String TAG = "LibrariesActivity";
 
@@ -45,8 +42,6 @@ public class LibrariesActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "Activity started (onCreate)");
-        DesnoUtils.setSavedTheme(this);
-        DesnoUtils.setSavedLanguage(this);
         super.onCreate(savedInstanceState);
 
         activity = this;
@@ -137,35 +132,6 @@ public class LibrariesActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.about_libraries_container, fragment).commit();
 
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    public void onBackPressed() {
-        this.finish();
-        DesnoUtils.changeFinishAnimations(activity);
-    }
-
-    @Override
-    public void startActivity(Intent intent) {
-        try {
-            super.startActivity(intent);
-            DesnoUtils.changeStartAnimations(activity);
-        } catch (ActivityNotFoundException e1) {
-            Log.e(TAG, "Start activity failed for the first time.", e1);
-
-            try {
-                super.startActivity(intent);
-                DesnoUtils.changeStartAnimations(activity);
-            } catch (ActivityNotFoundException e2) {
-                Log.e(TAG, "Start activity failed for the second and last time.", e2);
-                Toast.makeText(activity.getApplicationContext(), "Error: can't start the Activity, please try again and make sure you have a Internet browser installed.", Toast.LENGTH_LONG).show();
-            }
-        }
     }
 
 }

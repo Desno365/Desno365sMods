@@ -16,7 +16,6 @@
 
 package com.desno365.mods.Activities;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,7 +23,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -37,7 +35,7 @@ import com.google.android.gms.analytics.Tracker;
 import java.util.Random;
 
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends BaseActivity {
 
 	private static final String TAG = "AboutActivity";
 
@@ -49,8 +47,6 @@ public class AboutActivity extends AppCompatActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
-		DesnoUtils.setSavedTheme(this);
-		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 
 		activity = this;
@@ -109,30 +105,6 @@ public class AboutActivity extends AppCompatActivity {
 	public void onDestroy() {
 		super.onDestroy();
 		DesnoUtils.showAd();
-	}
-
-	@Override
-	public void onBackPressed() {
-		this.finish();
-		DesnoUtils.changeFinishAnimations(activity);
-	}
-
-	@Override
-	public void startActivity(Intent intent) {
-		try {
-			super.startActivity(intent);
-			DesnoUtils.changeStartAnimations(activity);
-		} catch (ActivityNotFoundException e1) {
-			Log.e(TAG, "Start activity failed for the first time.", e1);
-
-			try {
-				super.startActivity(intent);
-				DesnoUtils.changeStartAnimations(activity);
-			} catch (ActivityNotFoundException e2) {
-				Log.e(TAG, "Start activity failed for the second and last time.", e2);
-				Toast.makeText(activity.getApplicationContext(), "Error: can't start the Activity, please try again and make sure you have a Internet browser installed.", Toast.LENGTH_LONG).show();
-			}
-		}
 	}
 
 	public void onViewClick(View v) {

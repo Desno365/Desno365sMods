@@ -23,18 +23,24 @@ import android.net.Uri;
 
 public class Mod {
 
+	private Context context;
+
 	public int ID;
 	public int nameId; // id of the string containing the name
 
-	public String version;
-	public String compatibility;
-	public String changelog;
+	private String version;
+	private String compatibility;
+	private String changelog;
 
 	public int NOTIFICATION_ID_NEW_VERSION; // id for a notification
 	public String DOWNLOAD_FROM_WEBSITE_LINK; // link to website
 	public String THREAD_LINK; // link to minecraftforum thread
 
-	public String getName(Context context) {
+	public Mod(Context context) {
+		this.context = context;
+	}
+
+	public String getName() {
 		return context.getString(this.nameId);
 	}
 
@@ -46,4 +52,27 @@ public class Mod {
 		return new Intent(Intent.ACTION_VIEW, Uri.parse(this.THREAD_LINK));
 	}
 
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
+	public String getCompatibility() {
+		return compatibility;
+	}
+
+	public void setCompatibility(String compatibility) {
+		this.compatibility = compatibility;
+	}
+
+	public String getChangelog() {
+		return changelog;
+	}
+
+	public void setChangelog(String changelog) {
+		this.changelog = changelog;
+	}
 }

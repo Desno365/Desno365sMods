@@ -42,15 +42,15 @@ public class FragmentTab3 extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragmenttab3, container, false); // xml tab
 
 		TextView textVersion = (TextView) rootView.findViewById(R.id.latest_version_laser_is); // id TextView version
-		textVersion.setText(MainActivity.MOD_LASER.version); // MainActivity variable that holds the latest version
+		textVersion.setText(MainActivity.modsContainer.laser.getVersion()); // MainActivity variable that holds the latest version
 
 
 		TextView textCompatibility = (TextView) rootView.findViewById(R.id.laser_compatibility); // id TextView compatibility
-		textCompatibility.setText(MainActivity.MOD_LASER.compatibility); // MainActivity variable that holds the versions compatibility
+		textCompatibility.setText(MainActivity.modsContainer.laser.getCompatibility()); // MainActivity variable that holds the versions compatibility
 
 
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.laser_changelog); // id TextView changelog
-		textChangelog.setText(android.text.Html.fromHtml(MainActivity.MOD_LASER.changelog)); // MainActivity variable that holds the latest changelog
+		textChangelog.setText(android.text.Html.fromHtml(MainActivity.modsContainer.laser.getChangelog())); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 		textChangelog.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 

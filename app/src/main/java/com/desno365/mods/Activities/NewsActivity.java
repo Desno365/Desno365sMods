@@ -41,7 +41,7 @@ import com.desno365.mods.SharedConstants.SharedConstants;
 import com.google.android.gms.analytics.Tracker;
 
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends BaseActivity {
 
 	private static final String TAG = "NewsActivity";
 
@@ -61,8 +61,6 @@ public class NewsActivity extends AppCompatActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
-		DesnoUtils.setSavedTheme(this);
-		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 
 		activity = this;
@@ -107,12 +105,6 @@ public class NewsActivity extends AppCompatActivity {
 
 		cardsContainer = (LinearLayout) findViewById(R.id.cards_container);
 
-	}
-
-	@Override
-	public void onBackPressed() {
-		this.finish();
-		DesnoUtils.changeFinishAnimations(activity);
 	}
 
 	@Override

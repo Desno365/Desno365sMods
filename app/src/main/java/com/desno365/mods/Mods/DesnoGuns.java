@@ -30,14 +30,14 @@ public class DesnoGuns extends Mod {
 
 	public DesnoGuns(Context context) {
 
-		super();
+		super(context);
 
 		this.ID = 1;
 		this.nameId = R.string.mod5_title;
 
-		this.version = context.getResources().getString(R.string.loading);
-		this.compatibility = context.getResources().getString(R.string.loading);
-		this.changelog = context.getResources().getString(R.string.loading);
+		setVersion(context.getResources().getString(R.string.loading));
+		setCompatibility(context.getResources().getString(R.string.loading));
+		setChangelog(context.getResources().getString(R.string.loading));
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_DESNOGUNS_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_DESNOGUNS_DOWNLOAD;

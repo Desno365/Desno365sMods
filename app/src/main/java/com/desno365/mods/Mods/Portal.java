@@ -30,14 +30,14 @@ public class Portal extends Mod {
 
 	public Portal(Context context) {
 
-		super();
+		super(context);
 
 		this.ID = 2;
 		this.nameId = R.string.mod1_title;
 
-		this.version = context.getResources().getString(R.string.loading);
-		this.compatibility = context.getResources().getString(R.string.loading);
-		this.changelog = context.getResources().getString(R.string.loading);
+		setVersion(context.getResources().getString(R.string.loading));
+		setCompatibility(context.getResources().getString(R.string.loading));
+		setChangelog(context.getResources().getString(R.string.loading));
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_PORTAL_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_PORTAL_DOWNLOAD;

@@ -32,7 +32,7 @@ import com.google.android.gms.analytics.Tracker;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 
-public class ZoomImageActivity extends AppCompatActivity {
+public class ZoomImageActivity extends BaseActivity {
 
 	private static final String TAG = "ZoomImageActivity";
 
@@ -43,8 +43,6 @@ public class ZoomImageActivity extends AppCompatActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
-		DesnoUtils.setSavedTheme(this);
-		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 
 		activity = this;

@@ -372,7 +372,7 @@ public class DesnoUtils {
 
 	public static void notificationForNewVersion(Context context, Mod mod) {
 		// content
-		String contentText = context.getString(R.string.notification_new_version_content1) + " " + mod.getName(context) + " " + context.getString(R.string.notification_new_version_content2);
+		String contentText = context.getString(R.string.notification_new_version_content1) + " " + mod.getName() + " " + context.getString(R.string.notification_new_version_content2);
 
 		// download button of notification = go to the website where the download is available
 		Intent downloadClickIntent = mod.getDownloadFromWebsiteIntent();
@@ -397,7 +397,7 @@ public class DesnoUtils {
 
 		// Send event to Analytics
 		Tracker mTracker = DesnoUtils.getTracker(context);
-		DesnoUtils.sendEvent(mTracker, "Notification-Mod", "New version of the " + mod.getName(context));
+		DesnoUtils.sendEvent(mTracker, "Notification-Mod", "New version of the " + mod.getName());
 	}
 
 	public static void notifyForNewUpdates(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {

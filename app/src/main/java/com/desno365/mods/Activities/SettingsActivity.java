@@ -17,7 +17,6 @@
 package com.desno365.mods.Activities;
 
 import android.app.AlertDialog;
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,7 +30,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
@@ -43,7 +41,7 @@ import com.desno365.mods.SharedVariables.SharedVariables;
 import com.google.android.gms.analytics.Tracker;
 
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends BaseActivity {
 
 	private static final String TAG = "SettingsActivity";
 
@@ -61,8 +59,6 @@ public class SettingsActivity extends AppCompatActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
-		DesnoUtils.setSavedTheme(this);
-		DesnoUtils.setSavedLanguage(this);
 		super.onCreate(savedInstanceState);
 
 		activity = this;
@@ -104,30 +100,6 @@ public class SettingsActivity extends AppCompatActivity {
 		AlarmReceiver aR = new AlarmReceiver();
 		aR.cancelAlarm(activity.getApplicationContext());
 		aR.setAlarm(activity.getApplicationContext());
-	}
-
-	@Override
-	public void onBackPressed() {
-		this.finish();
-		DesnoUtils.changeFinishAnimations(activity);
-	}
-
-	@Override
-	public void startActivity(Intent intent) {
-		try {
-			super.startActivity(intent);
-			DesnoUtils.changeStartAnimations(activity);
-		} catch (ActivityNotFoundException e1) {
-			Log.e(TAG, "Start activity failed for the first time.", e1);
-
-			try {
-				super.startActivity(intent);
-				DesnoUtils.changeStartAnimations(activity);
-			} catch (ActivityNotFoundException e2) {
-				Log.e(TAG, "Start activity failed for the second and last time.", e2);
-				Toast.makeText(activity.getApplicationContext(), "Error: can't start the Activity, please try again and make sure you have a Internet browser installed.", Toast.LENGTH_LONG).show();
-			}
-		}
 	}
 
 	public static class PrefsFragment extends PreferenceFragment {

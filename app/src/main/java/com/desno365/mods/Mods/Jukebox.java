@@ -30,14 +30,14 @@ public class Jukebox extends Mod {
 
 	public Jukebox(Context context) {
 
-		super();
+		super(context);
 
 		this.ID = 5;
 		this.nameId = R.string.mod4_title;
 
-		this.version = context.getResources().getString(R.string.loading);
-		this.compatibility = context.getResources().getString(R.string.loading);
-		this.changelog = context.getResources().getString(R.string.loading);
+		setVersion(context.getResources().getString(R.string.loading));
+		setCompatibility(context.getResources().getString(R.string.loading));
+		setChangelog(context.getResources().getString(R.string.loading));
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_JUKEBOX_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_JUKEBOX_DOWNLOAD;
