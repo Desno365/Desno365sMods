@@ -57,7 +57,7 @@
     <color name="toolbar_title_text_color">@color/white</color>
     <color name="tabs_indicator_color">@color/white</color>
     <color name="tabs_selected_text_color">@color/white</color>
-    <color name="tabs_not_selected_text_color">#c39e9590</color>
+    <color name="tabs_not_selected_text_color">#ccdedede</color>
     <color name="drawer_text_shadow_color" type="color">#FF292929</color>
     <color name="text_changelog_color" type="color">#FFA5A5A5</color>
 
