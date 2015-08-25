@@ -51,7 +51,13 @@ import com.daimajia.easing.Glider;
 import com.daimajia.easing.Skill;
 import com.desno365.mods.Activities.MainActivity;
 import com.desno365.mods.Activities.NewsActivity;
+import com.desno365.mods.Mods.DesnoGuns;
+import com.desno365.mods.Mods.Jukebox;
+import com.desno365.mods.Mods.Laser;
 import com.desno365.mods.Mods.Mod;
+import com.desno365.mods.Mods.Portal;
+import com.desno365.mods.Mods.Turrets;
+import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.NotificationsId;
 import com.desno365.mods.SharedConstants.SharedConstants;
@@ -397,27 +403,27 @@ public class DesnoUtils {
 	public static void notifyForNewUpdates(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
 
 		if (checkIfNewVersion(context, latestGunsVersion, "known_guns_version")) {
-			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_GUNS);
+			DesnoUtils.notificationForNewVersion(context, new DesnoGuns(context));
 		}
 
 		if (checkIfNewVersion(context, latestPortalVersion, "known_portal_version")) {
-			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_PORTAL);
+			DesnoUtils.notificationForNewVersion(context, new Portal(context));
 		}
 
 		if (checkIfNewVersion(context, latestLaserVersion, "known_laser_version")) {
-			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_LASER);
+			DesnoUtils.notificationForNewVersion(context, new Laser(context));
 		}
 
 		if (checkIfNewVersion(context, latestTurretsVersion, "known_turrets_version")) {
-			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_TURRETS);
+			DesnoUtils.notificationForNewVersion(context, new Turrets(context));
 		}
 
 		if (checkIfNewVersion(context, latestJukeboxVersion, "known_jukebox_version")) {
-			DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_JUKEBOX);
+			DesnoUtils.notificationForNewVersion(context, new Jukebox(context));
 		}
 
 		if (checkIfNewVersion(context, latestUnrealVersion, "known_unreal_version")) {
-			DesnoUtils.notificationForNewVersion(context, MainActivity.MAP_UNREAL);
+			DesnoUtils.notificationForNewVersion(context, new Unreal(context));
 		}
 
 		// test notification
