@@ -83,6 +83,7 @@ public class DesnoUtils {
 	private static final String NOT_INITIALIZED_ERROR_STRING = "r000";
 
 
+	/* ######### APP UTILS ######### */
 	public static void setSavedLanguage(Context context) {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 		String[] language = sharedPrefs.getString("selected_language", "not_changed").split("-r");
@@ -113,23 +114,23 @@ public class DesnoUtils {
 	public static void setSavedTheme(Context context) {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 		String theme = sharedPrefs.getString("selected_theme", "0");
-        try {
-            int themeNumber = Integer.parseInt(theme);
-            switch (themeNumber) {
-                case 0:
-                    context.setTheme(R.style.AppTheme_Brown);
-                    break;
-                case 1:
-                    context.setTheme(R.style.AppTheme_Green);
-                    break;
-                default:
-                    context.setTheme(R.style.AppTheme_Brown);
-                    break;
-            }
-        } catch(NumberFormatException e) {
-            Log.e(TAG, "NumberFormatExcpetion in setSavedTheme() with " + theme, e);
-            context.setTheme(R.style.AppTheme_Brown);
-        }
+		try {
+			int themeNumber = Integer.parseInt(theme);
+			switch (themeNumber) {
+				case 0:
+					context.setTheme(R.style.AppTheme_Brown);
+					break;
+				case 1:
+					context.setTheme(R.style.AppTheme_Green);
+					break;
+				default:
+					context.setTheme(R.style.AppTheme_Brown);
+					break;
+			}
+		} catch(NumberFormatException e) {
+			Log.e(TAG, "NumberFormatExcpetion in setSavedTheme() with " + theme, e);
+			context.setTheme(R.style.AppTheme_Brown);
+		}
 
 	}
 
@@ -182,7 +183,10 @@ public class DesnoUtils {
 			return null;
 		}
 	}
+	/* ######### APP UTILS ######### */
 
+
+	/* ######### VIEWS UTILS ######### */
 	public static int convertDpToPixel(int dp, Context context) {
 		Resources resources = context.getResources();
 		DisplayMetrics metrics = resources.getDisplayMetrics();
@@ -214,7 +218,10 @@ public class DesnoUtils {
 			v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
 		}
 	}
+	/* ######### VIEWS UTILS ######### */
 
+
+	/* ######### SNACKBAR ######### */
 	public static void showDefaultSnackbar(View parent, int text) {
 		showDefaultSnackbar(parent, text, Snackbar.LENGTH_SHORT);
 	}
@@ -233,7 +240,7 @@ public class DesnoUtils {
 		// the parent ViewGroup, that is the container that is animated when showing the Snackbar, mustn't be a CoordinatorLayout
 
 		final Snackbar snack = getDefaultSnackbar(parent, text, duration);
-		
+
 		// add dismiss animations to the container layout
 		snack.setCallback(new Snackbar.Callback() {
 			@Override
@@ -278,6 +285,7 @@ public class DesnoUtils {
 
 		return snack;
 	}
+	/* ######### SNACKBAR ######### */
 
 
 	/* ######### NETWORK ######### */
