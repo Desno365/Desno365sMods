@@ -18,7 +18,6 @@ package com.desno365.mods;
 
 import android.app.Application;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
 /**
@@ -34,12 +33,7 @@ public class AnalyticsApplication extends Application {
      */
     synchronized public Tracker getDefaultTracker() {
         if (mTracker == null) {
-            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-
-            DesnoUtils.updateStatisticsEnabledBool(this);
-
-            // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
-            mTracker = analytics.newTracker("UA-55378092-6");
+            mTracker = DesnoUtils.getTracker(this);
         }
         return mTracker;
     }

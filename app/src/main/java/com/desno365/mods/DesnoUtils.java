@@ -36,8 +36,8 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v7.app.NotificationCompat;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.util.DisplayMetrics;
@@ -59,6 +59,7 @@ import com.desno365.mods.SharedVariables.SharedVariables;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.nineoldandroids.animation.AnimatorSet;
@@ -169,24 +170,6 @@ public class DesnoUtils {
 		}
 
 		return isNewVersion;
-	}
-
-	@SuppressWarnings("unused")
-	private static void debugVersions(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
-		DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_GUNS);
-
-		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-		String knownGunsVersion = sharedPrefs.getString("known_guns_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownPortalVersion = sharedPrefs.getString("known_portal_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownLaserVersion = sharedPrefs.getString("known_laser_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownUnrealVersion = sharedPrefs.getString("known_unreal_version", NOT_INITIALIZED_ERROR_STRING);
-
-		Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion);
-
-		DesnoUtils.generalNotification(context, "Log", "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion, NotificationsId.ID_DEBUG_VERSIONS);
 	}
 
 	@Nullable
@@ -335,9 +318,7 @@ public class DesnoUtils {
 
 
 	/* ######### NOTIFICATIONS ######### */
-	public static void generalNotification(Context context, String title, String content, int id) {
-
-		Intent notificationIntent = new Intent(context, MainActivity.class);
+	public static NotificationCompat.Builder defaultNotification(Context context, String title, String content, Intent contentIntent) {
 
 		// The stack builder object will contain an artificial back stack for the started Activity.
 		// This ensures that navigating backward from the Activity leads out of your application to the Home screen.
@@ -345,7 +326,7 @@ public class DesnoUtils {
 		// Adds the back stack for the Intent (but not the Intent itself)
 		stackBuilder.addParentStack(MainActivity.class);
 		// Adds the Intent that starts the Activity to the top of the stack
-		stackBuilder.addNextIntent(notificationIntent);
+		stackBuilder.addNextIntent(contentIntent);
 		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// notification
@@ -354,65 +335,36 @@ public class DesnoUtils {
 		noti.setContentTitle(title);
 		noti.setContentText(content);
 		noti.setContentIntent(resultPendingIntent);
-		noti.setAutoCancel(true);
 		noti.setStyle(new NotificationCompat.BigTextStyle().bigText(content));
+		noti.setTicker(content);
+		noti.setAutoCancel(true); // notification is automatically canceled when the user clicks it in the panel
 		noti.setColor(context.getResources().getColor(R.color.minecraft_brown_dirt_dark));
+		noti.setDefaults(NotificationCompat.DEFAULT_LIGHTS);
+		noti.setPriority(NotificationCompat.PRIORITY_HIGH); // "A notification's big view appears only when the notification is expanded, which happens when the notification is at the top of the notification drawer"
 
-		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		mNotificationManager.notify(id, noti.build());
+		return noti;
+	}
 
+	public static void generalNotification(Context context, String title, String content, int id) {
+		DesnoUtils.generalNotification(context, title, content, id, new Intent(context, MainActivity.class));
 	}
 
 	public static void generalNotification(Context context, String title, String content, int id, Intent customIntent) {
-
-		// The stack builder object will contain an artificial back stack for the started Activity.
-		// This ensures that navigating backward from the Activity leads out of your application to the Home screen.
-		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-		// Adds the back stack for the Intent (but not the Intent itself)
-		stackBuilder.addParentStack(MainActivity.class);
-		// Adds the Intent that starts the Activity to the top of the stack
-		stackBuilder.addNextIntent(customIntent);
-		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		// notification
-		NotificationCompat.Builder noti = new NotificationCompat.Builder(context);
-		noti.setSmallIcon(R.drawable.ic_notification_main);
-		noti.setContentTitle(title);
-		noti.setContentText(content);
-		noti.setContentIntent(resultPendingIntent);
-		noti.setAutoCancel(true);
-		noti.setStyle(new NotificationCompat.BigTextStyle().bigText(content));
-		noti.setColor(context.getResources().getColor(R.color.minecraft_brown_dirt_dark));
+		NotificationCompat.Builder noti = defaultNotification(context, title, content, customIntent);
 
 		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		mNotificationManager.notify(id, noti.build());
-
 	}
 
 	public static void notificationForNewVersion(Context context, Mod mod) {
-
 		// content
 		String contentText = context.getString(R.string.notification_new_version_content1) + " " + mod.getName(context) + " " + context.getString(R.string.notification_new_version_content2);
-
-
-		// main click of the notification = launches MainActivity
-		Intent mainClickIntent = new Intent(context, MainActivity.class);
-		// The stack builder object will contain an artificial back stack for the started Activity.
-		// This ensures that navigating backward from the Activity leads out of your application to the Home screen.
-		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-		// Adds the back stack for the Intent (but not the Intent itself)
-		stackBuilder.addParentStack(MainActivity.class);
-		// Adds the Intent that starts the Activity to the top of the stack
-		stackBuilder.addNextIntent(mainClickIntent);
-		PendingIntent mainClickPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-
 
 		// download button of notification = go to the website where the download is available
 		Intent downloadClickIntent = mod.getDownloadFromWebsiteIntent();
 		// Because clicking the notification launches a new ("special") activity,
 		// there's no need to create an artificial back stack.
 		PendingIntent downloadClickPendingIntent = PendingIntent.getActivity(context, 0, downloadClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
 
 		// thread button of notification = go to the minecraftforum.net thread
 		Intent threadClickIntent = mod.getVisitThreadIntent();
@@ -421,20 +373,17 @@ public class DesnoUtils {
 		PendingIntent threadClickPendingIntent = PendingIntent.getActivity(context, 0, threadClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// notification
-		NotificationCompat.Builder noti = new NotificationCompat.Builder(context);
-		noti.setSmallIcon(R.drawable.ic_notification_main);
-		noti.setContentTitle(context.getString(R.string.notification_new_version_title));
-		noti.setContentText(contentText);
-		noti.setContentIntent(mainClickPendingIntent);
-		noti.setAutoCancel(true);
-		noti.setStyle(new NotificationCompat.BigTextStyle().bigText(contentText));
-		noti.setColor(context.getResources().getColor(R.color.minecraft_brown_dirt_dark));
+		NotificationCompat.Builder noti = defaultNotification(context, context.getString(R.string.notification_new_version_title), contentText, new Intent(context, MainActivity.class));
 		noti.addAction(R.drawable.ic_notification_download, context.getString(R.string.notification_download), downloadClickPendingIntent);
 		noti.addAction(R.drawable.ic_notification_thread, context.getString(R.string.notification_thread), threadClickPendingIntent);
 
 		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		mNotificationManager.notify(mod.NOTIFICATION_ID_NEW_VERSION, noti.build());
 
+
+		// Send event to Analytics
+		Tracker mTracker = DesnoUtils.getTracker(context);
+		DesnoUtils.sendEvent(mTracker, "Notification-Mod", "New version of the " + mod.getName(context));
 	}
 
 	public static void notifyForNewUpdates(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
@@ -463,14 +412,40 @@ public class DesnoUtils {
 			DesnoUtils.notificationForNewVersion(context, MainActivity.MAP_UNREAL);
 		}
 
-		// debug
+		// test notification
+		//DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_GUNS);
+
+		// debug versions
 		//debugVersions(context, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
 	}
 
 	public static void notifyForUnreadNews(Context context, String latestNews) {
 		if (checkIfNewVersion(context, latestNews, "latest_read_news")) {
 			DesnoUtils.generalNotification(context, context.getString(R.string.app_name), context.getString(R.string.notification_unread_news), NotificationsId.ID_UNREAD_NEWS, new Intent(context, NewsActivity.class));
+
+			// Send event to Analytics
+			Tracker mTracker = DesnoUtils.getTracker(context);
+			DesnoUtils.sendEvent(mTracker, "Notification-News", "Unread News, latest news count: " + latestNews);
 		}
+
+		// test notification
+		//DesnoUtils.generalNotification(context, context.getString(R.string.app_name), context.getString(R.string.notification_unread_news), NotificationsId.ID_UNREAD_NEWS, new Intent(context, NewsActivity.class));
+	}
+
+	@SuppressWarnings("unused")
+	private static void debugVersions(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+		String knownGunsVersion = sharedPrefs.getString("known_guns_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownPortalVersion = sharedPrefs.getString("known_portal_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownLaserVersion = sharedPrefs.getString("known_laser_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", NOT_INITIALIZED_ERROR_STRING);
+		String knownUnrealVersion = sharedPrefs.getString("known_unreal_version", NOT_INITIALIZED_ERROR_STRING);
+
+		Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion);
+
+		DesnoUtils.generalNotification(context, "Log", "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion, NotificationsId.ID_DEBUG_VERSIONS);
 	}
 	/* ######### NOTIFICATIONS ######### */
 
@@ -615,6 +590,15 @@ public class DesnoUtils {
 
 
 	/* ######### ANALYTICS ######### */
+	public static Tracker getTracker(Context context) {
+		GoogleAnalytics analytics = GoogleAnalytics.getInstance(context);
+
+		DesnoUtils.updateStatisticsEnabledBool(context);
+
+		// To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+		return analytics.newTracker("UA-55378092-6");
+	}
+
 	public static void sendScreenChange(Tracker tracker, String name) {
 		if(SharedVariables.areStatisticsEnabled) {
 			tracker.setScreenName("Screen~" + name);
@@ -632,6 +616,18 @@ public class DesnoUtils {
 					.build());
 		} else {
 			Log.i(TAG, "Analytics disabled, action \"" + action + "\" not sent");
+		}
+	}
+
+	public static void sendEvent(Tracker tracker, String eventCategory, String event) {
+		if(SharedVariables.areStatisticsEnabled) {
+			tracker.send(new HitBuilders.EventBuilder()
+					.setCategory("Event")
+					.setAction(eventCategory)
+					.setLabel(event)
+					.build());
+		} else {
+			Log.i(TAG, "Analytics disabled, event category \"" + eventCategory + "\", event \"" + event + "\" not sent");
 		}
 	}
 

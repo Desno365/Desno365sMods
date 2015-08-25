@@ -165,6 +165,7 @@ public class AboutActivity extends AppCompatActivity {
 
 			case R.id.button_contributors:
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_APP_CONTRIBUTORS)));
+				DesnoUtils.sendAction(mTracker, "Contributors");
 				break;
 
 			case R.id.button_libraries:
