@@ -17,6 +17,7 @@
 package com.desno365.mods.Activities;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -171,7 +172,7 @@ public class SettingsActivity extends BaseActivity {
 			// open popup when language preference is changed
 			languagePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
-					restartDialogLanguage();
+					restartAppDialog(activity, R.string.restart_text_language_popup);
 					DesnoUtils.sendAction(mTracker, "Language-changed");
 					return true;
 				}
@@ -191,7 +192,7 @@ public class SettingsActivity extends BaseActivity {
 			// open popup when theme preference is changed
 			themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
-					restartDialogTheme();
+					restartAppDialog(activity, R.string.restart_text_popup);
 					DesnoUtils.sendAction(mTracker, "Theme-changed");
 					return true;
 				}
@@ -224,32 +225,11 @@ public class SettingsActivity extends BaseActivity {
 		}
 	}
 
-	private static void restartDialogLanguage() {
-		View mView = View.inflate(activity, R.layout.popup_settings_restart_language, null);
-
-		android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
-		builder.setView(mView);
-		builder.setTitle(activity.getResources().getString(R.string.app_name));
-		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				MainActivity.activity.finish();
-				System.exit(0);
-			}
-		});
-		builder.setCancelable(false);
-
-		android.app.AlertDialog popup = builder.create();
-		popup.setCanceledOnTouchOutside(false);
-		popup.show();
-	}
-
-	private static void restartDialogTheme() {
-		View mView = View.inflate(activity, R.layout.popup_settings_restart_theme, null);
-
-		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-		builder.setView(mView);
-		builder.setTitle(activity.getResources().getString(R.string.app_name));
-		builder.setNeutralButton(activity.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+	private static void restartAppDialog(Context context, int message) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		builder.setMessage(message);
+		builder.setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				MainActivity.activity.finish();
 				System.exit(0);
