@@ -18,16 +18,16 @@
 <resources>
 
     <string-array name="sync_frequency">
+        <item name="h2">Every 2 hours</item>
         <item name="h4">Every 4 hours</item>
         <item name="h12">Every 12 hours</item>
         <item name="h24">Every day</item>
-        <item name="h72">Every 3 days</item>
     </string-array>
     <string-array name="sync_frequency_values">
+        <item name="h2" translatable="false">2</item>
         <item name="h4" translatable="false">4</item>
         <item name="h12" translatable="false">12</item>
         <item name="h24" translatable="false">24</item>
-        <item name="h72" translatable="false">72</item>
     </string-array>
 
 

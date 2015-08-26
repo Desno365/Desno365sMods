@@ -22,5 +22,7 @@ public class DefaultSettingsValues {
     public static final boolean NOTIFICATIONS_MODS = true;
     public static final boolean NOTIFICATIONS_NEWS = true;
     public static final boolean ANONYMOUS_STATISTICS = true;
+    public static final int SYNC_FREQUENCY = 4;
+    public static final String SYNC_FREQUENCY_STRING = String.valueOf(DefaultSettingsValues.SYNC_FREQUENCY);
 
 }

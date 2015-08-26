@@ -194,7 +194,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			editor.putBoolean("refresh_on_start", DefaultSettingsValues.REFRESH_ON_START);
 			editor.putBoolean("notification_bool_mods", DefaultSettingsValues.NOTIFICATIONS_MODS);
 			editor.putBoolean("notification_bool_news", DefaultSettingsValues.NOTIFICATIONS_NEWS);
-			editor.putString("sync_frequency", "4");
+			editor.putString("sync_frequency", DefaultSettingsValues.SYNC_FREQUENCY_STRING);
 			editor.putString("selected_language", "not_changed");
 			editor.putString("selected_theme", "0");
 			editor.putString("selected_animations", "0");

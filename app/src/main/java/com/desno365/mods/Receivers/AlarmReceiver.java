@@ -84,12 +84,19 @@ public class AlarmReceiver extends BroadcastReceiver {
 				frequency = Integer.parseInt(selectedFrequency);
 			} catch (NumberFormatException err) {
 				Log.e(TAG, "Exception in setAlarm(), frequency is not a number");
-				frequency = 12;
+				frequency = DefaultSettingsValues.SYNC_FREQUENCY;
+
+				SharedPreferences.Editor editor = sharedPreferences.edit();
+				editor.putString("sync_frequency", DefaultSettingsValues.SYNC_FREQUENCY_STRING);
+				editor.apply();
 			}
 			Log.i(TAG, "Frequency found: " + frequency + " hour(s)");
 
 			long timeFrequency;
 			switch (frequency) {
+				case 2:
+					timeFrequency = AlarmManager.INTERVAL_HOUR * 2;
+					break;
 				case 4:
 					timeFrequency = AlarmManager.INTERVAL_HOUR * 4;
 					break;
@@ -99,12 +106,13 @@ public class AlarmReceiver extends BroadcastReceiver {
 				case 24:
 					timeFrequency = AlarmManager.INTERVAL_DAY;
 					break;
-				case 72:
-					timeFrequency = AlarmManager.INTERVAL_DAY * 3;
-					break;
 				default:
-					timeFrequency = AlarmManager.INTERVAL_HALF_DAY;
 					Log.e(TAG, "Error in setAlarm(), frequency is not a known number.");
+					timeFrequency = AlarmManager.INTERVAL_HOUR * DefaultSettingsValues.SYNC_FREQUENCY;
+
+					SharedPreferences.Editor editor = sharedPreferences.edit();
+					editor.putString("sync_frequency", DefaultSettingsValues.SYNC_FREQUENCY_STRING);
+					editor.apply();
 					break;
 			}
 			Log.i(TAG, "AlarmManager will be set every " + timeFrequency + " milliseconds.");
@@ -117,7 +125,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 			// start the alarm manager
 			myAlarmManager.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis() + AlarmManager.INTERVAL_FIFTEEN_MINUTES, timeFrequency, myPendingIntent);
 		} else {
-			Log.i(TAG, "Alarm not set: notification_bool preferences for mods and news were false");
+			Log.i(TAG, "Alarm not set: notification_bool preferences for mods and news are false");
 		}
 	}
 
@@ -166,7 +174,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 				DesnoUtils.notifyForNewUpdates(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
 			}
 
-			// debug notification
+			// debug alarm
 			/*Random r = new Random();
             int randomInt = r.nextInt(NotificationsId.ID_DEBUG_LAST_NUMBER - NotificationsId.ID_DEBUG_FIRST_NUMBER) + NotificationsId.ID_DEBUG_FIRST_NUMBER;
             Calendar c = Calendar.getInstance();
