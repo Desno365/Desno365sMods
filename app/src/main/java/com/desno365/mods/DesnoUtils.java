@@ -508,7 +508,7 @@ public class DesnoUtils {
 	public static void expandTextView(ViewGroup container, TextView tv) {
 		// animation
 		if (Build.VERSION.SDK_INT >= 19) {
-			TransitionManager.beginDelayedTransition(container, new AutoTransition().setDuration(SharedConstants.CHANGELOG_ANIMATION_DURATION_PER_LINE * tv.getLineCount()));
+			TransitionManager.beginDelayedTransition(container, new AutoTransition().setDuration(SharedConstants.CHANGELOG_TEXT_ANIMATION_DURATION_PER_LINE * tv.getLineCount()));
 		}
 
 		// expand the TextView with setMaxLines
@@ -521,7 +521,7 @@ public class DesnoUtils {
 			int lines = tv.getLineCount();
 
 			// animation
-			TransitionManager.beginDelayedTransition(container, new AutoTransition().setDuration(SharedConstants.CHANGELOG_ANIMATION_DURATION_PER_LINE * lines));
+			TransitionManager.beginDelayedTransition(container, new AutoTransition().setDuration(SharedConstants.CHANGELOG_TEXT_ANIMATION_DURATION_PER_LINE * lines));
 
 			// collapse the view by setting the collapsed height
 			DesnoUtils.setViewHeight(tv, collapsedHeight);
@@ -534,7 +534,7 @@ public class DesnoUtils {
 					DesnoUtils.setViewHeight(tv, ViewGroup.LayoutParams.WRAP_CONTENT);
 					tv.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 				}
-			}, SharedConstants.CHANGELOG_ANIMATION_DURATION_PER_LINE * lines + 100);
+			}, SharedConstants.CHANGELOG_TEXT_ANIMATION_DURATION_PER_LINE * lines + 100);
 		} else {
 			// no animation without the new APIs :/
 			tv.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);

@@ -19,9 +19,9 @@ package com.desno365.mods.SharedConstants;
 public class SharedConstants {
 
 	public static final int CHANGELOG_TEXT_MAX_LINES = 10;
-
-	public static final int CHANGELOG_ANIMATION_DURATION_PER_LINE = 10; // collapse/expand animations
+	public static final int CHANGELOG_TEXT_ANIMATION_DURATION_PER_LINE = 10; // collapse/expand animations
 
 	public static final int SHAPELOADINGVIEW_MIN_TIME_DISPLAYING = 500;
 
+	public static final int ALARM_REQUEST_CODE = 365;
 }

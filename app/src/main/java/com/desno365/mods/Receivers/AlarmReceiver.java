@@ -29,13 +29,14 @@ import android.util.Log;
 import com.desno365.mods.DesnoUtils;
 import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.Keys;
+import com.desno365.mods.SharedConstants.SharedConstants;
 
 
 public class AlarmReceiver extends BroadcastReceiver {
 
 	private static final String TAG = "AlarmReceiver";
+
 	private static Context currentContext;
-	private final int ALARM_REQUEST_CODE = 365;
 	private String latestNewsVersion = "";
 	private String latestGunsVersion = "";
 	private String latestPortalVersion = "";
@@ -118,7 +119,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 			Log.i(TAG, "AlarmManager will be set every " + timeFrequency + " milliseconds.");
 
 			Intent intent = new Intent(context, AlarmReceiver.class);
-			PendingIntent myPendingIntent = PendingIntent.getBroadcast(context, ALARM_REQUEST_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+			PendingIntent myPendingIntent = PendingIntent.getBroadcast(context, SharedConstants.ALARM_REQUEST_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 			// Get the AlarmManager service
 			AlarmManager myAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -132,7 +133,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 	public void cancelAlarm(Context context) {
 		Log.i(TAG, "Alarm canceled.");
 		Intent intent = new Intent(context, AlarmReceiver.class);
-		PendingIntent myPendingIntent = PendingIntent.getBroadcast(context, ALARM_REQUEST_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+		PendingIntent myPendingIntent = PendingIntent.getBroadcast(context, SharedConstants.ALARM_REQUEST_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
 		// Get the AlarmManager service
 		AlarmManager myAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
