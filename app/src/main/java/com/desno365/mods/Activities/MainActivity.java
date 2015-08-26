@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -244,11 +245,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				public void run() {
 					runOnUiThread(new Runnable() {
 						public void run() {
-							try {
-								startRefreshingAndChecking();
-							} catch (Exception err) {
-								Log.e(TAG, "Exception in runOnUiThread() in onCreate() ", err);
-							}
+							startRefreshingAndChecking();
 						}
 					});
 				}
@@ -724,7 +721,14 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			} else {
 				runOnUiThread(new Runnable() {
 					public void run() {
-						DesnoUtils.showDefaultSnackbar(activity.findViewById(R.id.coordinator_main), R.string.internet_error, 2000);
+						Snackbar snack = DesnoUtils.getDefaultSnackbar(activity.findViewById(R.id.coordinator_main), R.string.internet_error, Snackbar.LENGTH_LONG);
+						snack.setAction(R.string.retry, new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								startRefreshingAndChecking();
+							}
+						});
+						snack.show();
 					}
 				});
 			}

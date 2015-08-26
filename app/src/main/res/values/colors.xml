@@ -52,6 +52,14 @@
     <item name="minecraft_green_cactus_light" type="color">#FF17832A</item>
     <item name="minecraft_green_cactus_lightest" type="color">#FF199130</item>
 
+    <item name="minecraft_red_lava_darkest" type="color">#c00007</item>
+    <item name="minecraft_red_lava_light" type="color">#f0290b</item>
+    <item name="minecraft_red_lava_lightest" type="color">#ff560d</item>
+
+    <item name="minecraft_blue_water_darkest" type="color">#5863ff</item>
+    <item name="minecraft_blue_water_light" type="color">#6b86ff</item>
+    <item name="minecraft_blue_water_lightest" type="color">#7fb3ff</item>
+
 
     <!-- colors of element of the app -->
     <color name="toolbar_title_text_color">@color/white</color>

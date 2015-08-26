@@ -76,6 +76,50 @@
     </style>
 
 
+    <style name="AppTheme.Red" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+        <item name="color_primary_dark">@color/minecraft_red_lava_darkest</item>
+        <item name="color_primary">@color/minecraft_red_lava_light</item>
+        <item name="color_accent">@color/minecraft_blue_water_light</item>
+        <item name="color_drawer_divider">@color/minecraft_red_lava_lightest</item>
+        <item name="android:textColorLink">?attr/color_primary</item>
+        <item name="color_preferences">?attr/color_primary</item>
+
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">?attr/color_primary</item>
+
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">?attr/color_primary_dark</item>
+
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/color_accent</item>
+
+    </style>
+
+
+    <style name="AppTheme.Blue" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+        <item name="color_primary_dark">@color/minecraft_blue_water_darkest</item>
+        <item name="color_primary">@color/minecraft_blue_water_light</item>
+        <item name="color_accent">@color/minecraft_red_lava_light</item>
+        <item name="color_drawer_divider">@color/minecraft_blue_water_lightest</item>
+        <item name="android:textColorLink">?attr/color_primary</item>
+        <item name="color_preferences">?attr/color_primary</item>
+
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">?attr/color_primary</item>
+
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">?attr/color_primary_dark</item>
+
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">?attr/color_accent</item>
+
+    </style>
+
+
 
     <style name="PreferenceFragmentTheme" parent="AppBaseTheme">
         <item name="colorAccent">?attr/color_preferences</item>

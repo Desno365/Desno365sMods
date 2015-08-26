@@ -19,6 +19,7 @@ package com.desno365.mods.Activities;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -347,7 +348,14 @@ public class NewsActivity extends BaseActivity {
 				findViewById(R.id.news_error_loading_text).setVisibility(View.VISIBLE);
 				runOnUiThread(new Runnable() {
 					public void run() {
-						DesnoUtils.showDefaultSnackbar(activity.findViewById(R.id.coordinator_news), R.string.internet_error);
+						Snackbar snack = DesnoUtils.getDefaultSnackbar(activity.findViewById(R.id.coordinator_news), R.string.internet_error, Snackbar.LENGTH_LONG);
+						snack.setAction(R.string.retry, new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								startRefreshingNews();
+							}
+						});
+						snack.show();
 					}
 				});
 			}

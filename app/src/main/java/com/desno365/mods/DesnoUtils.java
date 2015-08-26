@@ -129,6 +129,12 @@ public class DesnoUtils {
 				case 1:
 					context.setTheme(R.style.AppTheme_Green);
 					break;
+				case 2:
+					context.setTheme(R.style.AppTheme_Red);
+					break;
+				case 3:
+					context.setTheme(R.style.AppTheme_Blue);
+					break;
 				default:
 					context.setTheme(R.style.AppTheme_Brown);
 					break;
@@ -228,16 +234,6 @@ public class DesnoUtils {
 
 
 	/* ######### SNACKBAR ######### */
-	public static void showDefaultSnackbar(View parent, int text) {
-		showDefaultSnackbar(parent, text, Snackbar.LENGTH_SHORT);
-	}
-
-	public static void showDefaultSnackbar(View parent, int text, int duration) {
-		Snackbar snack = getDefaultSnackbar(parent, text, duration);
-
-		snack.show();
-	}
-
 	public static void showAnimatedDefaultSnackbar(ViewGroup parent, int text) {
 		showAnimatedDefaultSnackbar(parent, text, Snackbar.LENGTH_SHORT);
 	}
@@ -274,7 +270,7 @@ public class DesnoUtils {
 		snack.show();
 	}
 
-	private static Snackbar getDefaultSnackbar(View parent, int text, int duration) {
+	public static Snackbar getDefaultSnackbar(View parent, int text, int duration) {
 		Snackbar snack = Snackbar.make(parent, text, duration);
 
 		// make text white
@@ -283,11 +279,13 @@ public class DesnoUtils {
 		TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
 		tv.setTextColor(Color.WHITE);
 
-		// set background color
-		TypedArray a = parent.getContext().getTheme().obtainStyledAttributes(new int[]{ R.attr.color_primary_dark });
+		// set background and action colors
+		TypedArray a = parent.getContext().getTheme().obtainStyledAttributes(new int[]{ R.attr.color_primary_dark, R.attr.color_accent });
 		int color1 = a.getColor(0, 0);
+		int color2 = a.getColor(1, 0);
 		a.recycle();
 		view.setBackgroundColor(color1);
+		snack.setActionTextColor(color2);
 
 		return snack;
 	}

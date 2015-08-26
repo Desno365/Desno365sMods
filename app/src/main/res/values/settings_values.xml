@@ -66,10 +66,14 @@
     <string-array name="themes">
         <item name="brown">Dirt</item>
         <item name="green">Cactus</item>
+        <item name="red">Lava</item>
+        <item name="blue">Water</item>
     </string-array>
     <string-array name="themes_values">
         <item name="brown" translatable="false">0</item>
         <item name="green" translatable="false">1</item>
+        <item name="red" translatable="false">2</item>
+        <item name="blue" translatable="false">3</item>
     </string-array>
 
 
