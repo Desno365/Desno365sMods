@@ -20,38 +20,12 @@
   <string name="action_info">소개</string>
   <string name="action_help">도움말</string>
   <string name="action_share">공유</string>
-  <string name="share_using">배포 공유…</string>
+  <string name="share_using">배포 공유...</string>
   <string name="share_body">나는 마인크래프트 포켓에디션에 엄청난 모드들을 다운 받기 위해 \"Desno365\'s Mods\" 앱을 쓰고 있어! 확인해 봐.  http://bit.ly/DesnoMods </string>
   <string name="action_feedback">의견</string>
   <string name="action_rate">이 앱 평가하기</string>
   <string name="action_settings">설정</string>
   <string name="close_dialog">닫기</string>
-  <string name="made_by">이 앱은 Desno365에게 사랑으로 만들어졌습니다.</string>
-  <string name="follow_me">트위터에서 팔로우하기</string>
-  <string name="source_code">이 앱의 소스 코드 얻기</string>
-  <string name="support_me">\n혹시 이 앱을 나아지게 할 아이디어가 있으신가요?\n트위터에서 연락해 주세요!\n\n만약 저를 도와주시고 싶다면 구글 플레이 스토어에서 이 앱에 별 5개를 평가해 주세요. 이것이 제가 새롭고 멋진 모드를 만드는 데 도움이 됩니다! 감사합니다 :)</string>
-  <string name="take_me_play_store">플레이 스토어로 가기</string>
-  <string name="contributors_title">도움을 주신 분들</string>
-  <string name="contributors_content">큰 그것을 번역 하거나 도와주는 프로젝트에 기여 하는 모든 사람 덕분에! 여기에 기여 하는 사람들의 목록: http://desno365.github.io/minecraft/desno365-mods-app/credits/</string>
-  <string name="used_libraries_title">사용된 라이브러리 및 이미지</string>
-  <string name="info_title">정보</string>
-  <string name="features_title">기능</string>
-  <string name="updates_title">업데이트</string>
-  <string name="compatibility_title">Compatibility</string>
-  <string name="changelog_title">변경사항</string>
-  <string name="useful_links_title">유용한 링크</string>
-  <string name="loading">로딩중…</string>
-  <string name="mods">모드들</string>
-  <string name="latest_version_is">최신 버전은:</string>
-  <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
-  <string name="internet_error">업데이트를 확인하는 동안 오류가 발생했습니다, 귀하의 인터넷 연결을 확인해 주십시오.</string>
-  <string name="show_changelog">모든 변경사항 보기…</string>
-  <string name="hide_changelog">변경사항 숨기기…</string>
-  <string name="minecraft_thread">minecraftforum.net 스레드</string>
-  <string name="instruction_for_installing">설치 설명서 읽기</string>
-  <string name="installation_video_tutorial">비디오 튜토리얼 시청</string>
-  <string name="download_mod_from_website">Desno의 웹사이트에서 다운로드</string>
-  <string name="download_map_from_website">Desno의 웹사이트에서 다운로드</string>
   <string name="welcome_title">환영합니다!</string>
   <string name="welcome_content">Desno365의 모드 앱에 오신 것을 환영합니다!\n여기서 최신 버전과 저의 모든 모드의 변경기록을 확인하실 수 있습니다.</string>
   <string name="minecraft_version_title">MCPE version</string>
@@ -61,6 +35,39 @@
   <string name="news_button">뉴스 페이지로 이동</string>
   <string name="need_help_title">도움이 필요하십니까?</string>
   <string name="help_button">도움말 페이지로 이동</string>
+  <string name="info_title">정보</string>
+  <string name="features_title">기능</string>
+  <string name="updates_title">업데이트</string>
+  <string name="compatibility_title">Compatibility</string>
+  <string name="changelog_title">변경사항</string>
+  <string name="useful_links_title">유용한 링크</string>
+  <string name="loading">로딩중...</string>
+  <string name="mods">모드들</string>
+  <string name="latest_version_is">최신 버전은:</string>
+  <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
+  <string name="internet_error">Connection error: please check your Internet connection.</string>
+  <string name="retry">Retry</string>
+  <string name="show_changelog">모든 변경사항 보기...</string>
+  <string name="hide_changelog">변경사항 숨기기...</string>
+  <string name="minecraft_thread">minecraftforum.net 스레드</string>
+  <string name="instruction_for_installing">설치 설명서 읽기</string>
+  <string name="installation_video_tutorial">비디오 튜토리얼 시청</string>
+  <string name="download_mod_from_website">Desno의 웹사이트에서 다운로드</string>
+  <string name="download_map_from_website">Desno의 웹사이트에서 다운로드</string>
+  <string name="info_content_tab6">총. 무기. 폭발. 이것이 Desno총 모드이죠! :D</string>
+  <string name="info_content_tab2">이 모드는 유명한 PC 게임인 \"포탈\"을 마인크래프트 포켓 에디션에서 재현해낼려고 하였습니다.\n이 모드가 있다면 당신은 포탈 건을 조합하고 쏠 수 있습니다!\n당신은 포탈들과 함께라면 당신을 아무데나로 텔레포트할 수 있습니다.\n여기엔 5가지 성질이 다른 포탈 건들이 있습니다.\n또한 이 모드에서는 게임 \"포탈\"에 있는 아이템들을 찾을 수 있습니다: 긴 점프 부츠, 점퍼, 젤. 그리고 많은 기능들이 다음 업데이트에 추가될 것입니다.</string>
+  <string name="features_content_tab3">• 레이저 건의 레이저는 당신이 보고 있는 블록을 파괴합니다.\n• 레이저 바주카는 땅에 닿으면 터지는 레이저 총알을 날립니다.\n• 레이저 스나이퍼 라이플은 거의 모든 몹들을 치면 죽이는 레이저 총알을 날립니다.\n• 모드의 설정과 정보를 UI와 함께 알고 싶으시면 설정 아이콘을 누르세요.\n• 무기들엔 많은 설정이 있어서 당신의 무기를 맞출 수 있습니다.\n• 또한 크리에이티브 인벤토리에서 레이저 무기들을 찾을 수 있습니다.</string>
+  <string name="features_content_tab4">• 터렛을 만들어 당신이 놓고 싶은데 놓으면, \"터렛 옵션\" 아이템을 통해 터렛을 공격적으로 만들어 사정 거리 안에 들어온 지정된 몹을 쏘기 시작할 것입니다.\n• 터렛의 이름을 바꿀 수 있는 설정이 있습니다.\n• 당신의 집을 터렛으로 지키세요! ;)</string>
+  <string name="features_content_tab5">• 12개의 다른 디스크에 12개의 다른 노래가 들어가 있습니다 (노래들은 PC 마인크래프트에서 복사되었습니다).\n• 주크박스를 디스크로 탭하면 고른 노래를 재생하기 시작합니다.\n• 당신과 주크박스 사이의 거리가 멀어질 수록, 음량이 낮아질 것입니다.\n•여러 개의 주크박스를 지원해 동시에 틀 수 있습니다.\n• 적대적 몹을 30번 죽일 때마다 랜덤으로 디스크를 얻을 수 있습니다.\n• 주크박스를 탭해 디스크를 꺼냅니다. 디스크의 노래가 끝나면 자동으로 꺼내집니다.\n• 또한 주크박스 블록과 디스크들은 크리에이티브 인벤토리에도 있습니다.\n• 주크박스의 조합법은 PC 버전과 같습니다.</string>
+  <string name="info_content_tab7">이 맵과 연결 된 mod가지고 비 유클리드 기하학 모바일 장치에! \nExperience 일반/유클리드에서 환상 세계의 소리 Minecraft.\nWords can\ 같은 게임 \' t 설명 좋은 방법으로이 지도. \nTry, 표시 됩니다.</string>
+  <string name="made_by">Made with Love by Desno365</string>
+  <string name="follow_me">트위터에서 팔로우하기</string>
+  <string name="source_code">이 앱의 소스 코드 얻기</string>
+  <string name="support_me">\n혹시 이 앱을 나아지게 할 아이디어가 있으신가요?\n트위터에서 연락해 주세요!\n\n만약 저를 도와주시고 싶다면 구글 플레이 스토어에서 이 앱에 별 5개를 평가해 주세요. 이것이 제가 새롭고 멋진 모드를 만드는 데 도움이 됩니다! 감사합니다 :)</string>
+  <string name="take_me_play_store">플레이 스토어로 가기</string>
+  <string name="credits_title">Credits</string>
+  <string name="contributors_title">도움을 주신 분들</string>
+  <string name="used_libraries_title">사용된 라이브러리 및 이미지</string>
   <string name="click_image_to_view">이 페이지에서 전체 해상도로 보실려면 아무 사진이나 클릭하세요.</string>
   <string name="zoom_image_showcase_title">이미지 확대</string>
   <string name="what_you_need_title">모드를 사용하기 위해 필요한 것</string>
@@ -80,12 +87,6 @@
   <string name="how_to_install_texture_pack_launcher_options">몇몇 모드에서는 .zip 파일 안에 텍스쳐 팩이 있습니다.\nBlockLauncher에서 열어서 설치하려면, \"설정\" 아이콘을 클릭해 \"런처 옵션\"으로 가세요.</string>
   <string name="how_to_install_texture_pack_texture_pack">\"텍스쳐 팩\" 칸에 가서 오른쪽 위의 스위치가 켜져있는 것을 확인하세요.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">그 다음 \"선택\" 버튼을 누른 후 처음 .zip 파일에서 압축이 풀린 텍스쳐 팩을 선택하세요.</string>
-  <string name="info_content_tab6">총. 무기. 폭발. 이것이 Desno총 모드이죠! :D</string>
-  <string name="info_content_tab2">이 모드는 유명한 PC 게임인 \"포탈\"을 마인크래프트 포켓 에디션에서 재현해낼려고 하였습니다.\n이 모드가 있다면 당신은 포탈 건을 조합하고 쏠 수 있습니다!\n당신은 포탈들과 함께라면 당신을 아무데나로 텔레포트할 수 있습니다.\n여기엔 5가지 성질이 다른 포탈 건들이 있습니다.\n또한 이 모드에서는 게임 \"포탈\"에 있는 아이템들을 찾을 수 있습니다: 긴 점프 부츠, 점퍼, 젤. 그리고 많은 기능들이 다음 업데이트에 추가될 것입니다.</string>
-  <string name="features_content_tab3">• 레이저 건의 레이저는 당신이 보고 있는 블록을 파괴합니다.\n• 레이저 바주카는 땅에 닿으면 터지는 레이저 총알을 날립니다.\n• 레이저 스나이퍼 라이플은 거의 모든 몹들을 치면 죽이는 레이저 총알을 날립니다.\n• 모드의 설정과 정보를 UI와 함께 알고 싶으시면 설정 아이콘을 누르세요.\n• 무기들엔 많은 설정이 있어서 당신의 무기를 맞출 수 있습니다.\n• 또한 크리에이티브 인벤토리에서 레이저 무기들을 찾을 수 있습니다.</string>
-  <string name="features_content_tab4">• 터렛을 만들어 당신이 놓고 싶은데 놓으면, \"터렛 옵션\" 아이템을 통해 터렛을 공격적으로 만들어 사정 거리 안에 들어온 지정된 몹을 쏘기 시작할 것입니다.\n• 터렛의 이름을 바꿀 수 있는 설정이 있습니다.\n• 당신의 집을 터렛으로 지키세요! ;)</string>
-  <string name="features_content_tab5">• 12개의 다른 디스크에 12개의 다른 노래가 들어가 있습니다 (노래들은 PC 마인크래프트에서 복사되었습니다).\n• 주크박스를 디스크로 탭하면 고른 노래를 재생하기 시작합니다.\n• 당신과 주크박스 사이의 거리가 멀어질 수록, 음량이 낮아질 것입니다.\n•여러 개의 주크박스를 지원해 동시에 틀 수 있습니다.\n• 적대적 몹을 30번 죽일 때마다 랜덤으로 디스크를 얻을 수 있습니다.\n• 주크박스를 탭해 디스크를 꺼냅니다. 디스크의 노래가 끝나면 자동으로 꺼내집니다.\n• 또한 주크박스 블록과 디스크들은 크리에이티브 인벤토리에도 있습니다.\n• 주크박스의 조합법은 PC 버전과 같습니다.</string>
-  <string name="info_content_tab7">이 맵과 연결 된 mod가지고 비 유클리드 기하학 모바일 장치에! \nExperience 일반/유클리드에서 환상 세계의 소리 Minecraft.\nWords can\ 같은 게임 \' t 설명 좋은 방법으로이 지도. \nTry, 표시 됩니다.</string>
   <string name="connection_settings">연결</string>
   <string name="refresh_on_start_title">시작 새로 고침</string>
   <string name="refresh_on_start_summary">앱 콘텐츠 시작 새로 고침</string>
@@ -112,14 +113,17 @@
   <string name="restore_tips_title">복원 제안</string>
   <string name="restore_tips_summary">팁 및 제안을 도움말 페이지에서 복원합니다.</string>
   <string name="restored_toast">팁 및 제안을 복원했습니다.</string>
+  <string name="statistics_settings">Anonymous statistics</string>
+  <string name="anonymous_statistics_title">App usage statistics</string>
+  <string name="anonymous_statistics_summary">Allow anonymous tracking of errors and general usage</string>
   <string name="notification_new_version_title">새 버전 출시됨</string>
   <string name="notification_new_version_content1">새로운 버전의</string>
   <string name="notification_new_version_content2">이 출시되었습니다!</string>
   <string name="notification_unread_news">읽지 않은 뉴스가 있습니다!</string>
   <string name="notification_thread">스레드</string>
   <string name="notification_download">다운로드</string>
-  <string name="show_news" tools:ignore="UnusedResources">모든 소식 보기…</string>
-  <string name="hide_news" tools:ignore="UnusedResources">소식 숨기기…</string>
+  <string name="show_news" tools:ignore="UnusedResources">모든 소식 보기...</string>
+  <string name="hide_news" tools:ignore="UnusedResources">소식 숨기기...</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">이미지를 확대하려면 두 손가락으로 확대하거나 화면을 두 번 탭</string>
   <string name="feedback_toast" tools:ignore="UnusedResources">이 앱이 minecraftforum.net 스레드에 올라가 있는 것이 어떤지 말해주세요.</string>
 </resources>

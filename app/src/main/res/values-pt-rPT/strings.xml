@@ -26,14 +26,15 @@
   <string name="action_rate">Classifique esta aplicação</string>
   <string name="action_settings">Definições</string>
   <string name="close_dialog">Fechar</string>
-  <string name="made_by">Este App foi feito com amor por Desno365</string>
-  <string name="follow_me">Siga-nos nos Twitter</string>
-  <string name="source_code">Obter o código fonte deste app</string>
-  <string name="support_me">Você tem uma idéia sobre como melhorar este app? Contact me no Twitter! Se você gostaria de apoiar-me por favor taxa este app 5 estrelas na loja do jogo do Google. Isso vai me ajudar a fazer novos mods fantásticos! Obrigado :)</string>
-  <string name="take_me_play_store">Leve-me à loja do jogo</string>
-  <string name="contributors_title">Contribuidores</string>
-  <string name="contributors_content">Um grande obrigado a todas as pessoas que contribuíram para o projeto, por traduzi-lo ou ajudar-me! Aqui está a lista das pessoas que contribuíram: http://desno365.github.io/minecraft/desno365-mods-app/credits/</string>
-  <string name="used_libraries_title">Imagens e bibliotecas usadas</string>
+  <string name="welcome_title">Bem vindo</string>
+  <string name="welcome_content">Bem-vindo ao Desno Mods app. você pode verificar a versão mais recente e o changelog de todos meus mods.</string>
+  <string name="minecraft_version_title">MCPE version</string>
+  <string name="minecraft_version_content">Installed version: Minecraft PE %1$s</string>
+  <string name="minecraft_not_installed">Minecraft PE not installed</string>
+  <string name="news_title">Novidades</string>
+  <string name="news_button">Leve-me para a página de notícias</string>
+  <string name="need_help_title">Precisa de ajuda?</string>
+  <string name="help_button">Leve-me para a página de ajuda</string>
   <string name="info_title">Informação</string>
   <string name="features_title">Características</string>
   <string name="updates_title">Atualizações</string>
@@ -44,23 +45,29 @@
   <string name="mods">Mods</string>
   <string name="latest_version_is">A versão mais recente é:</string>
   <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
-  <string name="internet_error">Ocorreu um erro durante a verificação de atualizações, por favor, verifique sua conexão de internet.</string>
-  <string name="show_changelog">Mostre o changelog todo…</string>
-  <string name="hide_changelog">Esconda o changelog…</string>
+  <string name="internet_error">Connection error: please check your Internet connection.</string>
+  <string name="retry">Retry</string>
+  <string name="show_changelog">Mostre o changelog todo...</string>
+  <string name="hide_changelog">Esconda o changelog...</string>
   <string name="minecraft_thread">Thread de minecraftforum.net</string>
   <string name="instruction_for_installing">Leia as instruções de instalação</string>
   <string name="installation_video_tutorial">Assista o vídeo tutorial de instalação</string>
   <string name="download_mod_from_website">Baixar este mod site do Desno</string>
   <string name="download_map_from_website">Baixar este mapa no site do Desno</string>
-  <string name="welcome_title">Bem vindo</string>
-  <string name="welcome_content">Bem-vindo ao Desno Mods app. você pode verificar a versão mais recente e o changelog de todos meus mods.</string>
-  <string name="minecraft_version_title">MCPE version</string>
-  <string name="minecraft_version_content">Installed version: Minecraft PE %1$s</string>
-  <string name="minecraft_not_installed">Minecraft PE not installed</string>
-  <string name="news_title">Novidades</string>
-  <string name="news_button">Leve-me para a página de notícias</string>
-  <string name="need_help_title">Precisa de ajuda?</string>
-  <string name="help_button">Leve-me para a página de ajuda</string>
+  <string name="info_content_tab6">Armas. Explosões. Este é o Mod DesnoGuns! : D</string>
+  <string name="info_content_tab2">Este mod tenta trazer as características do famoso jogo de PC \"Portal\" em Minecraft Pocket Edition. Com este mod você pode a arma de Portal do ofício e então disparar! Voce pode teleportar você mesmo em toda parte com estes portais. Aqui são cinco armas diferentes do Portal com diferentes características.Dentro deste mod você pode encontrar também outros itens retirados do jogo \"Portal\": longas botas de outono , Saltadores, géis. E muitas outras características virá à tona no futuro actualizações.</string>
+  <string name="features_content_tab3">• O laser da arma Laser destrói o bloco que você está olhando. \n• a bazuca Laser atirar uma bala do laser que vai explodir quando toca as filmagens de The Laser Sniper Rifle chão. \n• uma bala do laser que matar quase todos os mob sucesso. \n• toque no ícone configurações para abrir a interface do usuário com informações e configurações para o mod \n• lá são um monte de configurações para as armas , então você pode personalizá-los. \n• você pode encontrar as armas Laser também no inventário criativo.</string>
+  <string name="features_content_tab4">• Crafite Um turret e coloque-o onde você quer e, em seguida, torná-lo agressivo com o item \"Opções de Torre\" e a torre vai começar a atirar em todos os grupos selecionados que vêm em sua gama. \n• há uma opção para mudar o nome da torreta. \n• proteger seu lar com suas torres! ;)</string>
+  <string name="features_content_tab5">• Existem doze discos diferentes com doze diferentes canções (canções estão portadas de Minecraft PC). \n• toque a jukebox com um disco e ele vai começar a tocar a canção escolhida. \n• maior que a distância entre você e a Jukebox, baixa o volume de la \n• suportam vários jukeboxes que desempenham simultaneamente. \n• lá é uma chance aleatória de encontrar um disco cada 30 mortes de multidões hostis. \n• torneira Jukebox para ejetar o disco. Quando a canção termina o disco será ejetado automaticamente. \n• Jukebox o bloco e os discos também estão no inventário criativo. \n• a elaborar receitas de Jukebox são os mesmos da versão PC.</string>
+  <string name="info_content_tab7">Este mapa e o mod anexado trazem o não-euclidiana geometria no seu dispositivo móvel! \nExperimente a loucura de um mundo irreal, em um normal/euclidiana jogo como Minecraft.\nMundos Nao se podem explicar de um jeito bom que este mapa tem. \n Tente, você verá.</string>
+  <string name="made_by">Made with Love by Desno365</string>
+  <string name="follow_me">Siga-nos nos Twitter</string>
+  <string name="source_code">Obter o código fonte deste app</string>
+  <string name="support_me">Você tem uma idéia sobre como melhorar este app? Contact me no Twitter! Se você gostaria de apoiar-me por favor taxa este app 5 estrelas na loja do jogo do Google. Isso vai me ajudar a fazer novos mods fantásticos! Obrigado :)</string>
+  <string name="take_me_play_store">Leve-me à loja do jogo</string>
+  <string name="credits_title">Credits</string>
+  <string name="contributors_title">Contribuidores</string>
+  <string name="used_libraries_title">Imagens e bibliotecas usadas</string>
   <string name="click_image_to_view">Clique em qualquer imagem nesta página para visualizá-lo em resolução total.</string>
   <string name="zoom_image_showcase_title">Imagem zoom</string>
   <string name="what_you_need_title">O que você precisa usar mods</string>
@@ -80,12 +87,6 @@
   <string name="how_to_install_texture_pack_launcher_options">Alguns mods dentro do arquivo. zip tem um pacote de textura. Tenha o BlockLauncher aberto, clique no ícone \"Configurações\" e vá em \"Opções do Launcher\".</string>
   <string name="how_to_install_texture_pack_texture_pack">Vá na seção \"Texture Pack\" e certifique-se de que o interruptor no canto superior direito é ON.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Em seguida, pressione o botão \"Select\" e escolher o pacote de textura que foi extraído o primeiro arquivo. zip.</string>
-  <string name="info_content_tab6">Armas. Explosões. Este é o Mod DesnoGuns! : D</string>
-  <string name="info_content_tab2">Este mod tenta trazer as características do famoso jogo de PC \"Portal\" em Minecraft Pocket Edition. Com este mod você pode a arma de Portal do ofício e então disparar! Voce pode teleportar você mesmo em toda parte com estes portais. Aqui são cinco armas diferentes do Portal com diferentes características.Dentro deste mod você pode encontrar também outros itens retirados do jogo \"Portal\": longas botas de outono , Saltadores, géis. E muitas outras características virá à tona no futuro actualizações.</string>
-  <string name="features_content_tab3">• O laser da arma Laser destrói o bloco que você está olhando. \n• a bazuca Laser atirar uma bala do laser que vai explodir quando toca as filmagens de The Laser Sniper Rifle chão. \n• uma bala do laser que matar quase todos os mob sucesso. \n• toque no ícone configurações para abrir a interface do usuário com informações e configurações para o mod \n• lá são um monte de configurações para as armas , então você pode personalizá-los. \n• você pode encontrar as armas Laser também no inventário criativo.</string>
-  <string name="features_content_tab4">• Crafite Um turret e coloque-o onde você quer e, em seguida, torná-lo agressivo com o item \"Opções de Torre\" e a torre vai começar a atirar em todos os grupos selecionados que vêm em sua gama. \n• há uma opção para mudar o nome da torreta. \n• proteger seu lar com suas torres! ;)</string>
-  <string name="features_content_tab5">• Existem doze discos diferentes com doze diferentes canções (canções estão portadas de Minecraft PC). \n• toque a jukebox com um disco e ele vai começar a tocar a canção escolhida. \n• maior que a distância entre você e a Jukebox, baixa o volume de la \n• suportam vários jukeboxes que desempenham simultaneamente. \n• lá é uma chance aleatória de encontrar um disco cada 30 mortes de multidões hostis. \n• torneira Jukebox para ejetar o disco. Quando a canção termina o disco será ejetado automaticamente. \n• Jukebox o bloco e os discos também estão no inventário criativo. \n• a elaborar receitas de Jukebox são os mesmos da versão PC.</string>
-  <string name="info_content_tab7">Este mapa e o mod anexado trazem o não-euclidiana geometria no seu dispositivo móvel! \nExperimente a loucura de um mundo irreal, em um normal/euclidiana jogo como Minecraft.\nMundos Nao se podem explicar de um jeito bom que este mapa tem. \n Tente, você verá.</string>
   <string name="connection_settings">Conexão</string>
   <string name="refresh_on_start_title">Actualizar no início</string>
   <string name="refresh_on_start_summary">Atualizar o conteúdo no início da app</string>
@@ -112,14 +113,17 @@
   <string name="restore_tips_title">Restaurar Sugestoes</string>
   <string name="restore_tips_summary">Restaurar a dicas e sugestões na página de ajuda</string>
   <string name="restored_toast">Dicas e sugestões restaurados.</string>
+  <string name="statistics_settings">Anonymous statistics</string>
+  <string name="anonymous_statistics_title">App usage statistics</string>
+  <string name="anonymous_statistics_summary">Allow anonymous tracking of errors and general usage</string>
   <string name="notification_new_version_title">Nova versão lançada</string>
   <string name="notification_new_version_content1">Uma nova versão do</string>
   <string name="notification_new_version_content2">foi lançado!</string>
   <string name="notification_unread_news">Há notícias não lidas</string>
   <string name="notification_thread">Tópico</string>
   <string name="notification_download">Descarregar</string>
-  <string name="show_news" tools:ignore="UnusedResources">Mostre todas as notícias…</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Esconda a notícia…</string>
+  <string name="show_news" tools:ignore="UnusedResources">Mostre todas as notícias...</string>
+  <string name="hide_news" tools:ignore="UnusedResources">Esconda a notícia...</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Belisque ou toque duas vezes na tela para ampliar a imagem</string>
   <string name="feedback_toast" tools:ignore="UnusedResources">diga-me o que você acha deste app no segmento de minecraftforum.net</string>
 </resources>

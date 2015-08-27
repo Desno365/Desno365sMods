@@ -59,8 +59,8 @@
     <item name="turkish" translatable="false">tr</item>
   </string-array>
   <string-array name="themes">
-    <item name="brown">Terra</item>
-    <item name="green">Cacto</item>
+    <item name="brown">Dirt</item>
+    <item name="green">Kaktus</item>
     <item name="red">Lava</item>
     <item name="blue">Water</item>
   </string-array>
@@ -71,10 +71,10 @@
     <item name="blue" translatable="false">3</item>
   </string-array>
   <string-array name="animations">
-    <item name="default">Original</item>
-    <item name="up_down">Empurrar para baixo/cima</item>
-    <item name="corner">Mover para/ Do canto</item>
-    <item name="book">Abrir/fechar a página como um livro</item>
+    <item name="default">Výchozí</item>
+    <item name="up_down">Push down/up</item>
+    <item name="corner">Přesunout z/do rohu</item>
+    <item name="book">Otevřít/zavřít stránku jako kniha</item>
   </string-array>
   <string-array name="animations_values">
     <item name="default" translatable="false">0</item>

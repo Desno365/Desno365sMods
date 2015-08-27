@@ -17,16 +17,16 @@
   -->
 <resources>
   <string-array name="sync_frequency">
-    <item name="h4">Каждые 4 часа</item>
-    <item name="h12">Каждые 12 часов</item>
-    <item name="h24">Каждый день</item>
-    <item name="h72">Каждые 3 дня</item>
+    <item name="h2">Every 2 hours</item>
+    <item name="h4">Every 4 hours</item>
+    <item name="h12">Every 12 hours</item>
+    <item name="h24">Every day</item>
   </string-array>
   <string-array name="sync_frequency_values">
+    <item name="h2" translatable="false">2</item>
     <item name="h4" translatable="false">4</item>
     <item name="h12" translatable="false">12</item>
     <item name="h24" translatable="false">24</item>
-    <item name="h72" translatable="false">72</item>
   </string-array>
   <string-array name="languages">
     <item name="default" translatable="false">Default</item>
@@ -61,16 +61,20 @@
   <string-array name="themes">
     <item name="brown">Земля</item>
     <item name="green">Кактус</item>
+    <item name="red">Lava</item>
+    <item name="blue">Water</item>
   </string-array>
   <string-array name="themes_values">
     <item name="brown" translatable="false">0</item>
     <item name="green" translatable="false">1</item>
+    <item name="red" translatable="false">2</item>
+    <item name="blue" translatable="false">3</item>
   </string-array>
   <string-array name="animations">
     <item name="default">Стандартный</item>
-    <item name="up_down">Нажмите вниз/вверх</item>
-    <item name="corner">Двигайтесь к/от угла</item>
-    <item name="book">Откройте/закройте страницу как книгу</item>
+    <item name="up_down">Толкать вниз/вверх</item>
+    <item name="corner">Переход от угла</item>
+    <item name="book">Открыть/закрыть страницу как книга</item>
   </string-array>
   <string-array name="animations_values">
     <item name="default" translatable="false">0</item>
