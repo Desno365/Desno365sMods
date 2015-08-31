@@ -546,11 +546,17 @@ public class DesnoUtils {
 
 	/* ######### ADS ######### */
 	private static final long MINIMUM_DELAY_FOR_NEW_AD_MILLIS = 30000;
-	public static InterstitialAdStatic interstitialAdStatic;
+	public static InterstitialAdStatic interstitialAdStatic = null;
 
 	public static void showAd() {
 		if (interstitialAdStatic != null) {
 			interstitialAdStatic.show();
+		}
+	}
+
+	public static void loadInterstitialAd(Context context) {
+		if(interstitialAdStatic == null) {
+			interstitialAdStatic = new DesnoUtils.InterstitialAdStatic(context);
 		}
 	}
 
@@ -561,8 +567,6 @@ public class DesnoUtils {
 		private long latestShowedTime;
 
 		public InterstitialAdStatic(Context context) {
-
-			interstitialAdStatic = this;
 
 			latestShowedTime = 0;
 
@@ -587,7 +591,6 @@ public class DesnoUtils {
 		}
 
 		public void show() {
-			// "this" object should be equal to the interstitialAd object
 			if (System.currentTimeMillis() >= (latestShowedTime + MINIMUM_DELAY_FOR_NEW_AD_MILLIS)) {
 				if (interstitialAd.isLoaded()) {
 					interstitialAd.show();
