@@ -19,6 +19,7 @@ package com.desno365.mods.Activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -113,7 +114,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		if(SharedVariables.areStatisticsEnabled)
 			Fabric.with(this, new Crashlytics());
 
-		// Starting Google Analytics
+		// Start Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		mTracker = application.getDefaultTracker();
 
@@ -184,12 +185,23 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		mNavigationDrawerFragment = (MainNavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
-		// actions to do at the first launch of the app
+		// actions to do at the first launch of the app or after the app gets an update
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor editor = sharedPrefs.edit();
+
+		final int knownVersion = sharedPrefs.getInt("known_version_code", 0);
+		int currentVersion;
+		try {
+			currentVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+		} catch (PackageManager.NameNotFoundException e) {
+			Log.e(TAG, "This should never happen, if this really happened one of the following has most likely happened: 1) There is a significant bug in this code. 2) There is a significant bug in Android. 3) The universe has ceased to exist.");
+			currentVersion = 0;
+		}
+
 		if (sharedPrefs.getBoolean("is_first_launch", true)) {
 			// first launch, the app has never been launched before
-			SharedPreferences.Editor editor = sharedPrefs.edit();
 			editor.putBoolean("is_first_launch", false);
+			editor.putInt("known_version_code", currentVersion);
 
 			editor.putBoolean("refresh_on_start", DefaultSettingsValues.REFRESH_ON_START);
 			editor.putBoolean("notification_bool_mods", DefaultSettingsValues.NOTIFICATIONS_MODS);
@@ -200,18 +212,29 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			editor.putString("selected_animations", "0");
 			editor.putBoolean("anonymous_statistics", DefaultSettingsValues.ANONYMOUS_STATISTICS);
 			editor.putBoolean("user_understood_full_resolution_help", false);
-			editor.apply();
 			Log.i(TAG, "First launch");
+		} else {
+			Log.i(TAG, "APP LAUNCHED, with versionCode " + currentVersion);
+			editor.putInt("known_version_code", currentVersion);
+
+			if(knownVersion < currentVersion) {
+				Log.i(TAG, "New version of the app: current versionCode " + currentVersion + ", old versionCode: " + knownVersion);
+
+				if(knownVersion < 15) {
+					editor.putBoolean("anonymous_statistics", DefaultSettingsValues.ANONYMOUS_STATISTICS);
+				}
+			}
 		}
+		editor.apply();
 
 		// Load alarmManager for notifications
 		AlarmReceiver aR = new AlarmReceiver();
 		aR.cancelAlarm(getApplicationContext());
 		aR.setAlarm(getApplicationContext());
 
-		// Load the IntersitialAd with the InterstitialAdStatic custom class
+		// Load the IntersitialAd, then we just need to call DesnoUtils.showAd() to show the loaded Interstitial
 		// Now we don't need to load the ad again, here or in other activities
-		new DesnoUtils.InterstitialAdStatic(this);
+		DesnoUtils.loadInterstitialAd(this);
 	}
 
 	@Override

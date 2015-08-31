@@ -68,7 +68,7 @@ public class SettingsActivity extends BaseActivity {
 
 
 
-		// Starting Google Analytics
+		// Start Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		mTracker = application.getDefaultTracker();
 

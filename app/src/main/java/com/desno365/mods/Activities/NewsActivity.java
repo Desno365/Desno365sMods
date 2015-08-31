@@ -70,7 +70,7 @@ public class NewsActivity extends BaseActivity {
 
 
 
-		// Starting Google Analytics
+		// Start Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		Tracker mTracker = application.getDefaultTracker();
 
