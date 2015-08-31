@@ -16,7 +16,6 @@
 
 package com.desno365.mods.Activities;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -90,7 +89,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 	private Tracker mTracker;
 
 
-	@SuppressLint("CommitPrefEdits")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "APP LAUNCHED!");

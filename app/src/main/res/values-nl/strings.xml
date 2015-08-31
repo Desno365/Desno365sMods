@@ -20,7 +20,7 @@
   <string name="action_info">Over</string>
   <string name="action_help">Help mij</string>
   <string name="action_share">Delen</string>
-  <string name="share_using">Deel met behulp van...</string>
+  <string name="share_using">Deel met behulp van…</string>
   <string name="share_body">Ik gebruik de \"Desno365\'s Mods app voor het downloaden van Leuke en Goeie Minecraft pocket edition Mods. Het is nu ook in het Nederlands beschikbaar. Kijk eens op:
 http://bit.ly/DesnoMods </string>
   <string name="action_feedback">Reactie</string>
@@ -90,7 +90,7 @@ hier kunt u de laatste mods vinden, updates en natuurlijk alles wat er nieuw is.
   <string name="how_to_install_texture_pack_texture_pack">Er staat \"Texture pack\" klik hier op. Kijk of deze optie geactiveerd is door de balk , rechts boven in het scherm naar Rechts te schuiven. Het zal groen worden.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Klik dan nu op \"Select\" en kies de juiste texture pack
 dit kunt u vinden in het zip bestand van de mod.</string>
-  <string name="connection_settings">Verbinding...</string>
+  <string name="connection_settings">Verbinding…</string>
   <string name="refresh_on_start_title">vernieuw van Start</string>
   <string name="refresh_on_start_summary">Vernieuw de inhoud van de app</string>
   <string name="updates_settings">nieuwe updates en Meldingen</string>

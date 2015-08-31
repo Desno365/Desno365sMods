@@ -16,6 +16,7 @@
 
 package com.desno365.mods.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import com.desno365.mods.DesnoUtils;
 
+@SuppressLint("Registered") // Activity is not registered in the manifest
 public class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = "BaseActivity";

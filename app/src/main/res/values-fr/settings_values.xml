@@ -48,6 +48,7 @@
   </string-array>
   <string-array name="languages_values">
     <item name="default" translatable="false">default</item>
+    <item name="czech" translatable="false">cs</item>
     <item name="danish" translatable="false">da</item>
     <item name="dutch" translatable="false">nl</item>
     <item name="english" translatable="false">en</item>

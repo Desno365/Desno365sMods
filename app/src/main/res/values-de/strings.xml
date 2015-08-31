@@ -20,7 +20,7 @@
   <string name="action_info">Info</string>
   <string name="action_help">Hilfe</string>
   <string name="action_share">Teilen</string>
-  <string name="share_using">Teilen mit...</string>
+  <string name="share_using">Teilen mit…</string>
   <string name="share_body">Die \"Desno365´s Mods\"-App erlaubt es ihnen einige Minecraft Pocket Edition Mods herunterzuladen und zu spielen! Sehen sie es sich an: http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Feedback</string>
   <string name="action_rate">Diese App bewerten</string>
@@ -41,14 +41,14 @@
   <string name="compatibility_title">Compatibility</string>
   <string name="changelog_title">Changelog</string>
   <string name="useful_links_title">Coole Links</string>
-  <string name="loading">Bitte warten...</string>
+  <string name="loading">Bitte warten…</string>
   <string name="mods">Mod-Scripte</string>
   <string name="latest_version_is">Die aktuelle Version ist:</string>
   <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>
   <string name="internet_error">Connection error: please check your Internet connection.</string>
   <string name="retry">Retry</string>
-  <string name="show_changelog">Alle Changelogs anzeigen...</string>
-  <string name="hide_changelog">Changelog verstecken...</string>
+  <string name="show_changelog">Alle Changelogs anzeigen…</string>
+  <string name="hide_changelog">Changelog verstecken…</string>
   <string name="minecraft_thread">minecraftforum.net-thread</string>
   <string name="instruction_for_installing">Lese die Instruktionen, wenn du Hilfe beim installieren der mods brauchst</string>
   <string name="installation_video_tutorial">Schauen sie sich das Video-Tutorial zur Installation an</string>
