@@ -33,7 +33,7 @@
     <string name="close_dialog">Close</string>
 
     <!-- home page -->
-    <string name="home_title" translatable="false">Home</string>
+    <string name="home_title">Home</string>
     <string name="welcome_title">Welcome</string>
     <string name="welcome_content">Welcome to the Desno365\'s Mods app.\nHere you can check the latest version and the changelog of all my mods.</string>
     <string name="minecraft_version_title">MCPE version</string>
