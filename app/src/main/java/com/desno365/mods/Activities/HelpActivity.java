@@ -28,6 +28,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
@@ -35,7 +36,7 @@ import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
 import com.google.android.gms.analytics.Tracker;
 
-import it.sephiroth.android.library.tooltip.TooltipManager;
+import it.sephiroth.android.library.tooltip.Tooltip;
 
 
 public class HelpActivity extends BaseActivity {
@@ -43,8 +44,6 @@ public class HelpActivity extends BaseActivity {
 	private static final String TAG = "HelpActivity";
 
 	public static AppCompatActivity activity;
-
-	private TooltipManager mTooltip;
 
 	// analytics tracker
 	private Tracker mTracker;
@@ -80,27 +79,28 @@ public class HelpActivity extends BaseActivity {
 		});
 
 		// tooltip at start (only the first time)
-		mTooltip = TooltipManager.getInstance(this);
 		new android.os.Handler().postDelayed(new Runnable() {
 			public void run() {
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						DisplayMetrics metrics = new DisplayMetrics();
-						getWindowManager().getDefaultDisplay().getMetrics(metrics);
-						mTooltip.create(1)
-								.anchor(findViewById(R.id.help_image_prepare1), TooltipManager.Gravity.TOP)
-								.closePolicy(TooltipManager.ClosePolicy.TouchOutside, 10000)
-								.text(getResources().getString(R.string.click_image_to_view))
-								.maxWidth((metrics.widthPixels) / 10 * 9)
-								.withStyleId(R.style.ToolTipStyle)
-								.withCustomView(R.layout.tooltip_textview, false)
-								.show();
+						if (!PreferenceManager.getDefaultSharedPreferences(activity).getBoolean("user_understood_full_resolution_help", false)) {
+							DisplayMetrics metrics = new DisplayMetrics();
+							getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-						// don't show the tooltip if the user has already learned to view the full resolution image
-						if (PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("user_understood_full_resolution_help", false)) {
-							mTooltip.hide(1);
-							mTooltip.remove(1);
+							Tooltip.make(activity,
+									new Tooltip.Builder(1) // 1 = id
+											.anchor(findViewById(R.id.help_image_prepare1), Tooltip.Gravity.TOP)
+											.closePolicy(Tooltip.ClosePolicy.TOUCH_OUTSIDE_NO_CONSUME, 10000)
+											.activateDelay(50)
+											.showDelay(200)
+											.text(getResources().getString(R.string.click_image_to_view))
+											.maxWidth((metrics.widthPixels) / 10 * 9)
+											.withArrow(true)
+											.withOverlay(true)
+											.withStyleId(R.style.ToolTipStyle)
+											.build()
+							).show();
 						}
 					}
 				});
@@ -158,6 +158,12 @@ public class HelpActivity extends BaseActivity {
 
 	public void onImageClick(View v) {
 
+		// after the first time opening a full resolution image the user doesn't need the tooltip anymore
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor editor = sharedPrefs.edit();
+		editor.putBoolean("user_understood_full_resolution_help", true);
+		editor.apply();
+
 		// starting the zoomImage activity (it has a switch case for the id passed to the intent)
 		Intent i = new Intent(this, ZoomImageActivity.class);
 		i.putExtra("viewId", v.getId());
@@ -169,13 +175,6 @@ public class HelpActivity extends BaseActivity {
 		} else {
 			startActivity(i);
 		}
-
-		// after the first time opening a full resolution image the user doesn't need the tooltip anymore
-		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		SharedPreferences.Editor editor = sharedPrefs.edit();
-		editor.putBoolean("user_understood_full_resolution_help", true);
-		editor.apply();
-
 	}
 
 }
