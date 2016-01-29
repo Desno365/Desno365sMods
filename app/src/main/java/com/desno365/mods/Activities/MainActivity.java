@@ -606,6 +606,10 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_DESNOGUNS_VIDEO_TUTORIAL)));
 				DesnoUtils.sendAction(mTracker, "Video-Guns");
 				break;
+			case R.id.installation_video_portal_button:
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PORTAL_VIDEO_TUTORIAL)));
+				DesnoUtils.sendAction(mTracker, "Video-Portal");
+				break;
 
 			// start news activity
 			case R.id.button_news:

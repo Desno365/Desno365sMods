@@ -37,6 +37,7 @@ public class Keys {
 	public static final String KEY_PORTAL_COMPATIBILITY = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/portalMOD-compatibility";
 	public static final String KEY_PORTAL_CHANGELOG = "https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/portal2-mod/full-changelog/changelog.html";
 	public static final String KEY_PORTAL_THREAD = "http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2097326-mod-beta-portal-2-mod-portal-gun-r008-by-desno365";
+	public static final String KEY_PORTAL_VIDEO_TUTORIAL = "https://youtu.be/7d3kTQsTnyM";
 	public static final String KEY_PORTAL_DOWNLOAD = "http://desno365.github.io/minecraft/portal2-mod/";
 
 	public static final String KEY_LASER_VERSION = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/laserMOD-version";

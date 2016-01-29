@@ -405,6 +405,32 @@
 						android:layout_width="match_parent"
 						android:layout_height="1dp"
 						android:layout_marginTop="1dp"
+						android:layout_marginBottom="2dp"
+						android:background="@color/minecraft_brown_dark_dirt_light" />
+
+					<LinearLayout
+						android:layout_width="fill_parent"
+						android:layout_height="fill_parent"
+						android:layout_marginLeft="4dp"
+						android:layout_marginRight="4dp"
+						android:orientation="vertical">
+
+						<Button
+							android:id="@+id/installation_video_portal_button"
+							android:layout_width="fill_parent"
+							android:layout_height="wrap_content"
+							android:text="@string/installation_video_tutorial"
+							android:onClick="onViewClick"
+							android:drawableLeft="@drawable/ic_action_video"
+							android:drawableStart="@drawable/ic_action_video"
+							style="@style/ButtonTransparentStyle"/>
+
+					</LinearLayout>
+
+					<View
+						android:layout_width="match_parent"
+						android:layout_height="1dp"
+						android:layout_marginTop="1dp"
 						android:layout_marginBottom="1dp"
 						android:background="@color/minecraft_brown_dark_dirt_light" />
 

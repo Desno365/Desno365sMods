@@ -73,7 +73,7 @@
 
     <!-- portal 2 page -->
     <string name="mod1_title" translatable="false">Portal 2 Mod</string>
-    <string name="info_content_tab2">This mod tries to bring the features of the famous PC game “Portal” in Minecraft Pocket Edition.\nWith this mod you can craft the Portal Gun and then shoot!\nYou can teleport yourself everywhere with these portals.\nThere are five different Portal Guns with different characteristics.\nIn this mod you can find also other items taken from the game “Portal”: Long Fall Boots, Jumpers, Gels. And many other features will come out in future updates.</string>
+    <string name="info_content_tab2">You know Portal right? The famous first-person puzzle-platform video game developed by Valve.\nThis mod brings some of the features of Portal 2 in Minecraft Pocket Edition!\nFive different Portal Guns, the Aerial Faith Plate, Propulsion and Repulsion gels, Turrets. These are some of the things you can find inside this mod.</string>
 
     <!-- laser page -->
     <string name="mod2_title" translatable="false">Laser Mod</string>
