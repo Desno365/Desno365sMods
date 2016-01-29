@@ -36,6 +36,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+
+            lintOptions { disable 'MissingTranslation' } /* TODO remove when Google fixes it */
         }
     }
 }
