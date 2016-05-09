@@ -16,7 +16,7 @@ local.properties
 
 # User-specific configurations
 .idea/libraries/
-.idea/gradle
+.idea/gradle.xml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/.name
