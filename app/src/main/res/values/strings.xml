@@ -77,8 +77,7 @@
 
     <!-- laser page -->
     <string name="mod2_title" translatable="false">Laser Mod</string>
-    <string name="features_content_tab3">• The laser of the Laser Gun destroys the block that you are looking.\n• The Laser Bazooka shoot a laser bullet that will explode when it touches the ground.\n• The Laser Sniper Rifle shoot a laser bullet that kill almost every mob it hit.\n• Tap the settings icon to open the UI with Information and Settings for the mod.\n• There are a lot of settings for the weapons, so you can personalize them.\n• You can find the Laser Weapons also in the creative inventory.</string>
-
+    <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
     <!-- turrets page -->
     <string name="mod3_title" translatable="false">Turrets Mod</string>
     <string name="features_content_tab4">• Craft a turret and place it where you want, then make it aggressive with the “Turret options” item and the turret will start to shoot every selected mob that come in his range.\n• There is an option to change the name of the turret.\n• Protect your home with your turrets! ;)</string>

@@ -41,6 +41,7 @@
         <item name="german" translatable="false">German</item>
         <item name="italian" translatable="false">Italian</item>
         <item name="korean" translatable="false">Korean</item>
+        <item name="japanese" translatable="false">Japanese</item>
         <item name="portuguese" translatable="false">Portuguese</item>
         <item name="portuguese_brazilian" translatable="false">Portuguese, Brazilian</item>
         <item name="russian" translatable="false">Russian</item>
@@ -56,6 +57,7 @@
         <item name="french" translatable="false">fr</item>
         <item name="german" translatable="false">de</item>
         <item name="italian" translatable="false">it</item>
+        <item name="japanese" translatable="false">ja</item>
         <item name="korean" translatable="false">ko</item>
         <item name="portuguese" translatable="false">pt-rPT</item>
         <item name="portuguese_brazilian" translatable="false">pt-rBR</item>

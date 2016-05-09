@@ -16,6 +16,8 @@
   ~ limitations under the License.
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- app name -->
+  <!-- menu items -->
   <string name="action_refresh">Opfrisk</string>
   <string name="action_info">Om</string>
   <string name="action_help">Hjælp</string>
@@ -26,6 +28,7 @@
   <string name="action_rate">Bedøm denne app</string>
   <string name="action_settings">Indstillinger</string>
   <string name="close_dialog">Luk</string>
+  <!-- home page -->
   <string name="home_title">Hjem</string>
   <string name="welcome_title">Velkommen</string>
   <string name="welcome_content">Velkommen til Desno365\' Mods-app.\nHer kan du tjekke den seneste version og ændringsoversigten for alle mine mods.</string>
@@ -36,12 +39,14 @@
   <string name="news_button">Tag mig til nyhedssiden</string>
   <string name="need_help_title">Brug for hjælp?</string>
   <string name="help_button">Tag mig til hjælpesiden</string>
+  <!-- titles - main -->
   <string name="info_title">Information</string>
   <string name="features_title">Funktioner</string>
   <string name="updates_title">Opdateringer</string>
   <string name="compatibility_title">Kompatibilitet</string>
   <string name="changelog_title">Ændringsoversigt</string>
   <string name="useful_links_title">Nyttige links</string>
+  <!-- text - main -->
   <string name="loading">Indlæser&#8230;</string>
   <string name="mods">Modifikationer (mods)</string>
   <string name="latest_version_is">Seneste version er:</string>
@@ -55,12 +60,19 @@
   <string name="installation_video_tutorial">Se videoinstallationsvejledningen</string>
   <string name="download_mod_from_website">Download dette mod fra Desno\' websted</string>
   <string name="download_map_from_website">Download dette mod fra Desno\' websted</string>
+  <!-- guns page -->
   <string name="info_content_tab6">Pistoler. Våben. Eksplosioner. Dette er DesnoGuns Mod\'en! : -D</string>
+  <!-- portal 2 page -->
   <string name="info_content_tab2">You know Portal right? The famous first-person puzzle-platform video game developed by Valve.\nThis mod brings some of the features of Portal 2 in Minecraft Pocket Edition!\nFive different Portal Guns, the Aerial Faith Plate, Propulsion and Repulsion gels, Turrets. These are some of the things you can find inside this mod.</string>
-  <string name="features_content_tab3">• Laseren fra Laser-pistolen ødelægger den blok, du kigger på.\n• Laser Bazooka\'en afskyder et laserprojektil, der vil detonere, når det berører jorden.\n• Laser Sniper-riflen afskyder et laserprojektil, der dræber næsten enhver menneskemængde, det rammer.\n• Tryk på ikonet indstillinger for at åbne brugerfladen med oplysninger og indstillinger for mod\'en.\n• Der er en masse indstillinger for våbnene, så du kan personliggøre dem. \n• Du kan også finde laservåbnene i kreativitetsoversigten.</string>
+  <!-- laser page -->
+  <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
+  <!-- turrets page -->
   <string name="features_content_tab4">• Udform et tårn og placér det, hvor du ønsker. Gør det derefter aggressivt via \"Tårn-indstillinger\", og tårnet vil begynde at skyde mod enhver udvalgt pøbel, der kommer indenfor dets rækkevidde.\n• Der er en mulighed for at ændre navn på tårnet.\n• Beskyt dit hjem med dine tårne! ;-)</string>
+  <!-- jukebox page -->
   <string name="features_content_tab5">• Der er tolv forskellige diske med tolv forskellige sange (sange er porteret fra Minecraft PC).\n• Tryk på jukeboxen med en disk og den vil begynde at afspille den valgte sang.\n• Forøg afstand mellem dig og Jukeboxen, sænk volumen på den.\n• Understøtter flere jukebokse, der afspilles samtidig.\n• Der er en tilfældig chance for at finde en disk hver 30 drab på fjendtlige mobs.\n• Tryk på Jukeboxen for at skubbe disken ud. Når sangen slutter, vil disken automatisk blive skubbet ud.\n• Jukebox-blokken og diskene er også i den kreative lager.\n• Konstruktionsopskrifter til Jukeboxen er de samme som i PC-versionen.</string>
+  <!-- unreal map page -->
   <string name="info_content_tab7">Kortet og det tilknyttede mod bibringe din mobilenhed den ikke-euklidisk geometri! \nOplev vanvid i en uvirkelig verden, i et normalt/euklidisk spil som Minecraft.\nOrd kan ikke på en tilstrækkelig vis forklare, hvad dette kort bibringer. \nPrøv det, og du vil selv se.</string>
+  <!-- about activity -->
   <string name="made_by">Udviklet med følelse af Desno365</string>
   <string name="follow_me">Følg mig på Twitter</string>
   <string name="source_code">Hent kildekoden til denne app</string>
@@ -69,6 +81,7 @@
   <string name="credits_title">Tak til</string>
   <string name="contributors_title">Bidragsydere</string>
   <string name="used_libraries_title">Benyttede biblioteker og billeder</string>
+  <!-- help activity -->
   <string name="click_image_to_view">Klik på hvilket som helst billede på denne side for at se det i fuld opløsning.</string>
   <string name="zoom_image_showcase_title">Billede-zoom</string>
   <string name="what_you_need_title">Hvad du skal bruge for at benytte mods</string>
@@ -88,6 +101,7 @@
   <string name="how_to_install_texture_pack_launcher_options">Nogle mods i .zip-filen har en tekstur-pakke.\nFor at installere den, åbn BlockLauncher, klik på \"Indstillinger\"-ikonet og gå til \"Valg for App-starter\".</string>
   <string name="how_to_install_texture_pack_texture_pack">Gå til afsnittet \"Tekstur-pakke\" og sørg for omskifteren i øverste højre hjørne er TIL.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Tryk derefter på \"Vælg\"-knappen og vælg teksturpakken, der blev udpakket fra den første .zip-fil.</string>
+  <!-- settings activity -->
   <string name="connection_settings">Forbindelse</string>
   <string name="refresh_on_start_title">Opfrisk ved start</string>
   <string name="refresh_on_start_summary">Opfrisk indholdet ved app-start</string>
@@ -117,12 +131,15 @@
   <string name="statistics_settings">Anonyme statistikker</string>
   <string name="anonymous_statistics_title">App-brugsstatistikker</string>
   <string name="anonymous_statistics_summary">Tillad anonym sporing af fejl og generel brug</string>
+  <!-- notifications -->
   <string name="notification_new_version_title">Ny version frigivet</string>
   <string name="notification_new_version_content1">En ny version af</string>
+  <!-- A new version of the *modHere* has been released! -->
   <string name="notification_new_version_content2">er blevet frigivet!</string>
   <string name="notification_unread_news">Der er ulæste nyheder</string>
   <string name="notification_thread">Tråd</string>
   <string name="notification_download">Download</string>
+  <!-- removed strings -->
   <string name="show_news" tools:ignore="UnusedResources">Vis alle nyheder&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Skjul nyheder&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Knib eller dobbelt-tryk på skærmen for at zoome billedet</string>

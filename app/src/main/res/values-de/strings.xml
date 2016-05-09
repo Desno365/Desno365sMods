@@ -16,63 +16,76 @@
   ~ limitations under the License.
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- app name -->
+  <!-- menu items -->
   <string name="action_refresh">Aktualisieren</string>
   <string name="action_info">Info</string>
   <string name="action_help">Hilfe</string>
   <string name="action_share">Teilen</string>
   <string name="share_using">Teilen mit...</string>
-  <string name="share_body">Die \"Desno365´s Mods\"-App erlaubt es ihnen einige Minecraft Pocket Edition Mods Herunterzuladen und zu spielen! Sehen sie es sich an: http://bit.ly/DesnoMods</string>
+  <string name="share_body">Die \"Desno365´s Mods\"-App erlaubt es ihnen einige Minecraft Pocket Edition Mods herunterzuladen und zu spielen! Sehen sie es sich an: http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Deine Meinung</string>
   <string name="action_rate">Diese App bewerten</string>
   <string name="action_settings">Einstellungen</string>
   <string name="close_dialog">Schließen</string>
+  <!-- home page -->
   <string name="home_title">Startseite</string>
   <string name="welcome_title">Willkommen</string>
   <string name="welcome_content">Willkommen in der Desno365s Mods-App. Hier können sie die neueste Version und die Änderungen meiner Mods ansehen.</string>
   <string name="minecraft_version_title">MCPE Version</string>
   <string name="minecraft_version_content">Installierte Version: Minecraft PE %1$s</string>
-  <string name="minecraft_not_installed">Minecraft PE ist nicht Installiert</string>
+  <string name="minecraft_not_installed">Minecraft PE ist nicht installiert</string>
   <string name="news_title">Neuigkeiten</string>
   <string name="news_button">Hier zu den Neuigkeiten</string>
   <string name="need_help_title">Brauchen sie Hilfe?</string>
-  <string name="help_button">Hier zur mehr Hilfe Seiten</string>
+  <string name="help_button">Zur \"Hilfe\"-Seite</string>
+  <!-- titles - main -->
   <string name="info_title">Info</string>
   <string name="features_title">Funktionen</string>
   <string name="updates_title">Updates</string>
-  <string name="compatibility_title">Kompatibel</string>
-  <string name="changelog_title">Änderungen</string>
+  <string name="compatibility_title">Kompatiblität</string>
+  <string name="changelog_title">Neuerungen</string>
   <string name="useful_links_title">Hilfreiche Links</string>
-  <string name="loading">Bitte warten...</string>
+  <!-- text - main -->
+  <string name="loading">Lädt&#8230;</string>
   <string name="mods">Mods</string>
   <string name="latest_version_is">Die aktuelle Version ist:</string>
-  <string name="mod_compatibility_content">Kompatibele Minecraft PE Versionen:</string>
-  <string name="internet_error">Netzwerkvehrbindung Fehlgeschlagen: Bitte überprüfe deine Internet Verbindung.</string>
+  <string name="mod_compatibility_content">Kompatible Minecraft PE Versionen:</string>
+  <string name="internet_error">Netzwerkverbindung fehlgeschlagen: Bitte überprüfe deine Internetverbindung.</string>
   <string name="retry">Neu laden</string>
-  <string name="show_changelog">Alle Änderungen anzeigen&#8230;</string>
+  <string name="show_changelog">Zeige alle Änderungen...</string>
   <string name="hide_changelog">Änderungen verstecken&#8230;</string>
-  <string name="minecraft_thread">minecraftforum.net Themen</string>
-  <string name="instruction_for_installing">Lese die Anweisungen, wenn du Hilfe beim installieren der Mods brauchst</string>
-  <string name="installation_video_tutorial">Schauen sie sich das Video-Tutorial zur Installation an</string>
-  <string name="download_mod_from_website">Lade diese Mod von der Desno Webseite heruter</string>
-  <string name="download_map_from_website">Lade diese Webseite von der Desno Webseite</string>
-  <string name="info_content_tab6">Pistolen.Waffen.Explosionen. Das ist die DesnoGuns Mod! :D</string>
-  <string name="info_content_tab2">You know Portal right? The famous first-person puzzle-platform video game developed by Valve.\nThis mod brings some of the features of Portal 2 in Minecraft Pocket Edition!\nFive different Portal Guns, the Aerial Faith Plate, Propulsion and Repulsion gels, Turrets. These are some of the things you can find inside this mod.</string>
-  <string name="features_content_tab3">Der Laser, der Laser Gun zerstört den Block denn sie anschauen. Die Laser Bazooka hingegen verschießt eine Laserkugel die explodiert sobald sie den Boden berührt. Das Laser-Scharfschützengewehr schießt einen Laserschuss, der fast jeden Mob bei einem Trefer tötet. Klicken sie auf das Symbol \"Einstellungen\", um das Einstellungsmenü mit Informationen zur Mod und den Einstellungen der einzelnen Waffen zu öffnen. Es gibt einige Einstellungen, um die Waffen anzupassen. Die Laser-Waffen sind auch im Kreativ Inventar zu finden.</string>
-  <string name="features_content_tab4">Stellen sie einen Turret her und platzieren sie ihn an einer beliebigen Stelle und machen sie ihn mit den \"Turret-Options\"-Item aggressiv, sodass er jeden anwersiehrten Mob der in seine Reichweite kommt schießt. Sie können den Namen des Turrets in den Turret-Optionen ändern. Verteidigen sie ihr Haus mit ihren Turrets! ;)</string>
+  <string name="minecraft_thread">minecraftforum.net Beitrag</string>
+  <string name="instruction_for_installing">Lese die Anweisungen, wenn du Hilfe beim Installieren der Mods brauchst</string>
+  <string name="installation_video_tutorial">Schaue dir die Video-Anleitung zur Installation an</string>
+  <string name="download_mod_from_website">Lade diese Mod von der Desno-Webseite heruter</string>
+  <string name="download_map_from_website">Lade dir diese Map von der Desno-Webseite herunter</string>
+  <!-- guns page -->
+  <string name="info_content_tab6">Gewehre. Waffen. Explosionen. Das ist die DesnoGuns-Mod! :D</string>
+  <!-- portal 2 page -->
+  <string name="info_content_tab2">Kennst du schon Portal? Das umwerfende First-Person-Puzzle-Spiel von Valve.\nDiese Mod bringt ein paar Eigenschaften aus Portal 2 zu Minecraft Pocket Edition!\nFünf verschiedene Portal-Waffen, die Aerial Faith Plate, Antriebs- und Abstoß-Gele und die Turrets. Das sind ein paar von den Dingen die es in der Mod gibt.</string>
+  <!-- laser page -->
+  <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
+  <!-- turrets page -->
+  <string name="features_content_tab4">Stelle einen Turret her und platziere ihn an einer beliebigen Stelle. Mache ihn mit dem \"Turret-Options\"-Item aggressiv, sodass er jeden anvisierten Mob der in seine Reichweite kommt erschießt. Du kannst den Namen des Turrets in den Turret-Optionen ändern. Verteidige dein Haus mit deinen Turrets! ;)</string>
+  <!-- jukebox page -->
   <string name="features_content_tab5">Es gibt 12 verschiedene CDs mit 12 verschiedenen Songs (Die Songs sind aus der PC-Version). Tippen sie mit einer CD auf die Jukebox, um den ausgewählten Song anzuhören. Tippen sie erneut auf die Jukebox, um die CD zu entnehmen. Wenn der Song zu Ende ist, wird die CD automatisch ausgeworfen. Umso größer die Distanz zwischen ihnen und der Jukebox ist desto leiser wird sie. Sie können mehrere Jukeboxen auf einmal spielen lassen. Jedes 30. Mal, wenn sie einen Mob töten, besteht die Chance eine CD zu finden. Tippen sie erneut auf die Jukebox, um die CD zu entnehmen. Die Jukebox befindet sich auch mit den dazugehörigen CDs im Kreativ-Inventar. Die Crafting-Rezepte sind dieselben, wie in der Minecraft PC-Version.</string>
+  <!-- unreal map page -->
   <string name="info_content_tab7">Diese Map und Mod bringt die nicht-euklidianische Geometrie auf dein Handy! Erfahre die verrücktheit einer surrealen Welt in einem euklidianischem Spiel wie Minecraft. Man kann diese Map nicht mit Worten beschreiben. Probiere es aus, du wirst es es sehen.</string>
+  <!-- about activity -->
   <string name="made_by">Mit liebe gemacht von Desno365</string>
   <string name="follow_me">Folgen sie mir auf Twitter</string>
   <string name="source_code">Holen sie sich den Sourcecode dieser App</string>
   <string name="support_me">Haben sie eine Idee, wie diese App noch verbessert werden könnte? Kontaktieren sie mich auf Twitter! Wenn sie mich unterstützen wollen, dann bewerten sie diese App im Google Play Store. Dies hilft mir neue, fantastische Mods zu machen! Danke :)</string>
-  <string name="take_me_play_store">Hier gehts zum Play Store</string>
+  <string name="take_me_play_store">Zum Play Store</string>
   <string name="credits_title">Credits</string>
   <string name="contributors_title">Mitwirkende</string>
   <string name="used_libraries_title">Verwendete Bibliotheken und Bilder</string>
-  <string name="click_image_to_view">Klicken sie auf ein Bild um es in voller Größe zu sehen.</string>
+  <!-- help activity -->
+  <string name="click_image_to_view">Klicke auf ein Bild um es in voller Größe zu sehen.</string>
   <string name="zoom_image_showcase_title">Heranzoomen</string>
-  <string name="what_you_need_title">Was sie brauchen, um Mods zu benutzen</string>
-  <string name="what_you_need_content">Sie brauchen 2 Apps: Minecraft Pocket Edition (Die Vollversion, da Mods in der Demo nicht funktionieren) und BlockLauncher (Die kostenlose oder die Pro-Version).</string>
+  <string name="what_you_need_title">Was du brauchst, um Mods zu benutzen</string>
+  <string name="what_you_need_content">Du brauchst 2 Apps: Minecraft Pocket Edition (Die Vollversion, da Mods in der Demo nicht funktionieren), und BlockLauncher (Die kostenlose oder die Pro-Version).</string>
   <string name="get_it_store">Hol´es dir im Play Store</string>
   <string name="how_to_prepare_mods_title">Wie man Mods installiert</string>
   <string name="how_to_prepare_mods_download">Zuerst müssen sie die Mod downloaden, die sie benutzen möchten. Um die Mods zu downloaden, klicken sie den \"Diese Mod von Desnos Website herunterladen\"-Knopf. Wichtig; Lesen sie den Abschnitt \"Anweisungen\" auf der Website gut durch, da einige Mods verschieden installiert werden.</string>
@@ -88,6 +101,7 @@
   <string name="how_to_install_texture_pack_launcher_options">Einige Mods in der .zip-Datei haben ein Texturenpaket.\nUm es zu installieren, klicken Sie auf das Symbol \"Einstellungen\" und gehen Sie zu \"Launcher-Optionen\".</string>
   <string name="how_to_install_texture_pack_texture_pack">Gehen sie zum \"Texturenpaket\"-Abschnitt und stellen sie sicher, dass der Schalter oben rechts auf ON steht.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Dann drücken Sie die \"Select\"-Taste und wählen Sie das Texturenpaket, das aus der ersten .zip-Datei extrahiert wurde.</string>
+  <!-- settings activity -->
   <string name="connection_settings">Verbindung</string>
   <string name="refresh_on_start_title">Aktualisierung bei Start</string>
   <string name="refresh_on_start_summary">Den Inhalt beim App-Start aktualisieren</string>
@@ -117,12 +131,15 @@
   <string name="statistics_settings">Anonyme Statistiken</string>
   <string name="anonymous_statistics_title">App Nutzungsstatistiken</string>
   <string name="anonymous_statistics_summary">Ermöglichen sie Anonyme Verfolgung von Störungen und allgemeine Verwendung</string>
+  <!-- notifications -->
   <string name="notification_new_version_title">Neue Version verfügbar</string>
   <string name="notification_new_version_content1">Eine neue Version der</string>
+  <!-- A new version of the *modHere* has been released! -->
   <string name="notification_new_version_content2">ist verfügbar!</string>
   <string name="notification_unread_news">Neue Neuigkeiten!</string>
   <string name="notification_thread">Artikel</string>
   <string name="notification_download">Download</string>
+  <!-- removed strings -->
   <string name="show_news" tools:ignore="UnusedResources">Alle News anzeigen&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">News verbergen&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Doppel tippe oder halte den Bildschirm gedrückt um das Bild zu vergrößern</string>

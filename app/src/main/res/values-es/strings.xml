@@ -16,6 +16,8 @@
   ~ limitations under the License.
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- app name -->
+  <!-- menu items -->
   <string name="action_refresh">Actualizar lista</string>
   <string name="action_info">Mas</string>
   <string name="action_help">Ayuda</string>
@@ -26,6 +28,7 @@
   <string name="action_rate">Valora esta app</string>
   <string name="action_settings">Ajustes</string>
   <string name="close_dialog">Cerrar</string>
+  <!-- home page -->
   <string name="home_title">Menú inicial</string>
   <string name="welcome_title">Bienvenido</string>
   <string name="welcome_content">Bienvenido a la aplicación sobre los mods de Desno365. \nAquí puedes comprobar la última versión de todos mis mods, ademas, de los cambios actualmente registrados.</string>
@@ -36,12 +39,14 @@
   <string name="news_button">Llévame a la página de noticias</string>
   <string name="need_help_title">¿Necesita ayuda?</string>
   <string name="help_button">Llévame a la página de ayuda</string>
+  <!-- titles - main -->
   <string name="info_title">Información</string>
   <string name="features_title">Características</string>
   <string name="updates_title">Actualizaciones</string>
   <string name="compatibility_title">Compatibilidad</string>
   <string name="changelog_title">Cambios</string>
   <string name="useful_links_title">Enlaces</string>
+  <!-- text - main -->
   <string name="loading">Cargando...</string>
   <string name="mods">Mods</string>
   <string name="latest_version_is">La última vercion es:</string>
@@ -55,12 +60,19 @@
   <string name="installation_video_tutorial">Mira el video tutorial de instalición</string>
   <string name="download_mod_from_website">Descarga este mod en la web de Desnos\'s</string>
   <string name="download_map_from_website">Descarga este mapa en la web de Desnos\'s</string>
+  <!-- guns page -->
   <string name="info_content_tab6">Armas de fuego,cuerpo a cuerpo,Explosivos. Este es el Mod de DesnoGuns! : D</string>
+  <!-- portal 2 page -->
   <string name="info_content_tab2">You know Portal right? The famous first-person puzzle-platform video game developed by Valve.\nThis mod brings some of the features of Portal 2 in Minecraft Pocket Edition!\nFive different Portal Guns, the Aerial Faith Plate, Propulsion and Repulsion gels, Turrets. These are some of the things you can find inside this mod.</string>
-  <string name="features_content_tab3">• El laser de la pistola láser destruye el bloque que usted está buscando. \n• el láser Bazooka dispara una bala de láser que va a explotar cuando toca el rodaje del Rifle de francotirador láser suelo. \n• una bala del laser que matar a casi todos los de la mafia lo golpeó. \n• toque el icono configuración para abrir la interfaz de usuario con información y ajustes para el mod \n• allí son un montón de opciones para las armas, así que usted puede personalizarlos. \n• usted puede encontrar también las armas láser en el inventario creativo.</string>
+  <!-- laser page -->
+  <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
+  <!-- turrets page -->
   <string name="features_content_tab4">Crea una torreta y posicionala donde quieras, has la torreta agresiva con el objeto \"ajustes de torreta\" y ésta comenzará a atacar cualquier mob seleccionado, dentro de su rango.\ncontiene la opción para cambiar el nombre de la torreta.\nprotege tu casa con torretas!!! ;)</string>
+  <!-- jukebox page -->
   <string name="features_content_tab5">• Existen doce discos diferentes con doce diferentes canciones (canciones son portadas desde el PC Minecraft). \n• toque la música con un disco y comenzará a reproducir la canción del elegido. \n• mayor la distancia entre usted y la rockola, baja el volumen de lo \n• apoyo sinfonolas varios que juegan simultáneamente. \n• allí es un azar de encontrar un disco cada 30 muertes de mobs hostiles. \n• Tap el Jukebox para expulsar el disco. Cuando la canción termina el disco se expulsará automáticamente. \n• Jukebox del bloque y los discos están también en el inventario creativo. \n• la elaboración de recetas de la máquina de discos son los mismos de la versión para PC.</string>
+  <!-- unreal map page -->
   <string name="info_content_tab7">Este mapa y el mod unido traen la Non-Euclidean geometry en tu dispositivo móvil! Vive la locura de un mundo irreal, en uno normal/euclidian en Minecraft.Los mundos no explican en el buen sentido lo que este mapa tiene. Pruebalo, ya verás.</string>
+  <!-- about activity -->
   <string name="made_by">Creado con amor por Desno365</string>
   <string name="follow_me">Siguieme en Twitter</string>
   <string name="source_code">Obten el codigo fuente de esta app</string>
@@ -69,6 +81,7 @@
   <string name="credits_title">Creditos</string>
   <string name="contributors_title">Contribuidores</string>
   <string name="used_libraries_title">Imágenes y bibliotecas usadas</string>
+  <!-- help activity -->
   <string name="click_image_to_view">Hace click en cualquier imagen para verla en la completa resolucion.</string>
   <string name="zoom_image_showcase_title">Acercamiento de imagen</string>
   <string name="what_you_need_title">Lo que necesitas para usar mods</string>
@@ -88,6 +101,7 @@
   <string name="how_to_install_texture_pack_launcher_options">Algunos mods tienen dentro del archivo .zip un pack de textura. Para instalarlo abre el BlockLauncher, haz clic en el icono de \"Ajustes\' y ve a \"Opciones de Launcher\"</string>
   <string name="how_to_install_texture_pack_texture_pack">Ve a la sección \"Pack de Texturas\" y asegúrese que el interruptor en la parte superior derecha este en ON.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Luego presione el botón \"Select\" y elegir el paquete de textura que fue extraído del archivo .zip primero.</string>
+  <!-- settings activity -->
   <string name="connection_settings">Conexión</string>
   <string name="refresh_on_start_title">Actualiza al iniciar</string>
   <string name="refresh_on_start_summary">Actualizar el contenido al iniciar la aplicación</string>
@@ -117,12 +131,15 @@
   <string name="statistics_settings">Estadísticas anónimas</string>
   <string name="anonymous_statistics_title">Estadísticas del uso de la aplicación</string>
   <string name="anonymous_statistics_summary">Permite el seguimiento anónimo de errores y uso general</string>
+  <!-- notifications -->
   <string name="notification_new_version_title">Nueva versión liberada</string>
   <string name="notification_new_version_content1">Una nueva versión de la</string>
+  <!-- A new version of the *modHere* has been released! -->
   <string name="notification_new_version_content2">ha sido liberado!</string>
   <string name="notification_unread_news">Hay noticias no leídas</string>
   <string name="notification_thread">Hilo de discusión</string>
   <string name="notification_download">Descarga</string>
+  <!-- removed strings -->
   <string name="show_news" tools:ignore="UnusedResources">Mostrar todas las noticias&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Ocultar las noticias&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pellizcar o tocar dos veces la pantalla para ampliar la imagen</string>

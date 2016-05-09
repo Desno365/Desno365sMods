@@ -16,6 +16,8 @@
   ~ limitations under the License.
   -->
 <resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- app name -->
+  <!-- menu items -->
   <string name="action_refresh">Aktualizovat</string>
   <string name="action_info">O programu</string>
   <string name="action_help">Nápověda</string>
@@ -26,6 +28,7 @@
   <string name="action_rate">Ohodnoťte tuto aplikaci</string>
   <string name="action_settings">Nastavení</string>
   <string name="close_dialog">Zavřít</string>
+  <!-- home page -->
   <string name="home_title">Home</string>
   <string name="welcome_title">Vítejte</string>
   <string name="welcome_content">Vítejte v aplikaci Desno365\'s Mods.\nZde najdete poslední verzi a seznam změn všech mých módů.</string>
@@ -36,12 +39,14 @@
   <string name="news_button">Přejít na stránku s novinkami</string>
   <string name="need_help_title">Potřebujete pomoc?</string>
   <string name="help_button">Přejít na nápovědu</string>
+  <!-- titles - main -->
   <string name="info_title">Informace</string>
   <string name="features_title">Funkce</string>
   <string name="updates_title">Aktualizace</string>
   <string name="compatibility_title">Kompatibilita</string>
   <string name="changelog_title">Přehled změn</string>
   <string name="useful_links_title">Užitečné odkazy</string>
+  <!-- text - main -->
   <string name="loading">Načítání&#8230;</string>
   <string name="mods">Módy</string>
   <string name="latest_version_is">Nejnovější verze je:</string>
@@ -55,12 +60,19 @@
   <string name="installation_video_tutorial">Spustit videonávod na instalaci</string>
   <string name="download_mod_from_website">Stáhnout tento mód z Desnových stránek</string>
   <string name="download_map_from_website">Stáhnout tuto mapu z Desnových stránek</string>
+  <!-- guns page -->
   <string name="info_content_tab6">Guns. Weapons. Explosions. This is the DesnoGuns Mod! :D</string>
+  <!-- portal 2 page -->
   <string name="info_content_tab2">You know Portal right? The famous first-person puzzle-platform video game developed by Valve.\nThis mod brings some of the features of Portal 2 in Minecraft Pocket Edition!\nFive different Portal Guns, the Aerial Faith Plate, Propulsion and Repulsion gels, Turrets. These are some of the things you can find inside this mod.</string>
-  <string name="features_content_tab3">• The laser of the Laser Gun destroys the block that you are looking.\n• The Laser Bazooka shoot a laser bullet that will explode when it touches the ground.\n• The Laser Sniper Rifle shoot a laser bullet that kill almost every mob it hit.\n• Tap the settings icon to open the UI with Information and Settings for the mod.\n• There are a lot of settings for the weapons, so you can personalize them.\n• You can find the Laser Weapons also in the creative inventory.</string>
+  <!-- laser page -->
+  <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
+  <!-- turrets page -->
   <string name="features_content_tab4">• Craft a turret and place it where you want, then make it aggressive with the “Turret options” item and the turret will start to shoot every selected mob that come in his range.\n• There is an option to change the name of the turret.\n• Protect your home with your turrets! ;)</string>
+  <!-- jukebox page -->
   <string name="features_content_tab5">• There are twelve different discs with twelve different songs (songs are ported from Minecraft PC).\n• Tap the jukebox with a disc and it will start playing the chosen song.\n• Greater the distance between you and the Jukebox, lower the volume of it.\n• Support multiple jukeboxes that play simultaneously.\n• There is a random chance of finding a disc every 30 kills of hostile mobs.\n• Tap the Jukebox to eject the disc. When the song ends the disc will be ejected automatically.\n• The Jukebox block and the discs are also in the creative inventory.\n• The crafting recipes of the Jukebox are the same of the PC version.</string>
+  <!-- unreal map page -->
   <string name="info_content_tab7">This map and the mod attached bring the Non-Euclidean geometry on your mobile device!\nExperience the craziness of an unreal world, in a normal/Euclidean game like Minecraft.\nWords can\’t explain in a good way what this map has.\nTry it, you\'ll see.</string>
+  <!-- about activity -->
   <string name="made_by">Made with Love by Desno365</string>
   <string name="follow_me">Sledujte mě na Twitteru</string>
   <string name="source_code">Získat zdrojový kód této aplikace</string>
@@ -69,6 +81,7 @@
   <string name="credits_title">Credits</string>
   <string name="contributors_title">Přispěvatelé</string>
   <string name="used_libraries_title">Použité knihovny a obrázky</string>
+  <!-- help activity -->
   <string name="click_image_to_view">Klikněte na jakýkoliv obrázek na této stránce na zobrazení v plném rozlišení.</string>
   <string name="zoom_image_showcase_title">Přiblížení obrázku</string>
   <string name="what_you_need_title">Co potřebujete k použití módů</string>
@@ -88,6 +101,7 @@
   <string name="how_to_install_texture_pack_launcher_options">Some mods inside the .zip file have a texture pack.\nTo install it open BlockLauncher, click the \"Settings\" icon and go to \"Launcher options\".</string>
   <string name="how_to_install_texture_pack_texture_pack">Go in the \"Texture Pack\" section and make sure the switch in the upper right is ON.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
+  <!-- settings activity -->
   <string name="connection_settings">Connection</string>
   <string name="refresh_on_start_title">Refresh on start</string>
   <string name="refresh_on_start_summary">Refresh the content on app start</string>
@@ -117,12 +131,15 @@
   <string name="statistics_settings">Anonymous statistics</string>
   <string name="anonymous_statistics_title">App usage statistics</string>
   <string name="anonymous_statistics_summary">Allow anonymous tracking of errors and general usage</string>
+  <!-- notifications -->
   <string name="notification_new_version_title">New version released</string>
   <string name="notification_new_version_content1">A new version of the</string>
+  <!-- A new version of the *modHere* has been released! -->
   <string name="notification_new_version_content2">has been released!</string>
   <string name="notification_unread_news">There are unread news</string>
   <string name="notification_thread">Vlákno</string>
   <string name="notification_download">Stáhnout</string>
+  <!-- removed strings -->
   <string name="show_news" tools:ignore="UnusedResources">Zobrazit všechny novinky&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Skrýt novinky&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Přibližte obrázek dvěma ťuknutími nebo roztáhnutím prstů od sebe</string>

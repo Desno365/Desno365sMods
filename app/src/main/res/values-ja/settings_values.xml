@@ -17,10 +17,10 @@
   -->
 <resources>
   <string-array name="sync_frequency">
-    <item name="h2">Om de 2 uur</item>
-    <item name="h4">Om de 4 uur</item>
-    <item name="h12">Om de 12 uur</item>
-    <item name="h24">Elke dag</item>
+    <item name="h2">2時間毎</item>
+    <item name="h4">4時間毎</item>
+    <item name="h12">12時間毎</item>
+    <item name="h24">毎日</item>
   </string-array>
   <string-array name="sync_frequency_values">
     <item name="h2" translatable="false">2</item>
@@ -63,10 +63,10 @@
     <item name="turkish" translatable="false">tr</item>
   </string-array>
   <string-array name="themes">
-    <item name="brown">Modder</item>
-    <item name="green">Cactus</item>
-    <item name="red">Lava</item>
-    <item name="blue">Water</item>
+    <item name="brown">土</item>
+    <item name="green">サボテン</item>
+    <item name="red">溶岩</item>
+    <item name="blue">水</item>
   </string-array>
   <string-array name="themes_values">
     <item name="brown" translatable="false">0</item>
@@ -75,11 +75,10 @@
     <item name="blue" translatable="false">3</item>
   </string-array>
   <string-array name="animations">
-    <item name="default">Standaard
-</item>
-    <item name="up_down">Ga omhoog/omlaag</item>
-    <item name="corner">Open vanuit de hoek</item>
-    <item name="book">Open en sluit de pagina Als een boek</item>
+    <item name="default">デフォルト</item>
+    <item name="up_down">プッシュ ダウン/アップ</item>
+    <item name="corner">コーナーへ移動</item>
+    <item name="book">本のようにページを開く/閉じる</item>
   </string-array>
   <string-array name="animations_values">
     <item name="default" translatable="false">0</item>
