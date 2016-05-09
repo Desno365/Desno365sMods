@@ -30,14 +30,14 @@ public class Keys {
 	public static final String KEY_DESNOGUNS_COMPATIBILITY = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/desnogunsMOD-compatibility";
 	public static final String KEY_DESNOGUNS_CHANGELOG = "https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/desnoguns-mod/full-changelog/changelog.html";
 	public static final String KEY_DESNOGUNS_THREAD = "http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2299721-mod-desnoguns-mod-r001-by-desno365";
-	public static final String KEY_DESNOGUNS_VIDEO_TUTORIAL = "http://youtu.be/uO72AmNn0u8";
+	public static final String KEY_DESNOGUNS_VIDEO_TUTORIAL = "https://youtu.be/7VwO6FcYBlo";
 	public static final String KEY_DESNOGUNS_DOWNLOAD = "http://desno365.github.io/minecraft/desnoguns-mod/";
 
 	public static final String KEY_PORTAL_VERSION = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/portalMOD-version";
 	public static final String KEY_PORTAL_COMPATIBILITY = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/portalMOD-compatibility";
 	public static final String KEY_PORTAL_CHANGELOG = "https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/portal2-mod/full-changelog/changelog.html";
 	public static final String KEY_PORTAL_THREAD = "http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2097326-mod-beta-portal-2-mod-portal-gun-r008-by-desno365";
-	public static final String KEY_PORTAL_VIDEO_TUTORIAL = "https://youtu.be/7d3kTQsTnyM";
+	public static final String KEY_PORTAL_VIDEO_TUTORIAL = "https://youtu.be/EGfUQiSINTU";
 	public static final String KEY_PORTAL_DOWNLOAD = "http://desno365.github.io/minecraft/portal2-mod/";
 
 	public static final String KEY_LASER_VERSION = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/laserMOD-version";
