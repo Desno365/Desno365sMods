@@ -87,7 +87,7 @@
   <string name="click_image_to_view">Clickez sur n\'importe quelle image dans cette page pour la voir en entier.</string>
   <string name="zoom_image_showcase_title">Zoomer sur l\'image</string>
   <string name="what_you_need_title">Pourquoi avez-vous besoin des mods</string>
-  <string name="what_you_need_content">Vous avez besoin de deux apps: Mincraft Pocket Edition (en version complète, la version démo ne marche pas avec les mods) et BlockLauncher (version gratuite ou version pro).</string>
+  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Obtenez-le sur le Play Store</string>
   <string name="how_to_prepare_mods_title">Comment préparer les mods</string>
   <string name="how_to_prepare_mods_download">D\'abords téléchargez le mod que vous voulez utiliser. Pour le télécharger le mod vous pouvez appuyez sur \"Télécharger le mod depuis le site de Desno\"pour aller sur le sit web où vous pourrez télécharger le mod, souvenez-vous de bien lire la section\"Instructions\"  dans le site (lez mods ont une installations différente).</string>
@@ -106,9 +106,6 @@
   <string name="how_to_install_texture_pack_texture_pack">Allez dans \"Pack de Texture et soyez sûre que l\'inversement superieur gauche est sur ON.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Ensuite appuyez sur le boutin \"Sélectionner\" et choisissez le Pafk de Texture qui a été extrait à partir du fichier .zip.</string>
   <!-- settings activity -->
-  <string name="connection_settings">Connexion</string>
-  <string name="refresh_on_start_title">Actualiser au démarrage</string>
-  <string name="refresh_on_start_summary">Actualiser le contenu au démarrage de l\'application</string>
   <string name="updates_settings">Mises à jour et notifications</string>
   <string name="notification_bool_mods_title">Notifications des mises à jour de mods</string>
   <string name="notification_bool_mods_summary">Recevoir des notifications pour les nouvelles mises à jour des mods</string>
@@ -144,6 +141,7 @@
   <string name="notification_thread">Fil de discussion</string>
   <string name="notification_download">Téléchargement</string>
   <!-- removed strings -->
+  <string name="connection_settings" tools:ignore="UnusedResources">Connexion</string>
   <string name="show_news" tools:ignore="UnusedResources">Afficher toutes les infos&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Masquer les infos&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pincez ou tapez deux fois sur l\'écran pour zoomer l\'image</string>

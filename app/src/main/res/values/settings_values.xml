@@ -40,8 +40,8 @@
         <item name="french" translatable="false">French</item>
         <item name="german" translatable="false">German</item>
         <item name="italian" translatable="false">Italian</item>
-        <item name="korean" translatable="false">Korean</item>
         <item name="japanese" translatable="false">Japanese</item>
+        <item name="korean" translatable="false">Korean</item>
         <item name="portuguese" translatable="false">Portuguese</item>
         <item name="portuguese_brazilian" translatable="false">Portuguese, Brazilian</item>
         <item name="russian" translatable="false">Russian</item>

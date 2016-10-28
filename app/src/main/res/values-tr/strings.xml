@@ -63,7 +63,7 @@
   <!-- guns page -->
   <string name="info_content_tab6">Tabancalar. Silahlar. Patlayıcılar. İşte bu DesnoGuns Mod! :D</string>
   <!-- portal 2 page -->
-  <string name="info_content_tab2">You know Portal right? The famous first-person puzzle-platform video game developed by Valve.\nThis mod brings some of the features of Portal 2 in Minecraft Pocket Edition!\nFive different Portal Guns, the Aerial Faith Plate, Propulsion and Repulsion gels, Turrets. These are some of the things you can find inside this mod.</string>
+  <string name="info_content_tab2">Portal hakkı tanıyor musun? Ünlü first-person bulmaca platform video oyun Valve tarafından geliştirilen.\nBu mod Minecraft Pocket Edition Portal 2 bazı özellikleri getiriyor!\nBeş farklı Portal Guns , Hava İnanç Tabak, Sevk ve Repulsion jeller , Turrets . Bunlar, bu mod içinde bulabilirsiniz şeylerden bazılarıdır.</string>
   <!-- laser page -->
   <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
   <!-- turrets page -->
@@ -85,7 +85,7 @@
   <string name="click_image_to_view">Bu sayfadaki herhangi bir resim üstüne basarak onu tam ekran yapabilirsiniz.</string>
   <string name="zoom_image_showcase_title">Görüntü yaklaştır</string>
   <string name="what_you_need_title">Modları kullanmak için gerekenler</string>
-  <string name="what_you_need_content">İki uygulamaya ihtiyacın var: Mincraft Pocket Edition (full versiyonu gerekli, demosu modlarla çalışmaz) ve Blocklauncher (bedava yada pro versiyonu).</string>
+  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Onu Google Play Store\'da al</string>
   <string name="how_to_prepare_mods_title">Modlar nasıl hazırlanır</string>
   <string name="how_to_prepare_mods_download">İlk önce kullanmak istediğiniz mod\'u indirin. Mod\'u indirmek için \"Bu mod\'u Desno\'nın sayfasından indir \" düğmesine basarak mod\'u indireceğiniz websitesine gidebilirsiniz, talimatlar kısmını dikkatlice okumayi unutmayın (Mod\'ların farklı indirme methodları vardır).</string>
@@ -102,15 +102,12 @@
   <string name="how_to_install_texture_pack_texture_pack">Go in the \"Texture Pack\" section and make sure the switch in the upper right is ON.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
   <!-- settings activity -->
-  <string name="connection_settings">Bağlantı</string>
-  <string name="refresh_on_start_title">Refresh on start</string>
-  <string name="refresh_on_start_summary">Refresh the content on app start</string>
   <string name="updates_settings">Güncelleştirmeler ve bildirimler</string>
   <string name="notification_bool_mods_title">Mod güncelleştirmeleri için bildirimler</string>
   <string name="notification_bool_mods_summary">Receive notifications for new mods updates</string>
   <string name="notification_bool_news_title">Haber için bildirimler</string>
   <string name="notification_bool_news_summary">Haber için bildirimleri al</string>
-  <string name="pref_sync_frequency_title">Check for updates frequency</string>
+  <string name="pref_sync_frequency_title">Güncellemeleri denetle</string>
   <string name="pref_sync_frequency_summary">Güncellemeleri denetleme sıklığını belirle</string>
   <string name="language_settings">Dil</string>
   <string name="language_title">Dili ayarla</string>
@@ -140,6 +137,7 @@
   <string name="notification_thread">Konu</string>
   <string name="notification_download">İndir</string>
   <!-- removed strings -->
+  <string name="connection_settings" tools:ignore="UnusedResources">Bağlantı</string>
   <string name="show_news" tools:ignore="UnusedResources">Tüm haberleri göster&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Haberleri gizle&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pinch or double tap the screen to zoom the image</string>

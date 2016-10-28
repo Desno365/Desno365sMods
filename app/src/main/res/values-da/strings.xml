@@ -85,7 +85,7 @@
   <string name="click_image_to_view">Klik på hvilket som helst billede på denne side for at se det i fuld opløsning.</string>
   <string name="zoom_image_showcase_title">Billede-zoom</string>
   <string name="what_you_need_title">Hvad du skal bruge for at benytte mods</string>
-  <string name="what_you_need_content">Du har brug for to apps: Minecraft Pocket Edition (den fulde version, demoen virker ikke med mods) og BlockLauncher (gratis- eller Pro-versionen).</string>
+  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Hent den på Google Play</string>
   <string name="how_to_prepare_mods_title">Sådan forberedes mods</string>
   <string name="how_to_prepare_mods_download">Download først det mod, du vil benytte. For at downloade mod\'et kan du trykke på knappen \"Download dette mod fra Desnos websted\" for at gå til webstedet, hvor du kan downloade mod\'et, Husk omhyggeligt at læse afsnittet \"Instruktioner\" på webstedet (da mods benytter en alternativ installationsmetode).</string>
@@ -102,9 +102,6 @@
   <string name="how_to_install_texture_pack_texture_pack">Gå til afsnittet \"Tekstur-pakke\" og sørg for omskifteren i øverste højre hjørne er TIL.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Tryk derefter på \"Vælg\"-knappen og vælg teksturpakken, der blev udpakket fra den første .zip-fil.</string>
   <!-- settings activity -->
-  <string name="connection_settings">Forbindelse</string>
-  <string name="refresh_on_start_title">Opfrisk ved start</string>
-  <string name="refresh_on_start_summary">Opfrisk indholdet ved app-start</string>
   <string name="updates_settings">Opdateringer og notifikationer</string>
   <string name="notification_bool_mods_title">Notifikationer om mods-opdateringer</string>
   <string name="notification_bool_mods_summary">Modtag notifikationer om nye mods-opdateringer</string>
@@ -140,6 +137,7 @@
   <string name="notification_thread">Tråd</string>
   <string name="notification_download">Download</string>
   <!-- removed strings -->
+  <string name="connection_settings" tools:ignore="UnusedResources">Forbindelse</string>
   <string name="show_news" tools:ignore="UnusedResources">Vis alle nyheder&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Skjul nyheder&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Knib eller dobbelt-tryk på skærmen for at zoome billedet</string>

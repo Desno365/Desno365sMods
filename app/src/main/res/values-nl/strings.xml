@@ -87,7 +87,7 @@ hier kunt u de laatste mods vinden, updates en natuurlijk alles wat er nieuw is.
   <string name="click_image_to_view">Klik op een afbeelding om het te vergroten.</string>
   <string name="zoom_image_showcase_title">Afbeelding inzomen</string>
   <string name="what_you_need_title">Wat u nodig heeft om deze Mods te draaien</string>
-  <string name="what_you_need_content">Je Hebt 2 Apps Nodig. 1. Natuurlijk minecraft Pocket Edition. Het moet wel \"De volledige\" versie zijn. 2. Blocklauncher. De gratis of de betaalde versie.</string>
+  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Download het van De Google Playstore</string>
   <string name="how_to_prepare_mods_title">Hoe kun je deze Mods voorbereiden</string>
   <string name="how_to_prepare_mods_download">Download eerst de mod die je wil gebruiken. Druk op de \"Download deze mod op Desno\'s website\" knop om naar de website waar je de mod kan downloaden, vergeet niet om het \"Instructions\" gedeelte zorgvuldig door te lezen (de mods hebbben een verschillende manier van installeren).</string>
@@ -105,9 +105,6 @@ hier kunt u de laatste mods vinden, updates en natuurlijk alles wat er nieuw is.
   <string name="how_to_install_texture_pack_select_texture_pack">Klik dan nu op \"Select\" en kies de juiste texture pack
 dit kunt u vinden in het zip bestand van de mod.</string>
   <!-- settings activity -->
-  <string name="connection_settings">Verbinding…</string>
-  <string name="refresh_on_start_title">Vernieuw van start</string>
-  <string name="refresh_on_start_summary">Vernieuw de inhoud van de app</string>
   <string name="updates_settings">Nieuwe updates en meldingen</string>
   <string name="notification_bool_mods_title">Meldingen voor mod updates</string>
   <string name="notification_bool_mods_summary">Ontvang nieuwe mod updates</string>
@@ -143,6 +140,7 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="notification_thread">Discussie</string>
   <string name="notification_download">Download</string>
   <!-- removed strings -->
+  <string name="connection_settings" tools:ignore="UnusedResources">Verbinding…</string>
   <string name="show_news" tools:ignore="UnusedResources">Bekijk al het nieuws.</string>
   <string name="hide_news" tools:ignore="UnusedResources">Verberg \"het nieuws\"</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Klik twee keer om de afbeelding te vergroten.</string>

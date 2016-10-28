@@ -85,7 +85,7 @@
   <string name="click_image_to_view">Clique em qualquer imagem nesta página para ver isto na resolução máxima.</string>
   <string name="zoom_image_showcase_title">Zoom da imagem</string>
   <string name="what_you_need_title">O que você precisa para usar mods</string>
-  <string name="what_you_need_content">Você precisa de 2 apps: Minecraft Pocket Edition (a versão inteira o demo não funciona com mods) e Block Launcher (a versão grátis ou a pro).</string>
+  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Baixar na Play Store</string>
   <string name="how_to_prepare_mods_title">Como preparar mods</string>
   <string name="how_to_prepare_mods_download">Primeiro baixe o mod que você quer usar. Para baixar o mod você pode pressionar o botão baixar esse mod no website Desno \"botão para ir para web site onde você pode baixar o mod\" lembre se de ler cuidadosamente as instruções no website (mods tem um método diferente de instalação).</string>
@@ -102,9 +102,6 @@
   <string name="how_to_install_texture_pack_texture_pack">Vá na seção \"Texture Pack\" e veja se está ligado.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Depois pressione o botão \"select\" e escolha a texture pack que foi extraída do primeiro arquivo .zip.</string>
   <!-- settings activity -->
-  <string name="connection_settings">Conexão</string>
-  <string name="refresh_on_start_title">Atualizar ao iniciar</string>
-  <string name="refresh_on_start_summary">Atualizar o conteúdo no início do app</string>
   <string name="updates_settings">Atualizações e notificações</string>
   <string name="notification_bool_mods_title">Notificações para atualização de mods</string>
   <string name="notification_bool_mods_summary">Receber notificações para novas atualizações de mods</string>
@@ -140,6 +137,7 @@
   <string name="notification_thread">Discussão</string>
   <string name="notification_download">Download</string>
   <!-- removed strings -->
+  <string name="connection_settings" tools:ignore="UnusedResources">Conexão</string>
   <string name="show_news" tools:ignore="UnusedResources">Mostrar todas as notícias&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">Escolher as notícias&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Toque duplo na tela para dar zoom na imagem</string>

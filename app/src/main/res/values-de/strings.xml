@@ -85,7 +85,7 @@
   <string name="click_image_to_view">Klicke auf ein Bild um es in voller Größe zu sehen.</string>
   <string name="zoom_image_showcase_title">Heranzoomen</string>
   <string name="what_you_need_title">Was du brauchst, um Mods zu benutzen</string>
-  <string name="what_you_need_content">Du brauchst 2 Apps: Minecraft Pocket Edition (Die Vollversion, da Mods in der Demo nicht funktionieren), und BlockLauncher (Die kostenlose oder die Pro-Version).</string>
+  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Hol´es dir im Play Store</string>
   <string name="how_to_prepare_mods_title">Wie man Mods installiert</string>
   <string name="how_to_prepare_mods_download">Zuerst müssen sie die Mod downloaden, die sie benutzen möchten. Um die Mods zu downloaden, klicken sie den \"Diese Mod von Desnos Website herunterladen\"-Knopf. Wichtig; Lesen sie den Abschnitt \"Anweisungen\" auf der Website gut durch, da einige Mods verschieden installiert werden.</string>
@@ -102,9 +102,6 @@
   <string name="how_to_install_texture_pack_texture_pack">Gehen sie zum \"Texturenpaket\"-Abschnitt und stellen sie sicher, dass der Schalter oben rechts auf ON steht.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Dann drücken Sie die \"Select\"-Taste und wählen Sie das Texturenpaket, das aus der ersten .zip-Datei extrahiert wurde.</string>
   <!-- settings activity -->
-  <string name="connection_settings">Verbindung</string>
-  <string name="refresh_on_start_title">Aktualisierung bei Start</string>
-  <string name="refresh_on_start_summary">Den Inhalt beim App-Start aktualisieren</string>
   <string name="updates_settings">Updates und Benachrichtigungen</string>
   <string name="notification_bool_mods_title">Benachrichtigen, wenn die Mod geupdatet wird</string>
   <string name="notification_bool_mods_summary">Bekomme Benachrichtigungen für neue Mod Updates</string>
@@ -140,6 +137,7 @@
   <string name="notification_thread">Artikel</string>
   <string name="notification_download">Download</string>
   <!-- removed strings -->
+  <string name="connection_settings" tools:ignore="UnusedResources">Verbindung</string>
   <string name="show_news" tools:ignore="UnusedResources">Alle News anzeigen&#8230;</string>
   <string name="hide_news" tools:ignore="UnusedResources">News verbergen&#8230;</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Doppel tippe oder halte den Bildschirm gedrückt um das Bild zu vergrößern</string>

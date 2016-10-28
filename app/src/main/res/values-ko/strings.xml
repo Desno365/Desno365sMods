@@ -63,7 +63,7 @@
   <!-- guns page -->
   <string name="info_content_tab6">총. 무기. 폭발. 이것이 Desno총 모드이죠! :D</string>
   <!-- portal 2 page -->
-  <string name="info_content_tab2">You know Portal right? The famous first-person puzzle-platform video game developed by Valve.\nThis mod brings some of the features of Portal 2 in Minecraft Pocket Edition!\nFive different Portal Guns, the Aerial Faith Plate, Propulsion and Repulsion gels, Turrets. These are some of the things you can find inside this mod.</string>
+  <string name="info_content_tab2">포탈 아시죠? 밸브에서 발매한 유명한 1인칭 퍼즐 플랫폼 게임이요.\n이 모드가 포탈 2를 마인크래프트 포켓 에디션으로 옮겨 놓은 것입니다!\n5개의 다른 포탈건, 공중 신뢰 발판, 추진 젤과 반발 젤, 터렛들. 이들을 모두 모드에서 찾으실 수 있습니다.</string>
   <!-- laser page -->
   <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
   <!-- turrets page -->
@@ -85,7 +85,7 @@
   <string name="click_image_to_view">이 페이지에서 전체 해상도로 보실려면 아무 사진이나 클릭하세요.</string>
   <string name="zoom_image_showcase_title">이미지 확대</string>
   <string name="what_you_need_title">모드를 사용하기 위해 필요한 것</string>
-  <string name="what_you_need_content">당신은 두 앱이 필요합니다: 마인크래프트 포켓에디션 (풀 버전, 데모는 모드가 작동되지 않습니다) 그리고 블록런처 (무료 버전이나 프로 버전).</string>
+  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">플레이 스토어에서 가지기</string>
   <string name="how_to_prepare_mods_title">모드를 준비하는 법</string>
   <string name="how_to_prepare_mods_download">먼저 사용하시고 싶으신 모드를 다운로드해 주세요. \"이 모드를 Desno의 웹사이트에서 다운받기\" 버튼을 눌러서 웹사이트로 가셔서 다운로드 하실 수 있습니다, 사이트의 \"방법\" 칸을 잘 읽어 주시기 바랍니다 (모드들은 설치 방법이 각자 다 다릅니다).</string>
@@ -102,9 +102,6 @@
   <string name="how_to_install_texture_pack_texture_pack">\"텍스쳐 팩\" 칸에 가서 오른쪽 위의 스위치가 켜져있는 것을 확인하세요.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">그 다음 \"선택\" 버튼을 누른 후 처음 .zip 파일에서 압축이 풀린 텍스쳐 팩을 선택하세요.</string>
   <!-- settings activity -->
-  <string name="connection_settings">연결</string>
-  <string name="refresh_on_start_title">시작 새로 고침</string>
-  <string name="refresh_on_start_summary">앱 콘텐츠 시작 새로 고침</string>
   <string name="updates_settings">업데이트 및 알림</string>
   <string name="notification_bool_mods_title">모드 업데이트 알림</string>
   <string name="notification_bool_mods_summary">모드 업데이트 알림 수신</string>
@@ -140,6 +137,7 @@
   <string name="notification_thread">스레드</string>
   <string name="notification_download">다운로드</string>
   <!-- removed strings -->
+  <string name="connection_settings" tools:ignore="UnusedResources">연결</string>
   <string name="show_news" tools:ignore="UnusedResources">모든 소식 보기...</string>
   <string name="hide_news" tools:ignore="UnusedResources">소식 숨기기...</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">이미지를 확대하려면 두 손가락으로 확대하거나 화면을 두 번 탭</string>

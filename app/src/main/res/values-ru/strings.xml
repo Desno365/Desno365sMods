@@ -85,7 +85,7 @@
   <string name="click_image_to_view">Нажмите на любую картинку на этой странице, чтобы открыть её в полном размере.</string>
   <string name="zoom_image_showcase_title">Масштабирование изображения</string>
   <string name="what_you_need_title">Что необходимо для использования модов</string>
-  <string name="what_you_need_content">Вам нужно два приложения: Minecraft Pocket Edition (полная версия, демо не работает с модами) и BlockLauncher (бесплатную версию или версию PRO).</string>
+  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Скачать в Play Store</string>
   <string name="how_to_prepare_mods_title">Как подготовить моды к установке</string>
   <string name="how_to_prepare_mods_download">Сначала, загрузите мод, который Вы хотите использовать. Чтобы загрузить мод, Вы можете нажать кнопку \"Скачать этот мод на сайте Desno\", чтобы открыть веб-сайт, на котором Вы можете загрузить мод, затем внимательно прочитайте инструкции по установке на сайте (разные моды устанавливаются по-разному).</string>
@@ -102,9 +102,6 @@
   <string name="how_to_install_texture_pack_texture_pack">Зайдите в раздел \"Текстуры\" и убедитесь, что переключатель в правом верхнем углу находится в положении ON.</string>
   <string name="how_to_install_texture_pack_select_texture_pack">Затем нажмите кнопку \"Выбрать\" и выберите пакет текстур, который был распакован из архива.</string>
   <!-- settings activity -->
-  <string name="connection_settings">Соединение</string>
-  <string name="refresh_on_start_title">Обновлять при запуске</string>
-  <string name="refresh_on_start_summary">Обновлять содержимое при запуске приложения</string>
   <string name="updates_settings">Обновления и уведомления</string>
   <string name="notification_bool_mods_title">Уведомления об обновлениях модов</string>
   <string name="notification_bool_mods_summary">Получать уведомления об обновлениях модов</string>
@@ -140,6 +137,7 @@
   <string name="notification_thread">Ветка</string>
   <string name="notification_download">Скачать</string>
   <!-- removed strings -->
+  <string name="connection_settings" tools:ignore="UnusedResources">Соединение</string>
   <string name="show_news" tools:ignore="UnusedResources">Показать все новости...</string>
   <string name="hide_news" tools:ignore="UnusedResources">Скрыть новости...</string>
   <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Растяни или нажите дважды на экран, чтобы увеличить изображение</string>

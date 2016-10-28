@@ -17,10 +17,10 @@
   -->
 <resources>
   <string-array name="sync_frequency">
-    <item name="h2">Every 2 hours</item>
-    <item name="h4">Every 4 hours</item>
-    <item name="h12">Every 12 hours</item>
-    <item name="h24">Every day</item>
+    <item name="h2">A cada 2 horas</item>
+    <item name="h4">A cada 4 horas</item>
+    <item name="h12">A cada 12 horas</item>
+    <item name="h24">Todos os dias</item>
   </string-array>
   <string-array name="sync_frequency_values">
     <item name="h2" translatable="false">2</item>
@@ -37,8 +37,8 @@
     <item name="french" translatable="false">French</item>
     <item name="german" translatable="false">German</item>
     <item name="italian" translatable="false">Italian</item>
-    <item name="korean" translatable="false">Korean</item>
     <item name="japanese" translatable="false">Japanese</item>
+    <item name="korean" translatable="false">Korean</item>
     <item name="portuguese" translatable="false">Portuguese</item>
     <item name="portuguese_brazilian" translatable="false">Portuguese, Brazilian</item>
     <item name="russian" translatable="false">Russian</item>
@@ -66,7 +66,7 @@
     <item name="brown">Terra</item>
     <item name="green">Cacto</item>
     <item name="red">Lava</item>
-    <item name="blue">Water</item>
+    <item name="blue">Água</item>
   </string-array>
   <string-array name="themes_values">
     <item name="brown" translatable="false">0</item>
