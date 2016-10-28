@@ -106,7 +106,7 @@
     <string name="zoom_image_showcase_title">Image zoom</string>
 
     <string name="what_you_need_title">What you need to use mods</string>
-    <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition (the full version, the demo doesn\'t work with mods) and BlockLauncher (the free version or the pro version).</string>
+    <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
     <string name="get_it_store">Get it on the Play Store</string>
 
     <string name="how_to_prepare_mods_title">How to prepare mods</string>
