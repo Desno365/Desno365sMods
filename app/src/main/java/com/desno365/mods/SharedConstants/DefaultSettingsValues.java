@@ -18,7 +18,6 @@ package com.desno365.mods.SharedConstants;
 
 public class DefaultSettingsValues {
 
-    public static final boolean REFRESH_ON_START = true;
     public static final boolean NOTIFICATIONS_MODS = true;
     public static final boolean NOTIFICATIONS_NEWS = true;
     public static final boolean ANONYMOUS_STATISTICS = true;

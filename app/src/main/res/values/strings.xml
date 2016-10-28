@@ -127,10 +127,6 @@
     <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
 
     <!-- settings activity -->
-    <string name="connection_settings">Connection</string>
-    <string name="refresh_on_start_title">Refresh on start</string>
-    <string name="refresh_on_start_summary">Refresh the content on app start</string>
-
     <string name="updates_settings">Updates and notifications</string>
     <string name="notification_bool_mods_title">Notifications for mods updates</string>
     <string name="notification_bool_mods_summary">Receive notifications for new mods updates</string>
@@ -173,6 +169,7 @@
 
 
     <!-- removed strings -->
+    <string name="connection_settings" tools:ignore="UnusedResources">Connection</string>
     <string name="show_news" tools:ignore="UnusedResources">Show all the news&#8230;</string>
     <string name="hide_news" tools:ignore="UnusedResources">Hide the news&#8230;</string>
     <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pinch or double tap the screen to zoom the image</string>

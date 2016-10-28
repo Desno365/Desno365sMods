@@ -81,13 +81,13 @@ public class AboutActivity extends BaseActivity {
 
 				findViewById(R.id.textview_made_by).setVisibility(View.VISIBLE);
 
-				int random = new Random().nextInt(5); // max exclusive: 3, so: 0, 1, 2
+				int random = new Random().nextInt(2); // max exclusive: 2, so: 0, 1
 				YoYo.AnimationComposer anim;
 				switch (random) {
 					case 0:
 						anim = YoYo.with(Techniques.DropOut);
 						break;
-					case 2:
+					case 1:
 						anim = YoYo.with(Techniques.SlideInDown);
 						break;
 					default:

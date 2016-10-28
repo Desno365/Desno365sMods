@@ -24,4 +24,6 @@ public class SharedConstants {
 	public static final int SHAPELOADINGVIEW_MIN_TIME_DISPLAYING = 500;
 
 	public static final int ALARM_REQUEST_CODE = 365;
+
+	public static final boolean DEBUG_REFRESH_CONTENT_ON_START = true; // change it to false to debug what happens when the content doesn't get refreshed on start
 }

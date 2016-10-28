@@ -56,6 +56,7 @@ import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
 import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.Keys;
+import com.desno365.mods.SharedConstants.SharedConstants;
 import com.desno365.mods.SharedVariables.SharedVariables;
 import com.desno365.mods.Tabs.FragmentTab1;
 import com.google.android.gms.analytics.Tracker;
@@ -201,7 +202,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			editor.putBoolean("is_first_launch", false);
 			editor.putInt("known_version_code", currentVersion);
 
-			editor.putBoolean("refresh_on_start", DefaultSettingsValues.REFRESH_ON_START);
 			editor.putBoolean("notification_bool_mods", DefaultSettingsValues.NOTIFICATIONS_MODS);
 			editor.putBoolean("notification_bool_news", DefaultSettingsValues.NOTIFICATIONS_NEWS);
 			editor.putString("sync_frequency", DefaultSettingsValues.SYNC_FREQUENCY_STRING);
@@ -260,8 +260,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		getMenuInflater().inflate(R.menu.menu_main_activity, menu);
 
 		//refresh content on start
-		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-		if (sharedPrefs.getBoolean("refresh_on_start", DefaultSettingsValues.REFRESH_ON_START)) {
+		if(SharedConstants.DEBUG_REFRESH_CONTENT_ON_START) {
 			new android.os.Handler().postDelayed(new Runnable() {
 				public void run() {
 					runOnUiThread(new Runnable() {
@@ -272,6 +271,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				}
 			}, 1000);
 		}
+
 		return true;
 	}
 
