@@ -59,6 +59,8 @@ import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.SharedConstants.SharedConstants;
 import com.desno365.mods.SharedVariables.SharedVariables;
 import com.desno365.mods.Tabs.FragmentTab1;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.Tracker;
 
 import java.lang.reflect.Method;
@@ -85,6 +87,9 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 	// ads after the click of a button
 	private boolean displayAdAtResume = false;
+
+	// banner ad
+	private AdView mAdView;
 
 	// analytics tracker
 	private Tracker mTracker;
@@ -233,6 +238,11 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		// Load the IntersitialAd, then we just need to call DesnoUtils.showAd() to show the loaded Interstitial
 		// Now we don't need to load the ad again, here or in other activities
 		DesnoUtils.loadInterstitialAd(this);
+
+		// Load the banner ad
+		mAdView = (AdView) findViewById(R.id.ad_view);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
 	}
 
 	@Override
@@ -354,6 +364,17 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 	}
 
 	@Override
+	public void onPause() {
+		// ads
+		if (mAdView != null) {
+			mAdView.pause();
+		}
+
+		super.onPause();
+	}
+
+
+	@Override
 	public void onResume() {
 		super.onResume();
 
@@ -362,6 +383,19 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			DesnoUtils.showAd();
 			displayAdAtResume = false;
 		}
+		if (mAdView != null) {
+			mAdView.resume();
+		}
+	}
+
+	@Override
+	public void onDestroy() {
+		// ads
+		if (mAdView != null) {
+			mAdView.destroy();
+		}
+
+		super.onDestroy();
 	}
 
 	@Override
