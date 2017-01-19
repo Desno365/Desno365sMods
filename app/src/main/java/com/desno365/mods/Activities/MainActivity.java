@@ -215,6 +215,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			editor.putString("selected_animations", "0");
 			editor.putBoolean("anonymous_statistics", DefaultSettingsValues.ANONYMOUS_STATISTICS);
 			editor.putBoolean("user_understood_full_resolution_help", false);
+			editor.putBoolean("user_understood_sliding_pages_help", false);
 			Log.i(TAG, "First launch");
 		} else {
 			Log.i(TAG, "APP LAUNCHED, with versionCode " + currentVersion);

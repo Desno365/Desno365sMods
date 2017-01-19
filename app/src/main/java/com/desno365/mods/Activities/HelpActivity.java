@@ -29,6 +29,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,8 @@ import com.desno365.mods.SharedConstants.Keys;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.Tracker;
+
+import it.sephiroth.android.library.tooltip.Tooltip;
 
 
 public class HelpActivity extends BaseActivity {
@@ -105,28 +108,63 @@ public class HelpActivity extends BaseActivity {
 			public void onPageSelected(int position) {
 				// When swiping between different app sections
 
-				// analytics
-				//DesnoUtils.sendScreenChange(mTracker, mAppSectionsPagerAdapter.getPageTitle(position).toString());
+				// tooltip on image
+				if(position == 1) {
+					new android.os.Handler().postDelayed(new Runnable() {
+						public void run() {
+							runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
+									if (!PreferenceManager.getDefaultSharedPreferences(activity).getBoolean("user_understood_full_resolution_help", false)) {
+										DisplayMetrics metrics = new DisplayMetrics();
+										getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+										Tooltip.make(activity,
+												new Tooltip.Builder(1) // 1 = id
+														.anchor(findViewById(R.id.imageview_help_download_app), Tooltip.Gravity.TOP)
+														.closePolicy(Tooltip.ClosePolicy.TOUCH_OUTSIDE_NO_CONSUME, 20000)
+														.activateDelay(50)
+														.showDelay(200)
+														.text(getResources().getString(R.string.click_image_to_view))
+														.maxWidth((metrics.widthPixels) / 10 * 9)
+														.withArrow(true)
+														.withOverlay(true)
+														.withStyleId(R.style.ToolTipStyle)
+														.build()
+										).show();
+									}
+								}
+							});
+						}
+					}, 200);
+				}
+
+				if(position == 1 || position == 2) {
+					// after the first time switching to another page the user doesn't need the tooltip anymore
+					SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(activity);
+					SharedPreferences.Editor editor = sharedPrefs.edit();
+					editor.putBoolean("user_understood_sliding_pages_help", true);
+					editor.apply();
+				}
 			}
 		});
 
-		// tooltip at start (only the first time)
-		/*new android.os.Handler().postDelayed(new Runnable() {
+		new android.os.Handler().postDelayed(new Runnable() {
 			public void run() {
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						if (!PreferenceManager.getDefaultSharedPreferences(activity).getBoolean("user_understood_full_resolution_help", false)) {
+						if (!PreferenceManager.getDefaultSharedPreferences(activity).getBoolean("user_understood_sliding_pages_help", false)) {
 							DisplayMetrics metrics = new DisplayMetrics();
 							getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
 							Tooltip.make(activity,
 									new Tooltip.Builder(1) // 1 = id
-											.anchor(findViewById(R.id.help_image_prepare1), Tooltip.Gravity.TOP)
-											.closePolicy(Tooltip.ClosePolicy.TOUCH_OUTSIDE_NO_CONSUME, 10000)
+											.anchor(findViewById(R.id.tabs_help), Tooltip.Gravity.BOTTOM)
+											.closePolicy(Tooltip.ClosePolicy.TOUCH_OUTSIDE_NO_CONSUME, 20000)
 											.activateDelay(50)
 											.showDelay(200)
-											.text(getResources().getString(R.string.click_image_to_view))
+											.text(getResources().getString(R.string.help_tip_sliding_pages))
 											.maxWidth((metrics.widthPixels) / 10 * 9)
 											.withArrow(true)
 											.withOverlay(true)
@@ -137,7 +175,7 @@ public class HelpActivity extends BaseActivity {
 					}
 				});
 			}
-		}, 200);*/
+		}, 200);
 
 		// Load the banner ad
 		mAdView = (AdView) findViewById(R.id.ad_view_help);

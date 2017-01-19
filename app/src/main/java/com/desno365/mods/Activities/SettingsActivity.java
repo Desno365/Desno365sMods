@@ -215,6 +215,7 @@ public class SettingsActivity extends BaseActivity {
 					SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(activity.getApplicationContext());
 					SharedPreferences.Editor editor = sharedPrefs.edit();
 					editor.putBoolean("user_understood_full_resolution_help", false);
+					editor.putBoolean("user_understood_sliding_pages_help", false);
 					editor.apply();
 
 					DesnoUtils.showAnimatedDefaultSnackbar((ViewGroup) activity.findViewById(R.id.viewgroup_snackbar_container_settings), R.string.restored_toast);
