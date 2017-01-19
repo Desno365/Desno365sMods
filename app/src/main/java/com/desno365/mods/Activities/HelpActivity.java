@@ -23,17 +23,31 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
+import com.desno365.mods.Mods.DesnoGuns;
+import com.desno365.mods.Mods.Portal;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
+import com.desno365.mods.Tabs.FragmentTab1;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.Tracker;
 
 import it.sephiroth.android.library.tooltip.Tooltip;
@@ -47,6 +61,13 @@ public class HelpActivity extends BaseActivity {
 
 	// analytics tracker
 	private Tracker mTracker;
+
+	// banner ad
+	private AdView mAdView;
+
+	// UI elements
+	private AppSectionsPagerAdapter mAppSectionsPagerAdapter;
+	private ViewPager mViewPager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -78,8 +99,28 @@ public class HelpActivity extends BaseActivity {
 			}
 		});
 
+		// Create the adapter that will return a fragment for each section of the app.
+		mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
+
+		// Set up the ViewPager and attaching the adapter
+		mViewPager = (ViewPager) findViewById(R.id.fragment_container_help);
+		mViewPager.setAdapter(mAppSectionsPagerAdapter);
+
+		// Bind the tabs to the ViewPager
+		PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs_help);
+		tabs.setViewPager(mViewPager);
+		tabs.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+			@Override
+			public void onPageSelected(int position) {
+				// When swiping between different app sections
+
+				// analytics
+				//DesnoUtils.sendScreenChange(mTracker, mAppSectionsPagerAdapter.getPageTitle(position).toString());
+			}
+		});
+
 		// tooltip at start (only the first time)
-		new android.os.Handler().postDelayed(new Runnable() {
+		/*new android.os.Handler().postDelayed(new Runnable() {
 			public void run() {
 				runOnUiThread(new Runnable() {
 					@Override
@@ -105,13 +146,38 @@ public class HelpActivity extends BaseActivity {
 					}
 				});
 			}
-		}, 200);
+		}, 200);*/
 
+		// Load the banner ad
+		mAdView = (AdView) findViewById(R.id.ad_view_help);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
+
+	}
+
+	@Override
+	public void onPause() {
+		if (mAdView != null) {
+			mAdView.pause();
+		}
+		super.onPause();
+	}
+
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		if (mAdView != null) {
+			mAdView.resume();
+		}
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		if (mAdView != null) {
+			mAdView.destroy();
+		}
 		DesnoUtils.showAd();
 	}
 
@@ -119,7 +185,7 @@ public class HelpActivity extends BaseActivity {
 		switch (v.getId()) {
 
 			//minecraft image and text
-			case R.id.minecraft_app_layout:
+			case R.id.minecraft_app_layout: {
 				try {
 					//play store installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED + Keys.KEY_PACKAGE_MINECRAFT)));
@@ -129,9 +195,10 @@ public class HelpActivity extends BaseActivity {
 				}
 				DesnoUtils.sendAction(mTracker, "Minecraft-app");
 				break;
+			}
 
 			//blocklauncher image and text
-			case R.id.blocklauncher_app_layout:
+			case R.id.blocklauncher_app_layout: {
 				try {
 					//play store installed
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED + Keys.KEY_PACKAGE_BLOCKLAUNCHER)));
@@ -141,18 +208,7 @@ public class HelpActivity extends BaseActivity {
 				}
 				DesnoUtils.sendAction(mTracker, "Blocklauncher-app");
 				break;
-
-			//file manager image and text
-			case R.id.file_manager_layout:
-				try {
-					//play store installed
-					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_INSTALLED_FILE_MANAGER)));
-				} catch (android.content.ActivityNotFoundException anfe) {
-					//play store not installed
-					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_PLAY_STORE_NOT_INSTALLED_FILE_MANAGER)));
-				}
-				DesnoUtils.sendAction(mTracker, "File-manager-app");
-				break;
+			}
 		}
 	}
 
@@ -176,5 +232,74 @@ public class HelpActivity extends BaseActivity {
 			startActivity(i);
 		}
 	}
+
+	/**
+	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the primary
+	 * sections of the app.
+	 */
+	private class AppSectionsPagerAdapter extends FragmentPagerAdapter {
+
+		public AppSectionsPagerAdapter(FragmentManager fm) {
+			super(fm);
+		}
+
+		@Override
+		public android.support.v4.app.Fragment getItem(int i) {
+			switch (i) {
+				case 0:
+					return new FragmentTabHelp1();
+				case 1:
+					return new FragmentTabHelp2();
+				case 2:
+					return new FragmentTabHelp3();
+				default:
+					return null;
+			}
+		}
+
+		@Override
+		public int getCount() {
+			return 3;
+		}
+
+		@Override
+		public CharSequence getPageTitle(int position) {
+			switch (position) {
+				case 0:
+					return activity.getString(R.string.action_help);
+				case 1:
+					return activity.getString(R.string.help_title_download);
+				case 2:
+					return activity.getString(R.string.help_title_installation);
+				default:
+					return "Missing title";
+			}
+		}
+	}
+
+	public static class FragmentTabHelp1 extends Fragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_help1, container, false);
+			return rootView;
+		}
+	}
+
+	public static class FragmentTabHelp2 extends Fragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_help2, container, false);
+			return rootView;
+		}
+	}
+
+	public static class FragmentTabHelp3 extends Fragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_help3, container, false);
+			return rootView;
+		}
+	}
+
 
 }

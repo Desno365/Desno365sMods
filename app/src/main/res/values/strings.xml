@@ -102,29 +102,25 @@
     <string name="used_libraries_title">Used libraries and images</string>
 
     <!-- help activity -->
+    <string name="help_title_download">Download</string>
+    <string name="help_title_installation">Installation</string>
+
     <string name="click_image_to_view">Click any image in this page to view it in full resolution.</string>
     <string name="zoom_image_showcase_title">Image zoom</string>
 
+    <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
     <string name="what_you_need_title">What you need to use mods</string>
     <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
     <string name="get_it_store">Get it on the Play Store</string>
 
-    <string name="how_to_prepare_mods_title">How to prepare mods</string>
-    <string name="how_to_prepare_mods_download">First download the mod that you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button to go to the website where you can download the mod, remember to read carefully the \"Instructions\" section in the website (mods have a different installation method).</string>
-    <string name="how_to_prepare_mods_file_manager">Usually mods are inside a zip file so you will need a File Manager to extract it (there are a lot of file managers available on the Google Play Store).</string>
-    <string name="get_one_store">Get one on the Play Store</string>
-    <string name="how_to_prepare_mods_extract">Extracting is really easy: you have to go to the \"Download\" folder with your file manager, click the .zip file that contains everything you need to use the mod (usually the icon of the .zip file is an archive) and then extract it.</string>
-    <string name="how_to_prepare_mods_after_extraction">This is an example of the Portal 2 Mod zip file after extraction:</string>
+    <string name="help_download_text_title">How to download a mod</string>
+    <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+    <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
 
-    <string name="how_to_install_mods_title">How to install mods</string>
-    <string name="how_to_install_mods_manage_modpe_scripts">Now that you did all the previous steps you can open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
-    <string name="how_to_install_mods_import">Make sure the switch in the upper right is ON and click the \"Import\" button.</string>
-    <string name="how_to_install_mods_from_local_storage">Import the script from local storage (the script is the .js file that you should have found in the .zip file).</string>
-
-    <string name="how_to_install_texture_pack_title">How to install a texture pack</string>
-    <string name="how_to_install_texture_pack_launcher_options">Some mods inside the .zip file have a texture pack.\nTo install it open BlockLauncher, click the \"Settings\" icon and go to \"Launcher options\".</string>
-    <string name="how_to_install_texture_pack_texture_pack">Go in the \"Texture Pack\" section and make sure the switch in the upper right is ON.</string>
-    <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
+    <string name="help_installation_text_title">How to install a mod</string>
+    <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+    <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+    <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
 
     <!-- settings activity -->
     <string name="updates_settings">Updates and notifications</string>
