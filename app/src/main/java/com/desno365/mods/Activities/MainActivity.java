@@ -621,6 +621,10 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			case R.id.button_help:
 				startActivity(new Intent(this, HelpActivity.class));
 				break;
+
+			case R.id.button_help_unreal_geometry:
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Keys.KEY_UNREAL_INSTRUCTIONS)));
+				break;
 		}
 	}
 

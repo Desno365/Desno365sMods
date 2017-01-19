@@ -57,6 +57,7 @@ public class Keys {
 	public static final String KEY_UNREAL_CHANGELOG = "https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/unreal-map/full-changelog/changelog.html";
 	public static final String KEY_UNREAL_THREAD = "http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-maps/2389061-map-mod-unreal-geometry-map-non-euclidean-map";
 	public static final String KEY_UNREAL_DOWNLOAD = "http://desno365.github.io/minecraft/unreal-map/";
+	public static final String KEY_UNREAL_INSTRUCTIONS = "http://desno365.net/minecraft/unreal-map/#installation-instructions";
 
 	public static final String KEY_MY_TWITTER = "https://twitter.com/desno365";
 
