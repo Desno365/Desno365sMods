@@ -25,6 +25,7 @@
   <string name="share_using">Поделиться с помощью...</string>
   <string name="share_body">Я использую приложение «Desno365\'s Mods» для того чтобы загружать и использовать некоторые невероятные моды Minecraft Pocket Edition! Скачать http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Обратная связь</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">Оцените это приложение</string>
   <string name="action_settings">Настройки</string>
   <string name="close_dialog">Закрыть</string>
@@ -63,9 +64,9 @@
   <!-- guns page -->
   <string name="info_content_tab6">Пушки. Оружия. Взрывы. Это мод DesnoGuns! :D</string>
   <!-- portal 2 page -->
-  <string name="info_content_tab2">You know Portal right? The famous first-person puzzle-platform video game developed by Valve.\nThis mod brings some of the features of Portal 2 in Minecraft Pocket Edition!\nFive different Portal Guns, the Aerial Faith Plate, Propulsion and Repulsion gels, Turrets. These are some of the things you can find inside this mod.</string>
+  <string name="info_content_tab2">Вы знаете правильный портал? Знаменитой головоломки от первого лица, разработанная компанией Valve.\nЭтот мод добавляет некоторые возможности из игры Портал 2 в Minecraft Pocket Edition!\nПять различных портальных пушек, воздушные панели, башенки. Это некоторые вещи, которые вы можете найти внутри этого мода.</string>
   <!-- laser page -->
-  <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
+  <string name="features_content_tab3">Лазерные пушки аддон для Minecraft PE.</string>
   <!-- turrets page -->
   <string name="features_content_tab4">• Скрафтите турель и поместите её куда хотите, затем сделайте её агрессивной с помощью предмета \"Turret Options\", и турель будет стрелять во всех выбранных мобов в радиусе действия.\n• Есть возможность поменять имя турели в настройках.\n• Защитите свой дом турелями! ;)</string>
   <!-- jukebox page -->
@@ -82,25 +83,22 @@
   <string name="contributors_title">Авторы</string>
   <string name="used_libraries_title">Используемые библиотеки и изображения</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">Нажмите на любую картинку на этой странице, чтобы открыть её в полном размере.</string>
   <string name="zoom_image_showcase_title">Масштабирование изображения</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">Что необходимо для использования модов</string>
-  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
+  <string name="what_you_need_content">Вам понадобится два приложения: Minecraft Pocket Edition и BlockLauncher (бесплатная версия или про версия).</string>
   <string name="get_it_store">Скачать в Play Store</string>
-  <string name="how_to_prepare_mods_title">Как подготовить моды к установке</string>
-  <string name="how_to_prepare_mods_download">Сначала, загрузите мод, который Вы хотите использовать. Чтобы загрузить мод, Вы можете нажать кнопку \"Скачать этот мод на сайте Desno\", чтобы открыть веб-сайт, на котором Вы можете загрузить мод, затем внимательно прочитайте инструкции по установке на сайте (разные моды устанавливаются по-разному).</string>
-  <string name="how_to_prepare_mods_file_manager">Обычно, моды находятся в архивах, поэтому Вам понадобится файловый менеджер, чтобы его распаковать (в магазине Google Play есть множество таких файловых менеджеров).</string>
-  <string name="get_one_store">Загрузить один из них в магазине Play</string>
-  <string name="how_to_prepare_mods_extract">Распаковка - очень простая операция: Вы должны перейти в папку \"Download\" в Вашем файловом менеджере, нажмите на архив, в котором находится всё, что нужно для использования мода (обычно, иконкой архивов является папка с застёжкой \"молния\") и распакуйте его.</string>
-  <string name="how_to_prepare_mods_after_extraction">Так, например, выглядит распакованный архив Portal 2:</string>
-  <string name="how_to_install_mods_title">Как установить моды</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Теперь, когда Вы сделали все предыдущие шаги, Вы можете открыть BlockLauncher, нажать кнопку \"Настройки\" и открыть \"Управление скриптами ModPE\".</string>
-  <string name="how_to_install_mods_import">Убедитесь, что переключатель в правом верхнем углу находится в положении ON, и нажмите кнопку \"Добавить\".</string>
-  <string name="how_to_install_mods_from_local_storage">Импортируйте скрипт из локального хранилища (скрипт - это файл с расширением .js, который должен быть в архиве).</string>
-  <string name="how_to_install_texture_pack_title">Как установить текстурпак</string>
-  <string name="how_to_install_texture_pack_launcher_options">Некоторые моды внутри архива содержат пакеты текстур.\nЧтобы их установить, откройте BlockLauncher, нажмите кнопку \"Настройки\" и перейдите в \"Настройки BL\".</string>
-  <string name="how_to_install_texture_pack_texture_pack">Зайдите в раздел \"Текстуры\" и убедитесь, что переключатель в правом верхнем углу находится в положении ON.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Затем нажмите кнопку \"Выбрать\" и выберите пакет текстур, который был распакован из архива.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">Обновления и уведомления</string>
   <string name="notification_bool_mods_title">Уведомления об обновлениях модов</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">Есть непрочитанные новости</string>
   <string name="notification_thread">Ветка</string>
   <string name="notification_download">Скачать</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Соединение</string>
-  <string name="show_news" tools:ignore="UnusedResources">Показать все новости...</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Скрыть новости...</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Растяни или нажите дважды на экран, чтобы увеличить изображение</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Скажите, что вы думаете об этом приложении на ветке minecraftforum.net</string>
 </resources>

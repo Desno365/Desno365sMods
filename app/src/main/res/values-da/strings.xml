@@ -25,6 +25,7 @@
   <string name="share_using">Del via&#8230;</string>
   <string name="share_body">Jeg benytter \"Desno365 \'s Mods\" app\'en til downloads og benytter nogle utrolige Minecraft Pocket Edition Mods! Tjek det ud på http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Feedback</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">Bedøm denne app</string>
   <string name="action_settings">Indstillinger</string>
   <string name="close_dialog">Luk</string>
@@ -82,25 +83,22 @@
   <string name="contributors_title">Bidragsydere</string>
   <string name="used_libraries_title">Benyttede biblioteker og billeder</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">Klik på hvilket som helst billede på denne side for at se det i fuld opløsning.</string>
   <string name="zoom_image_showcase_title">Billede-zoom</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">Hvad du skal bruge for at benytte mods</string>
   <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Hent den på Google Play</string>
-  <string name="how_to_prepare_mods_title">Sådan forberedes mods</string>
-  <string name="how_to_prepare_mods_download">Download først det mod, du vil benytte. For at downloade mod\'et kan du trykke på knappen \"Download dette mod fra Desnos websted\" for at gå til webstedet, hvor du kan downloade mod\'et, Husk omhyggeligt at læse afsnittet \"Instruktioner\" på webstedet (da mods benytter en alternativ installationsmetode).</string>
-  <string name="how_to_prepare_mods_file_manager">Normalt befinder mods sig i en zip-fil, så du skal anvende et filhåndteringsværktøj for at udpakke det (masser af filhåndteringsværktøjer er tilgængelige på Google Play).</string>
-  <string name="get_one_store">Få en på Google Play</string>
-  <string name="how_to_prepare_mods_extract">Udpakning er virkelig nemt: Du går til \"Download\"-mappen via din foretrukne filhåndtering, klikker på .zip-filen indeholdende alt hvad du behøver for at benytte mod\'en (ikonet på .zip-filen ligner ofte et arkiv) og udpakker den derefter.</string>
-  <string name="how_to_prepare_mods_after_extraction">Dette er et eksempel på Portal 2 Mod-zipfilen efter udpakning:</string>
-  <string name="how_to_install_mods_title">Sådan installeres mods</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Nu da du har udført alle de foregående trin kan du åbne BlockLauncher, klikke på ikonet \"Indstillinger\" og gå til \"Administrér ModPE Scripts\".</string>
-  <string name="how_to_install_mods_import">Sørg for, at omskifteren i øverste højre hjørne står på Til, og klik så på \"Importér\"-knappen.</string>
-  <string name="how_to_install_mods_from_local_storage">Importér scriptet fra den lokale lagerplads (scriptet er en .js-fil fra den tidligere udpakkede .zip-fil).</string>
-  <string name="how_to_install_texture_pack_title">Sådan installeres en tekstur-pakke</string>
-  <string name="how_to_install_texture_pack_launcher_options">Nogle mods i .zip-filen har en tekstur-pakke.\nFor at installere den, åbn BlockLauncher, klik på \"Indstillinger\"-ikonet og gå til \"Valg for App-starter\".</string>
-  <string name="how_to_install_texture_pack_texture_pack">Gå til afsnittet \"Tekstur-pakke\" og sørg for omskifteren i øverste højre hjørne er TIL.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Tryk derefter på \"Vælg\"-knappen og vælg teksturpakken, der blev udpakket fra den første .zip-fil.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">Opdateringer og notifikationer</string>
   <string name="notification_bool_mods_title">Notifikationer om mods-opdateringer</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">Der er ulæste nyheder</string>
   <string name="notification_thread">Tråd</string>
   <string name="notification_download">Download</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Forbindelse</string>
-  <string name="show_news" tools:ignore="UnusedResources">Vis alle nyheder&#8230;</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Skjul nyheder&#8230;</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Knib eller dobbelt-tryk på skærmen for at zoome billedet</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Fortæl mig hvad du synes om denne app på minecraftforum.net-tråden</string>
 </resources>

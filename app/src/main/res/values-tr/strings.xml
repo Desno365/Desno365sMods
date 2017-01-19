@@ -25,6 +25,7 @@
   <string name="share_using">Şunu kullanarak paylaş&#8230;</string>
   <string name="share_body">Ben\"Desno365\'in Mods\" uygulamasını bazı mütiş Minecraft Pocket Edition Modları indirmek için kullanıyorum!Şuna bakin http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Geribildirim</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">Bu uygulamaya oy verin</string>
   <string name="action_settings">Ayarlar</string>
   <string name="close_dialog">Kapat</string>
@@ -82,25 +83,22 @@
   <string name="contributors_title">Katkıda bulunanlar</string>
   <string name="used_libraries_title">Kullanılan kitaplıklar ve resimler</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">Bu sayfadaki herhangi bir resim üstüne basarak onu tam ekran yapabilirsiniz.</string>
   <string name="zoom_image_showcase_title">Görüntü yaklaştır</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">Modları kullanmak için gerekenler</string>
   <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Onu Google Play Store\'da al</string>
-  <string name="how_to_prepare_mods_title">Modlar nasıl hazırlanır</string>
-  <string name="how_to_prepare_mods_download">İlk önce kullanmak istediğiniz mod\'u indirin. Mod\'u indirmek için \"Bu mod\'u Desno\'nın sayfasından indir \" düğmesine basarak mod\'u indireceğiniz websitesine gidebilirsiniz, talimatlar kısmını dikkatlice okumayi unutmayın (Mod\'ların farklı indirme methodları vardır).</string>
-  <string name="how_to_prepare_mods_file_manager">Genelde modlar bir zip dosyasının içinde olduğundan dolayı açmak için bir dosya yöneticisi gerekiyor(Google Play Store\'da çok fazla dosya yöneticisi var).</string>
-  <string name="get_one_store">Bir tanesini Google Play Store\'da seçin</string>
-  <string name="how_to_prepare_mods_extract">Extracting is really easy: you have to go to the \"Download\" folder with your file manager, click the .zip file that contains everything you need to use the mod (usually the icon of the .zip file is an archive) and then extract it.</string>
-  <string name="how_to_prepare_mods_after_extraction">This is an example of the Portal 2 Mod zip file after extraction:</string>
-  <string name="how_to_install_mods_title">Modlar nasıl yüklenir</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Now that you did all the previous steps you can open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
-  <string name="how_to_install_mods_import">Make sure the switch in the upper right is ON and click the \"Import\" button.</string>
-  <string name="how_to_install_mods_from_local_storage">Import the script from local storage (the script is the .js file that you should have found in the .zip file).</string>
-  <string name="how_to_install_texture_pack_title">Doku paketi nasıl yüklenir</string>
-  <string name="how_to_install_texture_pack_launcher_options">Some mods inside the .zip file have a texture pack.\nTo install it open BlockLauncher, click the \"Settings\" icon and go to \"Launcher options\".</string>
-  <string name="how_to_install_texture_pack_texture_pack">Go in the \"Texture Pack\" section and make sure the switch in the upper right is ON.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">Güncelleştirmeler ve bildirimler</string>
   <string name="notification_bool_mods_title">Mod güncelleştirmeleri için bildirimler</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">Okunmamış haberler</string>
   <string name="notification_thread">Konu</string>
   <string name="notification_download">İndir</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Bağlantı</string>
-  <string name="show_news" tools:ignore="UnusedResources">Tüm haberleri göster&#8230;</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Haberleri gizle&#8230;</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pinch or double tap the screen to zoom the image</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Bana bu uygulama ile ilgili düşüncelerinizi minecraftforum.net forumlarında yazın</string>
 </resources>

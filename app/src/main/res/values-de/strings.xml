@@ -23,38 +23,39 @@
   <string name="action_help">Hilfe</string>
   <string name="action_share">Teilen</string>
   <string name="share_using">Teilen mit...</string>
-  <string name="share_body">Die \"Desno365´s Mods\"-App erlaubt es ihnen einige Minecraft Pocket Edition Mods herunterzuladen und zu spielen! Sehen sie es sich an: http://bit.ly/DesnoMods</string>
-  <string name="action_feedback">Deine Meinung</string>
+  <string name="share_body">Ich nutze die \"Desno365\'s Mods\" App um einige unglaubliche Minecraft Pocket Edition Mods herunterzuladen und zu spielen. Schau mal hier: http://bit.ly/DesnoMods</string>
+  <string name="action_feedback">Feedback</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">Diese App bewerten</string>
   <string name="action_settings">Einstellungen</string>
-  <string name="close_dialog">Schließen</string>
+  <string name="close_dialog">Schliessen</string>
   <!-- home page -->
   <string name="home_title">Startseite</string>
   <string name="welcome_title">Willkommen</string>
-  <string name="welcome_content">Willkommen in der Desno365s Mods-App. Hier können sie die neueste Version und die Änderungen meiner Mods ansehen.</string>
+  <string name="welcome_content">Willkommen in der Desno365\'s Mods App.\nHier kannst du die letzte Version und die Änderungen meiner Mods überprüfen.</string>
   <string name="minecraft_version_title">MCPE Version</string>
   <string name="minecraft_version_content">Installierte Version: Minecraft PE %1$s</string>
-  <string name="minecraft_not_installed">Minecraft PE ist nicht installiert</string>
+  <string name="minecraft_not_installed">Minecraft PE ist nicht Installiert</string>
   <string name="news_title">Neuigkeiten</string>
-  <string name="news_button">Hier zu den Neuigkeiten</string>
-  <string name="need_help_title">Brauchen sie Hilfe?</string>
+  <string name="news_button">Bring mich zu den Neuigkeiten</string>
+  <string name="need_help_title">Brauchst du Hilfe?</string>
   <string name="help_button">Zur \"Hilfe\"-Seite</string>
   <!-- titles - main -->
   <string name="info_title">Info</string>
   <string name="features_title">Funktionen</string>
   <string name="updates_title">Updates</string>
-  <string name="compatibility_title">Kompatiblität</string>
-  <string name="changelog_title">Neuerungen</string>
+  <string name="compatibility_title">Kompatibilität</string>
+  <string name="changelog_title">Änderungen</string>
   <string name="useful_links_title">Hilfreiche Links</string>
   <!-- text - main -->
   <string name="loading">Lädt&#8230;</string>
   <string name="mods">Mods</string>
-  <string name="latest_version_is">Die aktuelle Version ist:</string>
+  <string name="latest_version_is">Die neueste Version ist:</string>
   <string name="mod_compatibility_content">Kompatible Minecraft PE Versionen:</string>
   <string name="internet_error">Netzwerkverbindung fehlgeschlagen: Bitte überprüfe deine Internetverbindung.</string>
   <string name="retry">Neu laden</string>
-  <string name="show_changelog">Zeige alle Änderungen...</string>
-  <string name="hide_changelog">Änderungen verstecken&#8230;</string>
+  <string name="show_changelog">Alle Changelogs anzeigen...</string>
+  <string name="hide_changelog">Changelog verstecken...</string>
   <string name="minecraft_thread">minecraftforum.net Beitrag</string>
   <string name="instruction_for_installing">Lese die Anweisungen, wenn du Hilfe beim Installieren der Mods brauchst</string>
   <string name="installation_video_tutorial">Schaue dir die Video-Anleitung zur Installation an</string>
@@ -65,7 +66,7 @@
   <!-- portal 2 page -->
   <string name="info_content_tab2">Kennst du schon Portal? Das umwerfende First-Person-Puzzle-Spiel von Valve.\nDiese Mod bringt ein paar Eigenschaften aus Portal 2 zu Minecraft Pocket Edition!\nFünf verschiedene Portal-Waffen, die Aerial Faith Plate, Antriebs- und Abstoß-Gele und die Turrets. Das sind ein paar von den Dingen die es in der Mod gibt.</string>
   <!-- laser page -->
-  <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
+  <string name="features_content_tab3">Das Laser- Waffen Addon für die DesnoGuns Mod fügt unglaubliche, neue, futuristische Waffen in Minecraft PE hinzu.</string>
   <!-- turrets page -->
   <string name="features_content_tab4">Stelle einen Turret her und platziere ihn an einer beliebigen Stelle. Mache ihn mit dem \"Turret-Options\"-Item aggressiv, sodass er jeden anvisierten Mob der in seine Reichweite kommt erschießt. Du kannst den Namen des Turrets in den Turret-Optionen ändern. Verteidige dein Haus mit deinen Turrets! ;)</string>
   <!-- jukebox page -->
@@ -82,25 +83,22 @@
   <string name="contributors_title">Mitwirkende</string>
   <string name="used_libraries_title">Verwendete Bibliotheken und Bilder</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">Klicke auf ein Bild um es in voller Größe zu sehen.</string>
   <string name="zoom_image_showcase_title">Heranzoomen</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">Was du brauchst, um Mods zu benutzen</string>
-  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
+  <string name="what_you_need_content">Du benötigst zwei Apps: Minecraft Pocket Edition und BlockLauncher (die kostenlose Version oder die Pro Version).</string>
   <string name="get_it_store">Hol´es dir im Play Store</string>
-  <string name="how_to_prepare_mods_title">Wie man Mods installiert</string>
-  <string name="how_to_prepare_mods_download">Zuerst müssen sie die Mod downloaden, die sie benutzen möchten. Um die Mods zu downloaden, klicken sie den \"Diese Mod von Desnos Website herunterladen\"-Knopf. Wichtig; Lesen sie den Abschnitt \"Anweisungen\" auf der Website gut durch, da einige Mods verschieden installiert werden.</string>
-  <string name="how_to_prepare_mods_file_manager">Normalerweise sind Mods in einer Zip-Datei, also benötigen sie einen Dateimanager um die Sound- und Texturdateien zu extrahieren (Es gibt viele Dateimanager im Play Store herunterzuladen).</string>
-  <string name="get_one_store">Holen sie sich einen im Play Store</string>
-  <string name="how_to_prepare_mods_extract">Das Extrahieren an sich ist ziemlich einfach: Sie müssen mit dem Dateimanager in den \"Download\"-Ordner gehen. Dort klicken sie auf die .zip-Datei, die alles enthält, was sie für die Mod benötigen und extrahieren sie.</string>
-  <string name="how_to_prepare_mods_after_extraction">Dies ist ein Beispiel der Portal 2 Mod nach dem Extrahieren:</string>
-  <string name="how_to_install_mods_title">Wie man Mods installiert</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Nun, da du die vorherigen Schritte abgeschlossen hast, öffne Blocklauncher und klicke auf \"Einstellungen/Settings\" und \"ModPE-Skripte/ModPE-Scripts verwalten\".</string>
-  <string name="how_to_install_mods_import">Stellen Sie sicher, dass der Schalter in der oberen rechten Ecke auf ON gestellt ist und klicken Sie auf \"Importieren/Import\".</string>
-  <string name="how_to_install_mods_from_local_storage">Importieren Sie das Skript aus dem lokalen Speicher (das Skript ist die .js-Datei, die in der .zip-Datei vorhanden ist).</string>
-  <string name="how_to_install_texture_pack_title">Wie man Texturenpakete installiert</string>
-  <string name="how_to_install_texture_pack_launcher_options">Einige Mods in der .zip-Datei haben ein Texturenpaket.\nUm es zu installieren, klicken Sie auf das Symbol \"Einstellungen\" und gehen Sie zu \"Launcher-Optionen\".</string>
-  <string name="how_to_install_texture_pack_texture_pack">Gehen sie zum \"Texturenpaket\"-Abschnitt und stellen sie sicher, dass der Schalter oben rechts auf ON steht.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Dann drücken Sie die \"Select\"-Taste und wählen Sie das Texturenpaket, das aus der ersten .zip-Datei extrahiert wurde.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">Updates und Benachrichtigungen</string>
   <string name="notification_bool_mods_title">Benachrichtigen, wenn die Mod geupdatet wird</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">Neue Neuigkeiten!</string>
   <string name="notification_thread">Artikel</string>
   <string name="notification_download">Download</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Verbindung</string>
-  <string name="show_news" tools:ignore="UnusedResources">Alle News anzeigen&#8230;</string>
-  <string name="hide_news" tools:ignore="UnusedResources">News verbergen&#8230;</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Doppel tippe oder halte den Bildschirm gedrückt um das Bild zu vergrößern</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Sagen sie uns auf dem minecraftforum.net-thread was sie von dieser App halten!</string>
 </resources>

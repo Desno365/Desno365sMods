@@ -26,6 +26,7 @@
   <string name="share_body">Ik gebruik de \"Desno365\'s Mods app voor het downloaden van leuke en goede Minecraft Pocket Editie mods. Het is nu ook in het Nederlands beschikbaar. Kijk eens op:
 http://bit.ly/DesnoMods </string>
   <string name="action_feedback">Commentaar</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">Deze app beoordelen</string>
   <string name="action_settings">instellingen</string>
   <string name="close_dialog">Sluiten</string>
@@ -84,26 +85,22 @@ hier kunt u de laatste mods vinden, updates en natuurlijk alles wat er nieuw is.
   <string name="contributors_title">Medewerkers die hebben geholpen</string>
   <string name="used_libraries_title">Gebruikte bronnen en afbeeldingen</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">Klik op een afbeelding om het te vergroten.</string>
   <string name="zoom_image_showcase_title">Afbeelding inzomen</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">Wat u nodig heeft om deze Mods te draaien</string>
   <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Download het van De Google Playstore</string>
-  <string name="how_to_prepare_mods_title">Hoe kun je deze Mods voorbereiden</string>
-  <string name="how_to_prepare_mods_download">Download eerst de mod die je wil gebruiken. Druk op de \"Download deze mod op Desno\'s website\" knop om naar de website waar je de mod kan downloaden, vergeet niet om het \"Instructions\" gedeelte zorgvuldig door te lezen (de mods hebbben een verschillende manier van installeren).</string>
-  <string name="how_to_prepare_mods_file_manager">Meestal bevinden mods zich in een .zip bestand, daarom zul je een bestandenmanager moeten gebruiken om het uit te pakken (er zijn genoeg bestandenmanagers beschikbaar in de Google Play Store).</string>
-  <string name="get_one_store">Je kunt het vinden op de Google Playstore</string>
-  <string name="how_to_prepare_mods_extract">Een bestand uitpakken is makkelijk: je  gaat naar je \"Download\" map met je bestandenmanager, klik dan op het zip bestand met alles erin wat je nodig hebt om de mod te gebruiken (meestal is het icoon van het zip bestand dat van een archief) en pak het uit.</string>
-  <string name="how_to_prepare_mods_after_extraction">Dit is een uitleg over \"de Portal 2 mod\" zip:</string>
-  <string name="how_to_install_mods_title">Hoe kan ik mods installeren?</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Als je deze stappen hebt gedaan, kun je Blocklauncher openen. Klik op het \"instellingen\" icoon en ga naar \"Manage ModPe scripts\"</string>
-  <string name="how_to_install_mods_import">U moet dit ook activeren. Dat doe je door de balk, rechts boven in je scherm naar. Naar rechts te schuiven. Hij zal nu groen worden. Klik dan op \"import\"</string>
-  <string name="how_to_install_mods_from_local_storage">ga Nu naar \"local Storage\". Het Bestand staat tussen \"downloads\". u moet er zeker van zijn dat u het \"JS bestand Instaleert. Een zip bestand is niet mogelijk. Door het zip bestand te open kunt u Het Js Bestand vinden.</string>
-  <string name="how_to_install_texture_pack_title">Hoe Instaleer ik de \"Texture pack\"</string>
-  <string name="how_to_install_texture_pack_launcher_options">Sommige mods hebben een texture pack nodig. Dit gaat via een Zip bestand. Klik op Blocklauncher , Het instelling icoon en dan \"Launcher options\"</string>
-  <string name="how_to_install_texture_pack_texture_pack">Er staat \"Texture pack\" klik hier op. Kijk of deze optie geactiveerd is door de balk , rechts boven in het scherm naar Rechts te schuiven. Het zal groen worden.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Klik dan nu op \"Select\" en kies de juiste texture pack
-dit kunt u vinden in het zip bestand van de mod.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">Nieuwe updates en meldingen</string>
   <string name="notification_bool_mods_title">Meldingen voor mod updates</string>
@@ -139,11 +136,4 @@ dit kunt u vinden in het zip bestand van de mod.</string>
   <string name="notification_unread_news">Er is ongelezen nieuws!</string>
   <string name="notification_thread">Discussie</string>
   <string name="notification_download">Download</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Verbinding…</string>
-  <string name="show_news" tools:ignore="UnusedResources">Bekijk al het nieuws.</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Verberg \"het nieuws\"</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Klik twee keer om de afbeelding te vergroten.</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Vertel wat je van onze app vindt. Geef een reactie op 
-minecraftforum.net</string>
 </resources>

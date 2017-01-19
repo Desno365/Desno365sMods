@@ -25,6 +25,7 @@
   <string name="share_using">Sdílet pomocí&#8230;</string>
   <string name="share_body">Používám aplikaci \"Desno365\'s Mods\" ke stažení a používání některých neuvěřitelných módů pro Minecraft Pocket Edition. Podívejte se na http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Zpětná vazba</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">Ohodnoťte tuto aplikaci</string>
   <string name="action_settings">Nastavení</string>
   <string name="close_dialog">Zavřít</string>
@@ -82,25 +83,22 @@
   <string name="contributors_title">Přispěvatelé</string>
   <string name="used_libraries_title">Použité knihovny a obrázky</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">Klikněte na jakýkoliv obrázek na této stránce na zobrazení v plném rozlišení.</string>
   <string name="zoom_image_showcase_title">Přiblížení obrázku</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">Co potřebujete k použití módů</string>
   <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Získat z Google Play</string>
-  <string name="how_to_prepare_mods_title">Jak připravit mody</string>
-  <string name="how_to_prepare_mods_download">Nejprve stáhněte mód, který chcete použít. Ke stažení stiskněte tlačítko \"Stáhnout tento mód znDesnových stránek\" prompřejitína webové stránky, kde si můžete stáhnout mód, nezapomeňte si pozorně přečíst části \"Pokyny\" na webových stránkách (módy mají rozdílnou metodu instalace).</string>
-  <string name="how_to_prepare_mods_file_manager">Obvykle jsou módy uvnitř souboru .zip, pro extrakci budete potřebovat Správce souborů (na Google Play je jich mnoho).</string>
-  <string name="get_one_store">Získat jeden z Google Play</string>
-  <string name="how_to_prepare_mods_extract">Extrakce je opravdu snadná: Spusťte správce souborů, přejděte do složky \"Download\", zvolte soubor .zip, který obsahuje vše potřebné k použití módu, a extrahujte jej.</string>
-  <string name="how_to_prepare_mods_after_extraction">To je příklad souboru zip módu Portal 2 Mod po extrakci:</string>
-  <string name="how_to_install_mods_title">Jak nainstalovat módy</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Nyní, když jste udělal všechny předchozí kroky, můžete otevřít BlockLauncher, klepněte na ikonu \"Nastavení\" a přejděte na \"Manage ModPE Scripts\".</string>
-  <string name="how_to_install_mods_import">Ujistěte se, že v pravém horním rohu je ON a klepněte na tlačítko \"Import\".</string>
-  <string name="how_to_install_mods_from_local_storage">Importujte skript z místního úložiště (skript je s příponou .js, který jste extrahovali ze souboru .zip).</string>
-  <string name="how_to_install_texture_pack_title">Jak nainstalovat texturu</string>
-  <string name="how_to_install_texture_pack_launcher_options">Some mods inside the .zip file have a texture pack.\nTo install it open BlockLauncher, click the \"Settings\" icon and go to \"Launcher options\".</string>
-  <string name="how_to_install_texture_pack_texture_pack">Go in the \"Texture Pack\" section and make sure the switch in the upper right is ON.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Then press the \"Select\" button and choose the texture pack that was extracted from the first .zip file.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">Updates and notifications</string>
   <string name="notification_bool_mods_title">Notifications for mods updates</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">There are unread news</string>
   <string name="notification_thread">Vlákno</string>
   <string name="notification_download">Stáhnout</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Connection</string>
-  <string name="show_news" tools:ignore="UnusedResources">Zobrazit všechny novinky&#8230;</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Skrýt novinky&#8230;</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Přibližte obrázek dvěma ťuknutími nebo roztáhnutím prstů od sebe</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Řekněte mi, co si myslíte o této aplikaci na minecraftforum.net</string>
 </resources>

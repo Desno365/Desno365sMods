@@ -25,6 +25,7 @@
   <string name="share_using">Condividi con&#8230;</string>
   <string name="share_body">Prova l\'applicazione \"Desno\'s Mods\" che ti permetterà di scaricare alcune fantastiche mod di Minecraft: http://bit.ly/DesnoMods </string>
   <string name="action_feedback">Feedback</string>
+  <string name="feedback_toast">Per qualsiasi domanda, suggerimento o idea mandami un\'email!</string>
   <string name="action_rate">Valuta quest\'app</string>
   <string name="action_settings">Impostazioni</string>
   <string name="close_dialog">Chiudi</string>
@@ -53,7 +54,7 @@
   <string name="mod_compatibility_content">Versioni compatibili di Minecraft PE:</string>
   <string name="internet_error">Errore di connessione: verifica la tua connessione Internet.</string>
   <string name="retry">Riprova</string>
-  <string name="show_changelog">Mostrami tutto il changelog&#8230;</string>
+  <string name="show_changelog">Mostra tutto il changelog&#8230;</string>
   <string name="hide_changelog">Nascondi il changelog&#8230;</string>
   <string name="minecraft_thread">Pagina di minecraftforum.net</string>
   <string name="instruction_for_installing">Leggi le istruzioni per l\'installazione</string>
@@ -82,25 +83,22 @@
   <string name="contributors_title">Collaboratori</string>
   <string name="used_libraries_title">Librerie ed immagini utilizzate</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installazione</string>
+  <string name="help_tip_sliding_pages">Clicca qui o scorri sullo schermo per cambiare pagina nella sezione di aiuto.</string>
   <string name="click_image_to_view">Clicca qualsiasi immagine in questa pagina per vederla alla massima risoluzione.</string>
   <string name="zoom_image_showcase_title">Zoom dell\'immagine</string>
+  <string name="help_introduction">Questa sezione dell\'app ti aiuterà ad installare qualsiasi \"modpkg\" mod in Minecraft Pocket Edition. Il formato \"modpkg\" permette di avere tutte le risorse della mod in un unico file, così è più facile da installare. Scorrendo verso destra si verrà guidati in tutte le fasi.</string>
   <string name="what_you_need_title">Ciò che serve per usare le mod</string>
   <string name="what_you_need_content">Due app sono necessarie: Minecraft Pocket Edition e BlockLauncher (la versione gratuita o quella a pagamento, è lo stesso).</string>
   <string name="get_it_store">Scaricala dal Play Store</string>
-  <string name="how_to_prepare_mods_title">Come preparare le mod per l\'installazione</string>
-  <string name="how_to_prepare_mods_download">Prima di tutto scarica la mod che vuoi usare. Per scaricarla puoi premere il pulsante \"Scarica questa mod dal sito di Desno\" per visitare il sito nel quale puoi scaricare la mod, ricordati anche di leggere attentamente la sezione \"Instruction\" (le mod potrebbero avere diverse procedure di installazione).</string>
-  <string name="how_to_prepare_mods_file_manager">Solitamente le mod sono compresse in un file .zip, quindi avrai bisogno di un Gestore File per estarlo (puoi trovare numerosi gestori di file sul Play Store).</string>
-  <string name="get_one_store">Scaricane uno dal Play Store</string>
-  <string name="how_to_prepare_mods_extract">Per estrarre vai col tuo gestore di file nella cartella \"Download\", clicca il file .zip che contiene tutto quello che serve per usare la mod (solitamente l\'icona di un file .zip è un archivio) e infine estrai tutto il contenuto del file.</string>
-  <string name="how_to_prepare_mods_after_extraction">Questo è un esempio della mod \"Portal 2\" dopo l\'estrazione:</string>
-  <string name="how_to_install_mods_title">Come installare le mod</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Ora che hai fatto i precedenti passaggi puoi aprire BlockLauncher, clicca l\'icona delle impostazioni e vai nel menu \"Manage ModPE Scripts\".</string>
-  <string name="how_to_install_mods_import">Assicurati che il bottone in alto sia su ON e clicca il tasto \"Importa\".</string>
-  <string name="how_to_install_mods_from_local_storage">Importa lo script dalla memoria interna (local storage), lo script è il file .js che dovresti aver estratto dal file .zip della mod.</string>
-  <string name="how_to_install_texture_pack_title">Come installare una texture pack</string>
-  <string name="how_to_install_texture_pack_launcher_options">Alcune mod dentro il file .zip hanno una texture pack.\nPer installarla apri BlockLauncher, clicca l\'icona delle impostazioni e vai nella sezione \"Launcher options\".</string>
-  <string name="how_to_install_texture_pack_texture_pack">Vai nel menu \"Texture pack\" e assicurati che il bottone in alto sia su ON.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Infine premi il pulsante \"Select\" e seleziona la texture pack che hai estratto precedentemente dal file .zip.</string>
+  <string name="help_download_text_title">Come scaricare una mod</string>
+  <string name="help_download_text_content1">Il primo passo è scaricare la mod che vuoi usare. Per scaricare una mod puoi premere sul pulsante \"Scarica questa mod dal sito web di Desno\".</string>
+  <string name="help_download_text_content2">Sarai portato sul sito web di Desno, dove nella sezione \"Downloads\", è possibile scaricare il file modpkg.</string>
+  <string name="help_installation_text_title">Come installare una mod</string>
+  <string name="help_installation_text_content1">Ora che hai scaricato la mod apri BlockLauncher, clicca sull\'icona delle impostazioni e vai nel menu \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Assicurati che le mod siano abilitate e clicca sul pulsante \"+\".</string>
+  <string name="help_installation_text_content3">Infine importa il file .modpkg precedentemente scaricato.</string>
   <!-- settings activity -->
   <string name="updates_settings">Aggiornamenti e notifiche</string>
   <string name="notification_bool_mods_title">Notifiche per aggiornamenti delle mod</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">Ci sono notizie non lette</string>
   <string name="notification_thread">Thread</string>
   <string name="notification_download">Download</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Connessione</string>
-  <string name="show_news" tools:ignore="UnusedResources">Mostrami tutte le news&#8230;</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Nascondi le news&#8230;</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pizzica con due dita o fai doppio tap sullo schermo per aumentare lo zoom</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Aiutami a migliorare quest\'app. Fammi sapere cosa ne pensi e se hai dei suggerimenti sul thread di minecraftforum.net</string>
 </resources>

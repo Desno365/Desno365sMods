@@ -25,6 +25,7 @@
   <string name="share_using">共有するアプリを選択</string>
   <string name="share_body">「Desno365\'s Mods」を使ってModをダウンロードし、Minecraft Pocket Editionでとても楽しくプレイしているよ！http://bit.ly/DesnoMods でチェックして、ぜひ使ってみてね！</string>
   <string name="action_feedback">フィードバック</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">このアプリを評価</string>
   <string name="action_settings">設定</string>
   <string name="close_dialog">閉じる</string>
@@ -63,7 +64,7 @@
   <!-- guns page -->
   <string name="info_content_tab6">銃器や武器、爆発物が追加されるMod... それはDesnoGuns Modだ。</string>
   <!-- portal 2 page -->
-  <string name="info_content_tab2">君はポータルを知っているか。それは、あの有名な一人称パズルゲームを手がけたValveによって制作されたゲームだ。\nこのModでは、Minecraft Pocket EditionにPortal 2で登場する様々な要素を追加する。\n5種類の異なるポータルガン (Portal Gun)、空中信頼性プレート (Aerial Faith Plate)、推進性ジェル (Propulsion Gel)、反射性ジェル (Repulsion Gel)、タレット (Turret) などなど、これは追加されるアイテムの一部にすぎない。その他は自分の目で確かめてみよう。</string>
+  <string name="info_content_tab2">君はポータルを知っているか。それは、Valveによって制作されたあの有名な一人称パズルゲームだ。\nこのModでは、Minecraft Pocket EditionにPortal 2で登場する様々な要素を追加する。\n5種類の異なるポータルガン (Portal Gun)、空中信頼性プレート (Aerial Faith Plate)、推進性ジェル (Propulsion Gel)、反射性ジェル (Repulsion Gel)、タレット (Turret) などなど、これは追加されるアイテムの一部にすぎない。その他は自分の目で確かめてみよう。</string>
   <!-- laser page -->
   <string name="features_content_tab3">Laser Guns Addonは、DesnoGuns Modに近未来な銃器を追加します。</string>
   <!-- turrets page -->
@@ -82,25 +83,22 @@
   <string name="contributors_title">協力者</string>
   <string name="used_libraries_title">使用されるライブラリと画像</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">このページで画像をクリックすると、フル解像度で表示します。</string>
   <string name="zoom_image_showcase_title">画像のズーム</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">Modをプレイするには</string>
-  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
+  <string name="what_you_need_content">Modを使用するには、Minecraft Pocket EditionとBlockLauncher（無料版またはPro版）の両方をインストールしている必要があります。</string>
   <string name="get_it_store">Playストアからインストール</string>
-  <string name="how_to_prepare_mods_title">Mod導入の準備</string>
-  <string name="how_to_prepare_mods_download">まずは、プレイするModをダウンロードしてください。ダウンロードは、「DesnoのウェブサイトからこのModをダウンロードする」のボタンを押すことで開くウェブサイトから行えます。</string>
-  <string name="how_to_prepare_mods_file_manager">ダウンロードされるファイルはzip形式のため、ファイルマネージャーを用いて解凍する必要があります。ファイルマネージャーはGoogle Playストアからダウンロードできます。</string>
-  <string name="get_one_store">Playストアからインストール</string>
-  <string name="how_to_prepare_mods_extract">ここでは「ES ファイルエクスプローラー」を使用します。「Download」のフォルダーにアクセスし、対象の.zip形式のファイルを長押しタップします。ファイルが選択されるので、右上のメニューボタンから「解凍」をタップしてそのまま解凍します。</string>
-  <string name="how_to_prepare_mods_after_extraction">以下は、Portal 2 Modのzipファイルを解凍した例です。</string>
-  <string name="how_to_install_mods_title">Modの導入方法</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">BlockLauncherを開いてスパナアイコンをタップし、「Manage ModPE Scripts」をタップします。</string>
-  <string name="how_to_install_mods_import">右上のスイッチボタンがONになっていることを確認し、「Import」ボタンか「+」ボタンをタップします。</string>
-  <string name="how_to_install_mods_from_local_storage">「Local storage」を選択してローカルストレージからスクリプトをインポートします。スクリプトは、zipファイルから解凍された.js形式のファイルです。</string>
-  <string name="how_to_install_texture_pack_title">テクスチャーパックの導入方法</string>
-  <string name="how_to_install_texture_pack_launcher_options">一部のModでは、zip形式のファイルを用いたテクスチャーパックの使用が求められます。\n導入するにはまず、BlockLauncherのスパナアイコンをタップして「Launcher options」をタップします。</string>
-  <string name="how_to_install_texture_pack_texture_pack">「Texture Pack」という項目があるので、これをONにします。</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">「Texture Pack」のボタンをタップすると選択画面が表示されます。「Select」ボタンか「+」ボタンをタップして、最初のzipファイルから解凍したテクスチャーパックを選択します。</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">更新と通知</string>
   <string name="notification_bool_mods_title">Modが更新されたら通知</string>
@@ -127,7 +125,7 @@
   <string name="restored_toast">サジェスト表示を復元しました。</string>
   <string name="statistics_settings">統計情報の収集</string>
   <string name="anonymous_statistics_title">アプリの使用統計情報を送信</string>
-  <string name="anonymous_statistics_summary">アプリのエラーや一般の使用状況を匿名で収集することを許可します</string>
+  <string name="anonymous_statistics_summary">アプリの不具合や使用状況を匿名で収集することを許可します</string>
   <!-- notifications -->
   <string name="notification_new_version_title">新しいバージョンがリリースされました</string>
   <string name="notification_new_version_content1">新しいバージョンが</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">未読のニュースがあります</string>
   <string name="notification_thread">スレッド</string>
   <string name="notification_download">ダウンロード</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">接続</string>
-  <string name="show_news" tools:ignore="UnusedResources">全てのニュースを表示&#8230;</string>
-  <string name="hide_news" tools:ignore="UnusedResources">ニュースを閉じる&#8230;</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">ピンチまたはダブルタップすることで、画像を拡大縮小できます</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">minecraftforum.netのスレッドで、このアプリについての意見を英語でお伝え下さい。</string>
 </resources>

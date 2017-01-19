@@ -25,6 +25,7 @@
   <string name="share_using">배포 공유...</string>
   <string name="share_body">나는 마인크래프트 포켓에디션에 엄청난 모드들을 다운 받기 위해 \"Desno365\'s Mods\" 앱을 쓰고 있어! 확인해 봐.  http://bit.ly/DesnoMods </string>
   <string name="action_feedback">의견</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">이 앱 평가하기</string>
   <string name="action_settings">설정</string>
   <string name="close_dialog">닫기</string>
@@ -82,25 +83,22 @@
   <string name="contributors_title">도움을 주신 분들</string>
   <string name="used_libraries_title">사용된 라이브러리 및 이미지</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">이 페이지에서 전체 해상도로 보실려면 아무 사진이나 클릭하세요.</string>
   <string name="zoom_image_showcase_title">이미지 확대</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">모드를 사용하기 위해 필요한 것</string>
   <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">플레이 스토어에서 가지기</string>
-  <string name="how_to_prepare_mods_title">모드를 준비하는 법</string>
-  <string name="how_to_prepare_mods_download">먼저 사용하시고 싶으신 모드를 다운로드해 주세요. \"이 모드를 Desno의 웹사이트에서 다운받기\" 버튼을 눌러서 웹사이트로 가셔서 다운로드 하실 수 있습니다, 사이트의 \"방법\" 칸을 잘 읽어 주시기 바랍니다 (모드들은 설치 방법이 각자 다 다릅니다).</string>
-  <string name="how_to_prepare_mods_file_manager">보통 모드들은 zip 파일 안에 있어 압축을 풀려면 파일 관리자가 필요합니다 (구글 플레이 스토어에 많은 파일 관리자들이 있습니다).</string>
-  <string name="get_one_store">플레이 스토어에서 얻기</string>
-  <string name="how_to_prepare_mods_extract">압축을 푸는 것은 정말 쉽습니다: 파일 관리자로 \"다운로드\" 폴더에 들어가, .zip 파일을 클릭하면 모드에 필요한 모든 것이 들어가 있는 것이 보일 것이고 (보통 .zip 파일의 아이콘은 아카이브일 것입니다) 압축을 푸시면 됩니다.</string>
-  <string name="how_to_prepare_mods_after_extraction">이것은 포탈 2 모드 zip 파일의 압축 후의 예입니다:</string>
-  <string name="how_to_install_mods_title">모드를 설치하는 방법</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">당신은 모든 전 단계들을 했으니 BlockLauncher을 여실 수 있습니다, \"설정\" 아이콘을 클릭해 \"Manage ModPE Scripts\"로 가십시오.</string>
-  <string name="how_to_install_mods_import">오른쪽 위에 있는 스위치가 켜져 있는 것을 확인하고 \"가져오기\" 버튼을 클릭하세요.</string>
-  <string name="how_to_install_mods_from_local_storage">로컬 저장소에서 스크립트를 가져오세요 (스크립트는 .zip 파일 안에 당신이 찾아야 하는 .js 파일입니다).</string>
-  <string name="how_to_install_texture_pack_title">텍스쳐팩을 설치하는 방법</string>
-  <string name="how_to_install_texture_pack_launcher_options">몇몇 모드에서는 .zip 파일 안에 텍스쳐 팩이 있습니다.\nBlockLauncher에서 열어서 설치하려면, \"설정\" 아이콘을 클릭해 \"런처 옵션\"으로 가세요.</string>
-  <string name="how_to_install_texture_pack_texture_pack">\"텍스쳐 팩\" 칸에 가서 오른쪽 위의 스위치가 켜져있는 것을 확인하세요.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">그 다음 \"선택\" 버튼을 누른 후 처음 .zip 파일에서 압축이 풀린 텍스쳐 팩을 선택하세요.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">업데이트 및 알림</string>
   <string name="notification_bool_mods_title">모드 업데이트 알림</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">읽지 않은 뉴스가 있습니다!</string>
   <string name="notification_thread">스레드</string>
   <string name="notification_download">다운로드</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">연결</string>
-  <string name="show_news" tools:ignore="UnusedResources">모든 소식 보기...</string>
-  <string name="hide_news" tools:ignore="UnusedResources">소식 숨기기...</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">이미지를 확대하려면 두 손가락으로 확대하거나 화면을 두 번 탭</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">이 앱이 minecraftforum.net 스레드에 올라가 있는 것이 어떤지 말해주세요.</string>
 </resources>

@@ -25,6 +25,7 @@
   <string name="share_using">Compartilhar usando...</string>
   <string name="share_body">Eu estou usando o \"Desno365\'s Mods\" para baixar e usar alguns incríveis mods de Minecraft Pocket Edition Cheque agora: http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Feedback</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">Avalie esse App</string>
   <string name="action_settings">Configurações</string>
   <string name="close_dialog">Fechar</string>
@@ -82,25 +83,22 @@
   <string name="contributors_title">Contribuidores</string>
   <string name="used_libraries_title">Arquivos e imagens usadas</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">Clique em qualquer imagem nesta página para ver isto na resolução máxima.</string>
   <string name="zoom_image_showcase_title">Zoom da imagem</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">O que você precisa para usar mods</string>
   <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Baixar na Play Store</string>
-  <string name="how_to_prepare_mods_title">Como preparar mods</string>
-  <string name="how_to_prepare_mods_download">Primeiro baixe o mod que você quer usar. Para baixar o mod você pode pressionar o botão baixar esse mod no website Desno \"botão para ir para web site onde você pode baixar o mod\" lembre se de ler cuidadosamente as instruções no website (mods tem um método diferente de instalação).</string>
-  <string name="how_to_prepare_mods_file_manager">Geralmente mods estão dentro de um arquivo zip então você vai precisar no gerenciador de arquivos para extraí-los (há vários gerenciadores de arquivos disponíveis no Google Play Store).</string>
-  <string name="get_one_store">Conseguir na play store</string>
-  <string name="how_to_prepare_mods_extract">Extrair é realmente fácil: você tem que ir para a pasta download com seu gerenciador de arquivos clique no arquivo .zip que contém tudo que você precisa do mod (geralmente o ícone do .zip é um arquivo) e depois extrair.</string>
-  <string name="how_to_prepare_mods_after_extraction">Este é um exemplo do mod portal 2 depois da extração:</string>
-  <string name="how_to_install_mods_title">Como instalar mods</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Agora que você fez todos os passos anteriores você pode abrir o Block Launcher clicar em configurações e ir para \"Manage ModPE Scripts\".</string>
-  <string name="how_to_install_mods_import">Esteja certo que o botão de chave acima à direita está ligado e clique no botão \"import\".</string>
-  <string name="how_to_install_mods_from_local_storage">Import o script do armazenamento local (o script é .js arquivo que você deve ter no arquivo .zip).</string>
-  <string name="how_to_install_texture_pack_title">Como instalar uma texture pack</string>
-  <string name="how_to_install_texture_pack_launcher_options">Alguns mods dentro do arquivo .zip tem uma textura.\nPara instalar isso abra o block launcher clique em \"configurações\" e vá para \"launcher opitions\".</string>
-  <string name="how_to_install_texture_pack_texture_pack">Vá na seção \"Texture Pack\" e veja se está ligado.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Depois pressione o botão \"select\" e escolha a texture pack que foi extraída do primeiro arquivo .zip.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">Atualizações e notificações</string>
   <string name="notification_bool_mods_title">Notificações para atualização de mods</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">Há notícias não lidas</string>
   <string name="notification_thread">Discussão</string>
   <string name="notification_download">Download</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Conexão</string>
-  <string name="show_news" tools:ignore="UnusedResources">Mostrar todas as notícias&#8230;</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Escolher as notícias&#8230;</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Toque duplo na tela para dar zoom na imagem</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Me fale oque você acha desse app no minecraftforum.net</string>
 </resources>

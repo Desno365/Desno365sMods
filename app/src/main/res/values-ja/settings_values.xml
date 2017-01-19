@@ -44,6 +44,7 @@
     <item name="russian" translatable="false">Russian</item>
     <item name="spanish" translatable="false">Spanish</item>
     <item name="turkish" translatable="false">Turkish</item>
+    <item name="ukrainian" translatable="false">Ukrainian</item>
   </string-array>
   <string-array name="languages_values">
     <item name="default" translatable="false">default</item>
@@ -61,6 +62,7 @@
     <item name="russian" translatable="false">ru</item>
     <item name="spanish" translatable="false">es</item>
     <item name="turkish" translatable="false">tr</item>
+    <item name="ukrainian" translatable="false">uk</item>
   </string-array>
   <string-array name="themes">
     <item name="brown">土</item>

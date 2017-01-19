@@ -25,6 +25,7 @@
   <string name="share_using">Comparte usando&#8230;</string>
   <string name="share_body">Estoy usando la aplicación \"Desno365 Mods\" para descargar y utilizar algunos increíbles mods para Minecraft Pocket Edition! Pruebalo ahora mismo http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Contactanos</string>
+  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
   <string name="action_rate">Valora esta app</string>
   <string name="action_settings">Ajustes</string>
   <string name="close_dialog">Cerrar</string>
@@ -82,25 +83,22 @@
   <string name="contributors_title">Contribuidores</string>
   <string name="used_libraries_title">Imágenes y bibliotecas usadas</string>
   <!-- help activity -->
+  <string name="help_title_download">Download</string>
+  <string name="help_title_installation">Installation</string>
+  <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
   <string name="click_image_to_view">Hace click en cualquier imagen para verla en la completa resolucion.</string>
   <string name="zoom_image_showcase_title">Acercamiento de imagen</string>
+  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
   <string name="what_you_need_title">Lo que necesitas para usar mods</string>
   <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
   <string name="get_it_store">Consiguelo en la Play Store</string>
-  <string name="how_to_prepare_mods_title">Cómo hacer mods</string>
-  <string name="how_to_prepare_mods_download">Primero descargar el mod que quieras utilizar. Para descargar el mod puede presionar el botón \"Descargar este mod de la web de Desno\" para ir a la página web donde pueden descargar el mod, no olvide leer cuidadosamente la sección de \"Instrucciones\" en la página web (cada mod tienen un método diferente de instalación).</string>
-  <string name="how_to_prepare_mods_file_manager">Los mods generalmente entan en un .zip para descomprimirlos se necesita una administrador de archivos (se puede obtener administradores de archivos en la Play Store).</string>
-  <string name="get_one_store">Consiguela  en la Play Store</string>
-  <string name="how_to_prepare_mods_extract">Extracción es muy fácil: tienes que ir a la carpeta \"Download\" con tu gestor de archivos, haga clic en el archivo .zip que contiene todo lo que necesitas para usar el mod (normalmente el icono del archivo .zip es un archivo) y luego extraerlo.</string>
-  <string name="how_to_prepare_mods_after_extraction">Esto es un ejemplo con el mod de Portal2 despues de la extracion:</string>
-  <string name="how_to_install_mods_title">Cómo instalar mods</string>
-  <string name="how_to_install_mods_manage_modpe_scripts">Ahora que has hecho todos los pasos anteriores puede abrir BlockLauncher, haga clic en el icono \"Configuración\" y vaya a \"Gestionar ModPE Scripts\".</string>
-  <string name="how_to_install_mods_import">Tienes que tener el switch en ON  y precionar el boton \"Inportar\".</string>
-  <string name="how_to_install_mods_from_local_storage">Importa el script desde almacenamiento local (los scrips son los archivos .js que tienen dentro los archivos .zip).</string>
-  <string name="how_to_install_texture_pack_title">Cómo instalar un paquete de textura</string>
-  <string name="how_to_install_texture_pack_launcher_options">Algunos mods tienen dentro del archivo .zip un pack de textura. Para instalarlo abre el BlockLauncher, haz clic en el icono de \"Ajustes\' y ve a \"Opciones de Launcher\"</string>
-  <string name="how_to_install_texture_pack_texture_pack">Ve a la sección \"Pack de Texturas\" y asegúrese que el interruptor en la parte superior derecha este en ON.</string>
-  <string name="how_to_install_texture_pack_select_texture_pack">Luego presione el botón \"Select\" y elegir el paquete de textura que fue extraído del archivo .zip primero.</string>
+  <string name="help_download_text_title">How to download a mod</string>
+  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
+  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
+  <string name="help_installation_text_title">How to install a mod</string>
+  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
+  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
+  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
   <!-- settings activity -->
   <string name="updates_settings">Actualizaciones y notificaciones</string>
   <string name="notification_bool_mods_title">Notificaciones de actualizaciones de mods</string>
@@ -136,10 +134,4 @@
   <string name="notification_unread_news">Hay noticias no leídas</string>
   <string name="notification_thread">Hilo de discusión</string>
   <string name="notification_download">Descarga</string>
-  <!-- removed strings -->
-  <string name="connection_settings" tools:ignore="UnusedResources">Conexión</string>
-  <string name="show_news" tools:ignore="UnusedResources">Mostrar todas las noticias&#8230;</string>
-  <string name="hide_news" tools:ignore="UnusedResources">Ocultar las noticias&#8230;</string>
-  <string name="zoom_image_showcase_content" tools:ignore="UnusedResources">Pellizcar o tocar dos veces la pantalla para ampliar la imagen</string>
-  <string name="feedback_toast" tools:ignore="UnusedResources">Dime lo que piensas de esta aplicación en el hilo minecraftforum.net</string>
 </resources>
