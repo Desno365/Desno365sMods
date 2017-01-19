@@ -75,23 +75,23 @@ public class ZoomImageActivity extends BaseActivity {
 		switch (getIntent().getIntExtra("viewId", 365)) {
 			case R.id.imageview_help_download_app:
 				//noinspection deprecation
-				mDrawable = getResources().getDrawable(R.drawable.img_help_download_button_app);
+				mDrawable = getResources().getDrawable(R.drawable.img_help_download_button_app_fullres);
 				break;
 			case R.id.imageview_help_download_website:
 				//noinspection deprecation
-				mDrawable = getResources().getDrawable(R.drawable.img_help_download_website);
+				mDrawable = getResources().getDrawable(R.drawable.img_help_download_website_fullres);
 				break;
 			case R.id.imageview_help_installation_manage_modpe:
 				//noinspection deprecation
-				mDrawable = getResources().getDrawable(R.drawable.img_help_installation_manage_modpe_scripts);
+				mDrawable = getResources().getDrawable(R.drawable.img_help_installation_manage_modpe_scripts_fullres);
 				break;
 			case R.id.imageview_help_installation_import:
 				//noinspection deprecation
-				mDrawable = getResources().getDrawable(R.drawable.img_help_installation_import);
+				mDrawable = getResources().getDrawable(R.drawable.img_help_installation_import_fullres);
 				break;
 			case R.id.imageview_help_installation_import_local_storage:
 				//noinspection deprecation
-				mDrawable = getResources().getDrawable(R.drawable.img_help_installation_import_from_local_storage);
+				mDrawable = getResources().getDrawable(R.drawable.img_help_installation_import_from_local_storage_fullres);
 				break;
 			default:
 				//noinspection deprecation
