@@ -154,7 +154,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 					latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
 					latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
 					latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
-					latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
 					latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
 					latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
 				}
@@ -172,7 +171,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 				DesnoUtils.notifyForUnreadNews(currentContext, latestNewsVersion);
 			}
 			if (notificationModsBool) {
-				DesnoUtils.notifyForNewUpdates(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
+				DesnoUtils.notifyForNewUpdates(currentContext, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestJukeboxVersion, latestUnrealVersion);
 			}
 
 			// debug alarm

@@ -32,7 +32,6 @@ public class DesnoGuns extends Mod {
 
 		super(context);
 
-		this.ID = 1;
 		this.nameId = R.string.mod5_title;
 
 		setVersion(context.getResources().getString(R.string.loading));

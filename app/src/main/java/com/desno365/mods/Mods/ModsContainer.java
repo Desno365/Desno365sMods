@@ -24,7 +24,6 @@ public class ModsContainer {
     public Jukebox jukebox;
     public Laser laser;
     public Portal portal;
-    public Turrets turrets;
     public Unreal unreal;
 
     public ModsContainer(Context context) {
@@ -32,7 +31,6 @@ public class ModsContainer {
         jukebox = new Jukebox(context);
         laser = new Laser(context);
         portal = new Portal(context);
-        turrets = new Turrets(context);
         unreal = new Unreal(context);
     }
 

@@ -56,7 +56,6 @@ import com.desno365.mods.Mods.Jukebox;
 import com.desno365.mods.Mods.Laser;
 import com.desno365.mods.Mods.Mod;
 import com.desno365.mods.Mods.Portal;
-import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.NotificationsId;
@@ -398,7 +397,7 @@ public class DesnoUtils {
 		DesnoUtils.sendEvent(mTracker, "Notification-Mod", "New version of the " + mod.getName());
 	}
 
-	public static void notifyForNewUpdates(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
+	public static void notifyForNewUpdates(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestJukeboxVersion, String latestUnrealVersion) {
 
 		if (checkIfNewVersion(context, latestGunsVersion, "known_guns_version")) {
 			DesnoUtils.notificationForNewVersion(context, new DesnoGuns(context));
@@ -410,10 +409,6 @@ public class DesnoUtils {
 
 		if (checkIfNewVersion(context, latestLaserVersion, "known_laser_version")) {
 			DesnoUtils.notificationForNewVersion(context, new Laser(context));
-		}
-
-		if (checkIfNewVersion(context, latestTurretsVersion, "known_turrets_version")) {
-			DesnoUtils.notificationForNewVersion(context, new Turrets(context));
 		}
 
 		if (checkIfNewVersion(context, latestJukeboxVersion, "known_jukebox_version")) {
@@ -428,7 +423,7 @@ public class DesnoUtils {
 		//DesnoUtils.notificationForNewVersion(context, MainActivity.MOD_GUNS);
 
 		// debug versions
-		//debugVersions(context, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
+		//debugVersions(context, latestGunsVersion, latestPortalVersion, latestLaserVersion, latestJukeboxVersion, latestUnrealVersion);
 	}
 
 	public static void notifyForUnreadNews(Context context, String latestNews) {
@@ -445,19 +440,18 @@ public class DesnoUtils {
 	}
 
 	@SuppressWarnings("unused")
-	private static void debugVersions(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestTurretsVersion, String latestJukeboxVersion, String latestUnrealVersion) {
+	private static void debugVersions(Context context, String latestGunsVersion, String latestPortalVersion, String latestLaserVersion, String latestJukeboxVersion, String latestUnrealVersion) {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
 		String knownGunsVersion = sharedPrefs.getString("known_guns_version", NOT_INITIALIZED_ERROR_STRING);
 		String knownPortalVersion = sharedPrefs.getString("known_portal_version", NOT_INITIALIZED_ERROR_STRING);
 		String knownLaserVersion = sharedPrefs.getString("known_laser_version", NOT_INITIALIZED_ERROR_STRING);
-		String knownTurretsVersion = sharedPrefs.getString("known_turrets_version", NOT_INITIALIZED_ERROR_STRING);
 		String knownJukeboxVersion = sharedPrefs.getString("known_jukebox_version", NOT_INITIALIZED_ERROR_STRING);
 		String knownUnrealVersion = sharedPrefs.getString("known_unreal_version", NOT_INITIALIZED_ERROR_STRING);
 
-		Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion);
+		Log.d(TAG, "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion);
 
-		DesnoUtils.generalNotification(context, "Log", "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " t: " + latestTurretsVersion + knownTurretsVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion, NotificationsId.ID_DEBUG_VERSIONS);
+		DesnoUtils.generalNotification(context, "Log", "Log:" + " g: " + latestGunsVersion + knownGunsVersion + " p: " + latestPortalVersion + knownPortalVersion + " l: " + latestLaserVersion + knownLaserVersion + " j: " + latestJukeboxVersion + knownJukeboxVersion + " u: " + latestUnrealVersion + knownUnrealVersion, NotificationsId.ID_DEBUG_VERSIONS);
 	}
 	/* ######### NOTIFICATIONS ######### */
 

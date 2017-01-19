@@ -26,13 +26,12 @@ import com.desno365.mods.Tabs.FragmentTab7;
 
 public class Unreal extends Mod {
 
-	public static final int viewPagerPosition = 6;
+	public static final int viewPagerPosition = 5;
 
 	public Unreal(Context context) {
 
 		super(context);
 
-		this.ID = 6;
 		this.nameId = R.string.mod6_title;
 
 		setVersion(context.getResources().getString(R.string.loading));

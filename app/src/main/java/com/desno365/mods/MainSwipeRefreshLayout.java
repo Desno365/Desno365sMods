@@ -26,7 +26,6 @@ import com.desno365.mods.Mods.DesnoGuns;
 import com.desno365.mods.Mods.Jukebox;
 import com.desno365.mods.Mods.Laser;
 import com.desno365.mods.Mods.Portal;
-import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
 
 
@@ -56,9 +55,6 @@ public class MainSwipeRefreshLayout extends SwipeRefreshLayout {
 
 				case Laser.viewPagerPosition:
 					return findViewById(R.id.scroll_tab_laser).canScrollVertically(-1);
-
-				case Turrets.viewPagerPosition:
-					return findViewById(R.id.scroll_tab_turrets).canScrollVertically(-1);
 
 				case Jukebox.viewPagerPosition:
 					return findViewById(R.id.scroll_tab_jukebox).canScrollVertically(-1);

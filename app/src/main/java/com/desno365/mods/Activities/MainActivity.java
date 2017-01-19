@@ -50,7 +50,6 @@ import com.desno365.mods.Mods.Jukebox;
 import com.desno365.mods.Mods.Laser;
 import com.desno365.mods.Mods.ModsContainer;
 import com.desno365.mods.Mods.Portal;
-import com.desno365.mods.Mods.Turrets;
 import com.desno365.mods.Mods.Unreal;
 import com.desno365.mods.R;
 import com.desno365.mods.Receivers.AlarmReceiver;
@@ -365,11 +364,9 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 	@Override
 	public void onPause() {
-		// ads
 		if (mAdView != null) {
 			mAdView.pause();
 		}
-
 		super.onPause();
 	}
 
@@ -377,8 +374,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 	@Override
 	public void onResume() {
 		super.onResume();
-
-		// ads
 		if (displayAdAtResume) {
 			DesnoUtils.showAd();
 			displayAdAtResume = false;
@@ -390,11 +385,9 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 	@Override
 	public void onDestroy() {
-		// ads
 		if (mAdView != null) {
 			mAdView.destroy();
 		}
-
 		super.onDestroy();
 	}
 
@@ -415,9 +408,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 						break;
 					case Laser.viewPagerPosition:
 						myFragment = Laser.getFragmentTab();
-						break;
-					case Turrets.viewPagerPosition:
-						myFragment = Turrets.getFragmentTab();
 						break;
 					case Jukebox.viewPagerPosition:
 						myFragment = Jukebox.getFragmentTab();
@@ -528,19 +518,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				}
 
 				try {
-					TextView textUpdatesTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_turrets_is);
-					textUpdatesTurrets.setText(modsContainer.turrets.getVersion());
-
-					TextView textCompatibilityTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_compatibility);
-					textCompatibilityTurrets.setText(android.text.Html.fromHtml(modsContainer.turrets.getCompatibility()));
-
-					TextView textChangelogTurrets = (TextView) getWindow().getDecorView().findViewById(R.id.turrets_changelog);
-					textChangelogTurrets.setText(android.text.Html.fromHtml(modsContainer.turrets.getChangelog()));
-				} catch (NullPointerException e) {
-					Log.e(TAG, "NullPointerException in refreshTextViews for Turrets");
-				}
-
-				try {
 					TextView textUpdatesJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.latest_version_jukebox_is);
 					textUpdatesJukebox.setText(modsContainer.jukebox.getVersion());
 
@@ -587,11 +564,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				displayAdAtResume = true;
 				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Laser");
 				break;
-			case R.id.minecraft_thread_turrets_button:
-				startActivity(modsContainer.turrets.getVisitThreadIntent());
-				displayAdAtResume = true;
-				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Turrets");
-				break;
 			case R.id.minecraft_thread_jukebox_button:
 				startActivity(modsContainer.jukebox.getVisitThreadIntent());
 				displayAdAtResume = true;
@@ -618,11 +590,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				startActivity(modsContainer.laser.getDownloadFromWebsiteIntent());
 				displayAdAtResume = true;
 				DesnoUtils.sendAction(mTracker, "Download-Laser");
-				break;
-			case R.id.download_turrets_button:
-				startActivity(modsContainer.turrets.getDownloadFromWebsiteIntent());
-				displayAdAtResume = true;
-				DesnoUtils.sendAction(mTracker, "Download-Turrets");
 				break;
 			case R.id.download_jukebox_button:
 				startActivity(modsContainer.jukebox.getDownloadFromWebsiteIntent());
@@ -701,8 +668,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 					return Portal.getFragmentTab();
 				case Laser.viewPagerPosition:
 					return Laser.getFragmentTab();
-				case Turrets.viewPagerPosition:
-					return Turrets.getFragmentTab();
 				case Jukebox.viewPagerPosition:
 					return Jukebox.getFragmentTab();
 				case Unreal.viewPagerPosition:
@@ -714,7 +679,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 		@Override
 		public int getCount() {
-			return 7;
+			return 6;
 		}
 
 		@Override
@@ -729,10 +694,8 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				case 3:
 					return modsContainer.laser.getName();
 				case 4:
-					return modsContainer.turrets.getName();
-				case 5:
 					return modsContainer.jukebox.getName();
-				case 6:
+				case 5:
 					return modsContainer.unreal.getName();
 				default:
 					return "Missing title";
@@ -746,7 +709,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		private String latestGunsVersion = "";
 		private String latestPortalVersion = "";
 		private String latestLaserVersion = "";
-		private String latestTurretsVersion = "";
 		private String latestJukeboxVersion = "";
 		private String latestUnrealVersion = "";
 
@@ -760,21 +722,18 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				latestGunsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_VERSION);
 				latestPortalVersion = DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_VERSION);
 				latestLaserVersion = DesnoUtils.getTextFromUrl(Keys.KEY_LASER_VERSION);
-				latestTurretsVersion = DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_VERSION);
 				latestJukeboxVersion = DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_VERSION);
 				latestUnrealVersion = DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_VERSION);
 
 				modsContainer.desnoGuns.setCompatibility(getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_COMPATIBILITY));
 				modsContainer.portal.setCompatibility(getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_COMPATIBILITY));
 				modsContainer.laser.setCompatibility(getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_LASER_COMPATIBILITY));
-				modsContainer.turrets.setCompatibility(getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_COMPATIBILITY));
 				modsContainer.jukebox.setCompatibility(getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_COMPATIBILITY));
 				modsContainer.unreal.setCompatibility(getResources().getString(R.string.mod_compatibility_content) + " " + DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_COMPATIBILITY));
 
 				modsContainer.desnoGuns.setChangelog(DesnoUtils.getTextFromUrl(Keys.KEY_DESNOGUNS_CHANGELOG));
 				modsContainer.portal.setChangelog(DesnoUtils.getTextFromUrl(Keys.KEY_PORTAL_CHANGELOG));
 				modsContainer.laser.setChangelog(DesnoUtils.getTextFromUrl(Keys.KEY_LASER_CHANGELOG));
-				modsContainer.turrets.setChangelog(DesnoUtils.getTextFromUrl(Keys.KEY_TURRETS_CHANGELOG));
 				modsContainer.jukebox.setChangelog(DesnoUtils.getTextFromUrl(Keys.KEY_JUKEBOX_CHANGELOG));
 				modsContainer.unreal.setChangelog(DesnoUtils.getTextFromUrl(Keys.KEY_UNREAL_CHANGELOG));
 			} else {
@@ -799,12 +758,11 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			Log.i(TAG, "onPostExecute now, the AsyncTask finished");
 
 			DesnoUtils.notifyForUnreadNews(getApplicationContext(), latestNewsVersion);
-			DesnoUtils.notifyForNewUpdates(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestTurretsVersion, latestJukeboxVersion, latestUnrealVersion);
+			DesnoUtils.notifyForNewUpdates(getApplicationContext(), latestGunsVersion, latestPortalVersion, latestLaserVersion, latestJukeboxVersion, latestUnrealVersion);
 
 			modsContainer.desnoGuns.setVersion(getResources().getString(R.string.latest_version_is) + " " + latestGunsVersion);
 			modsContainer.portal.setVersion(getResources().getString(R.string.latest_version_is) + " " + latestPortalVersion);
 			modsContainer.laser.setVersion(getResources().getString(R.string.latest_version_is) + " " + latestLaserVersion);
-			modsContainer.turrets.setVersion(getResources().getString(R.string.latest_version_is) + " " + latestTurretsVersion);
 			modsContainer.jukebox.setVersion(getResources().getString(R.string.latest_version_is) + " " + latestJukeboxVersion);
 			modsContainer.unreal.setVersion(getResources().getString(R.string.latest_version_is) + " " + latestUnrealVersion);
 			refreshTextViews();

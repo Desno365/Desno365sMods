@@ -25,7 +25,6 @@ public class Mod {
 
 	private Context context;
 
-	public int ID;
 	public int nameId; // id of the string containing the name
 
 	private String version;

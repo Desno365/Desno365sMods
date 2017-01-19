@@ -32,7 +32,6 @@ public class Laser extends Mod {
 
 		super(context);
 
-		this.ID = 3;
 		this.nameId = R.string.mod2_title;
 
 		setVersion(context.getResources().getString(R.string.loading));

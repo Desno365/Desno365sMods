@@ -23,7 +23,6 @@ public class NotificationsId {
 	public static final int ID_DESNOGUNS_NEW_VERSION = 365 + 100 + 1;
 	public static final int ID_PORTAL_NEW_VERSION = 365 + 100 + 2;
 	public static final int ID_LASER_NEW_VERSION = 365 + 100 + 3;
-	public static final int ID_TURRETS_NEW_VERSION = 365 + 100 + 4;
 	public static final int ID_JUKEBOX_NEW_VERSION = 365 + 100 + 5;
 	public static final int ID_UNREAL_NEW_VERSION = 365 + 100 + 6;
 

@@ -32,7 +32,6 @@ public class Portal extends Mod {
 
 		super(context);
 
-		this.ID = 2;
 		this.nameId = R.string.mod1_title;
 
 		setVersion(context.getResources().getString(R.string.loading));

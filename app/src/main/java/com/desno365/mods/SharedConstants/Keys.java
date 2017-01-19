@@ -46,12 +46,6 @@ public class Keys {
 	public static final String KEY_LASER_THREAD = "http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2179257-mod-beta-laser-mod-laser-weapons-r003-by-desno365";
 	public static final String KEY_LASER_DOWNLOAD = "http://desno365.github.io/minecraft/laser-mod";
 
-	public static final String KEY_TURRETS_VERSION = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/turretsMOD-version";
-	public static final String KEY_TURRETS_COMPATIBILITY = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/turretsMOD-compatibility";
-	public static final String KEY_TURRETS_CHANGELOG = "https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/turrets-mod/full-changelog/changelog.html";
-	public static final String KEY_TURRETS_THREAD = "http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2201372-mod-beta-turrets-mod-kill-mobs-automatically-r001";
-	public static final String KEY_TURRETS_DOWNLOAD = "http://desno365.github.io/minecraft/turrets-mod";
-
 	public static final String KEY_JUKEBOX_VERSION = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/jukeboxMOD-version";
 	public static final String KEY_JUKEBOX_COMPATIBILITY = "https://raw.githubusercontent.com/Desno365/MCPE-scripts/master/jukeboxMOD-compatibility";
 	public static final String KEY_JUKEBOX_CHANGELOG = "https://raw.githubusercontent.com/Desno365/Desno365.github.io/master/minecraft/jukebox-mod/full-changelog/changelog.html";
@@ -68,8 +62,6 @@ public class Keys {
 
 	public static final String KEY_PLAY_STORE_INSTALLED = "market://details?id=";
 	public static final String KEY_PLAY_STORE_NOT_INSTALLED = "http://play.google.com/store/apps/details?id=";
-	public static final String KEY_PLAY_STORE_INSTALLED_FILE_MANAGER = "market://search?q=file%20explorer";
-	public static final String KEY_PLAY_STORE_NOT_INSTALLED_FILE_MANAGER = "http://play.google.com/store/search?q=file%20explorer";
 
 	public static final String KEY_PACKAGE_MINECRAFT = "com.mojang.minecraftpe";
 	public static final String KEY_PACKAGE_BLOCKLAUNCHER = "net.zhuoweizhang.mcpelauncher";

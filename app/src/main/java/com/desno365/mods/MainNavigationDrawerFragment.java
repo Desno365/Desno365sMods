@@ -115,16 +115,12 @@ public class MainNavigationDrawerFragment extends Fragment {
 		mods.children.add(child3);
 
 		ChildItem child4 = new ChildItem();
-		child4.title = getString(R.string.mod3_title);
+		child4.title = getString(R.string.mod4_title);
 		mods.children.add(child4);
 
 		ChildItem child5 = new ChildItem();
-		child5.title = getString(R.string.mod4_title);
+		child5.title = getString(R.string.mod6_title);
 		mods.children.add(child5);
-
-		ChildItem child6 = new ChildItem();
-		child6.title = getString(R.string.mod6_title);
-		mods.children.add(child6);
 
 		items.add(mods);
 

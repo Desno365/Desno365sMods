@@ -26,13 +26,12 @@ import com.desno365.mods.Tabs.FragmentTab5;
 
 public class Jukebox extends Mod {
 
-	public static final int viewPagerPosition = 5;
+	public static final int viewPagerPosition = 4;
 
 	public Jukebox(Context context) {
 
 		super(context);
 
-		this.ID = 5;
 		this.nameId = R.string.mod4_title;
 
 		setVersion(context.getResources().getString(R.string.loading));
