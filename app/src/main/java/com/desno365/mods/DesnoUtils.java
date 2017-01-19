@@ -469,7 +469,7 @@ public class DesnoUtils {
 			case 0:
 				break;
 			case 1:
-				overrideStartActivityAnimation(activity, R.anim.abc_slide_in_bottom);
+				overrideStartActivityAnimation(activity, R.anim.push_up_in);
 				break;
 			case 2:
 				overrideStartActivityAnimation(activity, R.anim.scale_from_corner);
