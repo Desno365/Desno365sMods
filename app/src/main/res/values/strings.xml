@@ -106,7 +106,7 @@
     <string name="help_title_download">Download</string>
     <string name="help_title_installation">Installation</string>
 
-    <string name="help_tip_sliding_pages">Click here or swipe on your screen to switch page in the help section.</string>
+    <string name="help_tip_sliding_pages">Click on the tabs or swipe on your screen to switch page in the help section.</string>
     <string name="click_image_to_view">Click any image in this page to view it in full resolution.</string>
     <string name="zoom_image_showcase_title">Image zoom</string>
 

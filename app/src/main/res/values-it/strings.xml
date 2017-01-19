@@ -85,7 +85,7 @@
   <!-- help activity -->
   <string name="help_title_download">Download</string>
   <string name="help_title_installation">Installazione</string>
-  <string name="help_tip_sliding_pages">Clicca qui o scorri sullo schermo per cambiare pagina nella sezione di aiuto.</string>
+  <string name="help_tip_sliding_pages">Clicca su una scheda o scorri sullo schermo per cambiare pagina nella sezione di aiuto.</string>
   <string name="click_image_to_view">Clicca qualsiasi immagine in questa pagina per vederla alla massima risoluzione.</string>
   <string name="zoom_image_showcase_title">Zoom dell\'immagine</string>
   <string name="help_introduction">Questa sezione dell\'app ti aiuterà ad installare qualsiasi \"modpkg\" mod in Minecraft Pocket Edition. Il formato \"modpkg\" permette di avere tutte le risorse della mod in un unico file, così è più facile da installare. Scorrendo verso destra si verrà guidati in tutte le fasi.</string>
