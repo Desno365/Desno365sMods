@@ -29,28 +29,19 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.desno365.mods.AnalyticsApplication;
 import com.desno365.mods.DesnoUtils;
-import com.desno365.mods.Mods.DesnoGuns;
-import com.desno365.mods.Mods.Portal;
 import com.desno365.mods.R;
 import com.desno365.mods.SharedConstants.Keys;
-import com.desno365.mods.Tabs.FragmentTab1;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.Tracker;
-
-import it.sephiroth.android.library.tooltip.Tooltip;
 
 
 public class HelpActivity extends BaseActivity {

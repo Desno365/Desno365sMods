@@ -38,6 +38,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.crashlytics.android.Crashlytics;
@@ -328,6 +329,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 					startActivity(intent);
 				}
 				DesnoUtils.sendAction(mTracker, "Feedback");
+				Toast.makeText(this, getResources().getString(R.string.feedback_toast), Toast.LENGTH_LONG).show();
 				return true;
 
 			case R.id.action_rate:
