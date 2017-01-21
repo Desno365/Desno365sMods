@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -50,10 +51,10 @@ public class ShapeLoadingView extends View {
 
     private void init() {
         mPaint = new Paint();
-        mPaint.setColor(getResources().getColor(R.color.triangle));
+        mPaint.setColor(ContextCompat.getColor(getContext(), R.color.triangle));
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        setBackgroundColor(getResources().getColor(R.color.view_bg));
+        setBackgroundColor(ContextCompat.getColor(getContext(), R.color.view_bg));
     }
 
     public boolean mIsLoading = false;
@@ -104,7 +105,7 @@ public class ShapeLoadingView extends View {
 
                 } else {
                     Path path = new Path();
-                    mPaint.setColor(getResources().getColor(R.color.triangle));
+                    mPaint.setColor(ContextCompat.getColor(getContext(), R.color.triangle));
 
                     path.moveTo(relativeXFromView(0.5f), relativeYFromView(0f));
                     path.lineTo(relativeXFromView(1), relativeYFromView(genhao3 / 2f));
@@ -157,7 +158,7 @@ public class ShapeLoadingView extends View {
                     invalidate();
                 } else {
 
-                    mPaint.setColor(getResources().getColor(R.color.circle));
+                    mPaint.setColor(ContextCompat.getColor(getContext(), R.color.circle));
                     Path path = new Path();
 
                     float magicNumber = mMagicNumber;
@@ -212,7 +213,7 @@ public class ShapeLoadingView extends View {
                     invalidate();
 
                 } else {
-                    mPaint.setColor(getResources().getColor(R.color.rect));
+                    mPaint.setColor(ContextCompat.getColor(getContext(), R.color.rect));
                     mControlX = relativeXFromView(0.5f - genhao3 / 4);
                     mControlY = relativeYFromView(0.75f);
                     Path path = new Path();

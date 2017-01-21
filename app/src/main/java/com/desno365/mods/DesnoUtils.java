@@ -38,6 +38,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.NotificationCompat;
 import android.text.Spanned;
 import android.transition.AutoTransition;
@@ -102,9 +103,7 @@ public class DesnoUtils {
 			else
 				locale = new Locale(language[0], language[1]);
 			Locale.setDefault(locale);
-			Configuration config = new Configuration();
-			config.locale = locale;
-			context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+			setLocale(context, locale);
 		}
 
 		// this will be removed when languages become more accurate
@@ -112,10 +111,19 @@ public class DesnoUtils {
 		if (language[0].equals("not_changed") && !Locale.getDefault().getCountry().equals("IT")) {
 			Locale locale = new Locale("en");
 			Locale.setDefault(locale);
-			Configuration config = new Configuration();
-			config.locale = locale;
-			context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+			setLocale(context, locale);
 		}
+	}
+
+	private static void setLocale(Context context, Locale locale) {
+		Configuration config = new Configuration();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			config.setLocale(locale);
+		} else {
+			//noinspection deprecation
+			config.locale = locale;
+		}
+		context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
 	}
 
 	public static void setSavedTheme(Context context) {
@@ -342,7 +350,7 @@ public class DesnoUtils {
 		noti.setStyle(new NotificationCompat.BigTextStyle().bigText(content));
 		noti.setTicker(content);
 		noti.setAutoCancel(true); // notification is automatically canceled when the user clicks it in the panel
-		noti.setColor(context.getResources().getColor(R.color.minecraft_brown_dirt_dark));
+		noti.setColor(ContextCompat.getColor(context, R.color.minecraft_brown_dirt_dark));
 		noti.setDefaults(NotificationCompat.DEFAULT_LIGHTS);
 		noti.setPriority(NotificationCompat.PRIORITY_HIGH); // "A notification's big view appears only when the notification is expanded, which happens when the notification is at the top of the notification drawer"
 

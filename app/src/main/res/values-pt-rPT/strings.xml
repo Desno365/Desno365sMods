@@ -55,8 +55,8 @@
   <string name="mod_compatibility_content">Versões compatíveis do Minecraft PE:</string>
   <string name="internet_error">Erro de Conexão: por favor, verifique a conexão de Internet.</string>
   <string name="retry">Tentar novamente</string>
-  <string name="show_changelog">Mostre o changelog todo...</string>
-  <string name="hide_changelog">Esconda o changelog...</string>
+  <string name="show_changelog">Mostre o changelog todo…</string>
+  <string name="hide_changelog">Esconda o changelog…</string>
   <string name="instruction_for_installing">Leia as instruções de instalação</string>
   <string name="installation_video_tutorial">Assista o vídeo tutorial de instalação</string>
   <string name="download_mod_from_website">Baixar este mod site do Desno</string>

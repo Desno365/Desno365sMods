@@ -23,7 +23,7 @@
   <string name="action_info">О приложении</string>
   <string name="action_help">Помощь</string>
   <string name="action_share">Поделиться</string>
-  <string name="share_using">Поделиться с помощью...</string>
+  <string name="share_using">Поделиться с помощью…</string>
   <string name="share_body">Я использую приложение «Desno365\'s Mods» для того чтобы загружать и использовать некоторые невероятные моды Minecraft Pocket Edition! Скачать http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Обратная связь</string>
   <string name="feedback_toast">Если у вас есть вопросы, предложения и идеи по приложению пришлите мне email!</string>
@@ -55,8 +55,8 @@
   <string name="mod_compatibility_content">Совместимые версии Minecraft PE:</string>
   <string name="internet_error">Проблема с подключением: проверьте соединение с интернетом.</string>
   <string name="retry">Попробовать снова</string>
-  <string name="show_changelog">Показать все изменения...</string>
-  <string name="hide_changelog">Скрыть список изменений...</string>
+  <string name="show_changelog">Показать все изменения…</string>
+  <string name="hide_changelog">Скрыть список изменений…</string>
   <string name="instruction_for_installing">Прочитать инструкцию по установке</string>
   <string name="installation_video_tutorial">Посмотреть видео-гайд по установке</string>
   <string name="download_mod_from_website">Скачать этот мод на сайте Desno</string>

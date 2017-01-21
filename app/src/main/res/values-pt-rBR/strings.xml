@@ -23,7 +23,7 @@
   <string name="action_info">Sobre</string>
   <string name="action_help">Ajuda</string>
   <string name="action_share">Compartilhar</string>
-  <string name="share_using">Compartilhar usando...</string>
+  <string name="share_using">Compartilhar usando…</string>
   <string name="share_body">Eu estou usando o \"Desno365\'s Mods\" para baixar e usar alguns incríveis mods de Minecraft Pocket Edition Cheque agora: http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Feedback</string>
   <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
@@ -49,7 +49,7 @@
   <string name="changelog_title">Histórico de mudanças</string>
   <string name="useful_links_title">Links úteis</string>
   <!-- text - main -->
-  <string name="loading">Carregando...</string>
+  <string name="loading">Carregando…</string>
   <string name="mods">Mods</string>
   <string name="latest_version_is">A última versão é:</string>
   <string name="mod_compatibility_content">Compatible Minecraft PE versions:</string>

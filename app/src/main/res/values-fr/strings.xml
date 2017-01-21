@@ -57,7 +57,7 @@
   <string name="mod_compatibility_content">Versions de Minecraft PE compatibles:</string>
   <string name="internet_error">Erreur de connexion : s\'il vous plaît vérifier votre connexion Internet.</string>
   <string name="retry">Réessayer</string>
-  <string name="show_changelog">Montrer tout les changements...</string>
+  <string name="show_changelog">Montrer tout les changements…</string>
   <string name="hide_changelog">Cacher les changements</string>
   <string name="instruction_for_installing">Lisez les instructions pour l\'installation</string>
   <string name="installation_video_tutorial">Regarder le tutoriel d\'installation</string>

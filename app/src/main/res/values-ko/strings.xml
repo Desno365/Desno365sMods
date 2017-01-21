@@ -23,7 +23,7 @@
   <string name="action_info">소개</string>
   <string name="action_help">도움말</string>
   <string name="action_share">공유</string>
-  <string name="share_using">배포 공유...</string>
+  <string name="share_using">배포 공유…</string>
   <string name="share_body">나는 마인크래프트 포켓에디션에 엄청난 모드들을 다운 받기 위해 \"Desno365\'s Mods\" 앱을 쓰고 있어! 확인해 봐.  http://bit.ly/DesnoMods </string>
   <string name="action_feedback">의견</string>
   <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
@@ -49,14 +49,14 @@
   <string name="changelog_title">변경사항</string>
   <string name="useful_links_title">유용한 링크</string>
   <!-- text - main -->
-  <string name="loading">로딩중...</string>
+  <string name="loading">로딩중…</string>
   <string name="mods">모드들</string>
   <string name="latest_version_is">최신 버전은:</string>
   <string name="mod_compatibility_content">호환되는 마인크래프트 포켓에디션 버전들:</string>
   <string name="internet_error">연결 오류: 귀하의 인터넷 연결을 확인해 주십시오.</string>
   <string name="retry">다시 시도</string>
-  <string name="show_changelog">모든 변경사항 보기...</string>
-  <string name="hide_changelog">변경사항 숨기기...</string>
+  <string name="show_changelog">모든 변경사항 보기…</string>
+  <string name="hide_changelog">변경사항 숨기기…</string>
   <string name="instruction_for_installing">설치 설명서 읽기</string>
   <string name="installation_video_tutorial">비디오 튜토리얼 시청</string>
   <string name="download_mod_from_website">Desno의 웹사이트에서 다운로드</string>
