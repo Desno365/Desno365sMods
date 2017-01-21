@@ -16,7 +16,8 @@
   ~ limitations under the License.
   -->
 
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- app name -->
     <string name="app_name" translatable="false">Desno365\'s Mods</string>
@@ -63,7 +64,6 @@
     <string name="retry">Retry</string>
     <string name="show_changelog">Show all the changelog&#8230;</string>
     <string name="hide_changelog">Hide the changelog&#8230;</string>
-    <string name="minecraft_thread">minecraftforum.net thread</string>
     <string name="instruction_for_installing">Read the installation instructions</string>
     <string name="installation_video_tutorial">Watch the installation video tutorial</string>
     <string name="download_mod_from_website">Download this mod from Desno\'s website</string>
@@ -161,5 +161,9 @@
     <string name="notification_unread_news">There are unread news</string>
     <string name="notification_thread">Thread</string>
     <string name="notification_download">Download</string>
+
+
+    <!-- unused resources -->
+    <string name="minecraft_thread" tools:ignore="UnusedResources">minecraftforum.net thread</string>
 
 </resources>

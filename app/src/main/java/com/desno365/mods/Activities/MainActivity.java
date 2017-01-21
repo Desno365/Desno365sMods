@@ -552,33 +552,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 	public void onViewClick(View v) {
 		switch (v.getId()) {
-			// minecraftforum.net thread buttons
-			case R.id.minecraft_thread_guns_button:
-				startActivity(modsContainer.desnoGuns.getVisitThreadIntent());
-				displayAdAtResume = true;
-				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Guns");
-				break;
-			case R.id.minecraft_thread_portal_button:
-				startActivity(modsContainer.portal.getVisitThreadIntent());
-				displayAdAtResume = true;
-				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Portal");
-				break;
-			case R.id.minecraft_thread_laser_button:
-				startActivity(modsContainer.laser.getVisitThreadIntent());
-				displayAdAtResume = true;
-				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Laser");
-				break;
-			case R.id.minecraft_thread_jukebox_button:
-				startActivity(modsContainer.jukebox.getVisitThreadIntent());
-				displayAdAtResume = true;
-				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Jukebox");
-				break;
-			case R.id.minecraft_thread_unreal_button:
-				startActivity(modsContainer.unreal.getVisitThreadIntent());
-				displayAdAtResume = true;
-				DesnoUtils.sendAction(mTracker, "Minecraft-Thread-Unreal");
-				break;
-
 			// download from website buttons
 			case R.id.download_guns_button:
 				startActivity(modsContainer.desnoGuns.getDownloadFromWebsiteIntent());
