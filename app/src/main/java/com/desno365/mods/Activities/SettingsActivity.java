@@ -233,7 +233,6 @@ public class SettingsActivity extends BaseActivity {
 		builder.setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				MainActivity.activity.finish();
 				System.exit(0);
 			}
 		});

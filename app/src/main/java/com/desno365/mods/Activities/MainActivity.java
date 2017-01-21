@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 	public static final String TAG = "MainActivity";
 
-	public static AppCompatActivity activity;
+	private AppCompatActivity activity;
 
 	public static String newsString;
 
@@ -632,7 +632,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the primary
 	 * sections of the app.
 	 */
-	public static class AppSectionsPagerAdapter extends FragmentPagerAdapter {
+	public class AppSectionsPagerAdapter extends FragmentPagerAdapter {
 
 		public AppSectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
