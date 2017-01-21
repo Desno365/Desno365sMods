@@ -50,7 +50,7 @@ public class FragmentTab3 extends Fragment {
 
 
 		final TextView textChangelog = (TextView) rootView.findViewById(R.id.laser_changelog); // id TextView changelog
-		textChangelog.setText(android.text.Html.fromHtml(MainActivity.modsContainer.laser.getChangelog())); // MainActivity variable that holds the latest changelog
+		textChangelog.setText(DesnoUtils.fromHtml(MainActivity.modsContainer.laser.getChangelog())); // MainActivity variable that holds the latest changelog
 		textChangelog.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 		textChangelog.setMaxLines(SharedConstants.CHANGELOG_TEXT_MAX_LINES);
 

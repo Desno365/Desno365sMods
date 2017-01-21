@@ -489,7 +489,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 					textCompatibilityGuns.setText(modsContainer.desnoGuns.getCompatibility());
 
 					TextView textChangelogGuns = (TextView) getWindow().getDecorView().findViewById(R.id.guns_changelog);
-					textChangelogGuns.setText(android.text.Html.fromHtml(modsContainer.desnoGuns.getChangelog()));
+					textChangelogGuns.setText(DesnoUtils.fromHtml(modsContainer.desnoGuns.getChangelog()));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for DesnoGuns");
 				}
@@ -499,10 +499,10 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 					textUpdatesPortal.setText(modsContainer.portal.getVersion());
 
 					TextView textCompatibilityPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_compatibility);
-					textCompatibilityPortal.setText(android.text.Html.fromHtml(modsContainer.portal.getCompatibility()));
+					textCompatibilityPortal.setText(DesnoUtils.fromHtml(modsContainer.portal.getCompatibility()));
 
 					TextView textChangelogPortal = (TextView) getWindow().getDecorView().findViewById(R.id.portal_changelog);
-					textChangelogPortal.setText(android.text.Html.fromHtml(modsContainer.portal.getChangelog()));
+					textChangelogPortal.setText(DesnoUtils.fromHtml(modsContainer.portal.getChangelog()));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Portal");
 				}
@@ -512,10 +512,10 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 					textUpdatesLaser.setText(modsContainer.laser.getVersion());
 
 					TextView textCompatibilityLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_compatibility);
-					textCompatibilityLaser.setText(android.text.Html.fromHtml(modsContainer.laser.getCompatibility()));
+					textCompatibilityLaser.setText(DesnoUtils.fromHtml(modsContainer.laser.getCompatibility()));
 
 					TextView textChangelogLaser = (TextView) getWindow().getDecorView().findViewById(R.id.laser_changelog);
-					textChangelogLaser.setText(android.text.Html.fromHtml(modsContainer.laser.getChangelog()));
+					textChangelogLaser.setText(DesnoUtils.fromHtml(modsContainer.laser.getChangelog()));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Laser");
 				}
@@ -525,10 +525,10 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 					textUpdatesJukebox.setText(modsContainer.jukebox.getVersion());
 
 					TextView textCompatibilityJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_compatibility);
-					textCompatibilityJukebox.setText(android.text.Html.fromHtml(modsContainer.jukebox.getCompatibility()));
+					textCompatibilityJukebox.setText(DesnoUtils.fromHtml(modsContainer.jukebox.getCompatibility()));
 
 					TextView textChangelogJukebox = (TextView) getWindow().getDecorView().findViewById(R.id.jukebox_changelog);
-					textChangelogJukebox.setText(android.text.Html.fromHtml(modsContainer.jukebox.getChangelog()));
+					textChangelogJukebox.setText(DesnoUtils.fromHtml(modsContainer.jukebox.getChangelog()));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Jukebox");
 				}
@@ -538,10 +538,10 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 					textUpdatesUnreal.setText(modsContainer.unreal.getVersion());
 
 					TextView textCompatibilityUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_compatibility);
-					textCompatibilityUnreal.setText(android.text.Html.fromHtml(modsContainer.unreal.getCompatibility()));
+					textCompatibilityUnreal.setText(DesnoUtils.fromHtml(modsContainer.unreal.getCompatibility()));
 
 					TextView textChangelogUnreal = (TextView) getWindow().getDecorView().findViewById(R.id.unreal_changelog);
-					textChangelogUnreal.setText(android.text.Html.fromHtml(modsContainer.unreal.getChangelog()));
+					textChangelogUnreal.setText(DesnoUtils.fromHtml(modsContainer.unreal.getChangelog()));
 				} catch (NullPointerException e) {
 					Log.e(TAG, "NullPointerException in refreshTextViews for Unreal");
 				}

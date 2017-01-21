@@ -59,10 +59,6 @@ public class HelpActivity extends BaseActivity {
 	// banner ad
 	private AdView mAdView;
 
-	// UI elements
-	private AppSectionsPagerAdapter mAppSectionsPagerAdapter;
-	private ViewPager mViewPager;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
@@ -94,10 +90,10 @@ public class HelpActivity extends BaseActivity {
 		});
 
 		// Create the adapter that will return a fragment for each section of the app.
-		mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
+		AppSectionsPagerAdapter mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
 
 		// Set up the ViewPager and attaching the adapter
-		mViewPager = (ViewPager) findViewById(R.id.fragment_container_help);
+		ViewPager mViewPager = (ViewPager) findViewById(R.id.fragment_container_help);
 		mViewPager.setAdapter(mAppSectionsPagerAdapter);
 
 		// Bind the tabs to the ViewPager
@@ -309,24 +305,21 @@ public class HelpActivity extends BaseActivity {
 	public static class FragmentTabHelp1 extends Fragment {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_help1, container, false);
-			return rootView;
+			return inflater.inflate(R.layout.fragment_help1, container, false);
 		}
 	}
 
 	public static class FragmentTabHelp2 extends Fragment {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_help2, container, false);
-			return rootView;
+			return inflater.inflate(R.layout.fragment_help2, container, false);
 		}
 	}
 
 	public static class FragmentTabHelp3 extends Fragment {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_help3, container, false);
-			return rootView;
+			return inflater.inflate(R.layout.fragment_help3, container, false);
 		}
 	}
 

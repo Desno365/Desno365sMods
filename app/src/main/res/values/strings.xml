@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- app name -->
     <string name="app_name" translatable="false">Desno365\'s Mods</string>
@@ -79,9 +79,6 @@
     <!-- laser page -->
     <string name="mod2_title" translatable="false">Laser Mod</string>
     <string name="features_content_tab3">The Laser Guns Addon for the DesnoGuns Mod adds awesome new futuristic guns in Minecraft PE.</string>
-    <!-- turrets page -->
-    <string name="mod3_title" translatable="false">Turrets Mod</string>
-    <string name="features_content_tab4">• Craft a turret and place it where you want, then make it aggressive with the “Turret options” item and the turret will start to shoot every selected mob that come in his range.\n• There is an option to change the name of the turret.\n• Protect your home with your turrets! ;)</string>
 
     <!-- jukebox page -->
     <string name="mod4_title" translatable="false">Jukebox Mod</string>

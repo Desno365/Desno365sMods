@@ -38,6 +38,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.NotificationCompat;
+import android.text.Spanned;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.util.DisplayMetrics;
@@ -219,15 +220,6 @@ public class DesnoUtils {
 		ViewGroup.LayoutParams params = view.getLayoutParams();
 		params.height = height;
 		view.setLayoutParams(params);
-	}
-
-	public static void removeOnGlobalLayoutListener(View v, ViewTreeObserver.OnGlobalLayoutListener listener){
-		if (Build.VERSION.SDK_INT < 16) {
-			//noinspection deprecation
-			v.getViewTreeObserver().removeGlobalOnLayoutListener(listener);
-		} else {
-			v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
-		}
 	}
 	/* ######### VIEWS UTILS ######### */
 
@@ -645,5 +637,26 @@ public class DesnoUtils {
 		SharedVariables.areStatisticsEnabled = sharedPrefs.getBoolean("anonymous_statistics", DefaultSettingsValues.ANONYMOUS_STATISTICS);
 	}
 	/* ######### ANALYTICS ######### */
+
+
+	/* ######### DEPRECATION UTILS ######### */
+	public static void removeOnGlobalLayoutListener(View v, ViewTreeObserver.OnGlobalLayoutListener listener){
+		if (Build.VERSION.SDK_INT < 16) {
+			//noinspection deprecation
+			v.getViewTreeObserver().removeGlobalOnLayoutListener(listener);
+		} else {
+			v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
+		}
+	}
+
+	public static Spanned fromHtml(String source) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+			return android.text.Html.fromHtml(source, android.text.Html.FROM_HTML_MODE_LEGACY);
+		} else {
+			//noinspection deprecation
+			return android.text.Html.fromHtml(source);
+		}
+	}
+	/* ######### DEPRECATION UTILS ######### */
 
 }
