@@ -353,9 +353,9 @@ public class MainNavigationDrawerFragment extends Fragment {
 				Typeface font = Typeface.createFromAsset(MainActivity.activity.getAssets(), "fonts/minecraft.ttf");
 				itemTextView.setTypeface(font);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-					itemTextView.setShadowLayer(1, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), ContextCompat.getColor(getContext(), R.color.drawer_text_shadow_color));
+					itemTextView.setShadowLayer(1, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), ContextCompat.getColor(parent.getContext(), R.color.drawer_text_shadow_color));
 				else
-					itemTextView.setShadowLayer(0.0001F, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), ContextCompat.getColor(getContext(), R.color.drawer_text_shadow_color));
+					itemTextView.setShadowLayer(0.0001F, Math.round(itemTextView.getLineHeight() / 8), Math.round(itemTextView.getLineHeight() / 8), ContextCompat.getColor(parent.getContext(), R.color.drawer_text_shadow_color));
 
 				holder.title = itemTextView;
 				convertView.setTag(holder);
@@ -431,9 +431,9 @@ public class MainNavigationDrawerFragment extends Fragment {
 				Typeface font = Typeface.createFromAsset(MainActivity.activity.getAssets(), "fonts/minecraft.ttf");
 				groupTextView.setTypeface(font);
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-					groupTextView.setShadowLayer(1, Math.round(groupTextView.getLineHeight() / 8), Math.round(groupTextView.getLineHeight() / 8), ContextCompat.getColor(getContext(), R.color.drawer_text_shadow_color));
+					groupTextView.setShadowLayer(1, Math.round(groupTextView.getLineHeight() / 8), Math.round(groupTextView.getLineHeight() / 8), ContextCompat.getColor(parent.getContext(), R.color.drawer_text_shadow_color));
 				else
-					groupTextView.setShadowLayer(0.0001F, Math.round(groupTextView.getLineHeight() / 8), Math.round(groupTextView.getLineHeight() / 8), ContextCompat.getColor(getContext(), R.color.drawer_text_shadow_color));
+					groupTextView.setShadowLayer(0.0001F, Math.round(groupTextView.getLineHeight() / 8), Math.round(groupTextView.getLineHeight() / 8), ContextCompat.getColor(parent.getContext(), R.color.drawer_text_shadow_color));
 
 				holder.title = groupTextView;
 				convertView.setTag(holder);
