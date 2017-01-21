@@ -49,7 +49,7 @@ import java.util.List;
  */
 public class MainNavigationDrawerFragment extends Fragment {
 
-	public static DrawerLayout mDrawerLayout;
+	public DrawerLayout mDrawerLayout;
 	public AnimatedExpandableListView mDrawerListView;
 	/**
 	 * A pointer to the current callbacks instance (the Activity).

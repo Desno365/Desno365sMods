@@ -38,7 +38,7 @@ public class LibrariesActivity extends BaseActivity {
 
     private static final String TAG = "LibrariesActivity";
 
-    public static AppCompatActivity activity;
+    private AppCompatActivity activity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

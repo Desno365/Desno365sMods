@@ -47,7 +47,7 @@ public class SettingsActivity extends BaseActivity {
 
 	private static final String TAG = "SettingsActivity";
 
-	public static AppCompatActivity activity;
+	private AppCompatActivity activity;
 
 	// analytics tracker
 	private static Tracker mTracker;
@@ -112,7 +112,7 @@ public class SettingsActivity extends BaseActivity {
 
 			// Load the preferences from an XML resource
 			addPreferencesFromResource(R.xml.fragmented_preferences);
-			activity.setTheme(R.style.PreferenceFragmentTheme);
+			getActivity().setTheme(R.style.PreferenceFragmentTheme);
 
 			// initialize preferences
 			SharedPreferences sharedPrefs = getPreferenceScreen().getSharedPreferences();
@@ -173,7 +173,7 @@ public class SettingsActivity extends BaseActivity {
 			// open popup when language preference is changed
 			languagePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
-					restartAppDialog(activity, R.string.restart_text_language_popup);
+					restartAppDialog(getActivity(), R.string.restart_text_language_popup);
 					DesnoUtils.sendAction(mTracker, "Language-changed");
 					return true;
 				}
@@ -193,7 +193,7 @@ public class SettingsActivity extends BaseActivity {
 			// open popup when theme preference is changed
 			themePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 				public boolean onPreferenceChange(Preference preference, Object newValue) {
-					restartAppDialog(activity, R.string.restart_text_popup);
+					restartAppDialog(getActivity(), R.string.restart_text_popup);
 					DesnoUtils.sendAction(mTracker, "Theme-changed");
 					return true;
 				}
@@ -213,13 +213,13 @@ public class SettingsActivity extends BaseActivity {
 				@Override
 				public boolean onPreferenceClick(Preference preference) {
 					// restore tooltip
-					SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(activity.getApplicationContext());
+					SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
 					SharedPreferences.Editor editor = sharedPrefs.edit();
 					editor.putBoolean("user_understood_full_resolution_help", false);
 					editor.putBoolean("user_understood_sliding_pages_help", false);
 					editor.apply();
 
-					DesnoUtils.showAnimatedDefaultSnackbar((ViewGroup) activity.findViewById(R.id.viewgroup_snackbar_container_settings), R.string.restored_toast);
+					DesnoUtils.showAnimatedDefaultSnackbar((ViewGroup) getActivity().findViewById(R.id.viewgroup_snackbar_container_settings), R.string.restored_toast);
 					return false;
 				}
 			});

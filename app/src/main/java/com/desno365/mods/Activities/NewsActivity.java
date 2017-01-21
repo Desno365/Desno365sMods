@@ -47,7 +47,7 @@ public class NewsActivity extends BaseActivity {
 
 	private static final String TAG = "NewsActivity";
 
-	public static AppCompatActivity activity;
+	private AppCompatActivity activity;
 	private Toolbar toolbar;
 	private Menu optionsMenu;
 	private NewsSwipeRefreshLayout swipeLayout;
@@ -292,7 +292,7 @@ public class NewsActivity extends BaseActivity {
 		}
 	}
 
-	public class RetrieveNewsContent extends AsyncTask<Void, String, Void> {
+	private class RetrieveNewsContent extends AsyncTask<Void, String, Void> {
 
 		@Override
 		protected Void doInBackground(Void... params) {

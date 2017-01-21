@@ -81,10 +81,11 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 	
 	// UI elements
 	private Toolbar toolbar;
-	public static ViewPager mViewPager;
+	private ViewPager mViewPager;
 	private MainNavigationDrawerFragment mNavigationDrawerFragment = new MainNavigationDrawerFragment();
 	private MainSwipeRefreshLayout swipeLayout;
 	private AppSectionsPagerAdapter mAppSectionsPagerAdapter;
+	public static int currentPageViewPager = 0; // used in MainSwipeRefreshLayout in canChildScrollUp
 
 	// ads after the click of a button
 	private boolean displayAdAtResume = false;
@@ -171,6 +172,8 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 			public void onPageSelected(int position) {
 				// When swiping between different app sections
 
+				currentPageViewPager = position;
+
 				// change toolbar title
 				if (position == 0)
 					toolbar.setTitle(getResources().getString(R.string.app_name));
@@ -179,7 +182,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 				// close drawer
 				if (mNavigationDrawerFragment.isDrawerOpen())
-					MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
+					mNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
 
 				// analytics
 				DesnoUtils.sendScreenChange(mTracker, mAppSectionsPagerAdapter.getPageTitle(position).toString());
@@ -297,9 +300,9 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 			case android.R.id.home:
 				if (mNavigationDrawerFragment.isDrawerOpen())
-					MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
+					mNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
 				else
-					MainNavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
+					mNavigationDrawerFragment.mDrawerLayout.openDrawer(findViewById(R.id.navigation_drawer));
 				return true;
 
 			case R.id.action_info:
@@ -359,7 +362,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 	@Override
 	public void onBackPressed() {
 		if (mNavigationDrawerFragment.isDrawerOpen()) {
-			MainNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
+			mNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
 		} else {
 			// not caling super.onBackPressed(): no custom animations at the end of the app
 			this.finish();

@@ -37,7 +37,7 @@ public class ZoomImageActivity extends BaseActivity {
 
 	private static final String TAG = "ZoomImageActivity";
 
-	public static AppCompatActivity activity;
+	private AppCompatActivity activity;
 
 	private PhotoViewAttacher mAttacher;
 

@@ -43,8 +43,7 @@ public class MainSwipeRefreshLayout extends SwipeRefreshLayout {
 	@Override
 	public boolean canChildScrollUp() {
 		try {
-			int page = MainActivity.mViewPager.getCurrentItem();
-			switch (page) {
+			switch (MainActivity.currentPageViewPager) {
 				case 0:
 					return findViewById(R.id.scroll_tab_home).canScrollVertically(-1);
 

@@ -40,7 +40,7 @@ public class AboutActivity extends BaseActivity {
 
 	private static final String TAG = "AboutActivity";
 
-	public static AppCompatActivity activity;
+	private AppCompatActivity activity;
 
 	// analytics tracker
 	private Tracker mTracker;

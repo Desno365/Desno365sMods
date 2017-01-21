@@ -52,7 +52,7 @@ public class HelpActivity extends BaseActivity {
 
 	private static final String TAG = "HelpActivity";
 
-	public static AppCompatActivity activity;
+	private AppCompatActivity activity;
 
 	// analytics tracker
 	private Tracker mTracker;

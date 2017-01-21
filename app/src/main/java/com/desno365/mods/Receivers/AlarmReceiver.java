@@ -37,7 +37,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 	private static final String TAG = "AlarmReceiver";
 
-	private static Context currentContext;
+	private Context currentContext;
 	private String latestNewsVersion = "";
 	private String latestGunsVersion = "";
 	private String latestPortalVersion = "";
