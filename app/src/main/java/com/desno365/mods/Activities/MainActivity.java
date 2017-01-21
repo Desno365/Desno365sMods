@@ -80,7 +80,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 	public static ModsContainer modsContainer;
 	
 	// UI elements
-	public static Toolbar toolbar;
+	private Toolbar toolbar;
 	public static ViewPager mViewPager;
 	private MainNavigationDrawerFragment mNavigationDrawerFragment = new MainNavigationDrawerFragment();
 	private MainSwipeRefreshLayout swipeLayout;

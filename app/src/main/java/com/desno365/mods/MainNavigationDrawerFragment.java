@@ -28,6 +28,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -233,9 +234,9 @@ public class MainNavigationDrawerFragment extends Fragment {
 		// ActionBarDrawerToggle ties together the the proper interactions
 		// between the navigation drawer and the action bar app icon.
 		mDrawerToggle = new ActionBarDrawerToggle(
-				getActivity(),                    /* host Activity */
-				mDrawerLayout,                    /* DrawerLayout object */
-				MainActivity.toolbar,             /* toolbar */
+				getActivity(),											/* host Activity */
+				mDrawerLayout,											/* DrawerLayout object */
+				(Toolbar) getActivity().findViewById(R.id.tool_bar),	/* toolbar */
 				R.string.app_name,  /* "open drawer" description for accessibility */
 				R.string.close_dialog  /* "close drawer" description for accessibility */
 		) {
