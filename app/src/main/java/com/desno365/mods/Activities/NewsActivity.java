@@ -117,6 +117,12 @@ public class NewsActivity extends BaseActivity {
 	}
 
 	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		DesnoUtils.showAd();
+	}
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		//save the menu in a variable
 		this.optionsMenu = menu;
