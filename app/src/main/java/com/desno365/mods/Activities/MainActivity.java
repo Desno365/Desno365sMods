@@ -172,18 +172,18 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				// save position in a static variable
 				currentPageViewPager = position;
 
-				// change toolbar title
-				if (position == 0)
+				// change toolbar title and analytics
+				if (position == 0) {
 					toolbar.setTitle(getResources().getString(R.string.app_name));
-				else
+					DesnoUtils.sendScreenChange(mTracker, "Home");
+				} else {
 					toolbar.setTitle(mAppSectionsPagerAdapter.getPageTitle(position));
+					DesnoUtils.sendScreenChange(mTracker, mAppSectionsPagerAdapter.getPageTitle(position).toString());
+				}
 
 				// close drawer
 				if (mNavigationDrawerFragment.isDrawerOpen())
 					mNavigationDrawerFragment.mDrawerLayout.closeDrawer(findViewById(R.id.navigation_drawer));
-
-				// analytics
-				DesnoUtils.sendScreenChange(mTracker, mAppSectionsPagerAdapter.getPageTitle(position).toString());
 			}
 		});
 
