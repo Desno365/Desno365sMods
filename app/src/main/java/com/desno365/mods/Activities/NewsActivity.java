@@ -60,6 +60,9 @@ public class NewsActivity extends BaseActivity {
 	private String[] newsTitles;
 	private String[] newsContents;
 
+	// analytics tracker
+	private Tracker mTracker;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
@@ -73,10 +76,7 @@ public class NewsActivity extends BaseActivity {
 
 		// Start Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
-		Tracker mTracker = application.getDefaultTracker();
-
-		// Send screen change
-		DesnoUtils.sendScreenChange(mTracker, "NewsActivity");
+		mTracker = application.getDefaultTracker();
 
 		// Set up the action bar.
 		toolbar = (Toolbar) findViewById(R.id.tool_bar_news); // Attaching the layout to the toolbar object
@@ -112,6 +112,9 @@ public class NewsActivity extends BaseActivity {
 	@Override
 	public void onResume() {
 		super.onResume();
+
+		// send screen change
+		DesnoUtils.sendScreenChange(mTracker, TAG);
 
 		toolbar.setTitle(R.string.news_title);
 	}

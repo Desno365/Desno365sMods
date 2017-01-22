@@ -60,9 +60,6 @@ public class AboutActivity extends BaseActivity {
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		mTracker = application.getDefaultTracker();
 
-		// Send screen change
-		DesnoUtils.sendScreenChange(mTracker, "AboutActivity");
-
 		// Set up the action bar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_about); // Attaching the layout to the toolbar object
 		toolbar.setNavigationIcon(R.drawable.ic_navigation_arrow_back);
@@ -106,6 +103,13 @@ public class AboutActivity extends BaseActivity {
 	public void onDestroy() {
 		super.onDestroy();
 		DesnoUtils.showAd();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		// send screen change
+		DesnoUtils.sendScreenChange(mTracker, TAG);
 	}
 
 	public void onViewClick(View v) {

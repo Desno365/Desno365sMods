@@ -73,9 +73,6 @@ public class SettingsActivity extends BaseActivity {
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		mTracker = application.getDefaultTracker();
 
-		// Send screen change
-		DesnoUtils.sendScreenChange(mTracker, "SettingsActivity");
-
 		// Set up the action bar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_settings); // Attaching the layout to the toolbar object
 		toolbar.setTitle(R.string.action_settings);
@@ -88,6 +85,13 @@ public class SettingsActivity extends BaseActivity {
 			}
 		});
 
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		// send screen change
+		DesnoUtils.sendScreenChange(mTracker, TAG);
 	}
 
 	@Override

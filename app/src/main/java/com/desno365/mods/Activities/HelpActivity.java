@@ -75,9 +75,6 @@ public class HelpActivity extends BaseActivity {
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		mTracker = application.getDefaultTracker();
 
-		// Send screen change
-		DesnoUtils.sendScreenChange(mTracker, "HelpActivity");
-
 		// Set up the action bar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_help); // Attaching the layout to the toolbar object
 		toolbar.setTitle(R.string.action_help);
@@ -196,6 +193,8 @@ public class HelpActivity extends BaseActivity {
 		if (mAdView != null) {
 			mAdView.resume();
 		}
+		// send screen change
+		DesnoUtils.sendScreenChange(mTracker, TAG);
 	}
 
 	@Override

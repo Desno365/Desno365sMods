@@ -114,9 +114,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		mTracker = application.getDefaultTracker();
 
-		// send screen change
-		DesnoUtils.sendScreenChange(mTracker, "MainActivity");
-
 		// load google ads
 		MobileAds.initialize(getApplicationContext(), "ca-app-pub-4328789168608769~3753956938");
 
@@ -167,15 +164,12 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				return false;
 			}
 		});
-
-		// Bind the tabs to the ViewPager
-		PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-		tabs.setViewPager(mViewPager);
-		tabs.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+		mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 			@Override
 			public void onPageSelected(int position) {
 				// When swiping between different app sections
 
+				// save position in a static variable
 				currentPageViewPager = position;
 
 				// change toolbar title
@@ -192,6 +186,10 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 				DesnoUtils.sendScreenChange(mTracker, mAppSectionsPagerAdapter.getPageTitle(position).toString());
 			}
 		});
+
+		// Bind the tabs to the ViewPager
+		PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+		tabs.setViewPager(mViewPager);
 
 		// Set up the drawer.
 		mNavigationDrawerFragment = (MainNavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -376,6 +374,7 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 	@Override
 	public void onResume() {
 		super.onResume();
+		// ads
 		if (displayAdAtResume) {
 			DesnoUtils.showAd();
 			displayAdAtResume = false;
@@ -383,6 +382,9 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		if (mAdView != null) {
 			mAdView.resume();
 		}
+
+		// send screen change
+		DesnoUtils.sendScreenChange(mTracker, TAG);
 	}
 
 	@Override

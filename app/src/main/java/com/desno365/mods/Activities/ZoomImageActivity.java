@@ -41,6 +41,9 @@ public class ZoomImageActivity extends BaseActivity {
 
 	private PhotoViewAttacher mAttacher;
 
+	// analytics tracker
+	private Tracker mTracker;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "Activity started (onCreate)");
@@ -54,10 +57,7 @@ public class ZoomImageActivity extends BaseActivity {
 
 		// Start Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
-		Tracker mTracker = application.getDefaultTracker();
-
-		// Send screen change
-		DesnoUtils.sendScreenChange(mTracker, "ZoomImageActivity");
+		mTracker = application.getDefaultTracker();
 
 		// Set up the action bar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_zoom_image); // Attaching the layout to the toolbar object
@@ -106,6 +106,13 @@ public class ZoomImageActivity extends BaseActivity {
 		// loading PhotoView library
 		mAttacher = new PhotoViewAttacher(mImageView);
 
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		// send screen change
+		DesnoUtils.sendScreenChange(mTracker, TAG);
 	}
 
 	@Override
