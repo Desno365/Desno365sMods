@@ -36,8 +36,6 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.desno365.mods.Activities.MainActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 

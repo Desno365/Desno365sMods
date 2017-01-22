@@ -62,6 +62,7 @@ import com.desno365.mods.SharedVariables.SharedVariables;
 import com.desno365.mods.Tabs.FragmentTab1;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.analytics.Tracker;
 
 import java.lang.reflect.Method;
@@ -113,19 +114,33 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 
 
 
-		// Are statistics (crashlytics and analytics) enabled?
+		// are statistics (crashlytics and analytics) enabled?
 		DesnoUtils.updateStatisticsEnabledBool(this);
 
-		// Load crashlytics
+		// load crashlytics
 		if(SharedVariables.areStatisticsEnabled)
 			Fabric.with(this, new Crashlytics());
 
-		// Start Google Analytics
+		// start Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
 		mTracker = application.getDefaultTracker();
 
-		// Send screen change
+		// send screen change
 		DesnoUtils.sendScreenChange(mTracker, "MainActivity");
+
+		// load google ads
+		MobileAds.initialize(getApplicationContext(), "ca-app-pub-4328789168608769~3753956938");
+
+		// Load the IntersitialAd, then we just need to call DesnoUtils.showAd() to show the loaded Interstitial
+		// Now we don't need to load the ad again, here or in other activities
+		DesnoUtils.loadInterstitialAd(this);
+
+		// Load the banner ad
+		mAdView = (AdView) findViewById(R.id.ad_view);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
+
+
 
 		// Set up the ToolBar.
 		toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
@@ -239,15 +254,6 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		AlarmReceiver aR = new AlarmReceiver();
 		aR.cancelAlarm(getApplicationContext());
 		aR.setAlarm(getApplicationContext());
-
-		// Load the IntersitialAd, then we just need to call DesnoUtils.showAd() to show the loaded Interstitial
-		// Now we don't need to load the ad again, here or in other activities
-		DesnoUtils.loadInterstitialAd(this);
-
-		// Load the banner ad
-		mAdView = (AdView) findViewById(R.id.ad_view);
-		AdRequest adRequest = new AdRequest.Builder().build();
-		mAdView.loadAd(adRequest);
 	}
 
 	@Override

@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "620472623857",
-    "project_id": "desno365s-mods"
+    "firebase_url": "https://desno365s-mods.firebaseio.com",
+    "project_id": "desno365s-mods",
+    "storage_bucket": "desno365s-mods.appspot.com"
   },
   "client": [
     {
@@ -11,7 +13,24 @@
           "package_name": "com.desno365.mods"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "620472623857-iu9kdlcjp8ocnfj0j7m1e286uqfud2dr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.desno365.mods",
+            "certificate_hash": "F2AE118602C5235020EDDE54C1C9682975989D60"
+          }
+        },
+        {
+          "client_id": "620472623857-4hdl08gi3bkva0e1epb7hj73dbv480l8.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "620472623857-kie7tcnr62kba7gqq3oiq25d2rc6k9r5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBzK56hsTg5bTIV8dA8JtNuM2w-hdv1ZlY"
@@ -29,7 +48,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

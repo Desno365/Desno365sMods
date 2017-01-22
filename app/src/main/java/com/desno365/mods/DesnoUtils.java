@@ -573,7 +573,7 @@ public class DesnoUtils {
 			interstitialAd.setAdListener(new AdListener() {
 				@Override
 				public void onAdClosed() {
-					interstitialAd.loadAd(new AdRequest.Builder().build());
+					interstitialAd.loadAd(new AdRequest.Builder().build()); // load a new interstitial
 				}
 
 				@Override
