@@ -57,11 +57,13 @@ import com.desno365.mods.Receivers.AlarmReceiver;
 import com.desno365.mods.SharedConstants.DefaultSettingsValues;
 import com.desno365.mods.SharedConstants.Keys;
 import com.desno365.mods.SharedConstants.SharedConstants;
+import com.desno365.mods.SharedVariables.SharedVariables;
 import com.desno365.mods.Tabs.FragmentTab1;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.analytics.Tracker;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.lang.reflect.Method;
 
@@ -109,6 +111,13 @@ public class MainActivity extends BaseActivity implements MainNavigationDrawerFr
 		setContentView(R.layout.activity_main);
 
 
+
+		// are statistics (crashlytics and analytics) enabled?
+		DesnoUtils.updateStatisticsEnabledBool(this);
+
+		// load Firebase analytics
+		if(SharedVariables.areStatisticsEnabled)
+			FirebaseAnalytics.getInstance(this);
 
 		// start Google Analytics
 		AnalyticsApplication application = (AnalyticsApplication) getApplication();
