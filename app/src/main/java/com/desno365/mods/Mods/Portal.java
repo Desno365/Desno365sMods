@@ -41,8 +41,6 @@ public class Portal extends Mod {
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_PORTAL_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_PORTAL_DOWNLOAD;
-		this.THREAD_LINK = Keys.KEY_PORTAL_THREAD;
-
 	}
 
 	public static FragmentTab2 getFragmentTab() {

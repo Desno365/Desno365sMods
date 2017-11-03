@@ -378,16 +378,9 @@ public class DesnoUtils {
 		// there's no need to create an artificial back stack.
 		PendingIntent downloadClickPendingIntent = PendingIntent.getActivity(context, 0, downloadClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-		// thread button of notification = go to the minecraftforum.net thread
-		Intent threadClickIntent = mod.getVisitThreadIntent();
-		// Because clicking the notification launches a new ("special") activity,
-		// there's no need to create an artificial back stack.
-		PendingIntent threadClickPendingIntent = PendingIntent.getActivity(context, 0, threadClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
 		// notification
 		NotificationCompat.Builder noti = defaultNotification(context, context.getString(R.string.notification_new_version_title), contentText, new Intent(context, MainActivity.class));
 		noti.addAction(R.drawable.ic_notification_download, context.getString(R.string.notification_download), downloadClickPendingIntent);
-		noti.addAction(R.drawable.ic_notification_thread, context.getString(R.string.notification_thread), threadClickPendingIntent);
 
 		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		mNotificationManager.notify(mod.NOTIFICATION_ID_NEW_VERSION, noti.build());

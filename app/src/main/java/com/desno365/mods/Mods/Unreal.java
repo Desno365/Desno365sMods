@@ -41,8 +41,6 @@ public class Unreal extends Mod {
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_UNREAL_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_UNREAL_DOWNLOAD;
-		this.THREAD_LINK = Keys.KEY_UNREAL_THREAD;
-
 	}
 
 	public static FragmentTab7 getFragmentTab() {

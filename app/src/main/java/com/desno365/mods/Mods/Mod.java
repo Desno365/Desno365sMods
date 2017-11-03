@@ -34,7 +34,6 @@ public class Mod {
 
 	public int NOTIFICATION_ID_NEW_VERSION; // id for a notification
 	public String DOWNLOAD_FROM_WEBSITE_LINK; // link to website
-	public String THREAD_LINK; // link to minecraftforum thread
 
 	public Mod(Context context) {
 		this.context = context;
@@ -46,10 +45,6 @@ public class Mod {
 
 	public Intent getDownloadFromWebsiteIntent() {
 		return new Intent(Intent.ACTION_VIEW, Uri.parse(this.DOWNLOAD_FROM_WEBSITE_LINK));
-	}
-
-	public Intent getVisitThreadIntent() {
-		return new Intent(Intent.ACTION_VIEW, Uri.parse(this.THREAD_LINK));
 	}
 
 	public String getVersion() {

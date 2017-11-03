@@ -41,8 +41,6 @@ public class DesnoGuns extends Mod {
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_DESNOGUNS_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_DESNOGUNS_DOWNLOAD;
-		this.THREAD_LINK = Keys.KEY_DESNOGUNS_THREAD;
-
 	}
 
 	public static FragmentTab6 getFragmentTab() {

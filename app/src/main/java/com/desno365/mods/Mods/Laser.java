@@ -41,8 +41,6 @@ public class Laser extends Mod {
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_LASER_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_LASER_DOWNLOAD;
-		this.THREAD_LINK = Keys.KEY_LASER_THREAD;
-
 	}
 
 	public static FragmentTab3 getFragmentTab() {

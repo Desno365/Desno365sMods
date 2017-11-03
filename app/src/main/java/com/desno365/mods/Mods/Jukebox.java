@@ -41,8 +41,6 @@ public class Jukebox extends Mod {
 
 		this.NOTIFICATION_ID_NEW_VERSION = NotificationsId.ID_JUKEBOX_NEW_VERSION;
 		this.DOWNLOAD_FROM_WEBSITE_LINK = Keys.KEY_JUKEBOX_DOWNLOAD;
-		this.THREAD_LINK = Keys.KEY_JUKEBOX_THREAD;
-
 	}
 
 	public static FragmentTab5 getFragmentTab() {
