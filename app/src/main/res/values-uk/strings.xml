@@ -19,31 +19,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- app name -->
   <!-- menu items -->
-  <string name="action_refresh">Обновити</string>
+  <string name="action_refresh">Оновити</string>
   <string name="action_info">Про нас</string>
   <string name="action_help">Допомога</string>
   <string name="action_share">Поділитися</string>
-  <string name="share_using">Поділитися за допомогою&#8230;</string>
-  <string name="share_body">Я використовую аплікацію \"Desno365\'s Mods\" щоби завантажувати та використовувати деякі неймовірні мод для Minecraft Pocket Edition! Перевірити http://bit.ly/DesnoMods</string>
+  <string name="share_using">Поділитися використовуючи&#8230;</string>
+  <string name="share_body">Я використовую додаток \"Desno365\'s Mods\", щоб завантажувати та використовувати деякі неймовірні моди для Minecraft Pocket Edition! Перевірите тут: http://bit.ly/DesnoMods</string>
   <string name="action_feedback">Надіслати відгук</string>
-  <string name="feedback_toast">If you have any suggestions, questions or ideas about this app send me an email!</string>
-  <string name="action_rate">Оцінити цю аплікацію</string>
+  <string name="feedback_toast">Якщо у вас є якісь пропозиції, запитання або ідеї для цього додатку надішліть мені email!</string>
+  <string name="action_rate">Оцінить цей додаток</string>
   <string name="action_settings">Налаштування</string>
   <string name="close_dialog">Закрити</string>
   <!-- home page -->
   <string name="home_title">Домашня сторінка</string>
   <string name="welcome_title">Приємно бачити вас</string>
-  <string name="welcome_content">Ласкаво просимо до Desno365 Мод App. \nТут можна перевірити останню версію і зміни від моїх мод.</string>
+  <string name="welcome_content">Ласкаво просимо додоткутDesno365 Моd. \nТут ви можете перевірити останню версію і зміни від моїх модів.</string>
   <string name="minecraft_version_title">Версія MCPE</string>
   <string name="minecraft_version_content">Встановлена версія: Minecraft PE %1$s</string>
   <string name="minecraft_not_installed">Minecraft PE не встановлений</string>
   <string name="news_title">Новини</string>
-  <string name="news_button">Перейти в сторінку новин</string>
+  <string name="news_button">Перейти на сторінку новин</string>
   <string name="need_help_title">Потрібна допомога?</string>
   <string name="help_button">Перейти до сторінки допомоги</string>
   <!-- titles - main -->
   <string name="info_title">Інформація</string>
-  <string name="features_title">Характеристики</string>
+  <string name="features_title">Поліпшення</string>
   <string name="updates_title">Оновлення</string>
   <string name="compatibility_title">Сумісність</string>
   <string name="changelog_title">Список змін</string>
@@ -54,84 +54,84 @@
   <string name="latest_version_is">Остання версія:</string>
   <string name="mod_compatibility_content">Сумісні версії Minecraft PE:</string>
   <string name="internet_error">Помилка підключення: будь ласка, перевірте підключення до Інтернету.</string>
-  <string name="retry">Завнатажити ще раз</string>
+  <string name="retry">Повторити</string>
   <string name="show_changelog">Показати всі зміни&#8230;</string>
   <string name="hide_changelog">Приховати зміни&#8230;</string>
   <string name="instruction_for_installing">Читати інструкції для установлення</string>
   <string name="installation_video_tutorial">Дивитися відео-інструкції для установки</string>
-  <string name="download_mod_from_website">Завантажити цю мод від Desno на сайті</string>
-  <string name="download_map_from_website">Завантажити цю карту від Desno на сайті</string>
+  <string name="download_mod_from_website">Завантажити цей мод на веб сайті Desno</string>
+  <string name="download_map_from_website">Завантажити цю карту на веб сайті Desno</string>
   <!-- guns page -->
   <string name="info_content_tab6">Пістолети. Зброї. Вибухи. Це DesnoGuns мод! :D</string>
   <!-- portal 2 page -->
-  <string name="info_content_tab2">Ви знаєте гру Портал, чи не так? Знаменита гра від першої особи створена компанією Valve.\nЦей мод частково перенесе Portal 2 у ваш Minecraft: Pocket Edition!\nП\'ять різних портальних гармат, пластину віри, двигуючих та відштовхуючих гелів, Турелей. Це те, що ви можете знайті у цій модификації.</string>
+  <string name="info_content_tab2">Ви знаєте гру Portal, чи не так? Знаменита гра від першої особи створена компанією Valve.\nЦей мод частково перенесе Portal 2 у ваш Minecraft: Pocket Edition!\nП\'ять різних портальних гармат, пластину віри, прискорюючих та відштовхуючих гелів, Турелей. Це те, що ви можете знайті у цій модификації.</string>
   <!-- laser page -->
   <string name="features_content_tab3">Аддон Laser Guns додасть до вашого Minecraft: Pocket Edition чудні лазерні гармати з майбутнього.</string>
   <!-- jukebox page -->
-  <string name="features_content_tab5">• Існує 12 різних дисків з піснями (пісні перенесені з Minecraft Java Edition, ще називають Minecraft PC). Торкніться плеєра диском. Він зразу почне грати вибрану пісню.\n•Гучність зменшується, якщо почати відходити.\n•Може грати декілька плеєрів одразу.\n• При вбивстві кожного 30го ворожнечого моба буде випадати випадковий диск.\n• Плеєр та диски вмонтовані в інвертар креативу.\n• Крафт плеєра аналогічний з крафтом на ПК версії.</string>
+  <string name="features_content_tab5">• Існує 12 різних дисків з піснями (пісні перенесені з Minecraft Java Edition, ще називають Minecraft PC). Торкніться плеєра диском. Він зразу почне грати вибрану пісню.\n•Гучність зменшується, якщо почати відходити.\n•Може грати декілька плеєрів одразу.\n• При вбивстві кожного 30го ворожнечого моба буде випадати випадковий диск.\n• Плеєр та диски знаходяться в інвертарі креативу.\n• Крафт плеєра аналогічний з крафтом на ПК версії.</string>
   <!-- unreal map page -->
-  <string name="info_content_tab7">This map and the mod attached bring the Non-Euclidean geometry on your mobile device!\nExperience the craziness of an unreal world, in a normal/Euclidean game like Minecraft.\nWords can\’t explain in a good way what this map has.\nTry it, you\'ll see.</string>
+  <string name="info_content_tab7">Ця карта та мод підлаштовані для Не-Евклідової геометрії на вашому мобільному пристрої! \nДосвід божевілля нереального світу, в нормальній/Евклідовій грі типу Minecraft. \nСвіти не можуть пояснити добру дорогу яку має ця карта. \nСпробуйте це, ви побачите.</string>
   <!-- about activity -->
-  <string name="made_by">Made with Love by Desno365</string>
-  <string name="follow_me">Follow me on Twitter</string>
-  <string name="source_code">Get the source code of this app</string>
-  <string name="support_me">Do you have an idea on how to improve this app?\nContact me on Twitter!\n\nIf you would like to support me please rate this app 5 stars on the Google Play Store. This will help me to make new fantastic mods! Thanks :)</string>
-  <string name="take_me_play_store">Take me to Play Store</string>
-  <string name="credits_title">Credits</string>
-  <string name="contributors_title">Contributors</string>
-  <string name="used_libraries_title">Used libraries and images</string>
+  <string name="made_by">Зроблено з любов\'ю Desno365</string>
+  <string name="follow_me">Слідкуйте за мною у Twitter</string>
+  <string name="source_code">Отримати вихідний код цього додатку</string>
+  <string name="support_me">Ви маєте ідею для поліпшення додатку?\nЗвяжітся зі мною у Twitter\'i!\n\nЯкщо ви хочете допомогти мені, будь-ласка поставте цьому додатку 5 зірок у Google Play Store. Це допоможе мені зробити нові фантастичні моди! Дякую :)</string>
+  <string name="take_me_play_store">Оцініть мене в Play Store</string>
+  <string name="credits_title">Титри</string>
+  <string name="contributors_title">Автори</string>
+  <string name="used_libraries_title">Використанi бібліотеки та зображення</string>
   <!-- help activity -->
-  <string name="help_title_download">Download</string>
-  <string name="help_title_installation">Installation</string>
-  <string name="help_tip_sliding_pages">Click on the tabs or swipe on your screen to switch page in the help section.</string>
-  <string name="click_image_to_view">Click any image in this page to view it in full resolution.</string>
-  <string name="zoom_image_showcase_title">Image zoom</string>
-  <string name="help_introduction">This section of the app will help you to install any \"modpkg\" mod in Minecraft Pocked Edition. The \"modpkg\" format allows to have all the resources of the mod in a single file, so it\'s easier to install. By swiping to the right you\'ll guided in all the steps.</string>
-  <string name="what_you_need_title">What you need to use mods</string>
-  <string name="what_you_need_content">You need two apps: Minecraft Pocket Edition and BlockLauncher (the free version or the pro version).</string>
-  <string name="get_it_store">Get it on the Play Store</string>
-  <string name="help_download_text_title">How to download a mod</string>
-  <string name="help_download_text_content1">First you have to download the mod you want to use. To download the mod you can press the \"Download this mod from Desno\'s website\" button.</string>
-  <string name="help_download_text_content2">You\'ll be brought to Desno\'s website where, under the \"Downloads\" section, you can get the modpkg file.</string>
-  <string name="help_installation_text_title">How to install a mod</string>
-  <string name="help_installation_text_content1">Now that you have downloaded the mod open BlockLauncher, click the \"Settings\" icon and go to \"Manage ModPE Scripts\".</string>
-  <string name="help_installation_text_content2">Make sure the switch in the upper right is ON and click the \"+\" button.</string>
-  <string name="help_installation_text_content3">Import the mod from local storage (the mod is the .modpkg file you have downloaded before).</string>
+  <string name="help_title_download">Скачати</string>
+  <string name="help_title_installation">Установка</string>
+  <string name="help_tip_sliding_pages">Клацніть на вкладку або проведіть по екрану, щоб змінити сторінку в розділі допомоги.</string>
+  <string name="click_image_to_view">Клацніть на будь-яке зображення на цій сторінці, щоб побачити зображення в повному розширенні.</string>
+  <string name="zoom_image_showcase_title">Збільшити зображення</string>
+  <string name="help_introduction">Ця вкладка додатку може допомогти вам для встановлення будь-якого \"modpkg\" моду для Minecraft Pocket Edition.\"modpkg\" формат дозволяє мати всі ресурси моду в простому файлі, тому це легше встановити. Через проведення справа ви будете навчання у всіх кроках.</string>
+  <string name="what_you_need_title">Що вам потрібно для використання модів</string>
+  <string name="what_you_need_content">Вам потрібно дві програми: Minecraft Pocket Edition та Blocklauncher (Безплатну версію або про версію).</string>
+  <string name="get_it_store">Отримайте це в Play Store</string>
+  <string name="help_download_text_title">Як скачати мод</string>
+  <string name="help_download_text_content1">Спочатку ви повинні скачати мод, який ви хочете використовувати.Для завантаження моду ви можете нажати \"Завантажити цей мод з сайту Desno\" кнопку.</string>
+  <string name="help_download_text_content2">Ви будете переведені на веб сайт Desno, де у розділі \"Завантаження\", ви зможете отримати файл \". modpkg\".</string>
+  <string name="help_installation_text_title">Як встановити мод</string>
+  <string name="help_installation_text_content1">Тепер, коли ви маєте завантажений мод відкрийте Blocklauncher, нажміть на ікону \"Налаштування\" та йдіть до \"Менеджер ModPE серіалів\".</string>
+  <string name="help_installation_text_content2">Переконайтеся, що переправа знаходиться в положенні \"ON\" та клацніть на кнопку \"+\".</string>
+  <string name="help_installation_text_content3">Імпортуйте мод з локальної пам\'яті (Мод це \".modpkg\" файл, який ви завантажили до цього).</string>
   <!-- settings activity -->
-  <string name="updates_settings">Updates and notifications</string>
-  <string name="notification_bool_mods_title">Notifications for mods updates</string>
-  <string name="notification_bool_mods_summary">Receive notifications for new mods updates</string>
-  <string name="notification_bool_news_title">Notifications for news</string>
-  <string name="notification_bool_news_summary">Receive notifications for news</string>
-  <string name="pref_sync_frequency_title">Check for updates frequency</string>
-  <string name="pref_sync_frequency_summary">Set the frequency for checking updates</string>
-  <string name="language_settings">Language</string>
-  <string name="language_title">Set language</string>
-  <string name="language_summary">Select app\'s language</string>
-  <string name="restart_text_language_popup">The app needs to be restarted for the language change to be activated.\n\nWARNING: Custom languages may not be accurate.</string>
-  <string name="help_translating_title">Help translating</string>
-  <string name="help_translating_summary">Collaborate to this project and help translating the app</string>
-  <string name="customization_settings">Customization</string>
-  <string name="themes_title">Theme</string>
-  <string name="themes_summary">Select app\'s theme</string>
-  <string name="restart_text_popup">The app needs to be restarted for the theme change to be activated.</string>
-  <string name="animations_title">Animations</string>
-  <string name="animations_summary">Select app\'s animations</string>
-  <string name="help_settings">Tips and help</string>
-  <string name="restore_tips_title">Restore suggestions</string>
-  <string name="restore_tips_summary">Restore tips and suggestions in the Help page</string>
-  <string name="restored_toast">Tips and suggestions restored.</string>
-  <string name="statistics_settings">Anonymous statistics</string>
-  <string name="anonymous_statistics_title">App usage statistics</string>
-  <string name="anonymous_statistics_summary">Allow anonymous tracking of errors and general usage</string>
+  <string name="updates_settings">Оновлення та оповіщення</string>
+  <string name="notification_bool_mods_title">Оповіщення для оновлення модів</string>
+  <string name="notification_bool_mods_summary">Отримувати оповіщення про оновлення нових модів</string>
+  <string name="notification_bool_news_title">Оповіщення для новин</string>
+  <string name="notification_bool_news_summary">Отримувати оповіщення про новини</string>
+  <string name="pref_sync_frequency_title">Перевірити наявність оновлення частоти</string>
+  <string name="pref_sync_frequency_summary">Встановити частоту перевірки оновлень</string>
+  <string name="language_settings">Мова</string>
+  <string name="language_title">Встановити мову</string>
+  <string name="language_summary">Встановити мову для додатку</string>
+  <string name="restart_text_language_popup">Додатку потрібно перезапустити для зміни мови. Увага: Кастомні мови не можуть бути точними.</string>
+  <string name="help_translating_title">Допомогти перекласти</string>
+  <string name="help_translating_summary">Співпрацювати з цим проектом та допомогти перекласти додаток</string>
+  <string name="customization_settings">Персоналізація</string>
+  <string name="themes_title">Тема</string>
+  <string name="themes_summary">Вибрати тему додатка</string>
+  <string name="restart_text_popup">Потрібно перезапустити додаток для зміни теми.</string>
+  <string name="animations_title">Анімації</string>
+  <string name="animations_summary">Вибрати анімацію додатку</string>
+  <string name="help_settings">Підказки та допомога</string>
+  <string name="restore_tips_title">Відновити пропозиції</string>
+  <string name="restore_tips_summary">Відновити підказки та пропозиціїу вкладці допомоги</string>
+  <string name="restored_toast">Підказки та пропозиції відновлено.</string>
+  <string name="statistics_settings">Анонімна статистика</string>
+  <string name="anonymous_statistics_title">Статистика використання додатку</string>
+  <string name="anonymous_statistics_summary">Дозволяти анонімне відстеження помилок та загального використання</string>
   <!-- notifications -->
-  <string name="notification_new_version_title">New version released</string>
-  <string name="notification_new_version_content1">A new version of the</string>
+  <string name="notification_new_version_title">Випущена нова версія</string>
+  <string name="notification_new_version_content1">Нова версія на</string>
   <!-- A new version of the *modHere* has been released! -->
-  <string name="notification_new_version_content2">has been released!</string>
-  <string name="notification_unread_news">There are unread news</string>
-  <string name="notification_thread">Thread</string>
-  <string name="notification_download">Download</string>
+  <string name="notification_new_version_content2">була реалізована!</string>
+  <string name="notification_unread_news">Є непрочитані новини</string>
+  <string name="notification_thread">Тема</string>
+  <string name="notification_download">Завантажити</string>
   <!-- unused resources -->
-  <string name="minecraft_thread" tools:ignore="UnusedResources">minecraftforum.net обговорення</string>
+  <string name="minecraft_thread" tools:ignore="UnusedResources">обговорення на minecraftforum.net</string>
 </resources>

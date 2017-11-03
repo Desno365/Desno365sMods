@@ -46,6 +46,7 @@
         <item name="portuguese" translatable="false">Portuguese</item>
         <item name="portuguese_brazilian" translatable="false">Portuguese, Brazilian</item>
         <item name="russian" translatable="false">Russian</item>
+        <item name="serbian" translatable="false">Serbian</item>
         <item name="spanish" translatable="false">Spanish</item>
         <item name="turkish" translatable="false">Turkish</item>
         <item name="ukrainian" translatable="false">Ukrainian</item>
@@ -64,6 +65,7 @@
         <item name="portuguese" translatable="false">pt-rPT</item>
         <item name="portuguese_brazilian" translatable="false">pt-rBR</item>
         <item name="russian" translatable="false">ru</item>
+        <item name="serbian" translatable="false">sr</item>
         <item name="spanish" translatable="false">es</item>
         <item name="turkish" translatable="false">tr</item>
         <item name="ukrainian" translatable="false">uk</item>

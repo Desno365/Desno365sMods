@@ -20,10 +20,10 @@
 
 <resources>
   <string-array name="sync_frequency">
-    <item name="h2">Кожні 2 години</item>
-    <item name="h4">Кожні 4 години</item>
-    <item name="h12">Кожні 12 години</item>
-    <item name="h24">Кожен день</item>
+    <item name="h2">Every 2 hours</item>
+    <item name="h4">Every 4 hours</item>
+    <item name="h12">Every 12 hours</item>
+    <item name="h24">Every day</item>
   </string-array>
   <string-array name="sync_frequency_values">
     <item name="h2" translatable="false">2</item>
@@ -70,10 +70,10 @@
     <item name="ukrainian" translatable="false">uk</item>
   </string-array>
   <string-array name="themes">
-    <item name="brown">Бруд</item>
+    <item name="brown">Земља</item>
     <item name="green">Кактус</item>
-    <item name="red">Лава</item>
-    <item name="blue">Вода</item>
+    <item name="red">Lava</item>
+    <item name="blue">Water</item>
   </string-array>
   <string-array name="themes_values">
     <item name="brown" translatable="false">0</item>
@@ -82,10 +82,10 @@
     <item name="blue" translatable="false">3</item>
   </string-array>
   <string-array name="animations">
-    <item name="default">Стандарт</item>
-    <item name="up_down">Поштовхати внизу/вгору</item>
-    <item name="corner">Переміщити в/від кута</item>
-    <item name="book">Відкрити/закрити сторінку як в книзі</item>
+    <item name="default">Уобичајено</item>
+    <item name="up_down">Погурај горе/доле</item>
+    <item name="corner">Помери до/од ћошка</item>
+    <item name="book">Отвори/затвори страницу као књигу</item>
   </string-array>
   <string-array name="animations_values">
     <item name="default" translatable="false">0</item>
